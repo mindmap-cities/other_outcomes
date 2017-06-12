@@ -13,7 +13,7 @@ output: html_document
 8. [Medication use subdomain](#medication-use-subdomain)
 9. [LUCAS functional ability index subdomain](#lucas-functional-ability-index-subdomain)
 
-# Hypertension subdomain subdomain
+# Hypertension subdomain
 
 ### **Variable label**:   
 **Variable name**:   
