@@ -16,7 +16,7 @@ output: html_document
 # Hypertension subdomain
 
 ### **Variable label**: High blood pressure or hypertension status  
-**Variable name**: oth_hbp_ever  
+**Variable name**: OTH_HBP_EVER  
 **Variable description**:  Occurrence of high blood pressure or hypertension at any point during participant’s lifetime   
 **Value type**:  integer  
 **Variable unit**:  N/A  
@@ -35,7 +35,7 @@ output: html_document
 
 ```  
 ### **Variable label**: High blood pressure medication  
-**Variable name**:  oth_hbp_med  
+**Variable name**:  OTH_HBP_MED  
 **Variable description**:  Indicator of whether the participant has ever taken medication for high blood pressure or hypertension  
 **Value type**:  integer  
 **Variable unit**:  N/A  
@@ -57,7 +57,7 @@ output: html_document
 # Angina subdomain
 
 ### **Variable label**: Angina status  
-**Variable name**:  oth_angina_ever  
+**Variable name**:  OTH_ANGINA_EVER  
 **Variable description**:  Occurrence of angina (chest pain or discomfort caused by a lack of oxygen-rich blood reaching the heart) at any point during participant's lifetime  
 **Value type**:  integer  
 **Variable unit**:  N/A  
@@ -79,10 +79,10 @@ output: html_document
 # Myocardial infarction subdomain
 
 ### **Variable label**: Myocardial infarction status  
-**Variable name**:  oth_mi_ever  
+**Variable name**:  OTH_MI_EVER  
 **Variable description**:  Occurrence of myocardial infarction (heart attack) at any point during participant's lifetime  
-**Value type**:  N/A  
-**Variable unit**:  integer  
+**Value type**:  integer  
+**Variable unit**:  N/A  
 **Category coding**:  
 
 **Code** | **Category Label**  
@@ -99,7 +99,7 @@ output: html_document
 ```  
 
 ### **Variable label**: Myocardial infarction: age at first diagnosis  
-**Variable name**:  oth_mi_age  
+**Variable name**:  OTH_MI_AGE  
 **Variable description**:  Age at first diagnosis of myocardial infarction  
 **Value type**:  integer  
 **Variable unit**:  Age in years  
@@ -116,10 +116,10 @@ output: html_document
 # Stroke subdomain
 
 ### **Variable label**: Stroke status  
-**Variable name**:  oth_stroke_ever  
+**Variable name**:  OTH_STROKE_EVER  
 **Variable description**:  Occurrence of stroke or cerebrovascular incident at any point during participant's lifetime  
-**Value type**:  N/A  
-**Variable unit**:  integer  
+**Value type**:  integer  
+**Variable unit**:  N/A  
 **Category coding**:  
   
 **Code** | **Category Label**  
@@ -138,7 +138,7 @@ output: html_document
 # Diabetes subdomain  
 
 ### **Variable label**: Diabetes status  
-**Variable name**: oth_diab_ever  
+**Variable name**: OTH_DIAB_EVER  
 **Variable description**:  Occurrence of diabetes at any point during participant’s lifetime  
 **Value type**:  integer  
 **Variable unit**:  N/A  
@@ -158,7 +158,7 @@ output: html_document
 ```
 
 ### **Variable label**: Diabetes: age at first diagnosis  
-**Variable name**:  oth_diab_age  
+**Variable name**:  OTH_DIAB_AGE  
 **Variable description**: Age at first diagnosis of diabetes  
 **Value type**:  integer  
 **Variable unit**:  Age in years  
@@ -173,7 +173,7 @@ output: html_document
 ```
 
 ### **Variable label**: Diabetes treatment  
-**Variable name**:  oth_diab_trt  
+**Variable name**:  OTH_DIAB_TRT  
 **Variable description**:  Indicator of whether participant has ever received medical treatment for diabetes  
 **Value type**:  integer  
 **Variable unit**:  N/A  
@@ -193,7 +193,7 @@ output: html_document
 ```
 
 ### **Variable label**: Diabetes insulin use  
-**Variable name**:  oth_diab_ins  
+**Variable name**:  OTH_DIAB_INS  
 **Variable description**:  Indicator of whether participant has ever used insulin for diabetes treatment  
 **Value type**:  integer  
 **Variable unit**:  N/A  
