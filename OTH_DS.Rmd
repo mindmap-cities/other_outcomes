@@ -102,7 +102,7 @@ output: html_document
 **Variable name**:  oth_mi_age  
 **Variable description**:  Age at first diagnosis of myocardial infarction  
 **Value type**:  integer  
-**Variable unit**:  Age in years
+**Variable unit**:  Age in years  
 **Category coding**: N/A 
          
 **Harmonization status**:  
@@ -161,7 +161,7 @@ output: html_document
 **Variable name**:  oth_diab_age  
 **Variable description**: Age at first diagnosis of diabetes  
 **Value type**:  integer  
-**Variable unit**:  Age in years 
+**Variable unit**:  Age in years  
 **Category coding**: N/A
 
 **Hamonization status**:  
