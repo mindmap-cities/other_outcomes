@@ -553,17 +553,58 @@ output: html_document
 
 # General perception of health subdomain
 
-### **Variable label**:  
-**Variable name**:  
-**Variable description**:  
-**Value type**:  
-**Variable unit**:  
+### **Variable label**:  Self-assessed health  
+**Variable name**:  OTH_SAH  
+**Variable description**:  Self-assessed health in three main categories.  
+**Value type**:  integer  
+**Variable unit**:  N/A  
 **Category coding**:  
 
 **Code** | **Category Label**  
 ------------- | -------------  
-0 |   
-1 |   
+0 |   Good health  
+1 |   Fair health  
+2 |   Poor health  
+
+**Harmonization status**:  
+**Harmonization comment**:   
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```
+
+### **Variable label**:  Poor self-assessed health  
+**Variable name**:  OTH_SAHPOOR  
+**Variable description**:  Dichotomous indicator of self-assessed health indicating poor vs non-poor health.  
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
+
+**Code** | **Category Label**  
+------------- | -------------  
+0 |   Poor health
+1 |   Non-poor health
+
+**Harmonization status**:  
+**Harmonization comment**:   
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```
+
+### **Variable label**:  Less than good self-assessed health  
+**Variable name**:  OTH_SAHGOOD
+**Variable description**:  Dichotomous indicator of self-assessed health indicating good vs less than good health.  
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
+
+**Code** | **Category Label**  
+------------- | -------------  
+0 |   Less than good health  
+1 |   Good health  
 
 **Harmonization status**:  
 **Harmonization comment**:   
@@ -576,17 +617,37 @@ output: html_document
 
 # Disability subdomain
 
-### **Variable label**:  
-**Variable name**:  
-**Variable description**:  
-**Value type**:  
-**Variable unit**:  
+### **Variable label**:  Difficulty walking up and down the stairs  
+**Variable name**:  OTH_DISABLE_STAIRS  
+**Variable description**:  Indicator of whether the participant is able to walk up and down the stairs.  
+**Value type**:  integer  
+**Variable unit**:  N/A  
 **Category coding**:  
 
 **Code** | **Category Label**  
 ------------- | -------------  
-0 |   
-1 |   
+0 |   not able to walk up and down the stairs  
+1 |   able to walk up and down the stairs  
+
+**Harmonization status**:  
+**Harmonization comment**:   
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```
+
+### **Variable label**:  Difficulty walking for about 400-500 meters  
+**Variable name**:  OTH_DISABLE_WALK  
+**Variable description**:  Indicator of whether the participant is able to walk for about 400 to 500 meters. The exact distance may vary slightly between studies.  
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
+
+**Code** | **Category Label**  
+------------- | -------------  
+0 |   not able to walk 400-500 meters  
+1 |   able to walk 400-500 meters  
 
 **Harmonization status**:  
 **Harmonization comment**:   
