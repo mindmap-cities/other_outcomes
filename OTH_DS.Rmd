@@ -212,9 +212,9 @@ output: html_document
 
 # BMI subdomain
 
-### **Variable label**: Weight in kg  
-**Variable name**: OTH_WEIGHT_0  
-**Variable description**: Weight of participant in kilograms at baseline  
+### **Variable label**: Weight in kg - measured 
+**Variable name**: OTH_WEIGHT_MS  
+**Variable description**: Weight of participant in kilograms - measured  
 **Value type**: integer  
 **Variable unit**: kilogram   
 **Category coding**: N/A
@@ -227,11 +227,11 @@ output: html_document
 
 ```
 
-### **Variable label**: Weight in kg 
-**Variable name**: OTH_WEIGHT_1  
-**Variable description**: Weight of participant in kilograms at first follow-up  
+## **Variable label**: Weight in kg - self-reported 
+**Variable name**: OTH_WEIGHT_SR    
+**Variable description**: Weight of participant in kilograms - self-reported  
 **Value type**: integer  
-**Variable unit**: kilogram  
+**Variable unit**: kilogram   
 **Category coding**: N/A
 
 **Harmonization status**:  
@@ -242,11 +242,11 @@ output: html_document
 
 ```
 
-### **Variable label**: Weight in kg  
-**Variable name**: OTH_WEIGHT_2  
-**Variable description**: Weight of participant in kilograms at second follow-up  
+## **Variable label**: Weight in kg - self-reported and measured combined
+**Variable name**: OTH_WEIGHT_ALL    
+**Variable description**: Weight of participant in kilograms - self-reported  and measured combined
 **Value type**: integer  
-**Variable unit**: kilogram  
+**Variable unit**: kilogram   
 **Category coding**: N/A
 
 **Harmonization status**:  
@@ -257,70 +257,9 @@ output: html_document
 
 ```
 
-### **Variable label**: Weight in kg  
-**Variable name**: OTH_WEIGHT_3  
-**Variable description**: Weight of participant in kilograms at third follow-up  
-**Value type**: integer  
-**Variable unit**: kilogram  
-**Category coding**: N/A
-
-**Harmonization status**:  
-**Harmonization comment**:   
-**R script**:  
-```{r, echo=TRUE}
-#This is where the R-script will be written
-
-```
-
-### **Variable label**: Weight in kg  
-**Variable name**: OTH_WEIGHT_4  
-**Variable description**: Weight of participant in kilograms at fourth follow-up  
-**Value type**: integer  
-**Variable unit**: kilogram  
-**Category coding**: N/A
-
-**Harmonization status**:  
-**Harmonization comment**:   
-**R script**:  
-```{r, echo=TRUE}
-#This is where the R-script will be written
-
-```
-
-### **Variable label**: Weight in kg  
-**Variable name**: OTH_WEIGHT_5  
-**Variable description**: Weight of participant in kilograms at fifth follow-up  
-**Value type**: integer  
-**Variable unit**: kilogram  
-**Category coding**: N/A
-
-**Harmonization status**:  
-**Harmonization comment**:    
-**R script**:  
-```{r, echo=TRUE}
-#This is where the R-script will be written
-
-```
-
-### **Variable label**: Weight in kg  
-**Variable name**: OTH_WEIGHT_6  
-**Variable description**: Weight of participant in kilograms at sixth follow-up  
-**Value type**: integer  
-**Variable unit**: kilogram  
-**Category coding**: N/A
-
-**Harmonization status**:  
-**Harmonization comment**:   
-**R script**:  
-```{r, echo=TRUE}
-#This is where the R-script will be written
-
-```
-
-
-### **Variable label**: Height in centimeters  
-**Variable name**: OTH_HEIGHT_0  
-**Variable description**: Height of participant in centimeters at baseline  
+### **Variable label**: Height in centimeters - measured  
+**Variable name**: OTH_HEIGHT_MS  
+**Variable description**: Height of participant in centimeters - measured  
 **Value type**: integer  
 **Variable unit**: centimeters  
 **Category coding**: N/A
@@ -333,9 +272,9 @@ output: html_document
 
 ```
 
-### **Variable label**: Height in centimeters  
-**Variable name**: OTH_HEIGHT_1  
-**Variable description**: Height of participant in centimeters at first follow-up  
+### **Variable label**: Height in centimeters - self-reported  
+**Variable name**: OTH_HEIGHT_SR  
+**Variable description**: Height of participant in centimeters - self-reported  
 **Value type**: integer  
 **Variable unit**: centimeters  
 **Category coding**: N/A
@@ -348,9 +287,9 @@ output: html_document
 
 ```
 
-### **Variable label**: Height in centimeters  
-**Variable name**: OTH_HEIGHT_2  
-**Variable description**: Height of participant in centimeters at second follow-up  
+### **Variable label**: Height in centimeters - self-reported and measured combined  
+**Variable name**: OTH_HEIGHT_ALL  
+**Variable description**: Height of participant in centimeters - self-reported and measured combined  
 **Value type**: integer  
 **Variable unit**: centimeters  
 **Category coding**: N/A
@@ -363,69 +302,9 @@ output: html_document
 
 ```
 
-### **Variable label**: Height in centimeters  
-**Variable name**: OTH_HEIGHT_3  
-**Variable description**: Height of participant in centimeters at third follow-up  
-**Value type**: integer  
-**Variable unit**: centimeters  
-**Category coding**: N/A
-
-**Harmonization status**:  
-**Harmonization comment**:   
-**R script**:  
-```{r, echo=TRUE}
-#This is where the R-script will be written
-
-```
-
-### **Variable label**: Height in centimeters  
-**Variable name**: OTH_HEIGHT_4  
-**Variable description**: Height of participant in centimeters at fourth follow-up  
-**Value type**: integer  
-**Variable unit**: centimeters  
-**Category coding**: N/A
-
-**Harmonization status**:  
-**Harmonization comment**:   
-**R script**:  
-```{r, echo=TRUE}
-#This is where the R-script will be written
-
-```
-
-### **Variable label**: Height in centimeters  
-**Variable name**: OTH_HEIGHT_5  
-**Variable description**: Height of participant in centimeters at fifth follow-up  
-**Value type**: integer  
-**Variable unit**: centimeters  
-**Category coding**: N/A
-
-**Harmonization status**:  
-**Harmonization comment**:   
-**R script**:  
-```{r, echo=TRUE}
-#This is where the R-script will be written
-
-```
-
-### **Variable label**: Height in centimeters  
-**Variable name**: OTH_HEIGHT_6  
-**Variable description**: Height of participant in centimeters at sixth follow-up  
-**Value type**: integer  
-**Variable unit**: centimeters  
-**Category coding**: N/A
-
-**Harmonization status**:  
-**Harmonization comment**:   
-**R script**:  
-```{r, echo=TRUE}
-#This is where the R-script will be written
-
-```
-
-### **Variable label**: Body mass index (BMI)  
-**Variable name**: OTH_BMI_0  
-**Variable description**: Body mass index at baseline  
+### **Variable label**: Body mass index (BMI) - measured  
+**Variable name**: OTH_BMI_MS  
+**Variable description**: Body mass index - measured  
 **Value type**: integer  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
@@ -438,9 +317,9 @@ output: html_document
 
 ```
 
-### **Variable label**: Body mass index (BMI)  
-**Variable name**: OTH_BMI_1  
-**Variable description**: Body mass index at first follow-up  
+### **Variable label**: Body mass index (BMI) - self-reported  
+**Variable name**: OTH_BMI_SR  
+**Variable description**: Body mass index - self-reported  
 **Value type**: integer  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
@@ -453,9 +332,9 @@ output: html_document
 
 ```
 
-### **Variable label**: Body mass index (BMI)  
-**Variable name**: OTH_BMI_2  
-**Variable description**: Body mass index at second follow-up  
+### **Variable label**: Body mass index (BMI) - self-reported and measured combined  
+**Variable name**: OTH_BMI_ALL  
+**Variable description**: Body mass index - self-reported and measured combined  
 **Value type**: integer  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
@@ -468,69 +347,9 @@ output: html_document
 
 ```
 
-### **Variable label**: Body mass index (BMI)  
-**Variable name**: OTH_BMI_3  
-**Variable description**: Body mass index at third follow-up  
-**Value type**: integer  
-**Variable unit**: kg/m2  
-**Category coding**: N/A
-
-**Harmonization status**:  
-**Harmonization comment**:   
-**R script**:  
-```{r, echo=TRUE}
-#This is where the R-script will be written
-
-```
-
-### **Variable label**: Body mass index (BMI)  
-**Variable name**: OTH_BMI_4  
-**Variable description**: Body mass index at fourth follow-up  
-**Value type**: integer  
-**Variable unit**: kg/m2  
-**Category coding**: N/A
-
-**Harmonization status**:  
-**Harmonization comment**:   
-**R script**:  
-```{r, echo=TRUE}
-#This is where the R-script will be written
-
-```
-
-### **Variable label**: Body mass index (BMI)  
-**Variable name**: OTH_BMI_5  
-**Variable description**: Body mass index at fifth follow-up  
-**Value type**: integer  
-**Variable unit**: kg/m2  
-**Category coding**: N/A
-
-**Harmonization status**:  
-**Harmonization comment**:   
-**R script**:  
-```{r, echo=TRUE}
-#This is where the R-script will be written
-
-```
-
-### **Variable label**: Body mass index (BMI)  
-**Variable name**: OTH_BMI_6  
-**Variable description**: Body mass index at sixth follow-up  
-**Value type**: integer  
-**Variable unit**: kg/m2  
-**Category coding**: N/A
-
-**Harmonization status**:  
-**Harmonization comment**:   
-**R script**:  
-```{r, echo=TRUE}
-#This is where the R-script will be written
-
-```
-
-### **Variable label**:  Body mass index status???  
-**Variable name**: OTH_BMI_STAT_0  
-**Variable description**: Body mass index status at baseline  
+### **Variable label**:  Body mass index - categories - measured  
+**Variable name**: OTH_BMI_CAT_MS  
+**Variable description**: Body mass index - categories - measured  
 **Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
@@ -538,9 +357,9 @@ output: html_document
 **Code** | **Category Label**  
 ------------- | -------------  
 0 | Underweight - BMI <18.5  
-1 | Normal weight - BMI 18.5-25  
-2 | Overweight - BMI 25-30  
-3 | Obese - BMI >30  
+1 | Normal weight - BMI 18.5-24.99  
+2 | Overweight - BMI 25-29.99  
+3 | Obese - BMI >=30  
 
 **Harmonization status**:  
 **Harmonization comment**:   
@@ -550,6 +369,49 @@ output: html_document
 
 ```
 
+### **Variable label**:  Body mass index - categories - self-reported  
+**Variable name**: OTH_BMI_CAT_SR  
+**Variable description**: Body mass index - categories - self-reported  
+**Value type**: integer  
+**Variable unit**: N/A  
+**Category coding**: 
+
+**Code** | **Category Label**  
+------------- | -------------  
+0 | Underweight - BMI <18.5  
+1 | Normal weight - BMI 18.5-24.99  
+2 | Overweight - BMI 25-29.99  
+3 | Obese - BMI >=30  
+
+**Harmonization status**:  
+**Harmonization comment**:   
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```
+
+### **Variable label**:  Body mass index - categories - self-reported and measured combined  
+**Variable name**: OTH_BMI_CAT_ALL  
+**Variable description**: Body mass index - categories - self-reported and measured combined  
+**Value type**: integer  
+**Variable unit**: N/A  
+**Category coding**: 
+
+**Code** | **Category Label**  
+------------- | -------------  
+0 | Underweight - BMI <18.5  
+1 | Normal weight - BMI 18.5-24.99  
+2 | Overweight - BMI 25-29.99  
+3 | Obese - BMI >=30  
+
+**Harmonization status**:  
+**Harmonization comment**:   
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```
 
 # General perception of health subdomain
 
