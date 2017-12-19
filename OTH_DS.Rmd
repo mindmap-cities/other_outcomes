@@ -413,6 +413,21 @@ output: html_document
 
 ```
 
+### **Variable label**:  Waist circumference in cm  
+**Variable name**: OTH_WAIST  
+**Variable description**: Waist circumference in centimeters    
+**Value type**: integer  
+**Variable unit**: centimeters  
+**Category coding**:  N/A  
+
+**Harmonization status**:  
+**Harmonization comment**:   
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```
+
 # General perception of health subdomain
 
 ### **Variable label**:  Self-assessed health  
