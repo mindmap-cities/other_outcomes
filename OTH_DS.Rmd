@@ -227,7 +227,7 @@ output: html_document
 
 ```
 
-## **Variable label**: Weight in kg - self-reported 
+### **Variable label**: Weight in kg - self-reported 
 **Variable name**: OTH_WEIGHT_SR    
 **Variable description**: Weight of participant in kilograms - self-reported  
 **Value type**: integer  
@@ -242,7 +242,7 @@ output: html_document
 
 ```
 
-## **Variable label**: Weight in kg - self-reported and measured combined
+### **Variable label**: Weight in kg - self-reported and measured combined
 **Variable name**: OTH_WEIGHT_ALL    
 **Variable description**: Weight of participant in kilograms - self-reported  and measured combined
 **Value type**: integer  
