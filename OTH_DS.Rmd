@@ -51,8 +51,48 @@ output: html_document
 #This is where the R-script will be written
 
 ``` 
-### **Variable label**: High blood pressure medication  
-**Variable name**:  OTH_HBP_MED  
+### **Variable label**: High blood pressure or hypertension medication  
+**Variable name**:  OTH_HBP_MED_0  
+**Variable description**:  Indicator of whether the participant has ever taken medication for high blood pressure or hypertension  
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
+  
+**Code** | **Category Label**
+---------| -----------------------------------------------------
+0        |  Never taken medication for high blood pressure
+1        |  Ever taken medication  for high blood pressure  
+
+
+**Harmonization status**:  
+**Harmonization comment**:  
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
+### **Variable label**: High blood pressure or hypertension medication  
+**Variable name**:  OTH_HBP_MED_1  
+**Variable description**:  Indicator of whether the participant has ever taken medication for high blood pressure or hypertension  
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
+  
+**Code** | **Category Label**
+---------| -----------------------------------------------------
+0        |  Never taken medication for high blood pressure
+1        |  Ever taken medication  for high blood pressure  
+
+
+**Harmonization status**:  
+**Harmonization comment**:  
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
+### **Variable label**: High blood pressure or hypertension medication  
+**Variable name**:  OTH_HBP_MED_2  
 **Variable description**:  Indicator of whether the participant has ever taken medication for high blood pressure or hypertension  
 **Value type**:  integer  
 **Variable unit**:  N/A  
