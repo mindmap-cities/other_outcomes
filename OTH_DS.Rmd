@@ -14,7 +14,7 @@ output: html_document
 # Hypertension subdomain
 
 ### **Variable label**: High blood pressure or hypertension status  
-**Variable name**: OTH_HBP_EVER  
+**Variable name**: OTH_HBP_EVER_0  
 **Variable description**:  Occurrence of high blood pressure or hypertension at any point during participant’s lifetime   
 **Value type**:  integer  
 **Variable unit**:  N/A  
@@ -32,6 +32,25 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
+### **Variable label**: High blood pressure or hypertension status  
+**Variable name**: OTH_HBP_EVER_1  
+**Variable description**:  Occurrence of high blood pressure or hypertension at any point during participant’s lifetime   
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding:**  
+  
+**Code**   | **Category Label**    
+-----------| -------------  
+0          |  Never had high blood pressure or hypertension  
+1          |  Ever had high blood pressure or hypertension  
+
+**Harmonization status**:  
+**Harmonization comment**:   
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+``` 
 ### **Variable label**: High blood pressure medication  
 **Variable name**:  OTH_HBP_MED  
 **Variable description**:  Indicator of whether the participant has ever taken medication for high blood pressure or hypertension  
