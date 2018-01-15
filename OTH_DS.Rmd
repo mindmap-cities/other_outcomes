@@ -15,7 +15,7 @@ output: html_document
 
 ### **Variable label**: Lifetime occurrence of high blood pressure or hypertension    
 **Variable name**: DIS_HBP_EVER_0  
-**Variable description**:  Occurrence of high blood pressure or hypertension at any point during the life of the participant   
+**Variable description**:  Occurrence of high blood pressure or hypertension at any point during the life of the participant.   
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding:**  
@@ -34,7 +34,7 @@ output: html_document
 ```  
 ### **Variable label**: Lifetime occurrence of high blood pressure or hypertension    
 **Variable name**: DIS_HBP_EVER_1  
-**Variable description**:  Occurrence of high blood pressure or hypertension at any point during the life of the participant   
+**Variable description**:  Occurrence of high blood pressure or hypertension at any point during the life of the participant.   
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding:**  
@@ -53,7 +53,7 @@ output: html_document
 ``` 
 ### **Variable label**: Medication for high blood pressure or hypertension    
 **Variable name**:  DIS_HBP_MED_0  
-**Variable description**:  Indicator of whether the participant has ever taken medication for high blood pressure or hypertension  
+**Variable description**:  Indicator of whether the participant has ever taken medication for high blood pressure or hypertension.  
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding**:  
@@ -73,7 +73,7 @@ output: html_document
 ```  
 ### **Variable label**: Medication for high blood pressure or hypertension  
 **Variable name**:  DIS_HBP_MED_1  
-**Variable description**:  Indicator of whether the participant has ever taken medication for high blood pressure or hypertension  
+**Variable description**:  Indicator of whether the participant has ever taken medication for high blood pressure or hypertension.  
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding**:  
@@ -93,7 +93,7 @@ output: html_document
 ```  
 ### **Variable label**: Medication for high blood pressure or hypertension    
 **Variable name**:  DIS_HBP_MED_2  
-**Variable description**:  Indicator of whether the participant has ever taken medication for high blood pressure or hypertension  
+**Variable description**:  Indicator of whether the participant has ever taken medication for high blood pressure or hypertension.  
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding**:  
@@ -113,7 +113,7 @@ output: html_document
 ```  
 ### **Variable label**: Medication for high blood pressure or hypertension    
 **Variable name**:  DIS_HBP_MED_3    
-**Variable description**:  Indicator of whether the participant has ever taken medication for high blood pressure or hypertension  
+**Variable description**:  Indicator of whether the participant has ever taken medication for high blood pressure or hypertension.  
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding**:  
@@ -133,7 +133,7 @@ output: html_document
 ```  
 ### **Variable label**: Medication for high blood pressure or hypertension    
 **Variable name**:  DIS_HBP_MED_4  
-**Variable description**:  Indicator of whether the participant has ever taken medication for high blood pressure or hypertension  
+**Variable description**:  Indicator of whether the participant has ever taken medication for high blood pressure or hypertension.  
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding**:  
@@ -153,7 +153,7 @@ output: html_document
 ```  
 ### **Variable label**: Medication for high blood pressure or hypertension    
 **Variable name**:  DIS_HBP_MED_5  
-**Variable description**:  Indicator of whether the participant has ever taken medication for high blood pressure or hypertension  
+**Variable description**:  Indicator of whether the participant has ever taken medication for high blood pressure or hypertension.  
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding**:  
@@ -175,7 +175,7 @@ output: html_document
 
 ### **Variable label**: Lifetime occurrence of angina 
 **Variable name**:  DIS_ANGINA_EVER_0  
-**Variable description**:  Occurrence of angina (pain or discomfort in chest caused by a lack of oxygen-rich blood reaching the heart) at any point during the life of the participant    
+**Variable description**:  Occurrence of angina (pain or discomfort in chest caused by a lack of oxygen-rich blood reaching the heart) at any point during the life of the participant.    
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding**:  
@@ -194,7 +194,7 @@ output: html_document
 ```  
 ### **Variable label**: Lifetime occurrence of angina 
 **Variable name**:  DIS_ANGINA_EVER_1  
-**Variable description**:  Occurrence of angina (pain or discomfort in chest caused by a lack of oxygen-rich blood reaching the heart) at any point during the life of the participant    
+**Variable description**:  Occurrence of angina (pain or discomfort in chest caused by a lack of oxygen-rich blood reaching the heart) at any point during the life of the participant.    
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding**:  
@@ -213,7 +213,7 @@ output: html_document
 ```  
 ### **Variable label**: Lifetime occurrence of angina 
 **Variable name**:  DIS_ANGINA_EVER_2  
-**Variable description**:  Occurrence of angina (pain or discomfort in chest caused by a lack of oxygen-rich blood reaching the heart) at any point during the life of the participant    
+**Variable description**:  Occurrence of angina (pain or discomfort in chest caused by a lack of oxygen-rich blood reaching the heart) at any point during the life of the participant.    
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding**:  
@@ -232,7 +232,7 @@ output: html_document
 ```  
 ### **Variable label**: Lifetime occurrence of angina 
 **Variable name**:  DIS_ANGINA_EVER_3  
-**Variable description**:  Occurrence of angina (pain or discomfort in chest caused by a lack of oxygen-rich blood reaching the heart) at any point during the life of the participant    
+**Variable description**:  Occurrence of angina (pain or discomfort in chest caused by a lack of oxygen-rich blood reaching the heart) at any point during the life of the participant.    
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding**:  
@@ -251,7 +251,7 @@ output: html_document
 ```  
 ### **Variable label**: Lifetime occurrence of angina 
 **Variable name**:  DIS_ANGINA_EVER_4  
-**Variable description**:  Occurrence of angina (pain or discomfort in chest caused by a lack of oxygen-rich blood reaching the heart) at any point during the life of the participant    
+**Variable description**:  Occurrence of angina (pain or discomfort in chest caused by a lack of oxygen-rich blood reaching the heart) at any point during the life of the participant.    
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding**:  
@@ -273,7 +273,7 @@ output: html_document
 
 ### **Variable label**: Lifetime occurrence of myocardial infarction    
 **Variable name**:  DIS_MI_EVER_0  
-**Variable description**:  Occurrence of myocardial infarction (heart attack) at any point during the life of the participant    
+**Variable description**:  Occurrence of myocardial infarction (heart attack) at any point during the life of the participant.    
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding**:  
@@ -292,7 +292,7 @@ output: html_document
 ```  
 ### **Variable label**: Lifetime occurrence of myocardial infarction    
 **Variable name**:  DIS_MI_EVER_1  
-**Variable description**:  Occurrence of myocardial infarction (heart attack) at any point during the life of the participant    
+**Variable description**:  Occurrence of myocardial infarction (heart attack) at any point during the life of the participant.    
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding**:  
@@ -311,7 +311,7 @@ output: html_document
 ```  
 ### **Variable label**: Lifetime occurrence of myocardial infarction    
 **Variable name**:  DIS_MI_EVER_2  
-**Variable description**:  Occurrence of myocardial infarction (heart attack) at any point during the life of the participant    
+**Variable description**:  Occurrence of myocardial infarction (heart attack) at any point during the life of the participant.    
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding**:  
@@ -331,7 +331,7 @@ output: html_document
 
 ### **Variable label**: Age at first Myocardial infarction  
 **Variable name**:  DIS_MI_AGE_0  
-**Variable description**:  Age of the participant at time of first myocardial infarction  
+**Variable description**:  Age of the participant at time of first myocardial infarction.  
 **Value type**:  integer  
 **Variable unit**:  years  
 **Category coding**: N/A  
@@ -345,7 +345,7 @@ output: html_document
 ```  
 ### **Variable label**: Age at first Myocardial infarction  
 **Variable name**:  DIS_MI_AGE_1  
-**Variable description**:  Age of the participant at time of first myocardial infarction  
+**Variable description**:  Age of the participant at time of first myocardial infarction.  
 **Value type**:  integer  
 **Variable unit**:  years  
 **Category coding**: N/A  
@@ -359,7 +359,7 @@ output: html_document
 ```  
 ### **Variable label**: Age at first Myocardial infarction  
 **Variable name**:  DIS_MI_AGE_2  
-**Variable description**:  Age of the participant at time of first myocardial infarction  
+**Variable description**:  Age of the participant at time of first myocardial infarction.  
 **Value type**:  integer  
 **Variable unit**:  years  
 **Category coding**: N/A  
@@ -375,7 +375,7 @@ output: html_document
 
 ### **Variable label**: Lifetime occurrence of stroke or CVA  
 **Variable name**:  DIS_STROKE_EVER_0  
-**Variable description**:  Occurrence of stroke or cerebrovascular incident (CVA) at any point during the life of the participant   
+**Variable description**:  Occurrence of stroke or cerebrovascular incident (CVA) at any point during the life of the participant.   
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding**:  
@@ -394,7 +394,7 @@ output: html_document
 ```  
 ### **Variable label**: Lifetime occurrence of stroke or CVA  
 **Variable name**:  DIS_STROKE_EVER_1  
-**Variable description**:  Occurrence of stroke or cerebrovascular incident (CVA) at any point during the life of the participant   
+**Variable description**:  Occurrence of stroke or cerebrovascular incident (CVA) at any point during the life of the participant.   
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding**:  
@@ -413,7 +413,7 @@ output: html_document
 ```  
 ### **Variable label**: Lifetime occurrence of stroke or CVA  
 **Variable name**:  DIS_STROKE_EVER_2  
-**Variable description**:  Occurrence of stroke or cerebrovascular incident (CVA) at any point during the life of the participant   
+**Variable description**:  Occurrence of stroke or cerebrovascular incident (CVA) at any point during the life of the participant.   
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding**:  
@@ -432,7 +432,7 @@ output: html_document
 ```  
 ### **Variable label**: Age at first stroke or CVA  
 **Variable name**:  DIS_STROKE_AGE_0  
-**Variable description**:  Age of the participant at time of first stroke    
+**Variable description**:  Age of the participant at time of first stroke.    
 **Value type**:  integer  
 **Variable unit**:  years  
 **Category coding**: N/A  
@@ -446,7 +446,7 @@ output: html_document
 ```  
 ### **Variable label**: Age at first stroke or CVA  
 **Variable name**:  DIS_STROKE_AGE_1  
-**Variable description**:  Age of the participant at time of first stroke    
+**Variable description**:  Age of the participant at time of first stroke.    
 **Value type**:  integer  
 **Variable unit**:  years  
 **Category coding**: N/A  
@@ -460,7 +460,7 @@ output: html_document
 ```  
 ### **Variable label**: Age at first stroke or CVA  
 **Variable name**:  DIS_STROKE_AGE_2  
-**Variable description**:  Age of the participant at time of first stroke    
+**Variable description**:  Age of the participant at time of first stroke.    
 **Value type**:  integer  
 **Variable unit**:  years  
 **Category coding**: N/A  
@@ -478,7 +478,7 @@ output: html_document
 
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes or high blood sugar  
 **Variable name**: DIS_DIAB_EVER_0  
-**Variable description**:  Occurrence of diabetes, borderline diabetes or high blood sugar at any point during the life of the participant    
+**Variable description**:  Occurrence of diabetes, borderline diabetes or high blood sugar at any point during the life of the. participant    
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding:**
@@ -497,7 +497,7 @@ output: html_document
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes or high blood sugar     
 **Variable name**: DIS_DIAB_EVER_1  
-**Variable description**:  Occurrence of diabetes, borderline diabetes or high blood sugar at any point during the life of the participant    
+**Variable description**:  Occurrence of diabetes, borderline diabetes or high blood sugar at any point during the life of the. participant    
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding:**
@@ -516,7 +516,7 @@ output: html_document
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes or high blood sugar     
 **Variable name**: DIS_DIAB_EVER_2  
-**Variable description**:  Occurrence of diabetes, borderline diabetes or high blood sugar at any point during the life of the participant    
+**Variable description**:  Occurrence of diabetes, borderline diabetes or high blood sugar at any point during the life of the. participant    
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding:**
@@ -535,7 +535,7 @@ output: html_document
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes or high blood sugar     
 **Variable name**: DIS_DIAB_EVER_3  
-**Variable description**:  Occurrence of diabetes, borderline diabetes or high blood sugar at any point during the life of the participant    
+**Variable description**:  Occurrence of diabetes, borderline diabetes or high blood sugar at any point during the life of the. participant    
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding:**
@@ -554,7 +554,7 @@ output: html_document
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes or high blood sugar     
 **Variable name**: DIS_DIAB_EVER_4  
-**Variable description**:  Occurrence of diabetes, borderline diabetes or high blood sugar at any point during the life of the participant    
+**Variable description**:  Occurrence of diabetes, borderline diabetes or high blood sugar at any point during the life of the. participant    
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding:**
@@ -573,7 +573,7 @@ output: html_document
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes or high blood sugar     
 **Variable name**: DIS_DIAB_EVER_5  
-**Variable description**:  Occurrence of diabetes, borderline diabetes or high blood sugar at any point during the life of the participant    
+**Variable description**:  Occurrence of diabetes, borderline diabetes or high blood sugar at any point during the life of the. participant    
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding:**
@@ -592,7 +592,7 @@ output: html_document
 ```  
 ### **Variable label**: Age at diagnosis of diabetes, borderline diabetes or high blood sugar  
 **Variable name**:  DIS_DIAB_AGE_0    
-**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes or high blood sugar    
+**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes or high blood sugar.    
 **Value type**:  integer  
 **Variable unit**:  Age in years  
 **Category coding**: N/A
@@ -606,7 +606,7 @@ output: html_document
 ```  
 ### **Variable label**: Age at diagnosis of diabetes, borderline diabetes or high blood sugar  
 **Variable name**:  DIS_DIAB_AGE_1    
-**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes or high blood sugar    
+**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes or high blood sugar.    
 **Value type**:  integer  
 **Variable unit**:  Age in years  
 **Category coding**: N/A
@@ -620,7 +620,7 @@ output: html_document
 ```  
 ### **Variable label**: Age at diagnosis of diabetes, borderline diabetes or high blood sugar  
 **Variable name**:  DIS_DIAB_AGE_2    
-**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes or high blood sugar    
+**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes or high blood sugar.    
 **Value type**:  integer  
 **Variable unit**:  Age in years  
 **Category coding**: N/A
@@ -634,7 +634,7 @@ output: html_document
 ```  
 ### **Variable label**: Age at diagnosis of diabetes, borderline diabetes or high blood sugar  
 **Variable name**:  DIS_DIAB_AGE_3    
-**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes or high blood sugar    
+**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes or high blood sugar.    
 **Value type**:  integer  
 **Variable unit**:  Age in years  
 **Category coding**: N/A
@@ -648,7 +648,7 @@ output: html_document
 ```  
 ### **Variable label**: Age at diagnosis of diabetes, borderline diabetes or high blood sugar  
 **Variable name**:  DIS_DIAB_AGE_4    
-**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes or high blood sugar    
+**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes or high blood sugar.    
 **Value type**:  integer  
 **Variable unit**:  Age in years  
 **Category coding**: N/A
@@ -662,7 +662,7 @@ output: html_document
 ```  
 ### **Variable label**: Age at diagnosis of diabetes, borderline diabetes or high blood sugar  
 **Variable name**:  DIS_DIAB_AGE_5    
-**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes or high blood sugar    
+**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes or high blood sugar.    
 **Value type**:  integer  
 **Variable unit**:  Age in years  
 **Category coding**: N/A
@@ -789,16 +789,16 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**: Currently use insultin for diabetes  
+### **Variable label**: Currently use insulin for diabetes  
 **Variable name**:  DIS_DIAB_INS_0  
-**Variable description**:  Indicator of whether the participant uses insulin for diabetes treatment  
+**Variable description**:  Indicator of whether the participant uses insulin for diabetes treatment.  
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding**:  
 
 **Code** | **Category Label**  
 ---------| ---------------------------------------------  
-0        | currently does not use insulin for diabetes treatment  
+0        | Currently does not use insulin for diabetes treatment  
 1        | Currently has used insulin for diabetes treatment  
 
 **Harmonization status**:  
@@ -808,16 +808,16 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**: Currently use insultin for diabetes  
+### **Variable label**: Currently use insulin for diabetes  
 **Variable name**:  DIS_DIAB_INS_1  
-**Variable description**:  Indicator of whether the participant uses insulin for diabetes treatment  
+**Variable description**:  Indicator of whether the participant uses insulin for diabetes treatment.  
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding**:  
 
 **Code** | **Category Label**  
 ---------| ---------------------------------------------  
-0        | currently does not use insulin for diabetes treatment  
+0        | Currently does not use insulin for diabetes treatment  
 1        | Currently has used insulin for diabetes treatment  
 
 **Harmonization status**:  
@@ -827,16 +827,16 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**: Currently use insultin for diabetes  
+### **Variable label**: Currently use insulin for diabetes  
 **Variable name**:  DIS_DIAB_INS_2  
-**Variable description**:  Indicator of whether the participant uses insulin for diabetes treatment  
+**Variable description**:  Indicator of whether the participant uses insulin for diabetes treatment.  
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding**:  
 
 **Code** | **Category Label**  
 ---------| ---------------------------------------------  
-0        | currently does not use insulin for diabetes treatment  
+0        | Currently does not use insulin for diabetes treatment  
 1        | Currently has used insulin for diabetes treatment  
 
 **Harmonization status**:  
@@ -850,7 +850,7 @@ output: html_document
 
 ### **Variable label**: Weight in kg - measured 
 **Variable name**: OTH_WEIGHT_MS  
-**Variable description**: Weight of participant in kilograms - measured  
+**Variable description**: Weight of participant in kilograms - measured.  
 **Value type**: integer  
 **Variable unit**: kilogram   
 **Category coding**: N/A
@@ -865,7 +865,7 @@ output: html_document
 
 ### **Variable label**: Weight in kg - self-reported 
 **Variable name**: OTH_WEIGHT_SR    
-**Variable description**: Weight of participant in kilograms - self-reported  
+**Variable description**: Weight of participant in kilograms - self-reported.  
 **Value type**: integer  
 **Variable unit**: kilogram   
 **Category coding**: N/A
@@ -880,7 +880,7 @@ output: html_document
 
 ### **Variable label**: Weight in kg - self-reported and measured combined
 **Variable name**: OTH_WEIGHT_ALL    
-**Variable description**: Weight of participant in kilograms - self-reported  and measured combined
+**Variable description**: Weight of participant in kilograms - self-reported  and measured combined.
 **Value type**: integer  
 **Variable unit**: kilogram   
 **Category coding**: N/A
@@ -895,7 +895,7 @@ output: html_document
 
 ### **Variable label**: Height in centimeters - measured  
 **Variable name**: OTH_HEIGHT_MS  
-**Variable description**: Height of participant in centimeters - measured  
+**Variable description**: Height of participant in centimeters - measured.  
 **Value type**: integer  
 **Variable unit**: centimeters  
 **Category coding**: N/A
@@ -910,7 +910,7 @@ output: html_document
 
 ### **Variable label**: Height in centimeters - self-reported  
 **Variable name**: OTH_HEIGHT_SR  
-**Variable description**: Height of participant in centimeters - self-reported  
+**Variable description**: Height of participant in centimeters - self-reported.  
 **Value type**: integer  
 **Variable unit**: centimeters  
 **Category coding**: N/A
@@ -925,7 +925,7 @@ output: html_document
 
 ### **Variable label**: Height in centimeters - self-reported and measured combined  
 **Variable name**: OTH_HEIGHT_ALL  
-**Variable description**: Height of participant in centimeters - self-reported and measured combined  
+**Variable description**: Height of participant in centimeters - self-reported and measured combined.  
 **Value type**: integer  
 **Variable unit**: centimeters  
 **Category coding**: N/A
@@ -940,7 +940,7 @@ output: html_document
 
 ### **Variable label**: Body mass index (BMI) - measured  
 **Variable name**: OTH_BMI_MS  
-**Variable description**: Body mass index - measured  
+**Variable description**: Body mass index - measured.  
 **Value type**: integer  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
@@ -955,7 +955,7 @@ output: html_document
 
 ### **Variable label**: Body mass index (BMI) - self-reported  
 **Variable name**: OTH_BMI_SR  
-**Variable description**: Body mass index - self-reported  
+**Variable description**: Body mass index - self-reported.  
 **Value type**: integer  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
@@ -970,7 +970,7 @@ output: html_document
 
 ### **Variable label**: Body mass index (BMI) - self-reported and measured combined  
 **Variable name**: OTH_BMI_ALL  
-**Variable description**: Body mass index - self-reported and measured combined  
+**Variable description**: Body mass index - self-reported and measured combined.  
 **Value type**: integer  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
@@ -985,7 +985,7 @@ output: html_document
 
 ### **Variable label**:  Body mass index - categories - measured  
 **Variable name**: OTH_BMI_CAT_MS  
-**Variable description**: Body mass index - categories - measured  
+**Variable description**: Body mass index - categories - measured.  
 **Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
@@ -1007,7 +1007,7 @@ output: html_document
 
 ### **Variable label**:  Body mass index - categories - self-reported  
 **Variable name**: OTH_BMI_CAT_SR  
-**Variable description**: Body mass index - categories - self-reported  
+**Variable description**: Body mass index - categories - self-reported.  
 **Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
@@ -1029,7 +1029,7 @@ output: html_document
 
 ### **Variable label**:  Body mass index - categories - self-reported and measured combined  
 **Variable name**: OTH_BMI_CAT_ALL  
-**Variable description**: Body mass index - categories - self-reported and measured combined  
+**Variable description**: Body mass index - categories - self-reported and measured combined.  
 **Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
@@ -1051,7 +1051,7 @@ output: html_document
 
 ### **Variable label**:  Waist circumference in cm  
 **Variable name**: OTH_WAIST  
-**Variable description**: Waist circumference in centimeters    
+**Variable description**: Waist circumference in centimeters.    
 **Value type**: integer  
 **Variable unit**: centimeters  
 **Category coding**:  N/A  
@@ -1131,16 +1131,16 @@ output: html_document
 # Disability subdomain
 
 ### **Variable label**:  Difficulty walking up and down the stairs  
-**Variable name**:  OTH_DISABLE_STAIRS  
-**Variable description**:  Indicator of whether the participant is able to walk up and down the stairs.  
+**Variable name**:  FUN_DIFF_STAIRS_0  
+**Variable description**:  Indicator of whether the participant has difficulty walking up and down the stairs.  
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding**:  
 
 **Code** | **Category Label**  
 ------------- | -------------  
-0 |   not able to walk up and down the stairs  
-1 |   able to walk up and down the stairs  
+0 |   Has no difficulty walking up and down the stairs
+1 |   Has difficulty walking up and down the stairs  
 
 **Harmonization status**:  
 **Harmonization comment**:   
@@ -1148,7 +1148,45 @@ output: html_document
 ```{r, echo=TRUE}
 #This is where the R-script will be written
 
-```
+```  
+### **Variable label**:  Difficulty walking up and down the stairs  
+**Variable name**:  FUN_DIFF_STAIRS_1  
+**Variable description**:  Indicator of whether the participant has difficulty walking up and down the stairs.  
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
+
+**Code** | **Category Label**  
+------------- | -------------  
+0 |   Has no difficulty walking up and down the stairs
+1 |   Has difficulty walking up and down the stairs  
+
+**Harmonization status**:  
+**Harmonization comment**:   
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
+### **Variable label**:  Difficulty walking up and down the stairs  
+**Variable name**:  FUN_DIFF_STAIRS_2  
+**Variable description**:  Indicator of whether the participant has difficulty walking up and down the stairs.  
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
+
+**Code** | **Category Label**  
+------------- | -------------  
+0 |   Has no difficulty walking up and down the stairs
+1 |   Has difficulty walking up and down the stairs  
+
+**Harmonization status**:  
+**Harmonization comment**:   
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
 
 ### **Variable label**:  Difficulty walking for about 400-500 meters  
 **Variable name**:  OTH_DISABLE_WALK  
