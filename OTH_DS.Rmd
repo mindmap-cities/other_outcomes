@@ -13,9 +13,9 @@ output: html_document
 
 # Hypertension subdomain
 
-### **Variable label**: High blood pressure or hypertension status  
-**Variable name**: OTH_HBP_EVER_0  
-**Variable description**:  Occurrence of high blood pressure or hypertension at any point during participant’s lifetime   
+### **Variable label**: Lifetime occurrence of high blood pressure or hypertension    
+**Variable name**: DIS_HBP_EVER_0  
+**Variable description**:  Occurrence of high blood pressure or hypertension at any point during the life of the participant   
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding:**  
@@ -32,9 +32,9 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**: High blood pressure or hypertension status  
-**Variable name**: OTH_HBP_EVER_1  
-**Variable description**:  Occurrence of high blood pressure or hypertension at any point during participant’s lifetime   
+### **Variable label**: Lifetime occurrence of high blood pressure or hypertension    
+**Variable name**: DIS_HBP_EVER_1  
+**Variable description**:  Occurrence of high blood pressure or hypertension at any point during the life of the participant   
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding:**  
@@ -51,8 +51,8 @@ output: html_document
 #This is where the R-script will be written
 
 ``` 
-### **Variable label**: High blood pressure or hypertension medication  
-**Variable name**:  OTH_HBP_MED_0  
+### **Variable label**: Medication for high blood pressure or hypertension    
+**Variable name**:  DIS_HBP_MED_0  
 **Variable description**:  Indicator of whether the participant has ever taken medication for high blood pressure or hypertension  
 **Value type**:  integer  
 **Variable unit**:  N/A  
@@ -71,8 +71,8 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**: High blood pressure or hypertension medication  
-**Variable name**:  OTH_HBP_MED_1  
+### **Variable label**: Medication for high blood pressure or hypertension  
+**Variable name**:  DIS_HBP_MED_1  
 **Variable description**:  Indicator of whether the participant has ever taken medication for high blood pressure or hypertension  
 **Value type**:  integer  
 **Variable unit**:  N/A  
@@ -91,8 +91,68 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**: High blood pressure or hypertension medication  
-**Variable name**:  OTH_HBP_MED_2  
+### **Variable label**: Medication for high blood pressure or hypertension    
+**Variable name**:  DIS_HBP_MED_2  
+**Variable description**:  Indicator of whether the participant has ever taken medication for high blood pressure or hypertension  
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
+  
+**Code** | **Category Label**
+---------| -----------------------------------------------------
+0        |  Never taken medication for high blood pressure
+1        |  Ever taken medication  for high blood pressure  
+
+
+**Harmonization status**:  
+**Harmonization comment**:  
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
+### **Variable label**: Medication for high blood pressure or hypertension    
+**Variable name**:  DIS_HBP_MED_3    
+**Variable description**:  Indicator of whether the participant has ever taken medication for high blood pressure or hypertension  
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
+  
+**Code** | **Category Label**
+---------| -----------------------------------------------------
+0        |  Never taken medication for high blood pressure
+1        |  Ever taken medication  for high blood pressure  
+
+
+**Harmonization status**:  
+**Harmonization comment**:  
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
+### **Variable label**: Medication for high blood pressure or hypertension    
+**Variable name**:  DIS_HBP_MED_4  
+**Variable description**:  Indicator of whether the participant has ever taken medication for high blood pressure or hypertension  
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
+  
+**Code** | **Category Label**
+---------| -----------------------------------------------------
+0        |  Never taken medication for high blood pressure
+1        |  Ever taken medication  for high blood pressure  
+
+
+**Harmonization status**:  
+**Harmonization comment**:  
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
+### **Variable label**: Medication for high blood pressure or hypertension    
+**Variable name**:  DIS_HBP_MED_5  
 **Variable description**:  Indicator of whether the participant has ever taken medication for high blood pressure or hypertension  
 **Value type**:  integer  
 **Variable unit**:  N/A  
@@ -113,9 +173,9 @@ output: html_document
 ```  
 # Angina subdomain
 
-### **Variable label**: Angina status  
-**Variable name**:  OTH_ANGINA_EVER  
-**Variable description**:  Occurrence of angina (chest pain or discomfort caused by a lack of oxygen-rich blood reaching the heart) at any point during participant's lifetime  
+### **Variable label**: Lifetime occurrence of angina 
+**Variable name**:  DIS_ANGINA_EVER_0  
+**Variable description**:  Occurrence of angina (pain or discomfort in chest caused by a lack of oxygen-rich blood reaching the heart) at any point during the life of the participant    
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding**:  
@@ -131,21 +191,135 @@ output: html_document
 ```{r, echo=TRUE}
 #This is where the R-script will be written
 
-```
+```  
+### **Variable label**: Lifetime occurrence of angina 
+**Variable name**:  DIS_ANGINA_EVER_1  
+**Variable description**:  Occurrence of angina (pain or discomfort in chest caused by a lack of oxygen-rich blood reaching the heart) at any point during the life of the participant    
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
+  
+**Code** | **Category Label**  
+---------|---------------  
+0        |  Never had angina
+1        |  Ever had angina  
+  
+**Harmonization status**:  
+**Harmonization comment**:  
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
+### **Variable label**: Lifetime occurrence of angina 
+**Variable name**:  DIS_ANGINA_EVER_2  
+**Variable description**:  Occurrence of angina (pain or discomfort in chest caused by a lack of oxygen-rich blood reaching the heart) at any point during the life of the participant    
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
+  
+**Code** | **Category Label**  
+---------|---------------  
+0        |  Never had angina
+1        |  Ever had angina  
+  
+**Harmonization status**:  
+**Harmonization comment**:  
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
+### **Variable label**: Lifetime occurrence of angina 
+**Variable name**:  DIS_ANGINA_EVER_3  
+**Variable description**:  Occurrence of angina (pain or discomfort in chest caused by a lack of oxygen-rich blood reaching the heart) at any point during the life of the participant    
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
+  
+**Code** | **Category Label**  
+---------|---------------  
+0        |  Never had angina
+1        |  Ever had angina  
+  
+**Harmonization status**:  
+**Harmonization comment**:  
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
+### **Variable label**: Lifetime occurrence of angina 
+**Variable name**:  DIS_ANGINA_EVER_4  
+**Variable description**:  Occurrence of angina (pain or discomfort in chest caused by a lack of oxygen-rich blood reaching the heart) at any point during the life of the participant    
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
+  
+**Code** | **Category Label**  
+---------|---------------  
+0        |  Never had angina
+1        |  Ever had angina  
+  
+**Harmonization status**:  
+**Harmonization comment**:  
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
 
 # Myocardial infarction subdomain
 
-### **Variable label**: Myocardial infarction status  
-**Variable name**:  OTH_MI_EVER  
-**Variable description**:  Occurrence of myocardial infarction (heart attack) at any point during participant's lifetime  
+### **Variable label**: Lifetime occurrence of myocardial infarction    
+**Variable name**:  DIS_MI_EVER_0  
+**Variable description**:  Occurrence of myocardial infarction (heart attack) at any point during the life of the participant    
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding**:  
 
 **Code** | **Category Label**  
 ---------| -------------  
-0        |   Never experienced myocardial infarction
-1        |   Ever experienced myocardial infarction  
+0        |   Never had myocardial infarction
+1        |   Ever had myocardial infarction  
+
+**Harmonization status**:  
+**Harmonization comment**:  
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
+### **Variable label**: Lifetime occurrence of myocardial infarction    
+**Variable name**:  DIS_MI_EVER_1  
+**Variable description**:  Occurrence of myocardial infarction (heart attack) at any point during the life of the participant    
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
+
+**Code** | **Category Label**  
+---------| -------------  
+0        |   Never had myocardial infarction
+1        |   Ever had myocardial infarction  
+
+**Harmonization status**:  
+**Harmonization comment**:  
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
+### **Variable label**: Lifetime occurrence of myocardial infarction    
+**Variable name**:  DIS_MI_EVER_2  
+**Variable description**:  Occurrence of myocardial infarction (heart attack) at any point during the life of the participant    
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
+
+**Code** | **Category Label**  
+---------| -------------  
+0        |   Never had myocardial infarction
+1        |   Ever had myocardial infarction  
 
 **Harmonization status**:  
 **Harmonization comment**:  
@@ -155,12 +329,12 @@ output: html_document
 
 ```  
 
-### **Variable label**: Myocardial infarction: age at first diagnosis  
-**Variable name**:  OTH_MI_AGE  
-**Variable description**:  Age at first diagnosis of myocardial infarction  
+### **Variable label**: Age at first Myocardial infarction  
+**Variable name**:  DIS_MI_AGE_0  
+**Variable description**:  Age of the participant at time of first myocardial infarction  
 **Value type**:  integer  
-**Variable unit**:  Age in years  
-**Category coding**: N/A 
+**Variable unit**:  years  
+**Category coding**: N/A  
          
 **Harmonization status**:  
 **Harmonization comment**:  
@@ -168,21 +342,48 @@ output: html_document
 ```{r, echo=TRUE}
 #This is where the R-script will be written
 
-```
+```  
+### **Variable label**: Age at first Myocardial infarction  
+**Variable name**:  DIS_MI_AGE_1  
+**Variable description**:  Age of the participant at time of first myocardial infarction  
+**Value type**:  integer  
+**Variable unit**:  years  
+**Category coding**: N/A  
+         
+**Harmonization status**:  
+**Harmonization comment**:  
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
 
+```  
+### **Variable label**: Age at first Myocardial infarction  
+**Variable name**:  DIS_MI_AGE_2  
+**Variable description**:  Age of the participant at time of first myocardial infarction  
+**Value type**:  integer  
+**Variable unit**:  years  
+**Category coding**: N/A  
+         
+**Harmonization status**:  
+**Harmonization comment**:  
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
 # Stroke subdomain
 
-### **Variable label**: Stroke status  
-**Variable name**:  OTH_STROKE_EVER  
-**Variable description**:  Occurrence of stroke or cerebrovascular incident at any point during participant's lifetime  
+### **Variable label**: Lifetime occurrence of stroke or CVA  
+**Variable name**:  DIS_STROKE_EVER_0  
+**Variable description**:  Occurrence of stroke or cerebrovascular incident (CVA) at any point during the life of the participant   
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding**:  
   
 **Code** | **Category Label**  
 -------- | -------------  
-0        |   Never had stroke or cerebrovascular incident
-1        |   Ever had stroke or cerebrovascular incident  
+0        |   Never had stroke or CVA  
+1        |   Ever had stroke or CVA  
 
 **Harmonization status**:  
 **Harmonization comment**:  
@@ -190,13 +391,94 @@ output: html_document
 ```{r, echo=TRUE}
 #This is where the R-script will be written
 
-```
+```  
+### **Variable label**: Lifetime occurrence of stroke or CVA  
+**Variable name**:  DIS_STROKE_EVER_1  
+**Variable description**:  Occurrence of stroke or cerebrovascular incident (CVA) at any point during the life of the participant   
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
+  
+**Code** | **Category Label**  
+-------- | -------------  
+0        |   Never had stroke or CVA  
+1        |   Ever had stroke or CVA  
+
+**Harmonization status**:  
+**Harmonization comment**:  
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
+### **Variable label**: Lifetime occurrence of stroke or CVA  
+**Variable name**:  DIS_STROKE_EVER_2  
+**Variable description**:  Occurrence of stroke or cerebrovascular incident (CVA) at any point during the life of the participant   
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
+  
+**Code** | **Category Label**  
+-------- | -------------  
+0        |   Never had stroke or CVA  
+1        |   Ever had stroke or CVA  
+
+**Harmonization status**:  
+**Harmonization comment**:  
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
+### **Variable label**: Age at first stroke or CVA  
+**Variable name**:  DIS_STROKE_AGE_0  
+**Variable description**:  Age of the participant at time of first stroke    
+**Value type**:  integer  
+**Variable unit**:  years  
+**Category coding**: N/A  
+         
+**Harmonization status**:  
+**Harmonization comment**:  
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
+### **Variable label**: Age at first stroke or CVA  
+**Variable name**:  DIS_STROKE_AGE_1  
+**Variable description**:  Age of the participant at time of first stroke    
+**Value type**:  integer  
+**Variable unit**:  years  
+**Category coding**: N/A  
+         
+**Harmonization status**:  
+**Harmonization comment**:  
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
+### **Variable label**: Age at first stroke or CVA  
+**Variable name**:  DIS_STROKE_AGE_2  
+**Variable description**:  Age of the participant at time of first stroke    
+**Value type**:  integer  
+**Variable unit**:  years  
+**Category coding**: N/A  
+         
+**Harmonization status**:  
+**Harmonization comment**:  
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
+
 
 # Diabetes subdomain  
 
-### **Variable label**: Diabetes status  
-**Variable name**: OTH_DIAB_EVER  
-**Variable description**:  Occurrence of diabetes at any point during participant’s lifetime  
+### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes or high blood sugar  
+**Variable name**: DIS_DIAB_EVER_0  
+**Variable description**:  Occurrence of diabetes, borderline diabetes or high blood sugar at any point during the life of the participant    
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding:**
@@ -212,11 +494,105 @@ output: html_document
 ```{r, echo=TRUE}  
 #This is where the R-script will be written  
 
-```
+```  
+### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes or high blood sugar     
+**Variable name**: DIS_DIAB_EVER_1  
+**Variable description**:  Occurrence of diabetes, borderline diabetes or high blood sugar at any point during the life of the participant    
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding:**
 
-### **Variable label**: Diabetes: age at first diagnosis  
-**Variable name**:  OTH_DIAB_AGE  
-**Variable description**: Age at first diagnosis of diabetes  
+**Code**   | **Category Label**
+-----------| ---------------------------  
+0          |  Never had diabetes  
+1          |  Ever had diabetes  
+
+**Harmonization status**:  
+**Harmonization comment**:  
+**R script**:  
+```{r, echo=TRUE}  
+#This is where the R-script will be written  
+
+```  
+### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes or high blood sugar     
+**Variable name**: DIS_DIAB_EVER_2  
+**Variable description**:  Occurrence of diabetes, borderline diabetes or high blood sugar at any point during the life of the participant    
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding:**
+
+**Code**   | **Category Label**
+-----------| ---------------------------  
+0          |  Never had diabetes  
+1          |  Ever had diabetes  
+
+**Harmonization status**:  
+**Harmonization comment**:  
+**R script**:  
+```{r, echo=TRUE}  
+#This is where the R-script will be written  
+
+```  
+### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes or high blood sugar     
+**Variable name**: DIS_DIAB_EVER_3  
+**Variable description**:  Occurrence of diabetes, borderline diabetes or high blood sugar at any point during the life of the participant    
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding:**
+
+**Code**   | **Category Label**
+-----------| ---------------------------  
+0          |  Never had diabetes  
+1          |  Ever had diabetes  
+
+**Harmonization status**:  
+**Harmonization comment**:  
+**R script**:  
+```{r, echo=TRUE}  
+#This is where the R-script will be written  
+
+```  
+### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes or high blood sugar     
+**Variable name**: DIS_DIAB_EVER_4  
+**Variable description**:  Occurrence of diabetes, borderline diabetes or high blood sugar at any point during the life of the participant    
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding:**
+
+**Code**   | **Category Label**
+-----------| ---------------------------  
+0          |  Never had diabetes  
+1          |  Ever had diabetes  
+
+**Harmonization status**:  
+**Harmonization comment**:  
+**R script**:  
+```{r, echo=TRUE}  
+#This is where the R-script will be written  
+
+```  
+### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes or high blood sugar     
+**Variable name**: DIS_DIAB_EVER_5  
+**Variable description**:  Occurrence of diabetes, borderline diabetes or high blood sugar at any point during the life of the participant    
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding:**
+
+**Code**   | **Category Label**
+-----------| ---------------------------  
+0          |  Never had diabetes  
+1          |  Ever had diabetes  
+
+**Harmonization status**:  
+**Harmonization comment**:  
+**R script**:  
+```{r, echo=TRUE}  
+#This is where the R-script will be written  
+
+```  
+### **Variable label**: Age at diagnosis of diabetes, borderline diabetes or high blood sugar  
+**Variable name**:  DIS_DIAB_AGE_0    
+**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes or high blood sugar    
 **Value type**:  integer  
 **Variable unit**:  Age in years  
 **Category coding**: N/A
@@ -227,19 +603,89 @@ output: html_document
 ```{r, echo=TRUE}  
 #This is where the R-script will be written  
 
-```
+```  
+### **Variable label**: Age at diagnosis of diabetes, borderline diabetes or high blood sugar  
+**Variable name**:  DIS_DIAB_AGE_1    
+**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes or high blood sugar    
+**Value type**:  integer  
+**Variable unit**:  Age in years  
+**Category coding**: N/A
 
-### **Variable label**: Diabetes treatment  
-**Variable name**:  OTH_DIAB_TRT  
-**Variable description**:  Indicator of whether participant has ever received medical treatment for diabetes  
+**Hamonization status**:  
+**Harmonization comment**:  
+**R script**:  
+```{r, echo=TRUE}  
+#This is where the R-script will be written  
+
+```  
+### **Variable label**: Age at diagnosis of diabetes, borderline diabetes or high blood sugar  
+**Variable name**:  DIS_DIAB_AGE_2    
+**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes or high blood sugar    
+**Value type**:  integer  
+**Variable unit**:  Age in years  
+**Category coding**: N/A
+
+**Hamonization status**:  
+**Harmonization comment**:  
+**R script**:  
+```{r, echo=TRUE}  
+#This is where the R-script will be written  
+
+```  
+### **Variable label**: Age at diagnosis of diabetes, borderline diabetes or high blood sugar  
+**Variable name**:  DIS_DIAB_AGE_3    
+**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes or high blood sugar    
+**Value type**:  integer  
+**Variable unit**:  Age in years  
+**Category coding**: N/A
+
+**Hamonization status**:  
+**Harmonization comment**:  
+**R script**:  
+```{r, echo=TRUE}  
+#This is where the R-script will be written  
+
+```  
+### **Variable label**: Age at diagnosis of diabetes, borderline diabetes or high blood sugar  
+**Variable name**:  DIS_DIAB_AGE_4    
+**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes or high blood sugar    
+**Value type**:  integer  
+**Variable unit**:  Age in years  
+**Category coding**: N/A
+
+**Hamonization status**:  
+**Harmonization comment**:  
+**R script**:  
+```{r, echo=TRUE}  
+#This is where the R-script will be written  
+
+```  
+### **Variable label**: Age at diagnosis of diabetes, borderline diabetes or high blood sugar  
+**Variable name**:  DIS_DIAB_AGE_5    
+**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes or high blood sugar    
+**Value type**:  integer  
+**Variable unit**:  Age in years  
+**Category coding**: N/A
+
+**Hamonization status**:  
+**Harmonization comment**:  
+**R script**:  
+```{r, echo=TRUE}  
+#This is where the R-script will be written  
+
+```  
+
+### **Variable label**: Currently under treatment for diabetes  
+**Variable name**:  DIS_DIAB_TX_0  
+**Variable description**:  Indicator of whether the participant is currently under treatment for diabetes.    
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding**:  
 
 **Code** | **Category Label**  
 ---------| -------------------------------------  
-0        | Never received treatment for diabetes  
-1        | Ever received treatment for diabetes  
+0        | Not currently under treatment for diabetes  
+1        | Currently under treatment for diabetes  
 
 **Harmonization status**:  
 **Harmonization comment**:  
@@ -247,19 +693,113 @@ output: html_document
 ```{r, echo=TRUE}
 #This is where the R-script will be written
 
-```
+```  
+### **Variable label**: Currently under treatment for diabetes  
+**Variable name**:  DIS_DIAB_TX_1  
+**Variable description**:  Indicator of whether the participant is currently under treatment for diabetes.    
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
 
-### **Variable label**: Diabetes insulin use  
-**Variable name**:  OTH_DIAB_INS  
-**Variable description**:  Indicator of whether participant has ever used insulin for diabetes treatment  
+**Code** | **Category Label**  
+---------| -------------------------------------  
+0        | Not currently under treatment for diabetes  
+1        | Currently under treatment for diabetes  
+
+**Harmonization status**:  
+**Harmonization comment**:  
+**R script**:
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
+### **Variable label**: Currently under treatment for diabetes  
+**Variable name**:  DIS_DIAB_TX_2  
+**Variable description**:  Indicator of whether the participant is currently under treatment for diabetes.    
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
+
+**Code** | **Category Label**  
+---------| -------------------------------------  
+0        | Not currently under treatment for diabetes  
+1        | Currently under treatment for diabetes  
+
+**Harmonization status**:  
+**Harmonization comment**:  
+**R script**:
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
+### **Variable label**: Currently under treatment for diabetes  
+**Variable name**:  DIS_DIAB_TX_3  
+**Variable description**:  Indicator of whether the participant is currently under treatment for diabetes.    
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
+
+**Code** | **Category Label**  
+---------| -------------------------------------  
+0        | Not currently under treatment for diabetes  
+1        | Currently under treatment for diabetes  
+
+**Harmonization status**:  
+**Harmonization comment**:  
+**R script**:
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
+### **Variable label**: Currently under treatment for diabetes  
+**Variable name**:  DIS_DIAB_TX_4  
+**Variable description**:  Indicator of whether the participant is currently under treatment for diabetes.    
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
+
+**Code** | **Category Label**  
+---------| -------------------------------------  
+0        | Not currently under treatment for diabetes  
+1        | Currently under treatment for diabetes  
+
+**Harmonization status**:  
+**Harmonization comment**:  
+**R script**:
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
+### **Variable label**: Currently under treatment for diabetes  
+**Variable name**:  DIS_DIAB_TX_5  
+**Variable description**:  Indicator of whether the participant is currently under treatment for diabetes.    
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
+
+**Code** | **Category Label**  
+---------| -------------------------------------  
+0        | Not currently under treatment for diabetes  
+1        | Currently under treatment for diabetes  
+
+**Harmonization status**:  
+**Harmonization comment**:  
+**R script**:
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
+### **Variable label**: Currently use insultin for diabetes  
+**Variable name**:  DIS_DIAB_INS_0  
+**Variable description**:  Indicator of whether the participant uses insulin for diabetes treatment  
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding**:  
 
 **Code** | **Category Label**  
 ---------| ---------------------------------------------  
-0        | Never has used insulin for diabetes treatment  
-1        | Ever has used insulin for diabetes treatment  
+0        | currently does not use insulin for diabetes treatment  
+1        | Currently has used insulin for diabetes treatment  
 
 **Harmonization status**:  
 **Harmonization comment**:  
@@ -267,8 +807,45 @@ output: html_document
 ```{r, echo=TRUE}
 #This is where the R-script will be written
 
-```
+```  
+### **Variable label**: Currently use insultin for diabetes  
+**Variable name**:  DIS_DIAB_INS_1  
+**Variable description**:  Indicator of whether the participant uses insulin for diabetes treatment  
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
 
+**Code** | **Category Label**  
+---------| ---------------------------------------------  
+0        | currently does not use insulin for diabetes treatment  
+1        | Currently has used insulin for diabetes treatment  
+
+**Harmonization status**:  
+**Harmonization comment**:  
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
+### **Variable label**: Currently use insultin for diabetes  
+**Variable name**:  DIS_DIAB_INS_2  
+**Variable description**:  Indicator of whether the participant uses insulin for diabetes treatment  
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
+
+**Code** | **Category Label**  
+---------| ---------------------------------------------  
+0        | currently does not use insulin for diabetes treatment  
+1        | Currently has used insulin for diabetes treatment  
+
+**Harmonization status**:  
+**Harmonization comment**:  
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
 # BMI subdomain
 
 ### **Variable label**: Weight in kg - measured 
