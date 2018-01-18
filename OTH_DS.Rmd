@@ -1075,11 +1075,11 @@ output: html_document
 ```  
 
 ### **Variable label**: Weight in kg - self-reported and measured combined
-**Variable name**: phy_weight_all_0    
-**Variable description**: Weight of participant in kilograms - self-reported  and measured combined.
+**Variable name**: phy_weight_all_0      
+**Variable description**: Weight of participant in kilograms - self-reported  and measured combined.  
 **Value type**: integer  
 **Variable unit**: kilogram   
-**Category coding**: N/A
+**Category coding**: N/A  
 
 **Harmonization status**:  
 **Harmonization comment**:   
@@ -1091,10 +1091,10 @@ output: html_document
 
 ### **Variable label**: Weight in kg - self-reported and measured combined
 **Variable name**: phy_weight_all_1    
-**Variable description**: Weight of participant in kilograms - self-reported  and measured combined.
+**Variable description**: Weight of participant in kilograms - self-reported  and measured combined.  
 **Value type**: integer  
 **Variable unit**: kilogram   
-**Category coding**: N/A
+**Category coding**: N/A  
 
 **Harmonization status**:  
 **Harmonization comment**:   
@@ -1103,12 +1103,12 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**: Weight in kg - self-reported and measured combined
+### **Variable label**: Weight in kg - self-reported and measured combined  
 **Variable name**: phy_weight_all_2    
-**Variable description**: Weight of participant in kilograms - self-reported  and measured combined.
+**Variable description**: Weight of participant in kilograms - self-reported  and measured combined.  
 **Value type**: integer  
 **Variable unit**: kilogram   
-**Category coding**: N/A
+**Category coding**: N/A  
 
 **Harmonization status**:  
 **Harmonization comment**:   
@@ -1117,12 +1117,12 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**: Weight in kg - self-reported and measured combined
-**Variable name**: phy_weight_all_3    
-**Variable description**: Weight of participant in kilograms - self-reported  and measured combined.
-**Value type**: integer  
-**Variable unit**: kilogram   
-**Category coding**: N/A
+### **Variable label**: Weight in kg - self-reported and measured combined  
+**Variable name**: phy_weight_all_3     
+**Variable description**: Weight of participant in kilograms - self-reported  and measured combined.  
+**Value type**: integer   
+**Variable unit**: kilogram    
+**Category coding**: N/A  
 
 **Harmonization status**:  
 **Harmonization comment**:   
@@ -1131,12 +1131,12 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**: Weight in kg - self-reported and measured combined
+### **Variable label**: Weight in kg - self-reported and measured combined  
 **Variable name**: phy_weight_all_4    
-**Variable description**: Weight of participant in kilograms - self-reported  and measured combined.
+**Variable description**: Weight of participant in kilograms - self-reported  and measured combined.  
 **Value type**: integer  
 **Variable unit**: kilogram   
-**Category coding**: N/A
+**Category coding**: N/A  
 
 **Harmonization status**:  
 **Harmonization comment**:   
@@ -1145,12 +1145,12 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**: Weight in kg - self-reported and measured combined
+### **Variable label**: Weight in kg - self-reported and measured combined  
 **Variable name**: phy_weight_all_5    
-**Variable description**: Weight of participant in kilograms - self-reported  and measured combined.
+**Variable description**: Weight of participant in kilograms - self-reported  and measured combined.  
 **Value type**: integer  
 **Variable unit**: kilogram   
-**Category coding**: N/A
+**Category coding**: N/A  
 
 **Harmonization status**:  
 **Harmonization comment**:   
@@ -1159,12 +1159,12 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**: Weight in kg - self-reported and measured combined
+### **Variable label**: Weight in kg - self-reported and measured combined  
 **Variable name**: phy_weight_all_6    
-**Variable description**: Weight of participant in kilograms - self-reported  and measured combined.
+**Variable description**: Weight of participant in kilograms - self-reported  and measured combined.  
 **Value type**: integer  
 **Variable unit**: kilogram   
-**Category coding**: N/A
+**Category coding**: N/A  
 
 **Harmonization status**:  
 **Harmonization comment**:   
@@ -2354,7 +2354,7 @@ output: html_document
 ```
 
 ### **Variable label**:  Less than good self-assessed health  
-**Variable name**:  OTH_SAHGOOD
+**Variable name**:  OTH_SAHGOOD  
 **Variable description**:  Dichotomous indicator of self-assessed health indicating good vs less than good health.  
 **Value type**:  integer  
 **Variable unit**:  N/A  
