@@ -946,21 +946,6 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**: Weight in kg - measured 
-**Variable name**: phy_weight_ms_7  
-**Variable description**: Weight of participant in kilograms - measured.  
-**Value type**: integer  
-**Variable unit**: kilogram   
-**Category coding**: N/A
-
-**Harmonization status**:  
-**Harmonization comment**:   
-**R script**:  
-```{r, echo=TRUE}
-#This is where the R-script will be written
-
-```  
-
 ### **Variable label**: Weight in kg - self-reported 
 **Variable name**: phy_weight_sr_0    
 **Variable description**: Weight of participant in kilograms - self-reported.  
@@ -1059,21 +1044,6 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**: Weight in kg - self-reported 
-**Variable name**: phy_weight_sr_7    
-**Variable description**: Weight of participant in kilograms - self-reported.  
-**Value type**: integer  
-**Variable unit**: kilogram   
-**Category coding**: N/A
-
-**Harmonization status**:  
-**Harmonization comment**:   
-**R script**:  
-```{r, echo=TRUE}
-#This is where the R-script will be written
-
-```  
-
 ### **Variable label**: Weight in kg - self-reported and measured combined
 **Variable name**: phy_weight_all_0      
 **Variable description**: Weight of participant in kilograms - self-reported  and measured combined.  
