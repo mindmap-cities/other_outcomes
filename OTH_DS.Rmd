@@ -850,9 +850,9 @@ output: html_document
 
 ### **Variable label**: Weight in kg - measured 
 **Variable name**: phy_weight_ms_0  
-**Variable description**: Weight of participant in kilograms - measured.  
+**Variable description**: Weight of the participant in kilograms - measured.  
 **Value type**: integer  
-**Variable unit**: kilogram   
+**Variable unit**: kg   
 **Category coding**: N/A
 
 **Harmonization status**:  
@@ -864,9 +864,9 @@ output: html_document
 ```  
 ### **Variable label**: Weight in kg - measured 
 **Variable name**: phy_weight_ms_1  
-**Variable description**: Weight of participant in kilograms - measured.  
+**Variable description**: Weight of the participant in kilograms - measured.  
 **Value type**: integer  
-**Variable unit**: kilogram   
+**Variable unit**: kg   
 **Category coding**: N/A
 
 **Harmonization status**:  
@@ -878,9 +878,9 @@ output: html_document
 ```  
 ### **Variable label**: Weight in kg - measured 
 **Variable name**: phy_weight_ms_2  
-**Variable description**: Weight of participant in kilograms - measured.  
+**Variable description**: Weight of the participant in kilograms - measured.  
 **Value type**: integer  
-**Variable unit**: kilogram   
+**Variable unit**: kg   
 **Category coding**: N/A
 
 **Harmonization status**:  
@@ -892,9 +892,9 @@ output: html_document
 ```  
 ### **Variable label**: Weight in kg - measured 
 **Variable name**: phy_weight_ms_3  
-**Variable description**: Weight of participant in kilograms - measured.  
+**Variable description**: Weight of the participant in kilograms - measured.  
 **Value type**: integer  
-**Variable unit**: kilogram   
+**Variable unit**: kg   
 **Category coding**: N/A
 
 **Harmonization status**:  
@@ -906,9 +906,9 @@ output: html_document
 ```  
 ### **Variable label**: Weight in kg - measured 
 **Variable name**: phy_weight_ms_4  
-**Variable description**: Weight of participant in kilograms - measured.  
+**Variable description**: Weight of the participant in kilograms - measured.  
 **Value type**: integer  
-**Variable unit**: kilogram   
+**Variable unit**: kg   
 **Category coding**: N/A
 
 **Harmonization status**:  
@@ -920,9 +920,9 @@ output: html_document
 ```  
 ### **Variable label**: Weight in kg - measured 
 **Variable name**: phy_weight_ms_5  
-**Variable description**: Weight of participant in kilograms - measured.  
+**Variable description**: Weight of the participant in kilograms - measured.  
 **Value type**: integer  
-**Variable unit**: kilogram   
+**Variable unit**: kg   
 **Category coding**: N/A
 
 **Harmonization status**:  
@@ -934,9 +934,9 @@ output: html_document
 ```  
 ### **Variable label**: Weight in kg - measured 
 **Variable name**: phy_weight_ms_6  
-**Variable description**: Weight of participant in kilograms - measured.  
+**Variable description**: Weight of the participant in kilograms - measured.  
 **Value type**: integer  
-**Variable unit**: kilogram   
+**Variable unit**: kg   
 **Category coding**: N/A
 
 **Harmonization status**:  
@@ -948,9 +948,9 @@ output: html_document
 ```  
 ### **Variable label**: Weight in kg - self-reported 
 **Variable name**: phy_weight_sr_0    
-**Variable description**: Weight of participant in kilograms - self-reported.  
+**Variable description**: Weight of the participant in kilograms - self-reported.  
 **Value type**: integer  
-**Variable unit**: kilogram   
+**Variable unit**: kg   
 **Category coding**: N/A
 
 **Harmonization status**:  
@@ -962,9 +962,9 @@ output: html_document
 ```  
 ### **Variable label**: Weight in kg - self-reported 
 **Variable name**: phy_weight_sr_1    
-**Variable description**: Weight of participant in kilograms - self-reported.  
+**Variable description**: Weight of the participant in kilograms - self-reported.  
 **Value type**: integer  
-**Variable unit**: kilogram   
+**Variable unit**: kg   
 **Category coding**: N/A
 
 **Harmonization status**:  
@@ -976,9 +976,9 @@ output: html_document
 ```  
 ### **Variable label**: Weight in kg - self-reported 
 **Variable name**: phy_weight_sr_2    
-**Variable description**: Weight of participant in kilograms - self-reported.  
+**Variable description**: Weight of the participant in kilograms - self-reported.  
 **Value type**: integer  
-**Variable unit**: kilogram   
+**Variable unit**: kg   
 **Category coding**: N/A
 
 **Harmonization status**:  
@@ -990,9 +990,9 @@ output: html_document
 ```  
 ### **Variable label**: Weight in kg - self-reported 
 **Variable name**: phy_weight_sr_3    
-**Variable description**: Weight of participant in kilograms - self-reported.  
+**Variable description**: Weight of the participant in kilograms - self-reported.  
 **Value type**: integer  
-**Variable unit**: kilogram   
+**Variable unit**: kg   
 **Category coding**: N/A
 
 **Harmonization status**:  
@@ -1004,9 +1004,9 @@ output: html_document
 ```  
 ### **Variable label**: Weight in kg - self-reported 
 **Variable name**: phy_weight_sr_4    
-**Variable description**: Weight of participant in kilograms - self-reported.  
+**Variable description**: Weight of the participant in kilograms - self-reported.  
 **Value type**: integer  
-**Variable unit**: kilogram   
+**Variable unit**: kg   
 **Category coding**: N/A
 
 **Harmonization status**:  
@@ -1018,9 +1018,9 @@ output: html_document
 ```  
 ### **Variable label**: Weight in kg - self-reported 
 **Variable name**: phy_weight_sr_5    
-**Variable description**: Weight of participant in kilograms - self-reported.  
+**Variable description**: Weight of the participant in kilograms - self-reported.  
 **Value type**: integer  
-**Variable unit**: kilogram   
+**Variable unit**: kg   
 **Category coding**: N/A
 
 **Harmonization status**:  
@@ -1032,9 +1032,9 @@ output: html_document
 ```  
 ### **Variable label**: Weight in kg - self-reported 
 **Variable name**: phy_weight_sr_6    
-**Variable description**: Weight of participant in kilograms - self-reported.  
+**Variable description**: Weight of the participant in kilograms - self-reported.  
 **Value type**: integer  
-**Variable unit**: kilogram   
+**Variable unit**: kg   
 **Category coding**: N/A
 
 **Harmonization status**:  
@@ -1044,11 +1044,11 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**: Weight in kg - self-reported and measured combined
+### **Variable label**: Weight in kg - measured and self-reported combined
 **Variable name**: phy_weight_all_0      
-**Variable description**: Weight of participant in kilograms - self-reported  and measured combined.  
+**Variable description**: Weight of the participant in kilograms - measured and self-reported combined.  
 **Value type**: integer  
-**Variable unit**: kilogram   
+**Variable unit**: kg   
 **Category coding**: N/A  
 
 **Harmonization status**:  
@@ -1059,11 +1059,11 @@ output: html_document
 
 ```  
 
-### **Variable label**: Weight in kg - self-reported and measured combined
+### **Variable label**: Weight in kg - measured and self-reported combined
 **Variable name**: phy_weight_all_1    
-**Variable description**: Weight of participant in kilograms - self-reported  and measured combined.  
+**Variable description**: Weight of the participant in kilograms - measured and self-reported combined.    
 **Value type**: integer  
-**Variable unit**: kilogram   
+**Variable unit**: kg   
 **Category coding**: N/A  
 
 **Harmonization status**:  
@@ -1073,11 +1073,11 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**: Weight in kg - self-reported and measured combined  
+### **Variable label**: Weight in kg - measured and self-reported combined  
 **Variable name**: phy_weight_all_2    
-**Variable description**: Weight of participant in kilograms - self-reported  and measured combined.  
+**Variable description**: Weight of the participant in kilograms - measured and self-reported combined.    
 **Value type**: integer  
-**Variable unit**: kilogram   
+**Variable unit**: kg   
 **Category coding**: N/A  
 
 **Harmonization status**:  
@@ -1087,11 +1087,11 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**: Weight in kg - self-reported and measured combined  
+### **Variable label**: Weight in kg - measured and self-reported combined  
 **Variable name**: phy_weight_all_3     
-**Variable description**: Weight of participant in kilograms - self-reported  and measured combined.  
+**Variable description**: Weight of the participant in kilograms - self-reported and measured combined.   
 **Value type**: integer   
-**Variable unit**: kilogram    
+**Variable unit**: kg    
 **Category coding**: N/A  
 
 **Harmonization status**:  
@@ -1103,9 +1103,9 @@ output: html_document
 ```  
 ### **Variable label**: Weight in kg - self-reported and measured combined  
 **Variable name**: phy_weight_all_4    
-**Variable description**: Weight of participant in kilograms - self-reported  and measured combined.  
+**Variable description**: Weight of the participant in kilograms - self-reported and measured combined.  
 **Value type**: integer  
-**Variable unit**: kilogram   
+**Variable unit**: kg   
 **Category coding**: N/A  
 
 **Harmonization status**:  
@@ -1117,9 +1117,9 @@ output: html_document
 ```  
 ### **Variable label**: Weight in kg - self-reported and measured combined  
 **Variable name**: phy_weight_all_5    
-**Variable description**: Weight of participant in kilograms - self-reported  and measured combined.  
+**Variable description**: Weight of the participant in kilograms - self-reported and measured combined.  
 **Value type**: integer  
-**Variable unit**: kilogram   
+**Variable unit**: kg   
 **Category coding**: N/A  
 
 **Harmonization status**:  
@@ -1131,9 +1131,9 @@ output: html_document
 ```  
 ### **Variable label**: Weight in kg - self-reported and measured combined  
 **Variable name**: phy_weight_all_6    
-**Variable description**: Weight of participant in kilograms - self-reported  and measured combined.  
+**Variable description**: Weight of the participant in kilograms - self-reported and measured combined.  
 **Value type**: integer  
-**Variable unit**: kilogram   
+**Variable unit**: kg   
 **Category coding**: N/A  
 
 **Harmonization status**:  
@@ -1143,11 +1143,11 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**: Height in centimeters - measured  
+### **Variable label**: Height in cm - measured  
 **Variable name**: phy_height_ms_0  
-**Variable description**: Height of participant in centimeters - measured.  
+**Variable description**: Height of the participant in centimeters - measured.  
 **Value type**: integer  
-**Variable unit**: centimeters  
+**Variable unit**: cm  
 **Category coding**: N/A
 
 **Harmonization status**:  
@@ -1157,11 +1157,11 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**: Height in centimeters - measured  
+### **Variable label**: Height in cm - measured  
 **Variable name**: phy_height_ms_1  
-**Variable description**: Height of participant in centimeters - measured.  
+**Variable description**: Height of the participant in centimeters - measured.  
 **Value type**: integer  
-**Variable unit**: centimeters  
+**Variable unit**: cm  
 **Category coding**: N/A
 
 **Harmonization status**:  
@@ -1171,11 +1171,11 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**: Height in centimeters - measured  
+### **Variable label**: Height in cm - measured  
 **Variable name**: phy_height_ms_2  
-**Variable description**: Height of participant in centimeters - measured.  
+**Variable description**: Height of the participant in centimeters - measured.  
 **Value type**: integer  
-**Variable unit**: centimeters  
+**Variable unit**: cm  
 **Category coding**: N/A
 
 **Harmonization status**:  
@@ -1185,11 +1185,11 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**: Height in centimeters - measured  
+### **Variable label**: Height in cm - measured  
 **Variable name**: phy_height_ms_3  
-**Variable description**: Height of participant in centimeters - measured.  
+**Variable description**: Height of the participant in centimeters - measured.  
 **Value type**: integer  
-**Variable unit**: centimeters  
+**Variable unit**: cm    
 **Category coding**: N/A
 
 **Harmonization status**:  
@@ -1199,11 +1199,11 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**: Height in centimeters - measured  
+### **Variable label**: Height in cm - measured  
 **Variable name**: phy_height_ms_4  
-**Variable description**: Height of participant in centimeters - measured.  
+**Variable description**: Height of the participant in centimeters - measured.  
 **Value type**: integer  
-**Variable unit**: centimeters  
+**Variable unit**: cm  
 **Category coding**: N/A
 
 **Harmonization status**:  
@@ -1213,11 +1213,11 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**: Height in centimeters - measured  
+### **Variable label**: Height in cm - measured  
 **Variable name**: phy_height_ms_5  
-**Variable description**: Height of participant in centimeters - measured.  
+**Variable description**: Height of the participant in centimeters - measured.  
 **Value type**: integer  
-**Variable unit**: centimeters  
+**Variable unit**: cm  
 **Category coding**: N/A
 
 **Harmonization status**:  
@@ -1227,11 +1227,11 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**: Height in centimeters - measured  
+### **Variable label**: Height in cm - measured  
 **Variable name**: phy_height_ms_6  
-**Variable description**: Height of participant in centimeters - measured.  
+**Variable description**: Height of the participant in centimeters - measured.  
 **Value type**: integer  
-**Variable unit**: centimeters  
+**Variable unit**: cm  
 **Category coding**: N/A
 
 **Harmonization status**:  
@@ -1242,11 +1242,11 @@ output: html_document
 
 ```  
 
-### **Variable label**: Height in centimeters - self-reported  
+### **Variable label**: Height in cm - self-reported  
 **Variable name**: phy_height_sr_0  
-**Variable description**: Height of participant in centimeters - self-reported.  
+**Variable description**: Height of the participant in centimeters - self-reported.  
 **Value type**: integer  
-**Variable unit**: centimeters  
+**Variable unit**: cm  
 **Category coding**: N/A
 
 **Harmonization status**:  
@@ -1256,11 +1256,11 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**: Height in centimeters - self-reported  
+### **Variable label**: Height in cm - self-reported  
 **Variable name**: phy_height_sr_1  
-**Variable description**: Height of participant in centimeters - self-reported.  
+**Variable description**: Height of the participant in centimeters - self-reported.  
 **Value type**: integer  
-**Variable unit**: centimeters  
+**Variable unit**: cm  
 **Category coding**: N/A
 
 **Harmonization status**:  
@@ -1270,11 +1270,11 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**: Height in centimeters - self-reported  
+### **Variable label**: Height in cm - self-reported  
 **Variable name**: phy_height_sr_2  
-**Variable description**: Height of participant in centimeters - self-reported.  
+**Variable description**: Height of the participant in centimeters - self-reported.  
 **Value type**: integer  
-**Variable unit**: centimeters  
+**Variable unit**: cm  
 **Category coding**: N/A
 
 **Harmonization status**:  
@@ -1284,11 +1284,11 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**: Height in centimeters - self-reported  
+### **Variable label**: Height in cm - self-reported  
 **Variable name**: phy_height_sr_3  
-**Variable description**: Height of participant in centimeters - self-reported.  
+**Variable description**: Height of the participant in centimeters - self-reported.  
 **Value type**: integer  
-**Variable unit**: centimeters  
+**Variable unit**: cm  
 **Category coding**: N/A
 
 **Harmonization status**:  
@@ -1298,11 +1298,11 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**: Height in centimeters - self-reported  
+### **Variable label**: Height in cm - self-reported  
 **Variable name**: phy_height_sr_4  
-**Variable description**: Height of participant in centimeters - self-reported.  
+**Variable description**: Height of the participant in centimeters - self-reported.  
 **Value type**: integer  
-**Variable unit**: centimeters  
+**Variable unit**: cm  
 **Category coding**: N/A
 
 **Harmonization status**:  
@@ -1312,11 +1312,11 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**: Height in centimeters - self-reported  
+### **Variable label**: Height in cm - self-reported  
 **Variable name**: phy_height_sr_5  
-**Variable description**: Height of participant in centimeters - self-reported.  
+**Variable description**: Height of the participant in centimeters - self-reported.  
 **Value type**: integer  
-**Variable unit**: centimeters  
+**Variable unit**: cm  
 **Category coding**: N/A
 
 **Harmonization status**:  
@@ -1326,11 +1326,11 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**: Height in centimeters - self-reported  
+### **Variable label**: Height in cm - self-reported  
 **Variable name**: phy_height_sr_6  
-**Variable description**: Height of participant in centimeters - self-reported.  
+**Variable description**: Height of the participant in centimeters - self-reported.  
 **Value type**: integer  
-**Variable unit**: centimeters  
+**Variable unit**: cm  
 **Category coding**: N/A
 
 **Harmonization status**:  
@@ -1341,11 +1341,11 @@ output: html_document
 
 ```  
 
-### **Variable label**: Height in centimeters - self-reported and measured combined  
+### **Variable label**: Height in cm - measured and self-reported combined  
 **Variable name**: phy_height_all_0    
-**Variable description**: Height of participant in centimeters - self-reported and measured combined.  
+**Variable description**: Height of the participant in centimeters - self-reported and measured combined.  
 **Value type**: integer  
-**Variable unit**: centimeters  
+**Variable unit**: cm  
 **Category coding**: N/A
 
 **Harmonization status**:  
@@ -1355,11 +1355,11 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**: Height in centimeters - self-reported and measured combined  
+### **Variable label**: Height in cm - measured and self-reported combined  
 **Variable name**: phy_height_all_1    
-**Variable description**: Height of participant in centimeters - self-reported and measured combined.  
+**Variable description**: Height of the participant in centimeters - measured and self-reported combined.  
 **Value type**: integer  
-**Variable unit**: centimeters  
+**Variable unit**: cm  
 **Category coding**: N/A
 
 **Harmonization status**:  
@@ -1369,11 +1369,11 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**: Height in centimeters - self-reported and measured combined  
+### **Variable label**: Height in cm - measured and self-reported combined    
 **Variable name**: phy_height_all_2    
-**Variable description**: Height of participant in centimeters - self-reported and measured combined.  
+**Variable description**: Height of the participant in centimeters - measured and self-reported combined.  
 **Value type**: integer  
-**Variable unit**: centimeters  
+**Variable unit**: cm  
 **Category coding**: N/A
 
 **Harmonization status**:  
@@ -1383,11 +1383,11 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**: Height in centimeters - self-reported and measured combined  
+### **Variable label**: Height in cm - measured and self-reported combined  
 **Variable name**: phy_height_all_3    
-**Variable description**: Height of participant in centimeters - self-reported and measured combined.  
+**Variable description**: Height of the participant in centimeters - measured and self-reported combined.  
 **Value type**: integer  
-**Variable unit**: centimeters  
+**Variable unit**: cm  
 **Category coding**: N/A
 
 **Harmonization status**:  
@@ -1397,11 +1397,11 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**: Height in centimeters - self-reported and measured combined  
+### **Variable label**: Height in cm - measured and self-reported combined  
 **Variable name**: phy_height_all_4    
-**Variable description**: Height of participant in centimeters - self-reported and measured combined.  
+**Variable description**: Height of the participant in centimeters - measured and self-reported combined.  
 **Value type**: integer  
-**Variable unit**: centimeters  
+**Variable unit**: cm  
 **Category coding**: N/A
 
 **Harmonization status**:  
@@ -1411,11 +1411,11 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**: Height in centimeters - self-reported and measured combined  
+### **Variable label**: Height in cm - measured and self-reported combined  
 **Variable name**: phy_height_all_5    
-**Variable description**: Height of participant in centimeters - self-reported and measured combined.  
+**Variable description**: Height of the participant in centimeters - measured and self-reported combined.  
 **Value type**: integer  
-**Variable unit**: centimeters  
+**Variable unit**: cm  
 **Category coding**: N/A
 
 **Harmonization status**:  
@@ -1425,11 +1425,11 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**: Height in centimeters - self-reported and measured combined  
+### **Variable label**: Height in cm - measured and self-reported combined  
 **Variable name**: phy_height_all_6    
-**Variable description**: Height of participant in centimeters - self-reported and measured combined.  
+**Variable description**: Height of the participant in centimeters - measured and self-reported combined.  
 **Value type**: integer  
-**Variable unit**: centimeters  
+**Variable unit**: cm  
 **Category coding**: N/A
 
 **Harmonization status**:  
@@ -1442,7 +1442,7 @@ output: html_document
 
 ### **Variable label**: Body mass index (BMI) - measured  
 **Variable name**: phy_bmi_ms_0  
-**Variable description**: Body mass index - measured.  
+**Variable description**: Weight (in kg) divided by height (in m) squared - measured.  
 **Value type**: integer  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
@@ -1456,7 +1456,7 @@ output: html_document
 ```  
 ### **Variable label**: Body mass index (BMI) - measured  
 **Variable name**: phy_bmi_ms_1  
-**Variable description**: Body mass index - measured.  
+**Variable description**: Weight (in kg) divided by height (in m) squared - measured.    
 **Value type**: integer  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
@@ -1470,7 +1470,7 @@ output: html_document
 ```  
 ### **Variable label**: Body mass index (BMI) - measured  
 **Variable name**: phy_bmi_ms_2  
-**Variable description**: Body mass index - measured.  
+**Variable description**: Weight (in kg) divided by height (in m) squared - measured.   
 **Value type**: integer  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
@@ -1484,7 +1484,7 @@ output: html_document
 ```  
 ### **Variable label**: Body mass index (BMI) - measured  
 **Variable name**: phy_bmi_ms_3  
-**Variable description**: Body mass index - measured.  
+**Variable description**: Weight (in kg) divided by height (in m) squared - measured.    
 **Value type**: integer  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
@@ -1498,7 +1498,7 @@ output: html_document
 ```  
 ### **Variable label**: Body mass index (BMI) - measured  
 **Variable name**: phy_bmi_ms_4  
-**Variable description**: Body mass index - measured.  
+**Variable description**: Weight (in kg) divided by height (in m) squared - measured.   
 **Value type**: integer  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
@@ -1512,7 +1512,7 @@ output: html_document
 ```  
 ### **Variable label**: Body mass index (BMI) - measured  
 **Variable name**: phy_bmi_ms_5  
-**Variable description**: Body mass index - measured.  
+**Variable description**: Weight (in kg) divided by height (in m) squared - measured.    
 **Value type**: integer  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
@@ -1526,7 +1526,7 @@ output: html_document
 ```  
 ### **Variable label**: Body mass index (BMI) - measured  
 **Variable name**: phy_bmi_ms_6  
-**Variable description**: Body mass index - measured.  
+**Variable description**: Weight (in kg) divided by height (in m) squared - measured.    
 **Value type**: integer  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
@@ -1541,7 +1541,7 @@ output: html_document
 
 ### **Variable label**: Body mass index (BMI) - self-reported  
 **Variable name**: phy_bmi_sr_0  
-**Variable description**: Body mass index - self-reported.  
+**Variable description**: Weight (in kg) divided by height (in m) squared - self-reported.  
 **Value type**: integer  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
@@ -1555,7 +1555,7 @@ output: html_document
 ```  
 ### **Variable label**: Body mass index (BMI) - self-reported  
 **Variable name**: phy_bmi_sr_1  
-**Variable description**: Body mass index - self-reported.  
+**Variable description**: Weight (in kg) divided by height (in m) squared - self-reported.  
 **Value type**: integer  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
@@ -1569,7 +1569,7 @@ output: html_document
 ```  
 ### **Variable label**: Body mass index (BMI) - self-reported  
 **Variable name**: phy_bmi_sr_2  
-**Variable description**: Body mass index - self-reported.  
+**Variable description**: Weight (in kg) divided by height (in m) squared - self-reported.    
 **Value type**: integer  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
@@ -1583,7 +1583,7 @@ output: html_document
 ```  
 ### **Variable label**: Body mass index (BMI) - self-reported  
 **Variable name**: phy_bmi_sr_3  
-**Variable description**: Body mass index - self-reported.  
+**Variable description**: Weight (in kg) divided by height (in m) squared - self-reported.    
 **Value type**: integer  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
@@ -1597,7 +1597,7 @@ output: html_document
 ```  
 ### **Variable label**: Body mass index (BMI) - self-reported  
 **Variable name**: phy_bmi_sr_4  
-**Variable description**: Body mass index - self-reported.  
+**Variable description**: Weight (in kg) divided by height (in m) squared - self-reported.    
 **Value type**: integer  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
@@ -1611,7 +1611,7 @@ output: html_document
 ```  
 ### **Variable label**: Body mass index (BMI) - self-reported  
 **Variable name**: phy_bmi_sr_5  
-**Variable description**: Body mass index - self-reported.  
+**Variable description**: Weight (in kg) divided by height (in m) squared - self-reported.    
 **Value type**: integer  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
@@ -1625,7 +1625,7 @@ output: html_document
 ```  
 ### **Variable label**: Body mass index (BMI) - self-reported  
 **Variable name**: phy_bmi_sr_6  
-**Variable description**: Body mass index - self-reported.  
+**Variable description**: Weight (in kg) divided by height (in m) squared - self-reported.    
 **Value type**: integer  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
@@ -1638,9 +1638,9 @@ output: html_document
 
 ```   
 
-### **Variable label**: Body mass index (BMI) - self-reported and measured combined  
+### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
 **Variable name**: phy_bmi_all_0  
-**Variable description**: Body mass index - self-reported and measured combined.  
+**Variable description**: Weight (in kg) divided by height (in m) squared - measured and self-reported combined.  
 **Value type**: integer  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
@@ -1652,9 +1652,9 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**: Body mass index (BMI) - self-reported and measured combined  
+### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
 **Variable name**: phy_bmi_all_1  
-**Variable description**: Body mass index - self-reported and measured combined.  
+**Variable description**: Weight (in kg) divided by height (in m) squared - measured and self-reported combined.  
 **Value type**: integer  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
@@ -1666,9 +1666,9 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**: Body mass index (BMI) - self-reported and measured combined  
+### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
 **Variable name**: phy_bmi_all_2  
-**Variable description**: Body mass index - self-reported and measured combined.  
+**Variable description**: Weight (in kg) divided by height (in m) squared - measured and self-reported combined.    
 **Value type**: integer  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
@@ -1680,9 +1680,9 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**: Body mass index (BMI) - self-reported and measured combined  
+### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
 **Variable name**: phy_bmi_all_3  
-**Variable description**: Body mass index - self-reported and measured combined.  
+**Variable description**: Weight (in kg) divided by height (in m) squared - measured and self-reported combined.  
 **Value type**: integer  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
@@ -1694,9 +1694,9 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**: Body mass index (BMI) - self-reported and measured combined  
+### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
 **Variable name**: phy_bmi_all_4  
-**Variable description**: Body mass index - self-reported and measured combined.  
+**Variable description**: Weight (in kg) divided by height (in m) squared - measured and self-reported combined.  
 **Value type**: integer  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
@@ -1708,9 +1708,9 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**: Body mass index (BMI) - self-reported and measured combined  
+### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
 **Variable name**: phy_bmi_all_5  
-**Variable description**: Body mass index - self-reported and measured combined.  
+**Variable description**: Weight (in kg) divided by height (in m) squared - measured and self-reported combined.  
 **Value type**: integer  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
@@ -1722,7 +1722,7 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**: Body mass index (BMI) - self-reported and measured combined  
+### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
 **Variable name**: phy_bmi_all_6  
 **Variable description**: Body mass index - self-reported and measured combined.  
 **Value type**: integer  
@@ -1737,9 +1737,9 @@ output: html_document
 
 ```  
 
-### **Variable label**:  Body mass index - categories - measured  
+### **Variable label**:  Body mass index (BMI) - categories - measured  
 **Variable name**: phy_bmi_cat_ms_0  
-**Variable description**: Body mass index - categories - measured.  
+**Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - measured.    
 **Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
@@ -1758,9 +1758,9 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**:  Body mass index - categories - measured  
+### **Variable label**:  Body mass index (BMI) - categories - measured  
 **Variable name**: phy_bmi_cat_ms_1  
-**Variable description**: Body mass index - categories - measured.  
+**Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - measured.  
 **Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
@@ -1779,9 +1779,9 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**:  Body mass index - categories - measured  
+### **Variable label**:  Body mass index (BMI) - categories - measured  
 **Variable name**: phy_bmi_cat_ms_2  
-**Variable description**: Body mass index - categories - measured.  
+**Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - measured.    
 **Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
@@ -1800,9 +1800,9 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**:  Body mass index - categories - measured  
+### **Variable label**:  Body mass index (BMI) - categories - measured  
 **Variable name**: phy_bmi_cat_ms_3  
-**Variable description**: Body mass index - categories - measured.  
+**Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - measured.    
 **Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
@@ -1821,9 +1821,9 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**:  Body mass index - categories - measured  
+### **Variable label**:  Body mass index (BMI) - categories - measured  
 **Variable name**: phy_bmi_cat_ms_4  
-**Variable description**: Body mass index - categories - measured.  
+**Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - measured.    
 **Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
@@ -1842,9 +1842,9 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**:  Body mass index - categories - measured  
+### **Variable label**:  Body mass index (BMI) - categories - measured  
 **Variable name**: phy_bmi_cat_ms_5  
-**Variable description**: Body mass index - categories - measured.  
+**Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - measured.  
 **Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
@@ -1863,9 +1863,9 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**:  Body mass index - categories - measured  
+### **Variable label**:  Body mass index (BMI) - categories - measured  
 **Variable name**: phy_bmi_cat_ms_6  
-**Variable description**: Body mass index - categories - measured.  
+**Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - measured.  
 **Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
@@ -1885,9 +1885,9 @@ output: html_document
 
 ```  
 
-### **Variable label**:  Body mass index - categories - self-reported  
+### **Variable label**:  Body mass index (BMI) - categories - self-reported  
 **Variable name**: phy_bmi_cat_sr_0    
-**Variable description**: Body mass index - categories - self-reported.  
+**Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - self-reported.  
 **Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
@@ -1906,9 +1906,9 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**:  Body mass index - categories - self-reported  
+### **Variable label**:  Body mass index (BMI) - categories - self-reported  
 **Variable name**: phy_bmi_cat_sr_1    
-**Variable description**: Body mass index - categories - self-reported.  
+**Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - self-reported.  
 **Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
@@ -1927,9 +1927,9 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**:  Body mass index - categories - self-reported  
+### **Variable label**:  Body mass index (BMI) - categories - self-reported  
 **Variable name**: phy_bmi_cat_sr_2    
-**Variable description**: Body mass index - categories - self-reported.  
+**Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - self-reported.
 **Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
@@ -1948,9 +1948,9 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**:  Body mass index - categories - self-reported  
+### **Variable label**:  Body mass index (BMI) - categories - self-reported  
 **Variable name**: phy_bmi_cat_sr_3    
-**Variable description**: Body mass index - categories - self-reported.  
+**Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - self-reported.  
 **Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
@@ -1969,9 +1969,9 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**:  Body mass index - categories - self-reported  
+### **Variable label**:  Body mass index (BMI) - categories - self-reported  
 **Variable name**: phy_bmi_cat_sr_4    
-**Variable description**: Body mass index - categories - self-reported.  
+**Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - self-reported.  
 **Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
@@ -1990,9 +1990,9 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**:  Body mass index - categories - self-reported  
+### **Variable label**:  Body mass index (BMI) - categories - self-reported  
 **Variable name**: phy_bmi_cat_sr_5    
-**Variable description**: Body mass index - categories - self-reported.  
+**Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - self-reported.  
 **Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
@@ -2011,9 +2011,9 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**:  Body mass index - categories - self-reported  
+### **Variable label**:  Body mass index (BMI) - categories - self-reported  
 **Variable name**: phy_bmi_cat_sr_6    
-**Variable description**: Body mass index - categories - self-reported.  
+**Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - self-reported.  
 **Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
@@ -2033,9 +2033,9 @@ output: html_document
 
 ```  
 
-### **Variable label**:  Body mass index - categories - self-reported and measured combined  
+### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
 **Variable name**: phy_bmi_cat_all_0    
-**Variable description**: Body mass index - categories - self-reported and measured combined.  
+**Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - measured and self-reported combined.
 **Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
@@ -2054,9 +2054,9 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**:  Body mass index - categories - self-reported and measured combined  
+### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
 **Variable name**: phy_bmi_cat_all_1    
-**Variable description**: Body mass index - categories - self-reported and measured combined.  
+**Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - measured and self-reported combined.  
 **Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
@@ -2075,9 +2075,9 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**:  Body mass index - categories - self-reported and measured combined  
+### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
 **Variable name**: phy_bmi_cat_all_2    
-**Variable description**: Body mass index - categories - self-reported and measured combined.  
+**Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - measured and self-reported combined.  
 **Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
@@ -2096,9 +2096,9 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**:  Body mass index - categories - self-reported and measured combined  
+### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
 **Variable name**: phy_bmi_cat_all_3    
-**Variable description**: Body mass index - categories - self-reported and measured combined.  
+**Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - measured and self-reported combined.   
 **Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
@@ -2117,9 +2117,9 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**:  Body mass index - categories - self-reported and measured combined  
+### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
 **Variable name**: phy_bmi_cat_all_4    
-**Variable description**: Body mass index - categories - self-reported and measured combined.  
+**Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - measured and self-reported combined.    
 **Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
@@ -2138,9 +2138,9 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**:  Body mass index - categories - self-reported and measured combined  
+### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
 **Variable name**: phy_bmi_cat_all_5    
-**Variable description**: Body mass index - categories - self-reported and measured combined.  
+**Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - measured and self-reported combined.  
 **Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
@@ -2159,9 +2159,9 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**:  Body mass index - categories - self-reported and measured combined  
+### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
 **Variable name**: phy_bmi_cat_all_6    
-**Variable description**: Body mass index - categories - self-reported and measured combined.  
+**Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - measured and self-reported combined.    
 **Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
@@ -2181,11 +2181,11 @@ output: html_document
 
 ```  
 
-### **Variable label**:  Waist circumference in cm - self-reported and measured combined 
+### **Variable label**:  Waist circumference in cm - measured and self-reported combined  
 **Variable name**: phy_waist_all_0  
-**Variable description**: Waist circumference in centimeters - self-reported and measured combined.    
+**Variable description**: Waist circumference of the participant in centimeters - measured and self-reported combined.    
 **Value type**: integer  
-**Variable unit**: centimeters  
+**Variable unit**: cm  
 **Category coding**:  N/A  
 
 **Harmonization status**:  
@@ -2195,11 +2195,11 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**:  Waist circumference in cm - self-reported and measured combined 
+### **Variable label**:  Waist circumference in cm - measured and self-reported combined   
 **Variable name**: phy_waist_all_1  
-**Variable description**: Waist circumference in centimeters - self-reported and measured combined.    
+**Variable description**: Waist circumference of the participant in centimeters - measured and self-reported combined.      
 **Value type**: integer  
-**Variable unit**: centimeters  
+**Variable unit**: cm  
 **Category coding**:  N/A  
 
 **Harmonization status**:  
@@ -2209,11 +2209,11 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**:  Waist circumference in cm - self-reported and measured combined 
+### **Variable label**:  Waist circumference in cm - measured and self-reported combined   
 **Variable name**: phy_waist_all_2  
-**Variable description**: Waist circumference in centimeters - self-reported and measured combined.    
+**Variable description**: Waist circumference of the participant in centimeters - measured and self-reported combined.    
 **Value type**: integer  
-**Variable unit**: centimeters  
+**Variable unit**: cm  
 **Category coding**:  N/A  
 
 **Harmonization status**:  
@@ -2223,11 +2223,11 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**:  Waist circumference in cm - self-reported and measured combined 
+### **Variable label**:  Waist circumference in cm - measured and self-reported combined 
 **Variable name**: phy_waist_all_3  
-**Variable description**: Waist circumference in centimeters - self-reported and measured combined.    
+**Variable description**: Waist circumference of the participant in centimeters - measured and self-reported combined.    
 **Value type**: integer  
-**Variable unit**: centimeters  
+**Variable unit**: cm  
 **Category coding**:  N/A  
 
 **Harmonization status**:  
@@ -2237,11 +2237,11 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**:  Waist circumference in cm - self-reported and measured combined 
+### **Variable label**:  Waist circumference in cm - measured and self-reported combined   
 **Variable name**: phy_waist_all_4  
-**Variable description**: Waist circumference in centimeters - self-reported and measured combined.    
+**Variable description**: Waist circumference of the participant in centimeters - measured and self-reported combined.    
 **Value type**: integer  
-**Variable unit**: centimeters  
+**Variable unit**: cm  
 **Category coding**:  N/A  
 
 **Harmonization status**:  
@@ -2251,11 +2251,11 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**:  Waist circumference in cm - self-reported and measured combined 
+### **Variable label**:  Waist circumference in cm - measured and self-reported combined 
 **Variable name**: phy_waist_all_5  
-**Variable description**: Waist circumference in centimeters - self-reported and measured combined.    
+**Variable description**: Waist circumference of the participant in centimeters - measured and self-reported combined.    
 **Value type**: integer  
-**Variable unit**: centimeters  
+**Variable unit**: cm  
 **Category coding**:  N/A  
 
 **Harmonization status**:  
@@ -2265,11 +2265,11 @@ output: html_document
 #This is where the R-script will be written
 
 ```  
-### **Variable label**:  Waist circumference in cm - self-reported and measured combined 
+### **Variable label**:  Waist circumference in cm - measured and self-reported combined 
 **Variable name**: phy_waist_all_6  
-**Variable description**: Waist circumference in centimeters - self-reported and measured combined.    
+**Variable description**: Waist circumference of the participant in centimeters - measured and self-reported combined.    
 **Value type**: integer  
-**Variable unit**: centimeters  
+**Variable unit**: cm  
 **Category coding**:  N/A  
 
 **Harmonization status**:  
@@ -2347,7 +2347,7 @@ output: html_document
 # Disability subdomain
 
 ### **Variable label**:  Difficulty walking up and down the stairs  
-**Variable name**:  fct_diff_stairs_0   
+**Variable name**:  fct_stairs_diff_0   
 **Variable description**:  Indicator of whether the participant has difficulty walking up and down the stairs.  
 **Value type**:  integer  
 **Variable unit**:  N/A  
@@ -2366,7 +2366,7 @@ output: html_document
 
 ```  
 ### **Variable label**:  Difficulty walking up and down the stairs  
-**Variable name**:  fct_diff_stairs_1  
+**Variable name**:  fct_stairs_diff_1  
 **Variable description**:  Indicator of whether the participant has difficulty walking up and down the stairs.  
 **Value type**:  integer  
 **Variable unit**:  N/A  
@@ -2385,7 +2385,7 @@ output: html_document
 
 ```  
 ### **Variable label**:  Difficulty walking up and down the stairs  
-**Variable name**:  fct_diff_stairs_2  
+**Variable name**:  fct_stairs_diff_2  
 **Variable description**:  Indicator of whether the participant has difficulty walking up and down the stairs.  
 **Value type**:  integer  
 **Variable unit**:  N/A  
@@ -2405,8 +2405,8 @@ output: html_document
 ```  
 
 ### **Variable label**:  Difficulty walking    
-**Variable name**:  fct_disable_walk_0  
-**Variable description**:  Indicator of whether the participant is able to walk 2 to 3 blocks, or for about 400 to 500 meters, or for 5 minutes.  
+**Variable name**:  fct_walk_diff_0  
+**Variable description**:  Indicator of whether the participant has difficulty walking 2 to 3 blocks, or for about 400 to 500 meters, or for 5 minutes.  
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding**:  
@@ -2424,8 +2424,8 @@ output: html_document
 
 ```  
 ### **Variable label**:  Difficulty walking    
-**Variable name**:  fct_disable_walk_1  
-**Variable description**:  Indicator of whether the participant is able to walk 2 to 3 blocks, or for about 400 to 500 meters, or for 5 minutes.  
+**Variable name**:  fct_walk_diff_1  
+**Variable description**:  Indicator of whether the participant has difficulty walking 2 to 3 blocks, or for about 400 to 500 meters, or for 5 minutes.  
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding**:  
@@ -2443,8 +2443,8 @@ output: html_document
 
 ```  
 ### **Variable label**:  Difficulty walking    
-**Variable name**:  fct_disable_walk_2  
-**Variable description**:  Indicator of whether the participant is able to walk 2 to 3 blocks, or for about 400 to 500 meters, or for 5 minutes.  
+**Variable name**:  fct_walk_diff_2  
+**Variable description**:  Indicator of whether the participant has difficulty walking 2 to 3 blocks, or for about 400 to 500 meters, or for 5 minutes.    
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding**:  
@@ -2462,8 +2462,8 @@ output: html_document
 
 ```  
 ### **Variable label**:  Difficulty walking    
-**Variable name**:  fct_disable_walk_3  
-**Variable description**:  Indicator of whether the participant is able to walk 2 to 3 blocks, or for about 400 to 500 meters, or for 5 minutes.  
+**Variable name**:  fct_walk_diff_3  
+**Variable description**:  Indicator of whether the participant has difficulty walking 2 to 3 blocks, or for about 400 to 500 meters, or for 5 minutes.   
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding**:  
@@ -2481,8 +2481,8 @@ output: html_document
 
 ```  
 ### **Variable label**:  Difficulty walking    
-**Variable name**:  fct_disable_walk_4  
-**Variable description**:  Indicator of whether the participant is able to walk 2 to 3 blocks, or for about 400 to 500 meters, or for 5 minutes.  
+**Variable name**:  fct_walk_diff_4  
+**Variable description**:  Indicator of whether the participant has difficulty walking 2 to 3 blocks, or for about 400 to 500 meters, or for 5 minutes.     
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding**:  
@@ -2500,8 +2500,8 @@ output: html_document
 
 ```  
 ### **Variable label**:  Difficulty walking    
-**Variable name**:  fct_disable_walk_5  
-**Variable description**:  Indicator of whether the participant is able to walk 2 to 3 blocks, or for about 400 to 500 meters, or for 5 minutes.  
+**Variable name**:  fct_walk_diff_5  
+**Variable description**:  Indicator of whether the participant has difficulty walking 2 to 3 blocks, or for about 400 to 500 meters, or for 5 minutes.    
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding**:  
@@ -2519,8 +2519,8 @@ output: html_document
 
 ```  
 ### **Variable label**:  Difficulty walking    
-**Variable name**:  fct_disable_walk_6  
-**Variable description**:  Indicator of whether the participant is able to walk 2 to 3 blocks, or for about 400 to 500 meters, or for 5 minutes.  
+**Variable name**:  fct_walk_diff_6  
+**Variable description**:  Indicator of whether the participant has difficulty walking 2 to 3 blocks, or for about 400 to 500 meters, or for 5 minutes.     
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding**:  
