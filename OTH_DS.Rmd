@@ -2282,9 +2282,9 @@ output: html_document
 
 # General perception of health subdomain
 
-### **Variable label**:  Self-assessed health  
-**Variable name**:  OTH_SAH  
-**Variable description**:  Self-assessed health in three main categories.  
+### **Variable label**:  Self-assessed health   
+**Variable name**:  poh_sah_0  
+**Variable description**:  Self-assessed health of the participant, in three main categories.  
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding**:  
@@ -2301,11 +2301,131 @@ output: html_document
 ```{r, echo=TRUE}
 #This is where the R-script will be written
 
-```
+```  
+### **Variable label**:  Self-assessed health   
+**Variable name**:  poh_sah_1  
+**Variable description**:  Self-assessed health of the participant, in three main categories.  
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
+
+**Code** | **Category Label**  
+------------- | -------------  
+0 |   Good health  
+1 |   Fair health  
+2 |   Poor health  
+
+**Harmonization status**:  
+**Harmonization comment**:   
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
+### **Variable label**:  Self-assessed health   
+**Variable name**:  poh_sah_2  
+**Variable description**:  Self-assessed health of the participant, in three main categories.  
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
+
+**Code** | **Category Label**  
+------------- | -------------  
+0 |   Good health  
+1 |   Fair health  
+2 |   Poor health  
+
+**Harmonization status**:  
+**Harmonization comment**:   
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
+### **Variable label**:  Self-assessed health   
+**Variable name**:  poh_sah_3  
+**Variable description**:  Self-assessed health of the participant, in three main categories.  
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
+
+**Code** | **Category Label**  
+------------- | -------------  
+0 |   Good health  
+1 |   Fair health  
+2 |   Poor health  
+
+**Harmonization status**:  
+**Harmonization comment**:   
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
+### **Variable label**:  Self-assessed health   
+**Variable name**:  poh_sah_4  
+**Variable description**:  Self-assessed health of the participant, in three main categories.  
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
+
+**Code** | **Category Label**  
+------------- | -------------  
+0 |   Good health  
+1 |   Fair health  
+2 |   Poor health  
+
+**Harmonization status**:  
+**Harmonization comment**:   
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
+### **Variable label**:  Self-assessed health   
+**Variable name**:  poh_sah_5  
+**Variable description**:  Self-assessed health of the participant, in three main categories.  
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
+
+**Code** | **Category Label**  
+------------- | -------------  
+0 |   Good health  
+1 |   Fair health  
+2 |   Poor health  
+
+**Harmonization status**:  
+**Harmonization comment**:   
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
+### **Variable label**:  Self-assessed health   
+**Variable name**:  poh_sah_6  
+**Variable description**:  Self-assessed health of the participant, in three main categories.  
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
+
+**Code** | **Category Label**  
+------------- | -------------  
+0 |   Good health  
+1 |   Fair health  
+2 |   Poor health  
+
+**Harmonization status**:  
+**Harmonization comment**:   
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
 
 ### **Variable label**:  Poor self-assessed health  
-**Variable name**:  OTH_SAHPOOR  
-**Variable description**:  Dichotomous indicator of self-assessed health indicating poor vs non-poor health.  
+**Variable name**:  poh_sah_poor_0  
+**Variable description**:  Dichotomous indicator of self-assessed health of the participant, indicating poor vs non-poor health.  
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding**:  
@@ -2321,11 +2441,125 @@ output: html_document
 ```{r, echo=TRUE}
 #This is where the R-script will be written
 
-```
+```  
+### **Variable label**:  Poor self-assessed health  
+**Variable name**:  poh_sah_poor_1    
+**Variable description**:  Dichotomous indicator of self-assessed health of the participant, indicating poor vs non-poor health.  
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
+
+**Code** | **Category Label**  
+------------- | -------------  
+0 |   Poor health
+1 |   Non-poor health
+
+**Harmonization status**:  
+**Harmonization comment**:   
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
+### **Variable label**:  Poor self-assessed health  
+**Variable name**:  poh_sah_poor_2  
+**Variable description**:  Dichotomous indicator of self-assessed health of the participant, indicating poor vs non-poor health.  
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
+
+**Code** | **Category Label**  
+------------- | -------------  
+0 |   Poor health
+1 |   Non-poor health
+
+**Harmonization status**:  
+**Harmonization comment**:   
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
+### **Variable label**:  Poor self-assessed health  
+**Variable name**:  poh_sah_poor_3  
+**Variable description**:  Dichotomous indicator of self-assessed health of the participant, indicating poor vs non-poor health.  
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
+
+**Code** | **Category Label**  
+------------- | -------------  
+0 |   Poor health
+1 |   Non-poor health
+
+**Harmonization status**:  
+**Harmonization comment**:   
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
+### **Variable label**:  Poor self-assessed health  
+**Variable name**:  poh_sah_poor_4    
+**Variable description**:  Dichotomous indicator of self-assessed health of the participant, indicating poor vs non-poor health.  
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
+
+**Code** | **Category Label**  
+------------- | -------------  
+0 |   Poor health
+1 |   Non-poor health
+
+**Harmonization status**:  
+**Harmonization comment**:   
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
+### **Variable label**:  Poor self-assessed health  
+**Variable name**:  poh_sah_poor_5  
+**Variable description**:  Dichotomous indicator of self-assessed health of the participant, indicating poor vs non-poor health.  
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
+
+**Code** | **Category Label**  
+------------- | -------------  
+0 |   Poor health
+1 |   Non-poor health
+
+**Harmonization status**:  
+**Harmonization comment**:   
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
+### **Variable label**:  Poor self-assessed health  
+**Variable name**:  poh_sah_poor_6  
+**Variable description**:  Dichotomous indicator of self-assessed health of the participant, indicating poor vs non-poor health.  
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
+
+**Code** | **Category Label**  
+------------- | -------------  
+0 |   Poor health
+1 |   Non-poor health
+
+**Harmonization status**:  
+**Harmonization comment**:   
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
 
 ### **Variable label**:  Less than good self-assessed health  
-**Variable name**:  OTH_SAHGOOD  
-**Variable description**:  Dichotomous indicator of self-assessed health indicating good vs less than good health.  
+**Variable name**:  poh_sah_good_0    
+**Variable description**:  Dichotomous indicator of self-assessed health of the participant, indicating good vs less than good health.  
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding**:  
@@ -2341,7 +2575,121 @@ output: html_document
 ```{r, echo=TRUE}
 #This is where the R-script will be written
 
-```
+```  
+### **Variable label**:  Less than good self-assessed health  
+**Variable name**:  poh_sah_good_1    
+**Variable description**:  Dichotomous indicator of self-assessed health of the participant, indicating good vs less than good health.  
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
+
+**Code** | **Category Label**  
+------------- | -------------  
+0 |   Less than good health  
+1 |   Good health  
+
+**Harmonization status**:  
+**Harmonization comment**:   
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
+### **Variable label**:  Less than good self-assessed health  
+**Variable name**:  poh_sah_good_2    
+**Variable description**:  Dichotomous indicator of self-assessed health of the participant, indicating good vs less than good health.  
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
+
+**Code** | **Category Label**  
+------------- | -------------  
+0 |   Less than good health  
+1 |   Good health  
+
+**Harmonization status**:  
+**Harmonization comment**:   
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
+### **Variable label**:  Less than good self-assessed health  
+**Variable name**:  poh_sah_good_3    
+**Variable description**:  Dichotomous indicator of self-assessed health of the participant, indicating good vs less than good health.  
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
+
+**Code** | **Category Label**  
+------------- | -------------  
+0 |   Less than good health  
+1 |   Good health  
+
+**Harmonization status**:  
+**Harmonization comment**:   
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
+### **Variable label**:  Less than good self-assessed health  
+**Variable name**:  poh_sah_good_4    
+**Variable description**:  Dichotomous indicator of self-assessed health of the participant, indicating good vs less than good health.  
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
+
+**Code** | **Category Label**  
+------------- | -------------  
+0 |   Less than good health  
+1 |   Good health  
+
+**Harmonization status**:  
+**Harmonization comment**:   
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
+### **Variable label**:  Less than good self-assessed health  
+**Variable name**:  poh_sah_good_5    
+**Variable description**:  Dichotomous indicator of self-assessed health of the participant, indicating good vs less than good health.  
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
+
+**Code** | **Category Label**  
+------------- | -------------  
+0 |   Less than good health  
+1 |   Good health  
+
+**Harmonization status**:  
+**Harmonization comment**:   
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
+### **Variable label**:  Less than good self-assessed health  
+**Variable name**:  poh_sah_good_6    
+**Variable description**:  Dichotomous indicator of self-assessed health of the participant, indicating good vs less than good health.  
+**Value type**:  integer  
+**Variable unit**:  N/A  
+**Category coding**:  
+
+**Code** | **Category Label**  
+------------- | -------------  
+0 |   Less than good health  
+1 |   Good health  
+
+**Harmonization status**:  
+**Harmonization comment**:   
+**R script**:  
+```{r, echo=TRUE}
+#This is where the R-script will be written
+
+```  
 
 
 # Disability subdomain
