@@ -17,6 +17,7 @@ lucas_w2 <- opal.execute(erasmus_opal,'LUCAS_w2data')
 ```{r, echo=FALSE}
 opal.logout(erasmus_opal) 
 ```
+
 # Table of Contents
 1. [Hypertension subdomain](#hypertension-subdomain)
 2. [Angina subdomain](#angina-subdomain)
