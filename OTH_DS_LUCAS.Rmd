@@ -2,7 +2,8 @@
 title: "Other outcomes DataSchema"
 output: html_document
 ---
-## Loging in to server and assigning study data
+# Connecting with Opal data server
+## Login to server and assign study data
 ```{r, echo=FALSE}
 #Load Opal R library
 library(opal)
@@ -12,11 +13,10 @@ erasmus_opal <- opal.login()
 opal.assign.table.tibble(erasmus_opal, 'LUCAS_w2data', 'LUCAS.LUCAS_Wave2')
 lucas_w2 <- opal.execute(erasmus_opal,'LUCAS_w2data')
 ```
-### When you are done with your work, logout of Opal server
+## When you are done with your work, logout of Opal server
 ```{r, echo=FALSE}
 opal.logout(erasmus_opal) 
 ```
-
 # Table of Contents
 1. [Hypertension subdomain](#hypertension-subdomain)
 2. [Angina subdomain](#angina-subdomain)
