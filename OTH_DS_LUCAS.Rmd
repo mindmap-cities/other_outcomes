@@ -12,12 +12,12 @@ library(epiDisplay)
 # Create an opal object with the login information
 erasmus_opal <- opal.login()
 #Login to Opal server and assign the content of the LUCAS table(s) to your RStudio environment
-opal.assign.table.tibble(erasmus_opal, 'LUCAS_w2data', 'LUCAS.LUCAS_Wave2')
+opal.assign.table.tibble(erasmus_opal, 'LUCAS_w2data', 'LUCAS.LUCAS_Wave2', variables=list('Lucas1_07','Lucas4_07','Lucas3a_07','Lucas3b_07','Lucas9_07','Lucas10_07','Lucas12a_07','Lucas11_07','Lucas12b_07','Lucas12c_07','Lucas23b_07'))
 lucas_w2 <- opal.execute(erasmus_opal,'LUCAS_w2data')
 ```
 ## Assign participant id as first column of your harmonized dataframes
 ```{r, echo=FALSE}
-lsb_LUCAS_0 <- data.frame(id = lucas_w2$id)
+oth_LUCAS_0 <- data.frame(id = lucas_w2$id)
 ```
 ## When you are done with your work, logout of Opal server
 ```{r, echo=FALSE}
@@ -47,11 +47,11 @@ opal.logout(erasmus_opal)
 0          |  Never had high blood pressure or hypertension  
 1          |  Ever had high blood pressure or hypertension  
 
-**Harmonization status**:  
-**Harmonization comment**:   
+**Harmonization status**:  impossible
+**Harmonization comment**: incompatible. Lucas37c_07: Had heart disease. (Have you ever had angina or coronary heart disease or coronary thrombosis (a heart attack)?)  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Lifetime occurrence of high blood pressure or hypertension    
@@ -86,11 +86,11 @@ opal.logout(erasmus_opal)
 1        |  Ever taken medication  for high blood pressure or hypertension  
 
 
-**Harmonization status**:  
-**Harmonization comment**:  
+**Harmonization status**:  impossible
+**Harmonization comment**:    
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Medication for high blood pressure or hypertension  
@@ -207,11 +207,11 @@ opal.logout(erasmus_opal)
 0        |  Never had angina
 1        |  Ever had angina  
   
-**Harmonization status**:  
-**Harmonization comment**:  
+**Harmonization status**:  impossible
+**Harmonization comment**:  incompatible. Lucas37c_07: Had heart disease. (Have you ever had angina or coronary heart disease or coronary thrombosis (a heart attack)?)
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Lifetime occurrence of angina 
@@ -305,11 +305,11 @@ opal.logout(erasmus_opal)
 0        |   Never had myocardial infarction
 1        |   Ever had myocardial infarction  
 
-**Harmonization status**:  
-**Harmonization comment**:  
+**Harmonization status**:  impossible
+**Harmonization comment**:  incompatible. Lucas37c_07: Had heart disease. (Have you ever had angina or coronary heart disease or coronary thrombosis (a heart attack)?)
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Lifetime occurrence of myocardial infarction    
@@ -358,7 +358,7 @@ opal.logout(erasmus_opal)
 **Variable unit**:  years  
 **Category coding**: N/A  
          
-**Harmonization status**:  
+**Harmonization status**:  impossible
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
@@ -407,11 +407,11 @@ opal.logout(erasmus_opal)
 0        |   Never had stroke or CVA  
 1        |   Ever had stroke or CVA  
 
-**Harmonization status**:  
-**Harmonization comment**:  
+**Harmonization status**:  impossible  
+**Harmonization comment**:  incompatible. Lucas37c_07: Had heart disease. (Have you ever had angina or coronary heart disease or coronary thrombosis (a heart attack)?)
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Lifetime occurrence of stroke or CVA  
@@ -459,11 +459,11 @@ opal.logout(erasmus_opal)
 **Variable unit**:  years  
 **Category coding**: N/A  
          
-**Harmonization status**:  
+**Harmonization status**:  impossible 
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Age at first stroke or CVA  
@@ -510,12 +510,11 @@ opal.logout(erasmus_opal)
 0          |  Never had diabetes  
 1          |  Ever had diabetes  
 
-**Harmonization status**:  
+**Harmonization status**:  complete
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}  
-#This is where the R-script will be written  
-
+oth_LUCAS_0$dis_diab_ever_0<- lucas_w2$Lucas3a_07
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes or high blood sugar     
 **Variable name**: dis_diab_ever_1  
@@ -619,11 +618,11 @@ opal.logout(erasmus_opal)
 **Variable unit**:  years  
 **Category coding**: N/A
 
-**Hamonization status**:  
+**Hamonization status**:  impossible
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}  
-#This is where the R-script will be written  
+
 
 ```  
 ### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
@@ -709,11 +708,11 @@ opal.logout(erasmus_opal)
 0        | Not currently under treatment for diabetes  
 1        | Currently under treatment for diabetes  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible
 **Harmonization comment**:  
 **R script**:
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Currently under treatment for diabetes  
@@ -823,11 +822,11 @@ opal.logout(erasmus_opal)
 0        | Currently does not use insulin for diabetes treatment  
 1        | Currently has used insulin for diabetes treatment  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Currently use insulin for diabetes  
@@ -877,11 +876,11 @@ opal.logout(erasmus_opal)
 **Variable unit**: kg   
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Weight in kg - measured 
@@ -975,12 +974,11 @@ opal.logout(erasmus_opal)
 **Variable unit**: kg   
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  complete
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
-
+oth_LUCAS_0$phy_weight_sr_0<- lucas_w2$Lucas10_07
 ```  
 ### **Variable label**: Weight in kg - self-reported 
 **Variable name**: phy_weight_sr_1    
@@ -1073,12 +1071,11 @@ opal.logout(erasmus_opal)
 **Variable unit**: kg   
 **Category coding**: N/A  
 
-**Harmonization status**:  
+**Harmonization status**:  complete
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
-
+oth_LUCAS_0$phy_weight_all_0<- lucas_w2$Lucas10_07
 ```  
 
 ### **Variable label**: Weight in kg - measured and self-reported combined
@@ -1172,11 +1169,11 @@ opal.logout(erasmus_opal)
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Height in cm - measured  
@@ -1271,12 +1268,11 @@ opal.logout(erasmus_opal)
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  complete
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
-
+oth_LUCAS_0$phy_height_sr_0<- lucas_w2$Lucas9_07
 ```  
 ### **Variable label**: Height in cm - self-reported  
 **Variable name**: phy_height_sr_1  
@@ -1370,12 +1366,11 @@ opal.logout(erasmus_opal)
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**: complete 
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
-
+oth_LUCAS_0$phy_height_all_0<-lucas_w2$Lucas9_07
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined  
 **Variable name**: phy_height_all_1    
@@ -1469,11 +1464,10 @@ opal.logout(erasmus_opal)
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**: impossible 
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured  
@@ -1568,12 +1562,11 @@ opal.logout(erasmus_opal)
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**:  
-**Harmonization comment**:   
+**Harmonization status**:  complete  
+**Harmonization comment**:   calculated from sr. weight and sr. height (Lucas9_07 and Lucas10_07)
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
-
+oth_LUCAS_0$phy_bmi_sr_0[!is.na(lucas_w2$Lucas10_07)&!is.na(lucas_w2$Lucas9_07)]<- (lucas_w2$Lucas10_07[!is.na(lucas_w2$Lucas10_07)&!is.na(lucas_w2$Lucas9_07)])/((0.01*lucas_w2$Lucas9_07[!is.na(lucas_w2$Lucas10_07)&!is.na(lucas_w2$Lucas9_07)])^2)
 ```  
 ### **Variable label**: Body mass index (BMI) - self-reported  
 **Variable name**: phy_bmi_sr_1  
@@ -1667,11 +1660,11 @@ opal.logout(erasmus_opal)
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**:  
-**Harmonization comment**:   
+**Harmonization status**:  complete
+**Harmonization comment**: calculated from sr. height and weight (Lucas10_07 and Lucas9_07)  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+oth_LUCAS_0$phy_bmi_all_0[!is.na(lucas_w2$Lucas10_07)&!is.na(lucas_w2$Lucas9_07)]<- (lucas_w2$Lucas10_07[!is.na(lucas_w2$Lucas10_07)&!is.na(lucas_w2$Lucas9_07)])/((0.01*lucas_w2$Lucas9_07[!is.na(lucas_w2$Lucas10_07)&!is.na(lucas_w2$Lucas9_07)])^2) 
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
@@ -1773,11 +1766,11 @@ opal.logout(erasmus_opal)
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  
+**Harmonization status**: impossible 
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured  
@@ -1921,12 +1914,16 @@ opal.logout(erasmus_opal)
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  
+**Harmonization status**:  complete
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
-
+oth_LUCAS_0$phy_bmi_cat_sr_0<- ifelse(oth_LUCAS_0$phy_bmi_sr_0 <18.5,0,
+                                      ifelse(oth_LUCAS_0$phy_bmi_sr_0 <25 &
+                                               oth_LUCAS_0$phy_bmi_sr_0>18.49, 1, 
+                                             ifelse(oth_LUCAS_0$phy_bmi_sr_0 <30 &
+                                                      oth_LUCAS_0$phy_bmi_sr_0>24.99,2, 
+                                                    ifelse(oth_LUCAS_0$phy_bmi_sr_0 >29.99,3,NA))))
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - self-reported  
 **Variable name**: phy_bmi_cat_sr_1    
@@ -2069,12 +2066,16 @@ opal.logout(erasmus_opal)
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  
+**Harmonization status**:  complete
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
-
+oth_LUCAS_0$phy_bmi_cat_all_0<- ifelse(oth_LUCAS_0$phy_bmi_all_0 <18.5,0,
+                                      ifelse(oth_LUCAS_0$phy_bmi_all_0 <25 &
+                                               oth_LUCAS_0$phy_bmi_all_0>18.49, 1, 
+                                             ifelse(oth_LUCAS_0$phy_bmi_all_0 <30 &
+                                                      oth_LUCAS_0$phy_bmi_all_0>24.99,2, 
+                                                    ifelse(oth_LUCAS_0$phy_bmi_all_0 >29.99,3,NA))))
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
 **Variable name**: phy_bmi_cat_all_1    
@@ -2210,11 +2211,11 @@ opal.logout(erasmus_opal)
 **Variable unit**: cm  
 **Category coding**:  N/A  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined   
@@ -2317,12 +2318,13 @@ opal.logout(erasmus_opal)
 1 |   Fair health  
 2 |   Poor health  
 
-**Harmonization status**:  
+**Harmonization status**:  complete
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
-
+oth_LUCAS_0$poh_sah_0<- ifelse(lucas_w2$Lucas1_07 == 1 | lucas_w2$Lucas1_07 == 2,0, 
+                               ifelse(lucas_w2$Lucas1_07 == 3, 1, 
+                                      ifelse(lucas_w2$Lucas1_07 == 4, 2,NA)))
 ```  
 ### **Variable label**:  Self-assessed health   
 **Variable name**:  poh_sah_1  
@@ -2457,12 +2459,13 @@ opal.logout(erasmus_opal)
 0 |   Poor health
 1 |   Non-poor health
 
-**Harmonization status**:  
+**Harmonization status**:  complete
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
-
+oth_LUCAS_0$poh_sah_poor_0<- ifelse(lucas_w2$Lucas1_07 == 4, 0, 
+                                    ifelse(lucas_w2$Lucas1_07 == 1 |lucas_w2$Lucas1_07 == 2 |
+                                           lucas_w2$Lucas1_07 == 3,1,NA))
 ```  
 ### **Variable label**:  Poor self-assessed health  
 **Variable name**:  poh_sah_poor_1    
@@ -2591,12 +2594,11 @@ opal.logout(erasmus_opal)
 0 |   Less than good health  
 1 |   Good health  
 
-**Harmonization status**:  
+**Harmonization status**:  complete
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
-
+oth_LUCAS_0$poh_sah_good_0<- ifelse(lucas_w2$Lucas1_07 <3, 1, ifelse(lucas_w2$Lucas1_07>2,0,NA))
 ```  
 ### **Variable label**:  Less than good self-assessed health  
 **Variable name**:  poh_sah_good_1    
@@ -2728,7 +2730,7 @@ opal.logout(erasmus_opal)
 0 |   Has no difficulty walking up and down the stairs
 1 |   Has difficulty walking up and down the stairs  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible/unavailable
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
@@ -2786,12 +2788,11 @@ opal.logout(erasmus_opal)
 0 |   Not able to walk without difficulty  
 1 |   Able to walk without difficulty  
 
-**Harmonization status**:  
+**Harmonization status**:  complete
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
-
+oth_LUCAS_0$fct_walk_diff_0<- ifelse(lucas_w2$Lucas23b_07 == 1,1, ifelse(lucas_w2$Lucas23b_07>1,0,NA))
 ```  
 ### **Variable label**:  Difficulty walking    
 **Variable name**:  fct_walk_diff_1  
