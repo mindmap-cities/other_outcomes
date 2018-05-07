@@ -60,7 +60,7 @@ opal.logout(erasmus_opal)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_RECORD_0$dis_hbp_ever_0<- recode(as.character(RECORD_w1_1$Qm33), 'N'=0, 'O'=1)  
+oth_RECORD_0$dis_hbp_ever_0<- recode(as.character(RECORD_w1_1$Qm33), 'N'=0L, 'O'=1L)  
 
 ```  
 ### **Variable label**: Lifetime occurrence of high blood pressure or hypertension    
@@ -80,8 +80,8 @@ oth_RECORD_0$dis_hbp_ever_0<- recode(as.character(RECORD_w1_1$Qm33), 'N'=0, 'O'=
 **R script**:  
 ```{r, echo=TRUE}
 
-oth_RECORD_1$dis_hbp_ever_1<- ifelse(RECORD_w2$P2_Q1_15 == 0 & RECORD_w2$P2_Q1_16==1,0,
-ifelse(RECORD_w2$P2_Q1_15 == 1 & RECORD_w2$P2_Q1_16==0,1,NA))
+oth_RECORD_1$dis_hbp_ever_1<- ifelse(RECORD_w2$P2_Q1_15 == 0 & RECORD_w2$P2_Q1_16==1,0L,
+ifelse(RECORD_w2$P2_Q1_15 == 1 & RECORD_w2$P2_Q1_16==0,1L,NA))
 
 ``` 
 ### **Variable label**: Medication for high blood pressure or hypertension    
@@ -222,7 +222,7 @@ ifelse(RECORD_w2$P2_Q1_15 == 1 & RECORD_w2$P2_Q1_16==0,1,NA))
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-oth_RECORD_0$dis_angina_ever_0<- recode(as.character(RECORD_w1_1$Qm35),'N'=0,'O'=1)
+oth_RECORD_0$dis_angina_ever_0<- recode(as.character(RECORD_w1_1$Qm35),'N'=0L,'O'=1L)
 
 ```  
 ### **Variable label**: Lifetime occurrence of angina 
@@ -241,7 +241,7 @@ oth_RECORD_0$dis_angina_ever_0<- recode(as.character(RECORD_w1_1$Qm35),'N'=0,'O'
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-oth_RECORD_1$dis_angina_ever_1<- recode(as.character(RECORD_w2$Qm36), 'N'=0,'O'=1)
+oth_RECORD_1$dis_angina_ever_1<- recode(as.character(RECORD_w2$Qm36), 'N'=0L,'O'=1L)
 
 
 ```  
@@ -321,7 +321,7 @@ oth_RECORD_1$dis_angina_ever_1<- recode(as.character(RECORD_w2$Qm36), 'N'=0,'O'=
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-oth_RECORD_0$dis_mi_ever_0<- recode(as.character(RECORD_w1_1$Qm34),'N'=0,'O'=1)
+oth_RECORD_0$dis_mi_ever_0<- recode(as.character(RECORD_w1_1$Qm34),'N'=0L,'O'=1L)
 
 ```  
 ### **Variable label**: Lifetime occurrence of myocardial infarction    
@@ -340,7 +340,7 @@ oth_RECORD_0$dis_mi_ever_0<- recode(as.character(RECORD_w1_1$Qm34),'N'=0,'O'=1)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-oth_RECORD_1$dis_mi_ever_1<- recode(as.character(RECORD_w2$Qm35),'N'=0,'O'=1)
+oth_RECORD_1$dis_mi_ever_1<- recode(as.character(RECORD_w2$Qm35),'N'=0L,'O'=1L)
 
 ```  
 ### **Variable label**: Lifetime occurrence of myocardial infarction    
@@ -423,7 +423,7 @@ oth_RECORD_1$dis_mi_ever_1<- recode(as.character(RECORD_w2$Qm35),'N'=0,'O'=1)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-oth_RECORD_0$dis_stroke_ever_0<- recode(as.character(RECORD_w1_1$Qm41),'N'=0,'O'=1)
+oth_RECORD_0$dis_stroke_ever_0<- recode(as.character(RECORD_w1_1$Qm41),'N'=0L,'O'=1L)
 
 ```  
 ### **Variable label**: Lifetime occurrence of stroke or CVA  
@@ -442,7 +442,7 @@ oth_RECORD_0$dis_stroke_ever_0<- recode(as.character(RECORD_w1_1$Qm41),'N'=0,'O'
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-oth_RECORD_1$dis_stroke_ever_1<- recode(as.character(RECORD_w2$Qm42),'N'=0,'O'=1)
+oth_RECORD_1$dis_stroke_ever_1<- recode(as.character(RECORD_w2$Qm42),'N'=0L,'O'=1L)
 
 ```  
 ### **Variable label**: Lifetime occurrence of stroke or CVA  
@@ -545,8 +545,8 @@ oth_RECORD_1$dis_stroke_ever_1<- recode(as.character(RECORD_w2$Qm42),'N'=0,'O'=1
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}  
-oth_RECORD_1$dis_diab_ever_1<- ifelse(RECORD_w2$P2_Q5_33==0 & RECORD_w2$P2_Q5_32==1,0,
-                                      ifelse(RECORD_w2$P2_Q5_33==1 & RECORD_w2$P2_Q5_32==0,1,NA))
+oth_RECORD_1$dis_diab_ever_1<- ifelse(RECORD_w2$P2_Q5_33==0 & RECORD_w2$P2_Q5_32==1,0L,
+                                      ifelse(RECORD_w2$P2_Q5_33==1 & RECORD_w2$P2_Q5_32==0,1L,NA))
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
 **Variable name**: dis_diab_ever_2  
@@ -885,7 +885,7 @@ oth_RECORD_1$dis_diab_ever_1<- ifelse(RECORD_w2$P2_Q5_33==0 & RECORD_w2$P2_Q5_32
 ### **Variable label**: Weight in kg - measured 
 **Variable name**: phy_weight_ms_0  
 **Variable description**: Weight of the participant in kilograms - measured.  
-**Value type**: integer  
+**Value type**: decimal    
 **Variable unit**: kg   
 **Category coding**: N/A
 
@@ -899,7 +899,7 @@ oth_RECORD_1$dis_diab_ever_1<- ifelse(RECORD_w2$P2_Q5_33==0 & RECORD_w2$P2_Q5_32
 ### **Variable label**: Weight in kg - measured 
 **Variable name**: phy_weight_ms_1  
 **Variable description**: Weight of the participant in kilograms - measured.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A
 
@@ -913,7 +913,7 @@ oth_RECORD_1$dis_diab_ever_1<- ifelse(RECORD_w2$P2_Q5_33==0 & RECORD_w2$P2_Q5_32
 ### **Variable label**: Weight in kg - measured 
 **Variable name**: phy_weight_ms_2  
 **Variable description**: Weight of the participant in kilograms - measured.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A
 
@@ -927,7 +927,7 @@ oth_RECORD_1$dis_diab_ever_1<- ifelse(RECORD_w2$P2_Q5_33==0 & RECORD_w2$P2_Q5_32
 ### **Variable label**: Weight in kg - measured 
 **Variable name**: phy_weight_ms_3  
 **Variable description**: Weight of the participant in kilograms - measured.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A
 
@@ -941,7 +941,7 @@ oth_RECORD_1$dis_diab_ever_1<- ifelse(RECORD_w2$P2_Q5_33==0 & RECORD_w2$P2_Q5_32
 ### **Variable label**: Weight in kg - measured 
 **Variable name**: phy_weight_ms_4  
 **Variable description**: Weight of the participant in kilograms - measured.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A
 
@@ -955,7 +955,7 @@ oth_RECORD_1$dis_diab_ever_1<- ifelse(RECORD_w2$P2_Q5_33==0 & RECORD_w2$P2_Q5_32
 ### **Variable label**: Weight in kg - measured 
 **Variable name**: phy_weight_ms_5  
 **Variable description**: Weight of the participant in kilograms - measured.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A
 
@@ -969,7 +969,7 @@ oth_RECORD_1$dis_diab_ever_1<- ifelse(RECORD_w2$P2_Q5_33==0 & RECORD_w2$P2_Q5_32
 ### **Variable label**: Weight in kg - measured 
 **Variable name**: phy_weight_ms_6  
 **Variable description**: Weight of the participant in kilograms - measured.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A
 
@@ -983,7 +983,7 @@ oth_RECORD_1$dis_diab_ever_1<- ifelse(RECORD_w2$P2_Q5_33==0 & RECORD_w2$P2_Q5_32
 ### **Variable label**: Weight in kg - self-reported 
 **Variable name**: phy_weight_sr_0    
 **Variable description**: Weight of the participant in kilograms - self-reported.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A
 
@@ -997,7 +997,7 @@ oth_RECORD_1$dis_diab_ever_1<- ifelse(RECORD_w2$P2_Q5_33==0 & RECORD_w2$P2_Q5_32
 ### **Variable label**: Weight in kg - self-reported 
 **Variable name**: phy_weight_sr_1    
 **Variable description**: Weight of the participant in kilograms - self-reported.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A
 
@@ -1011,7 +1011,7 @@ oth_RECORD_1$dis_diab_ever_1<- ifelse(RECORD_w2$P2_Q5_33==0 & RECORD_w2$P2_Q5_32
 ### **Variable label**: Weight in kg - self-reported 
 **Variable name**: phy_weight_sr_2    
 **Variable description**: Weight of the participant in kilograms - self-reported.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A
 
@@ -1025,7 +1025,7 @@ oth_RECORD_1$dis_diab_ever_1<- ifelse(RECORD_w2$P2_Q5_33==0 & RECORD_w2$P2_Q5_32
 ### **Variable label**: Weight in kg - self-reported 
 **Variable name**: phy_weight_sr_3    
 **Variable description**: Weight of the participant in kilograms - self-reported.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A
 
@@ -1039,7 +1039,7 @@ oth_RECORD_1$dis_diab_ever_1<- ifelse(RECORD_w2$P2_Q5_33==0 & RECORD_w2$P2_Q5_32
 ### **Variable label**: Weight in kg - self-reported 
 **Variable name**: phy_weight_sr_4    
 **Variable description**: Weight of the participant in kilograms - self-reported.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A
 
@@ -1053,7 +1053,7 @@ oth_RECORD_1$dis_diab_ever_1<- ifelse(RECORD_w2$P2_Q5_33==0 & RECORD_w2$P2_Q5_32
 ### **Variable label**: Weight in kg - self-reported 
 **Variable name**: phy_weight_sr_5    
 **Variable description**: Weight of the participant in kilograms - self-reported.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A
 
@@ -1067,7 +1067,7 @@ oth_RECORD_1$dis_diab_ever_1<- ifelse(RECORD_w2$P2_Q5_33==0 & RECORD_w2$P2_Q5_32
 ### **Variable label**: Weight in kg - self-reported 
 **Variable name**: phy_weight_sr_6    
 **Variable description**: Weight of the participant in kilograms - self-reported.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A
 
@@ -1081,7 +1081,7 @@ oth_RECORD_1$dis_diab_ever_1<- ifelse(RECORD_w2$P2_Q5_33==0 & RECORD_w2$P2_Q5_32
 ### **Variable label**: Weight in kg - measured and self-reported combined
 **Variable name**: phy_weight_all_0      
 **Variable description**: Weight of the participant in kilograms - measured and self-reported combined.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A  
 
@@ -1089,14 +1089,14 @@ oth_RECORD_1$dis_diab_ever_1<- ifelse(RECORD_w2$P2_Q5_33==0 & RECORD_w2$P2_Q5_32
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_RECORD_0$phy_weight_all_0<- as.numeric(RECORD_w1_1$Par4)
+oth_RECORD_0$phy_weight_all_0<- as.integer(RECORD_w1_1$Par4)
 
 ```  
 
 ### **Variable label**: Weight in kg - measured and self-reported combined
 **Variable name**: phy_weight_all_1    
 **Variable description**: Weight of the participant in kilograms - measured and self-reported combined.    
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A  
 
@@ -1104,13 +1104,13 @@ oth_RECORD_0$phy_weight_all_0<- as.numeric(RECORD_w1_1$Par4)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_RECORD_1$phy_weight_all_1<- as.numeric(RECORD_w2$Par4)
+oth_RECORD_1$phy_weight_all_1<- as.integer(RECORD_w2$Par4)
 
 ```  
 ### **Variable label**: Weight in kg - measured and self-reported combined  
 **Variable name**: phy_weight_all_2    
 **Variable description**: Weight of the participant in kilograms - measured and self-reported combined.    
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A  
 
@@ -1124,7 +1124,7 @@ oth_RECORD_1$phy_weight_all_1<- as.numeric(RECORD_w2$Par4)
 ### **Variable label**: Weight in kg - measured and self-reported combined  
 **Variable name**: phy_weight_all_3     
 **Variable description**: Weight of the participant in kilograms - self-reported and measured combined.   
-**Value type**: integer   
+**Value type**: decimal   
 **Variable unit**: kg    
 **Category coding**: N/A  
 
@@ -1138,7 +1138,7 @@ oth_RECORD_1$phy_weight_all_1<- as.numeric(RECORD_w2$Par4)
 ### **Variable label**: Weight in kg - self-reported and measured combined  
 **Variable name**: phy_weight_all_4    
 **Variable description**: Weight of the participant in kilograms - self-reported and measured combined.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A  
 
@@ -1152,7 +1152,7 @@ oth_RECORD_1$phy_weight_all_1<- as.numeric(RECORD_w2$Par4)
 ### **Variable label**: Weight in kg - self-reported and measured combined  
 **Variable name**: phy_weight_all_5    
 **Variable description**: Weight of the participant in kilograms - self-reported and measured combined.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A  
 
@@ -1166,7 +1166,7 @@ oth_RECORD_1$phy_weight_all_1<- as.numeric(RECORD_w2$Par4)
 ### **Variable label**: Weight in kg - self-reported and measured combined  
 **Variable name**: phy_weight_all_6    
 **Variable description**: Weight of the participant in kilograms - self-reported and measured combined.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A  
 
@@ -1180,7 +1180,7 @@ oth_RECORD_1$phy_weight_all_1<- as.numeric(RECORD_w2$Par4)
 ### **Variable label**: Height in cm - measured  
 **Variable name**: phy_height_ms_0  
 **Variable description**: Height of the participant in centimeters - measured.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
 
@@ -1194,7 +1194,7 @@ oth_RECORD_1$phy_weight_all_1<- as.numeric(RECORD_w2$Par4)
 ### **Variable label**: Height in cm - measured  
 **Variable name**: phy_height_ms_1  
 **Variable description**: Height of the participant in centimeters - measured.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
 
@@ -1208,7 +1208,7 @@ oth_RECORD_1$phy_weight_all_1<- as.numeric(RECORD_w2$Par4)
 ### **Variable label**: Height in cm - measured  
 **Variable name**: phy_height_ms_2  
 **Variable description**: Height of the participant in centimeters - measured.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
 
@@ -1222,7 +1222,7 @@ oth_RECORD_1$phy_weight_all_1<- as.numeric(RECORD_w2$Par4)
 ### **Variable label**: Height in cm - measured  
 **Variable name**: phy_height_ms_3  
 **Variable description**: Height of the participant in centimeters - measured.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm    
 **Category coding**: N/A
 
@@ -1236,7 +1236,7 @@ oth_RECORD_1$phy_weight_all_1<- as.numeric(RECORD_w2$Par4)
 ### **Variable label**: Height in cm - measured  
 **Variable name**: phy_height_ms_4  
 **Variable description**: Height of the participant in centimeters - measured.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
 
@@ -1250,7 +1250,7 @@ oth_RECORD_1$phy_weight_all_1<- as.numeric(RECORD_w2$Par4)
 ### **Variable label**: Height in cm - measured  
 **Variable name**: phy_height_ms_5  
 **Variable description**: Height of the participant in centimeters - measured.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
 
@@ -1264,7 +1264,7 @@ oth_RECORD_1$phy_weight_all_1<- as.numeric(RECORD_w2$Par4)
 ### **Variable label**: Height in cm - measured  
 **Variable name**: phy_height_ms_6  
 **Variable description**: Height of the participant in centimeters - measured.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
 
@@ -1279,7 +1279,7 @@ oth_RECORD_1$phy_weight_all_1<- as.numeric(RECORD_w2$Par4)
 ### **Variable label**: Height in cm - self-reported  
 **Variable name**: phy_height_sr_0  
 **Variable description**: Height of the participant in centimeters - self-reported.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
 
@@ -1293,7 +1293,7 @@ oth_RECORD_1$phy_weight_all_1<- as.numeric(RECORD_w2$Par4)
 ### **Variable label**: Height in cm - self-reported  
 **Variable name**: phy_height_sr_1  
 **Variable description**: Height of the participant in centimeters - self-reported.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
 
@@ -1307,7 +1307,7 @@ oth_RECORD_1$phy_weight_all_1<- as.numeric(RECORD_w2$Par4)
 ### **Variable label**: Height in cm - self-reported  
 **Variable name**: phy_height_sr_2  
 **Variable description**: Height of the participant in centimeters - self-reported.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
 
@@ -1321,7 +1321,7 @@ oth_RECORD_1$phy_weight_all_1<- as.numeric(RECORD_w2$Par4)
 ### **Variable label**: Height in cm - self-reported  
 **Variable name**: phy_height_sr_3  
 **Variable description**: Height of the participant in centimeters - self-reported.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
 
@@ -1335,7 +1335,7 @@ oth_RECORD_1$phy_weight_all_1<- as.numeric(RECORD_w2$Par4)
 ### **Variable label**: Height in cm - self-reported  
 **Variable name**: phy_height_sr_4  
 **Variable description**: Height of the participant in centimeters - self-reported.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
 
@@ -1349,7 +1349,7 @@ oth_RECORD_1$phy_weight_all_1<- as.numeric(RECORD_w2$Par4)
 ### **Variable label**: Height in cm - self-reported  
 **Variable name**: phy_height_sr_5  
 **Variable description**: Height of the participant in centimeters - self-reported.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
 
@@ -1363,7 +1363,7 @@ oth_RECORD_1$phy_weight_all_1<- as.numeric(RECORD_w2$Par4)
 ### **Variable label**: Height in cm - self-reported  
 **Variable name**: phy_height_sr_6  
 **Variable description**: Height of the participant in centimeters - self-reported.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
 
@@ -1378,7 +1378,7 @@ oth_RECORD_1$phy_weight_all_1<- as.numeric(RECORD_w2$Par4)
 ### **Variable label**: Height in cm - measured and self-reported combined  
 **Variable name**: phy_height_all_0    
 **Variable description**: Height of the participant in centimeters - self-reported and measured combined.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
 
@@ -1386,13 +1386,13 @@ oth_RECORD_1$phy_weight_all_1<- as.numeric(RECORD_w2$Par4)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_RECORD_0$phy_height_all_0<- as.numeric(RECORD_w1_1$Par3)
+oth_RECORD_0$phy_height_all_0<- as.integer(RECORD_w1_1$Par3)
 
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined  
 **Variable name**: phy_height_all_1    
 **Variable description**: Height of the participant in centimeters - measured and self-reported combined.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
 
@@ -1400,13 +1400,13 @@ oth_RECORD_0$phy_height_all_0<- as.numeric(RECORD_w1_1$Par3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_RECORD_1$phy_height_all_1<- as.numeric(RECORD_w2$Par3)
+oth_RECORD_1$phy_height_all_1<- as.integer(RECORD_w2$Par3)
 
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined    
 **Variable name**: phy_height_all_2    
 **Variable description**: Height of the participant in centimeters - measured and self-reported combined.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
 
@@ -1420,7 +1420,7 @@ oth_RECORD_1$phy_height_all_1<- as.numeric(RECORD_w2$Par3)
 ### **Variable label**: Height in cm - measured and self-reported combined  
 **Variable name**: phy_height_all_3    
 **Variable description**: Height of the participant in centimeters - measured and self-reported combined.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
 
@@ -1434,7 +1434,7 @@ oth_RECORD_1$phy_height_all_1<- as.numeric(RECORD_w2$Par3)
 ### **Variable label**: Height in cm - measured and self-reported combined  
 **Variable name**: phy_height_all_4    
 **Variable description**: Height of the participant in centimeters - measured and self-reported combined.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
 
@@ -1448,7 +1448,7 @@ oth_RECORD_1$phy_height_all_1<- as.numeric(RECORD_w2$Par3)
 ### **Variable label**: Height in cm - measured and self-reported combined  
 **Variable name**: phy_height_all_5    
 **Variable description**: Height of the participant in centimeters - measured and self-reported combined.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
 
@@ -1462,7 +1462,7 @@ oth_RECORD_1$phy_height_all_1<- as.numeric(RECORD_w2$Par3)
 ### **Variable label**: Height in cm - measured and self-reported combined  
 **Variable name**: phy_height_all_6    
 **Variable description**: Height of the participant in centimeters - measured and self-reported combined.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
 
@@ -1477,7 +1477,7 @@ oth_RECORD_1$phy_height_all_1<- as.numeric(RECORD_w2$Par3)
 ### **Variable label**: Body mass index (BMI) - measured  
 **Variable name**: phy_bmi_ms_0  
 **Variable description**: Weight (in kg) divided by height (in m) squared - measured.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
@@ -1491,7 +1491,7 @@ oth_RECORD_1$phy_height_all_1<- as.numeric(RECORD_w2$Par3)
 ### **Variable label**: Body mass index (BMI) - measured  
 **Variable name**: phy_bmi_ms_1  
 **Variable description**: Weight (in kg) divided by height (in m) squared - measured.    
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
@@ -1505,7 +1505,7 @@ oth_RECORD_1$phy_height_all_1<- as.numeric(RECORD_w2$Par3)
 ### **Variable label**: Body mass index (BMI) - measured  
 **Variable name**: phy_bmi_ms_2  
 **Variable description**: Weight (in kg) divided by height (in m) squared - measured.   
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
@@ -1519,7 +1519,7 @@ oth_RECORD_1$phy_height_all_1<- as.numeric(RECORD_w2$Par3)
 ### **Variable label**: Body mass index (BMI) - measured  
 **Variable name**: phy_bmi_ms_3  
 **Variable description**: Weight (in kg) divided by height (in m) squared - measured.    
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
@@ -1533,7 +1533,7 @@ oth_RECORD_1$phy_height_all_1<- as.numeric(RECORD_w2$Par3)
 ### **Variable label**: Body mass index (BMI) - measured  
 **Variable name**: phy_bmi_ms_4  
 **Variable description**: Weight (in kg) divided by height (in m) squared - measured.   
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
@@ -1547,7 +1547,7 @@ oth_RECORD_1$phy_height_all_1<- as.numeric(RECORD_w2$Par3)
 ### **Variable label**: Body mass index (BMI) - measured  
 **Variable name**: phy_bmi_ms_5  
 **Variable description**: Weight (in kg) divided by height (in m) squared - measured.    
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
@@ -1561,7 +1561,7 @@ oth_RECORD_1$phy_height_all_1<- as.numeric(RECORD_w2$Par3)
 ### **Variable label**: Body mass index (BMI) - measured  
 **Variable name**: phy_bmi_ms_6  
 **Variable description**: Weight (in kg) divided by height (in m) squared - measured.    
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
@@ -1576,7 +1576,7 @@ oth_RECORD_1$phy_height_all_1<- as.numeric(RECORD_w2$Par3)
 ### **Variable label**: Body mass index (BMI) - self-reported  
 **Variable name**: phy_bmi_sr_0  
 **Variable description**: Weight (in kg) divided by height (in m) squared - self-reported.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
@@ -1590,7 +1590,7 @@ oth_RECORD_1$phy_height_all_1<- as.numeric(RECORD_w2$Par3)
 ### **Variable label**: Body mass index (BMI) - self-reported  
 **Variable name**: phy_bmi_sr_1  
 **Variable description**: Weight (in kg) divided by height (in m) squared - self-reported.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
@@ -1604,7 +1604,7 @@ oth_RECORD_1$phy_height_all_1<- as.numeric(RECORD_w2$Par3)
 ### **Variable label**: Body mass index (BMI) - self-reported  
 **Variable name**: phy_bmi_sr_2  
 **Variable description**: Weight (in kg) divided by height (in m) squared - self-reported.    
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
@@ -1618,7 +1618,7 @@ oth_RECORD_1$phy_height_all_1<- as.numeric(RECORD_w2$Par3)
 ### **Variable label**: Body mass index (BMI) - self-reported  
 **Variable name**: phy_bmi_sr_3  
 **Variable description**: Weight (in kg) divided by height (in m) squared - self-reported.    
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
@@ -1632,7 +1632,7 @@ oth_RECORD_1$phy_height_all_1<- as.numeric(RECORD_w2$Par3)
 ### **Variable label**: Body mass index (BMI) - self-reported  
 **Variable name**: phy_bmi_sr_4  
 **Variable description**: Weight (in kg) divided by height (in m) squared - self-reported.    
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
@@ -1646,7 +1646,7 @@ oth_RECORD_1$phy_height_all_1<- as.numeric(RECORD_w2$Par3)
 ### **Variable label**: Body mass index (BMI) - self-reported  
 **Variable name**: phy_bmi_sr_5  
 **Variable description**: Weight (in kg) divided by height (in m) squared - self-reported.    
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
@@ -1660,7 +1660,7 @@ oth_RECORD_1$phy_height_all_1<- as.numeric(RECORD_w2$Par3)
 ### **Variable label**: Body mass index (BMI) - self-reported  
 **Variable name**: phy_bmi_sr_6  
 **Variable description**: Weight (in kg) divided by height (in m) squared - self-reported.    
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
@@ -1675,7 +1675,7 @@ oth_RECORD_1$phy_height_all_1<- as.numeric(RECORD_w2$Par3)
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
 **Variable name**: phy_bmi_all_0  
 **Variable description**: Weight (in kg) divided by height (in m) squared - measured and self-reported combined.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
@@ -1689,7 +1689,7 @@ oth_RECORD_0$phy_bmi_all_0<- as.numeric(RECORD_w1_2$bmi)
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
 **Variable name**: phy_bmi_all_1  
 **Variable description**: Weight (in kg) divided by height (in m) squared - measured and self-reported combined.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
@@ -1704,7 +1704,7 @@ oth_RECORD_1$phy_bmi_all_1[!is.na(as.numeric(RECORD_w2$Par3))& !is.na(as.numeric
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
 **Variable name**: phy_bmi_all_2  
 **Variable description**: Weight (in kg) divided by height (in m) squared - measured and self-reported combined.    
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
@@ -1718,7 +1718,7 @@ oth_RECORD_1$phy_bmi_all_1[!is.na(as.numeric(RECORD_w2$Par3))& !is.na(as.numeric
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
 **Variable name**: phy_bmi_all_3  
 **Variable description**: Weight (in kg) divided by height (in m) squared - measured and self-reported combined.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
@@ -1732,7 +1732,7 @@ oth_RECORD_1$phy_bmi_all_1[!is.na(as.numeric(RECORD_w2$Par3))& !is.na(as.numeric
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
 **Variable name**: phy_bmi_all_4  
 **Variable description**: Weight (in kg) divided by height (in m) squared - measured and self-reported combined.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
@@ -1746,7 +1746,7 @@ oth_RECORD_1$phy_bmi_all_1[!is.na(as.numeric(RECORD_w2$Par3))& !is.na(as.numeric
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
 **Variable name**: phy_bmi_all_5  
 **Variable description**: Weight (in kg) divided by height (in m) squared - measured and self-reported combined.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
@@ -1760,7 +1760,7 @@ oth_RECORD_1$phy_bmi_all_1[!is.na(as.numeric(RECORD_w2$Par3))& !is.na(as.numeric
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
 **Variable name**: phy_bmi_all_6  
 **Variable description**: Body mass index - self-reported and measured combined.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
@@ -2086,12 +2086,12 @@ oth_RECORD_1$phy_bmi_all_1[!is.na(as.numeric(RECORD_w2$Par3))& !is.na(as.numeric
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_RECORD_0$phy_bmi_cat_all_0<- ifelse(oth_RECORD_0$phy_bmi_all_0 <18.5,0,
+oth_RECORD_0$phy_bmi_cat_all_0<- ifelse(oth_RECORD_0$phy_bmi_all_0 <18.5,0L,
                                 ifelse(oth_RECORD_0$phy_bmi_all_0 <25 &
-                                          oth_RECORD_0$phy_bmi_all_0>18.49, 1, 
+                                          oth_RECORD_0$phy_bmi_all_0>18.49, 1L, 
                                 ifelse(oth_RECORD_0$phy_bmi_all_0 <30 &
-                                          oth_RECORD_0$phy_bmi_all_0>24.99,2, 
-                                ifelse(oth_RECORD_0$phy_bmi_all_0 >29.99,3,NA))))
+                                          oth_RECORD_0$phy_bmi_all_0>24.99,2L, 
+                                ifelse(oth_RECORD_0$phy_bmi_all_0 >29.99,3L,NA))))
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
@@ -2112,12 +2112,12 @@ oth_RECORD_0$phy_bmi_cat_all_0<- ifelse(oth_RECORD_0$phy_bmi_all_0 <18.5,0,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_RECORD_1$phy_bmi_cat_all_1<- ifelse(oth_RECORD_1$phy_bmi_all_1 <18.5,0,
+oth_RECORD_1$phy_bmi_cat_all_1<- ifelse(oth_RECORD_1$phy_bmi_all_1 <18.5,0L,
                                 ifelse(oth_RECORD_1$phy_bmi_all_1 <25 &
-                                          oth_RECORD_1$phy_bmi_all_1>18.49, 1, 
+                                          oth_RECORD_1$phy_bmi_all_1>18.49, 1L, 
                                 ifelse(oth_RECORD_1$phy_bmi_all_1 <30 &
-                                          oth_RECORD_1$phy_bmi_all_1>24.99,2, 
-                                ifelse(oth_RECORD_1$phy_bmi_all_1 >29.99,3,NA))))
+                                          oth_RECORD_1$phy_bmi_all_1>24.99,2L, 
+                                ifelse(oth_RECORD_1$phy_bmi_all_1 >29.99,3L,NA))))
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
@@ -2229,7 +2229,7 @@ oth_RECORD_1$phy_bmi_cat_all_1<- ifelse(oth_RECORD_1$phy_bmi_all_1 <18.5,0,
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined  
 **Variable name**: phy_waist_all_0  
 **Variable description**: Waist circumference of the participant in centimeters - measured and self-reported combined.    
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**:  N/A  
 
@@ -2243,7 +2243,7 @@ oth_RECORD_0$phy_waist_all_0<- as.numeric(RECORD_w1_1$Par2)
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined   
 **Variable name**: phy_waist_all_1  
 **Variable description**: Waist circumference of the participant in centimeters - measured and self-reported combined.      
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**:  N/A  
 
@@ -2257,7 +2257,7 @@ oth_RECORD_1$phy_waist_all_1<- as.numeric(RECORD_w2$Par2)
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined   
 **Variable name**: phy_waist_all_2  
 **Variable description**: Waist circumference of the participant in centimeters - measured and self-reported combined.    
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**:  N/A  
 
@@ -2271,7 +2271,7 @@ oth_RECORD_1$phy_waist_all_1<- as.numeric(RECORD_w2$Par2)
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined 
 **Variable name**: phy_waist_all_3  
 **Variable description**: Waist circumference of the participant in centimeters - measured and self-reported combined.    
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**:  N/A  
 
@@ -2285,7 +2285,7 @@ oth_RECORD_1$phy_waist_all_1<- as.numeric(RECORD_w2$Par2)
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined   
 **Variable name**: phy_waist_all_4  
 **Variable description**: Waist circumference of the participant in centimeters - measured and self-reported combined.    
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**:  N/A  
 
@@ -2299,7 +2299,7 @@ oth_RECORD_1$phy_waist_all_1<- as.numeric(RECORD_w2$Par2)
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined 
 **Variable name**: phy_waist_all_5  
 **Variable description**: Waist circumference of the participant in centimeters - measured and self-reported combined.    
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**:  N/A  
 
@@ -2313,7 +2313,7 @@ oth_RECORD_1$phy_waist_all_1<- as.numeric(RECORD_w2$Par2)
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined 
 **Variable name**: phy_waist_all_6  
 **Variable description**: Waist circumference of the participant in centimeters - measured and self-reported combined.    
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**:  N/A  
 
@@ -2344,9 +2344,9 @@ oth_RECORD_1$phy_waist_all_1<- as.numeric(RECORD_w2$Par2)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_RECORD_0$poh_sah_0<- ifelse(as.numeric(RECORD_w1_1$Qm73)>7 & as.numeric(RECORD_w1_1$Qm73)<11,0,
-                         ifelse(as.numeric(RECORD_w1_1$Qm73)>5 & as.numeric(RECORD_w1_1$Qm73)<8,1,
-ifelse(as.numeric(RECORD_w1_1$Qm73)<6 & as.numeric(RECORD_w1_1$Qm73)>0 | as.numeric(RECORD_w1_1$Qm73)==0,2,NA)))
+oth_RECORD_0$poh_sah_0<- ifelse(as.numeric(RECORD_w1_1$Qm73)>7 & as.numeric(RECORD_w1_1$Qm73)<11,0L,
+                         ifelse(as.numeric(RECORD_w1_1$Qm73)>5 & as.numeric(RECORD_w1_1$Qm73)<8,1L,
+ifelse(as.numeric(RECORD_w1_1$Qm73)<6 & as.numeric(RECORD_w1_1$Qm73)>0 | as.numeric(RECORD_w1_1$Qm73)==0,2L,NA)))
 
 ```  
 ### **Variable label**:  Self-assessed health   
@@ -2366,9 +2366,9 @@ ifelse(as.numeric(RECORD_w1_1$Qm73)<6 & as.numeric(RECORD_w1_1$Qm73)>0 | as.nume
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_RECORD_1$poh_sah_1<- ifelse(as.numeric(RECORD_w2$Qm72)>7 & as.numeric(RECORD_w2$Qm72)<11,0,
-                         ifelse(as.numeric(RECORD_w2$Qm72)>5 & as.numeric(RECORD_w2$Qm72)<8,1,
-ifelse(as.numeric(RECORD_w2$Qm72)<6 & as.numeric(RECORD_w2$Qm72)>0 | as.numeric(RECORD_w2$Qm72)==0,2,NA)))
+oth_RECORD_1$poh_sah_1<- ifelse(as.numeric(RECORD_w2$Qm72)>7 & as.numeric(RECORD_w2$Qm72)<11,0L,
+                         ifelse(as.numeric(RECORD_w2$Qm72)>5 & as.numeric(RECORD_w2$Qm72)<8,1L,
+ifelse(as.numeric(RECORD_w2$Qm72)<6 & as.numeric(RECORD_w2$Qm72)>0 | as.numeric(RECORD_w2$Qm72)==0,2L,NA)))
 
 
 ```  
@@ -2489,9 +2489,9 @@ ifelse(as.numeric(RECORD_w2$Qm72)<6 & as.numeric(RECORD_w2$Qm72)>0 | as.numeric(
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_RECORD_0$poh_sah_poor_0<- ifelse(as.numeric(RECORD_w1_1$Qm73)<8,0,
+oth_RECORD_0$poh_sah_poor_0<- ifelse(as.numeric(RECORD_w1_1$Qm73)<8,0L,
                                      ifelse(as.numeric(RECORD_w1_1$Qm73)>7 &
-                                              as.numeric(RECORD_w1_1$Qm73)<11,1,NA))
+                                              as.numeric(RECORD_w1_1$Qm73)<11,1L,NA))
 
 
 ```  
@@ -2511,9 +2511,9 @@ oth_RECORD_0$poh_sah_poor_0<- ifelse(as.numeric(RECORD_w1_1$Qm73)<8,0,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_RECORD_1$poh_sah_poor_1<- ifelse(as.numeric(RECORD_w2$Qm72)<8,0,
+oth_RECORD_1$poh_sah_poor_1<- ifelse(as.numeric(RECORD_w2$Qm72)<8,0L,
                                      ifelse(as.numeric(RECORD_w2$Qm72)>7 &
-                                              as.numeric(RECORD_w2$Qm72)<11,1,NA))
+                                              as.numeric(RECORD_w2$Qm72)<11,1L,NA))
 
 ```  
 ### **Variable label**:  Poor self-assessed health  
@@ -2628,9 +2628,9 @@ oth_RECORD_1$poh_sah_poor_1<- ifelse(as.numeric(RECORD_w2$Qm72)<8,0,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_RECORD_0$poh_sah_good_0<- ifelse(as.numeric(RECORD_w1_1$Qm73)<6,0,
+oth_RECORD_0$poh_sah_good_0<- ifelse(as.numeric(RECORD_w1_1$Qm73)<6,0L,
                                      ifelse(as.numeric(RECORD_w1_1$Qm73)>5 &
-                                              as.numeric(RECORD_w1_1$Qm73)<11,1,NA))
+                                              as.numeric(RECORD_w1_1$Qm73)<11,1L,NA))
 
 ```  
 ### **Variable label**:  Less than good self-assessed health  
@@ -2649,9 +2649,9 @@ oth_RECORD_0$poh_sah_good_0<- ifelse(as.numeric(RECORD_w1_1$Qm73)<6,0,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_RECORD_1$poh_sah_good_1<- ifelse(as.numeric(RECORD_w2$Qm72)<6,0,
+oth_RECORD_1$poh_sah_good_1<- ifelse(as.numeric(RECORD_w2$Qm72)<6,0L,
                                      ifelse(as.numeric(RECORD_w2$Qm72)>5 &
-                                              as.numeric(RECORD_w2$Qm72)<11,1,NA))
+                                              as.numeric(RECORD_w2$Qm72)<11,1L,NA))
 
 ```  
 ### **Variable label**:  Less than good self-assessed health  
