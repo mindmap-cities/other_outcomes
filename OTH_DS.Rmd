@@ -1740,7 +1740,7 @@ output: html_document
 ### **Variable label**:  Body mass index (BMI) - categories - measured  
 **Variable name**: phy_bmi_cat_ms_0  
 **Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - measured.    
-**Value type**: decimal  
+**Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
 
@@ -1761,7 +1761,7 @@ output: html_document
 ### **Variable label**:  Body mass index (BMI) - categories - measured  
 **Variable name**: phy_bmi_cat_ms_1  
 **Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - measured.  
-**Value type**: decimal  
+**Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
 
@@ -1782,7 +1782,7 @@ output: html_document
 ### **Variable label**:  Body mass index (BMI) - categories - measured  
 **Variable name**: phy_bmi_cat_ms_2  
 **Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - measured.    
-**Value type**: decimal  
+**Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
 
@@ -1803,7 +1803,7 @@ output: html_document
 ### **Variable label**:  Body mass index (BMI) - categories - measured  
 **Variable name**: phy_bmi_cat_ms_3  
 **Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - measured.    
-**Value type**: decimal  
+**Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
 
@@ -1824,7 +1824,7 @@ output: html_document
 ### **Variable label**:  Body mass index (BMI) - categories - measured  
 **Variable name**: phy_bmi_cat_ms_4  
 **Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - measured.    
-**Value type**: decimal  
+**Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
 
@@ -1845,7 +1845,7 @@ output: html_document
 ### **Variable label**:  Body mass index (BMI) - categories - measured  
 **Variable name**: phy_bmi_cat_ms_5  
 **Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - measured.  
-**Value type**: decimal  
+**Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
 
@@ -1866,7 +1866,7 @@ output: html_document
 ### **Variable label**:  Body mass index (BMI) - categories - measured  
 **Variable name**: phy_bmi_cat_ms_6  
 **Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - measured.  
-**Value type**: decimal  
+**Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
 
@@ -1888,7 +1888,7 @@ output: html_document
 ### **Variable label**:  Body mass index (BMI) - categories - self-reported  
 **Variable name**: phy_bmi_cat_sr_0    
 **Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - self-reported.  
-**Value type**: decimal  
+**Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
 
@@ -1909,7 +1909,7 @@ output: html_document
 ### **Variable label**:  Body mass index (BMI) - categories - self-reported  
 **Variable name**: phy_bmi_cat_sr_1    
 **Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - self-reported.  
-**Value type**: decimal  
+**Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
 
@@ -1930,7 +1930,7 @@ output: html_document
 ### **Variable label**:  Body mass index (BMI) - categories - self-reported  
 **Variable name**: phy_bmi_cat_sr_2    
 **Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - self-reported.
-**Value type**: decimal  
+**Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
 
@@ -1951,7 +1951,7 @@ output: html_document
 ### **Variable label**:  Body mass index (BMI) - categories - self-reported  
 **Variable name**: phy_bmi_cat_sr_3    
 **Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - self-reported.  
-**Value type**: decimal  
+**Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
 
@@ -1972,7 +1972,7 @@ output: html_document
 ### **Variable label**:  Body mass index (BMI) - categories - self-reported  
 **Variable name**: phy_bmi_cat_sr_4    
 **Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - self-reported.  
-**Value type**: decimal  
+**Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
 
@@ -1993,7 +1993,7 @@ output: html_document
 ### **Variable label**:  Body mass index (BMI) - categories - self-reported  
 **Variable name**: phy_bmi_cat_sr_5    
 **Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - self-reported.  
-**Value type**: decimal  
+**Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
 
@@ -2014,7 +2014,7 @@ output: html_document
 ### **Variable label**:  Body mass index (BMI) - categories - self-reported  
 **Variable name**: phy_bmi_cat_sr_6    
 **Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - self-reported.  
-**Value type**: decimal  
+**Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
 
@@ -2036,7 +2036,7 @@ output: html_document
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
 **Variable name**: phy_bmi_cat_all_0    
 **Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - measured and self-reported combined.
-**Value type**: decimal  
+**Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
 
@@ -2057,7 +2057,7 @@ output: html_document
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
 **Variable name**: phy_bmi_cat_all_1    
 **Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - measured and self-reported combined.  
-**Value type**: decimal  
+**Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
 
@@ -2078,7 +2078,7 @@ output: html_document
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
 **Variable name**: phy_bmi_cat_all_2    
 **Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - measured and self-reported combined.  
-**Value type**: decimal  
+**Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
 
@@ -2099,7 +2099,7 @@ output: html_document
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
 **Variable name**: phy_bmi_cat_all_3    
 **Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - measured and self-reported combined.   
-**Value type**: decimal  
+**Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
 
@@ -2120,7 +2120,7 @@ output: html_document
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
 **Variable name**: phy_bmi_cat_all_4    
 **Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - measured and self-reported combined.    
-**Value type**: decimal  
+**Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
 
@@ -2141,7 +2141,7 @@ output: html_document
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
 **Variable name**: phy_bmi_cat_all_5    
 **Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - measured and self-reported combined.  
-**Value type**: decimal  
+**Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
 
@@ -2162,7 +2162,7 @@ output: html_document
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
 **Variable name**: phy_bmi_cat_all_6    
 **Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - measured and self-reported combined.    
-**Value type**: decimal  
+**Value type**: integer    
 **Variable unit**: N/A  
 **Category coding**: 
 
