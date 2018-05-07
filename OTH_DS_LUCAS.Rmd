@@ -47,7 +47,7 @@ opal.logout(erasmus_opal)
 0          |  Never had high blood pressure or hypertension  
 1          |  Ever had high blood pressure or hypertension  
 
-**Harmonization status**:  impossible
+**Harmonization status**:  impossible  
 **Harmonization comment**: incompatible. Lucas37c_07: Had heart disease. (Have you ever had angina or coronary heart disease or coronary thrombosis (a heart attack)?)  
 **R script**:  
 ```{r, echo=TRUE}
@@ -86,7 +86,7 @@ opal.logout(erasmus_opal)
 1        |  Ever taken medication  for high blood pressure or hypertension  
 
 
-**Harmonization status**:  impossible
+**Harmonization status**:  impossible  
 **Harmonization comment**:    
 **R script**:  
 ```{r, echo=TRUE}
@@ -207,7 +207,7 @@ opal.logout(erasmus_opal)
 0        |  Never had angina
 1        |  Ever had angina  
   
-**Harmonization status**:  impossible
+**Harmonization status**:  impossible  
 **Harmonization comment**:  incompatible. Lucas37c_07: Had heart disease. (Have you ever had angina or coronary heart disease or coronary thrombosis (a heart attack)?)
 **R script**:  
 ```{r, echo=TRUE}
@@ -305,8 +305,8 @@ opal.logout(erasmus_opal)
 0        |   Never had myocardial infarction
 1        |   Ever had myocardial infarction  
 
-**Harmonization status**:  impossible
-**Harmonization comment**:  incompatible. Lucas37c_07: Had heart disease. (Have you ever had angina or coronary heart disease or coronary thrombosis (a heart attack)?)
+**Harmonization status**:  impossible  
+**Harmonization comment**:  incompatible. Lucas37c_07: Had heart disease. (Have you ever had angina or coronary heart disease or coronary thrombosis (a heart attack)?)  
 **R script**:  
 ```{r, echo=TRUE}
 
@@ -358,11 +358,10 @@ opal.logout(erasmus_opal)
 **Variable unit**:  years  
 **Category coding**: N/A  
          
-**Harmonization status**:  impossible
+**Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Age at first Myocardial infarction  
@@ -407,11 +406,10 @@ opal.logout(erasmus_opal)
 0        |   Never had stroke or CVA  
 1        |   Ever had stroke or CVA  
 
-**Harmonization status**:  impossible  
-**Harmonization comment**:  incompatible. Lucas37c_07: Had heart disease. (Have you ever had angina or coronary heart disease or coronary thrombosis (a heart attack)?)
+**Harmonization status**:  impossible   
+**Harmonization comment**:  incompatible. Lucas37c_07: Had heart disease. (Have you ever had angina or coronary heart disease or coronary thrombosis (a heart attack)?)  
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**: Lifetime occurrence of stroke or CVA  
@@ -459,11 +457,10 @@ opal.logout(erasmus_opal)
 **Variable unit**:  years  
 **Category coding**: N/A  
          
-**Harmonization status**:  impossible 
+**Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**: Age at first stroke or CVA  
@@ -510,11 +507,11 @@ opal.logout(erasmus_opal)
 0          |  Never had diabetes  
 1          |  Ever had diabetes  
 
-**Harmonization status**:  complete
+**Harmonization status**:  complete  
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}  
-oth_LUCAS_0$dis_diab_ever_0<- lucas_w2$Lucas3a_07
+oth_LUCAS_0$dis_diab_ever_0<- as.integer(lucas_w2$Lucas3a_07)
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes or high blood sugar     
 **Variable name**: dis_diab_ever_1  
@@ -618,7 +615,7 @@ oth_LUCAS_0$dis_diab_ever_0<- lucas_w2$Lucas3a_07
 **Variable unit**:  years  
 **Category coding**: N/A
 
-**Hamonization status**:  impossible
+**Hamonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}  
@@ -708,7 +705,7 @@ oth_LUCAS_0$dis_diab_ever_0<- lucas_w2$Lucas3a_07
 0        | Not currently under treatment for diabetes  
 1        | Currently under treatment for diabetes  
 
-**Harmonization status**:  impossible
+**Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:
 ```{r, echo=TRUE}
@@ -822,7 +819,7 @@ oth_LUCAS_0$dis_diab_ever_0<- lucas_w2$Lucas3a_07
 0        | Currently does not use insulin for diabetes treatment  
 1        | Currently has used insulin for diabetes treatment  
 
-**Harmonization status**:  impossible
+**Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
@@ -872,11 +869,11 @@ oth_LUCAS_0$dis_diab_ever_0<- lucas_w2$Lucas3a_07
 ### **Variable label**: Weight in kg - measured 
 **Variable name**: phy_weight_ms_0  
 **Variable description**: Weight of the participant in kilograms - measured.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A
 
-**Harmonization status**:  impossible
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
@@ -886,7 +883,7 @@ oth_LUCAS_0$dis_diab_ever_0<- lucas_w2$Lucas3a_07
 ### **Variable label**: Weight in kg - measured 
 **Variable name**: phy_weight_ms_1  
 **Variable description**: Weight of the participant in kilograms - measured.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A
 
@@ -900,7 +897,7 @@ oth_LUCAS_0$dis_diab_ever_0<- lucas_w2$Lucas3a_07
 ### **Variable label**: Weight in kg - measured 
 **Variable name**: phy_weight_ms_2  
 **Variable description**: Weight of the participant in kilograms - measured.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A
 
@@ -914,7 +911,7 @@ oth_LUCAS_0$dis_diab_ever_0<- lucas_w2$Lucas3a_07
 ### **Variable label**: Weight in kg - measured 
 **Variable name**: phy_weight_ms_3  
 **Variable description**: Weight of the participant in kilograms - measured.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A
 
@@ -928,7 +925,7 @@ oth_LUCAS_0$dis_diab_ever_0<- lucas_w2$Lucas3a_07
 ### **Variable label**: Weight in kg - measured 
 **Variable name**: phy_weight_ms_4  
 **Variable description**: Weight of the participant in kilograms - measured.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A
 
@@ -942,7 +939,7 @@ oth_LUCAS_0$dis_diab_ever_0<- lucas_w2$Lucas3a_07
 ### **Variable label**: Weight in kg - measured 
 **Variable name**: phy_weight_ms_5  
 **Variable description**: Weight of the participant in kilograms - measured.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A
 
@@ -956,7 +953,7 @@ oth_LUCAS_0$dis_diab_ever_0<- lucas_w2$Lucas3a_07
 ### **Variable label**: Weight in kg - measured 
 **Variable name**: phy_weight_ms_6  
 **Variable description**: Weight of the participant in kilograms - measured.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A
 
@@ -970,11 +967,11 @@ oth_LUCAS_0$dis_diab_ever_0<- lucas_w2$Lucas3a_07
 ### **Variable label**: Weight in kg - self-reported 
 **Variable name**: phy_weight_sr_0    
 **Variable description**: Weight of the participant in kilograms - self-reported.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A
 
-**Harmonization status**:  complete
+**Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
@@ -983,7 +980,7 @@ oth_LUCAS_0$phy_weight_sr_0<- lucas_w2$Lucas10_07
 ### **Variable label**: Weight in kg - self-reported 
 **Variable name**: phy_weight_sr_1    
 **Variable description**: Weight of the participant in kilograms - self-reported.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A
 
@@ -997,7 +994,7 @@ oth_LUCAS_0$phy_weight_sr_0<- lucas_w2$Lucas10_07
 ### **Variable label**: Weight in kg - self-reported 
 **Variable name**: phy_weight_sr_2    
 **Variable description**: Weight of the participant in kilograms - self-reported.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A
 
@@ -1011,7 +1008,7 @@ oth_LUCAS_0$phy_weight_sr_0<- lucas_w2$Lucas10_07
 ### **Variable label**: Weight in kg - self-reported 
 **Variable name**: phy_weight_sr_3    
 **Variable description**: Weight of the participant in kilograms - self-reported.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A
 
@@ -1025,7 +1022,7 @@ oth_LUCAS_0$phy_weight_sr_0<- lucas_w2$Lucas10_07
 ### **Variable label**: Weight in kg - self-reported 
 **Variable name**: phy_weight_sr_4    
 **Variable description**: Weight of the participant in kilograms - self-reported.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A
 
@@ -1039,7 +1036,7 @@ oth_LUCAS_0$phy_weight_sr_0<- lucas_w2$Lucas10_07
 ### **Variable label**: Weight in kg - self-reported 
 **Variable name**: phy_weight_sr_5    
 **Variable description**: Weight of the participant in kilograms - self-reported.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A
 
@@ -1053,7 +1050,7 @@ oth_LUCAS_0$phy_weight_sr_0<- lucas_w2$Lucas10_07
 ### **Variable label**: Weight in kg - self-reported 
 **Variable name**: phy_weight_sr_6    
 **Variable description**: Weight of the participant in kilograms - self-reported.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A
 
@@ -1067,7 +1064,7 @@ oth_LUCAS_0$phy_weight_sr_0<- lucas_w2$Lucas10_07
 ### **Variable label**: Weight in kg - measured and self-reported combined
 **Variable name**: phy_weight_all_0      
 **Variable description**: Weight of the participant in kilograms - measured and self-reported combined.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A  
 
@@ -1081,7 +1078,7 @@ oth_LUCAS_0$phy_weight_all_0<- lucas_w2$Lucas10_07
 ### **Variable label**: Weight in kg - measured and self-reported combined
 **Variable name**: phy_weight_all_1    
 **Variable description**: Weight of the participant in kilograms - measured and self-reported combined.    
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A  
 
@@ -1095,7 +1092,7 @@ oth_LUCAS_0$phy_weight_all_0<- lucas_w2$Lucas10_07
 ### **Variable label**: Weight in kg - measured and self-reported combined  
 **Variable name**: phy_weight_all_2    
 **Variable description**: Weight of the participant in kilograms - measured and self-reported combined.    
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A  
 
@@ -1109,7 +1106,7 @@ oth_LUCAS_0$phy_weight_all_0<- lucas_w2$Lucas10_07
 ### **Variable label**: Weight in kg - measured and self-reported combined  
 **Variable name**: phy_weight_all_3     
 **Variable description**: Weight of the participant in kilograms - self-reported and measured combined.   
-**Value type**: integer   
+**Value type**: decimal   
 **Variable unit**: kg    
 **Category coding**: N/A  
 
@@ -1123,7 +1120,7 @@ oth_LUCAS_0$phy_weight_all_0<- lucas_w2$Lucas10_07
 ### **Variable label**: Weight in kg - self-reported and measured combined  
 **Variable name**: phy_weight_all_4    
 **Variable description**: Weight of the participant in kilograms - self-reported and measured combined.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A  
 
@@ -1137,7 +1134,7 @@ oth_LUCAS_0$phy_weight_all_0<- lucas_w2$Lucas10_07
 ### **Variable label**: Weight in kg - self-reported and measured combined  
 **Variable name**: phy_weight_all_5    
 **Variable description**: Weight of the participant in kilograms - self-reported and measured combined.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A  
 
@@ -1151,7 +1148,7 @@ oth_LUCAS_0$phy_weight_all_0<- lucas_w2$Lucas10_07
 ### **Variable label**: Weight in kg - self-reported and measured combined  
 **Variable name**: phy_weight_all_6    
 **Variable description**: Weight of the participant in kilograms - self-reported and measured combined.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A  
 
@@ -1165,7 +1162,7 @@ oth_LUCAS_0$phy_weight_all_0<- lucas_w2$Lucas10_07
 ### **Variable label**: Height in cm - measured  
 **Variable name**: phy_height_ms_0  
 **Variable description**: Height of the participant in centimeters - measured.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
 
@@ -1179,7 +1176,7 @@ oth_LUCAS_0$phy_weight_all_0<- lucas_w2$Lucas10_07
 ### **Variable label**: Height in cm - measured  
 **Variable name**: phy_height_ms_1  
 **Variable description**: Height of the participant in centimeters - measured.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
 
@@ -1193,7 +1190,7 @@ oth_LUCAS_0$phy_weight_all_0<- lucas_w2$Lucas10_07
 ### **Variable label**: Height in cm - measured  
 **Variable name**: phy_height_ms_2  
 **Variable description**: Height of the participant in centimeters - measured.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
 
@@ -1207,7 +1204,7 @@ oth_LUCAS_0$phy_weight_all_0<- lucas_w2$Lucas10_07
 ### **Variable label**: Height in cm - measured  
 **Variable name**: phy_height_ms_3  
 **Variable description**: Height of the participant in centimeters - measured.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm    
 **Category coding**: N/A
 
@@ -1221,7 +1218,7 @@ oth_LUCAS_0$phy_weight_all_0<- lucas_w2$Lucas10_07
 ### **Variable label**: Height in cm - measured  
 **Variable name**: phy_height_ms_4  
 **Variable description**: Height of the participant in centimeters - measured.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
 
@@ -1235,7 +1232,7 @@ oth_LUCAS_0$phy_weight_all_0<- lucas_w2$Lucas10_07
 ### **Variable label**: Height in cm - measured  
 **Variable name**: phy_height_ms_5  
 **Variable description**: Height of the participant in centimeters - measured.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
 
@@ -1249,7 +1246,7 @@ oth_LUCAS_0$phy_weight_all_0<- lucas_w2$Lucas10_07
 ### **Variable label**: Height in cm - measured  
 **Variable name**: phy_height_ms_6  
 **Variable description**: Height of the participant in centimeters - measured.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
 
@@ -1264,7 +1261,7 @@ oth_LUCAS_0$phy_weight_all_0<- lucas_w2$Lucas10_07
 ### **Variable label**: Height in cm - self-reported  
 **Variable name**: phy_height_sr_0  
 **Variable description**: Height of the participant in centimeters - self-reported.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
 
@@ -1277,7 +1274,7 @@ oth_LUCAS_0$phy_height_sr_0<- lucas_w2$Lucas9_07
 ### **Variable label**: Height in cm - self-reported  
 **Variable name**: phy_height_sr_1  
 **Variable description**: Height of the participant in centimeters - self-reported.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
 
@@ -1291,7 +1288,7 @@ oth_LUCAS_0$phy_height_sr_0<- lucas_w2$Lucas9_07
 ### **Variable label**: Height in cm - self-reported  
 **Variable name**: phy_height_sr_2  
 **Variable description**: Height of the participant in centimeters - self-reported.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
 
@@ -1305,7 +1302,7 @@ oth_LUCAS_0$phy_height_sr_0<- lucas_w2$Lucas9_07
 ### **Variable label**: Height in cm - self-reported  
 **Variable name**: phy_height_sr_3  
 **Variable description**: Height of the participant in centimeters - self-reported.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
 
@@ -1319,7 +1316,7 @@ oth_LUCAS_0$phy_height_sr_0<- lucas_w2$Lucas9_07
 ### **Variable label**: Height in cm - self-reported  
 **Variable name**: phy_height_sr_4  
 **Variable description**: Height of the participant in centimeters - self-reported.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
 
@@ -1333,7 +1330,7 @@ oth_LUCAS_0$phy_height_sr_0<- lucas_w2$Lucas9_07
 ### **Variable label**: Height in cm - self-reported  
 **Variable name**: phy_height_sr_5  
 **Variable description**: Height of the participant in centimeters - self-reported.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
 
@@ -1347,7 +1344,7 @@ oth_LUCAS_0$phy_height_sr_0<- lucas_w2$Lucas9_07
 ### **Variable label**: Height in cm - self-reported  
 **Variable name**: phy_height_sr_6  
 **Variable description**: Height of the participant in centimeters - self-reported.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
 
@@ -1362,7 +1359,7 @@ oth_LUCAS_0$phy_height_sr_0<- lucas_w2$Lucas9_07
 ### **Variable label**: Height in cm - measured and self-reported combined  
 **Variable name**: phy_height_all_0    
 **Variable description**: Height of the participant in centimeters - self-reported and measured combined.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
 
@@ -1375,7 +1372,7 @@ oth_LUCAS_0$phy_height_all_0<-lucas_w2$Lucas9_07
 ### **Variable label**: Height in cm - measured and self-reported combined  
 **Variable name**: phy_height_all_1    
 **Variable description**: Height of the participant in centimeters - measured and self-reported combined.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
 
@@ -1389,7 +1386,7 @@ oth_LUCAS_0$phy_height_all_0<-lucas_w2$Lucas9_07
 ### **Variable label**: Height in cm - measured and self-reported combined    
 **Variable name**: phy_height_all_2    
 **Variable description**: Height of the participant in centimeters - measured and self-reported combined.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
 
@@ -1403,7 +1400,7 @@ oth_LUCAS_0$phy_height_all_0<-lucas_w2$Lucas9_07
 ### **Variable label**: Height in cm - measured and self-reported combined  
 **Variable name**: phy_height_all_3    
 **Variable description**: Height of the participant in centimeters - measured and self-reported combined.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
 
@@ -1417,7 +1414,7 @@ oth_LUCAS_0$phy_height_all_0<-lucas_w2$Lucas9_07
 ### **Variable label**: Height in cm - measured and self-reported combined  
 **Variable name**: phy_height_all_4    
 **Variable description**: Height of the participant in centimeters - measured and self-reported combined.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
 
@@ -1431,7 +1428,7 @@ oth_LUCAS_0$phy_height_all_0<-lucas_w2$Lucas9_07
 ### **Variable label**: Height in cm - measured and self-reported combined  
 **Variable name**: phy_height_all_5    
 **Variable description**: Height of the participant in centimeters - measured and self-reported combined.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
 
@@ -1445,7 +1442,7 @@ oth_LUCAS_0$phy_height_all_0<-lucas_w2$Lucas9_07
 ### **Variable label**: Height in cm - measured and self-reported combined  
 **Variable name**: phy_height_all_6    
 **Variable description**: Height of the participant in centimeters - measured and self-reported combined.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
 
@@ -1460,7 +1457,7 @@ oth_LUCAS_0$phy_height_all_0<-lucas_w2$Lucas9_07
 ### **Variable label**: Body mass index (BMI) - measured  
 **Variable name**: phy_bmi_ms_0  
 **Variable description**: Weight (in kg) divided by height (in m) squared - measured.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
@@ -1473,7 +1470,7 @@ oth_LUCAS_0$phy_height_all_0<-lucas_w2$Lucas9_07
 ### **Variable label**: Body mass index (BMI) - measured  
 **Variable name**: phy_bmi_ms_1  
 **Variable description**: Weight (in kg) divided by height (in m) squared - measured.    
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
@@ -1487,7 +1484,7 @@ oth_LUCAS_0$phy_height_all_0<-lucas_w2$Lucas9_07
 ### **Variable label**: Body mass index (BMI) - measured  
 **Variable name**: phy_bmi_ms_2  
 **Variable description**: Weight (in kg) divided by height (in m) squared - measured.   
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
@@ -1501,7 +1498,7 @@ oth_LUCAS_0$phy_height_all_0<-lucas_w2$Lucas9_07
 ### **Variable label**: Body mass index (BMI) - measured  
 **Variable name**: phy_bmi_ms_3  
 **Variable description**: Weight (in kg) divided by height (in m) squared - measured.    
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
@@ -1515,7 +1512,7 @@ oth_LUCAS_0$phy_height_all_0<-lucas_w2$Lucas9_07
 ### **Variable label**: Body mass index (BMI) - measured  
 **Variable name**: phy_bmi_ms_4  
 **Variable description**: Weight (in kg) divided by height (in m) squared - measured.   
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
@@ -1529,7 +1526,7 @@ oth_LUCAS_0$phy_height_all_0<-lucas_w2$Lucas9_07
 ### **Variable label**: Body mass index (BMI) - measured  
 **Variable name**: phy_bmi_ms_5  
 **Variable description**: Weight (in kg) divided by height (in m) squared - measured.    
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
@@ -1543,7 +1540,7 @@ oth_LUCAS_0$phy_height_all_0<-lucas_w2$Lucas9_07
 ### **Variable label**: Body mass index (BMI) - measured  
 **Variable name**: phy_bmi_ms_6  
 **Variable description**: Weight (in kg) divided by height (in m) squared - measured.    
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
@@ -1558,7 +1555,7 @@ oth_LUCAS_0$phy_height_all_0<-lucas_w2$Lucas9_07
 ### **Variable label**: Body mass index (BMI) - self-reported  
 **Variable name**: phy_bmi_sr_0  
 **Variable description**: Weight (in kg) divided by height (in m) squared - self-reported.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
@@ -1571,7 +1568,7 @@ oth_LUCAS_0$phy_bmi_sr_0[!is.na(lucas_w2$Lucas10_07)&!is.na(lucas_w2$Lucas9_07)]
 ### **Variable label**: Body mass index (BMI) - self-reported  
 **Variable name**: phy_bmi_sr_1  
 **Variable description**: Weight (in kg) divided by height (in m) squared - self-reported.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
@@ -1585,7 +1582,7 @@ oth_LUCAS_0$phy_bmi_sr_0[!is.na(lucas_w2$Lucas10_07)&!is.na(lucas_w2$Lucas9_07)]
 ### **Variable label**: Body mass index (BMI) - self-reported  
 **Variable name**: phy_bmi_sr_2  
 **Variable description**: Weight (in kg) divided by height (in m) squared - self-reported.    
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
@@ -1599,7 +1596,7 @@ oth_LUCAS_0$phy_bmi_sr_0[!is.na(lucas_w2$Lucas10_07)&!is.na(lucas_w2$Lucas9_07)]
 ### **Variable label**: Body mass index (BMI) - self-reported  
 **Variable name**: phy_bmi_sr_3  
 **Variable description**: Weight (in kg) divided by height (in m) squared - self-reported.    
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
@@ -1613,7 +1610,7 @@ oth_LUCAS_0$phy_bmi_sr_0[!is.na(lucas_w2$Lucas10_07)&!is.na(lucas_w2$Lucas9_07)]
 ### **Variable label**: Body mass index (BMI) - self-reported  
 **Variable name**: phy_bmi_sr_4  
 **Variable description**: Weight (in kg) divided by height (in m) squared - self-reported.    
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
@@ -1627,7 +1624,7 @@ oth_LUCAS_0$phy_bmi_sr_0[!is.na(lucas_w2$Lucas10_07)&!is.na(lucas_w2$Lucas9_07)]
 ### **Variable label**: Body mass index (BMI) - self-reported  
 **Variable name**: phy_bmi_sr_5  
 **Variable description**: Weight (in kg) divided by height (in m) squared - self-reported.    
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
@@ -1641,7 +1638,7 @@ oth_LUCAS_0$phy_bmi_sr_0[!is.na(lucas_w2$Lucas10_07)&!is.na(lucas_w2$Lucas9_07)]
 ### **Variable label**: Body mass index (BMI) - self-reported  
 **Variable name**: phy_bmi_sr_6  
 **Variable description**: Weight (in kg) divided by height (in m) squared - self-reported.    
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
@@ -1656,7 +1653,7 @@ oth_LUCAS_0$phy_bmi_sr_0[!is.na(lucas_w2$Lucas10_07)&!is.na(lucas_w2$Lucas9_07)]
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
 **Variable name**: phy_bmi_all_0  
 **Variable description**: Weight (in kg) divided by height (in m) squared - measured and self-reported combined.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
@@ -1670,7 +1667,7 @@ oth_LUCAS_0$phy_bmi_all_0[!is.na(lucas_w2$Lucas10_07)&!is.na(lucas_w2$Lucas9_07)
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
 **Variable name**: phy_bmi_all_1  
 **Variable description**: Weight (in kg) divided by height (in m) squared - measured and self-reported combined.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
@@ -1684,7 +1681,7 @@ oth_LUCAS_0$phy_bmi_all_0[!is.na(lucas_w2$Lucas10_07)&!is.na(lucas_w2$Lucas9_07)
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
 **Variable name**: phy_bmi_all_2  
 **Variable description**: Weight (in kg) divided by height (in m) squared - measured and self-reported combined.    
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
@@ -1698,7 +1695,7 @@ oth_LUCAS_0$phy_bmi_all_0[!is.na(lucas_w2$Lucas10_07)&!is.na(lucas_w2$Lucas9_07)
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
 **Variable name**: phy_bmi_all_3  
 **Variable description**: Weight (in kg) divided by height (in m) squared - measured and self-reported combined.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
@@ -1712,7 +1709,7 @@ oth_LUCAS_0$phy_bmi_all_0[!is.na(lucas_w2$Lucas10_07)&!is.na(lucas_w2$Lucas9_07)
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
 **Variable name**: phy_bmi_all_4  
 **Variable description**: Weight (in kg) divided by height (in m) squared - measured and self-reported combined.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
@@ -1726,7 +1723,7 @@ oth_LUCAS_0$phy_bmi_all_0[!is.na(lucas_w2$Lucas10_07)&!is.na(lucas_w2$Lucas9_07)
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
 **Variable name**: phy_bmi_all_5  
 **Variable description**: Weight (in kg) divided by height (in m) squared - measured and self-reported combined.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
@@ -1740,7 +1737,7 @@ oth_LUCAS_0$phy_bmi_all_0[!is.na(lucas_w2$Lucas10_07)&!is.na(lucas_w2$Lucas9_07)
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
 **Variable name**: phy_bmi_all_6  
 **Variable description**: Body mass index - self-reported and measured combined.  
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
@@ -1918,12 +1915,12 @@ oth_LUCAS_0$phy_bmi_all_0[!is.na(lucas_w2$Lucas10_07)&!is.na(lucas_w2$Lucas9_07)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_LUCAS_0$phy_bmi_cat_sr_0<- ifelse(oth_LUCAS_0$phy_bmi_sr_0 <18.5,0,
+oth_LUCAS_0$phy_bmi_cat_sr_0<- ifelse(oth_LUCAS_0$phy_bmi_sr_0 <18.5,0L,
                                       ifelse(oth_LUCAS_0$phy_bmi_sr_0 <25 &
-                                               oth_LUCAS_0$phy_bmi_sr_0>18.49, 1, 
+                                               oth_LUCAS_0$phy_bmi_sr_0>18.49, 1L, 
                                              ifelse(oth_LUCAS_0$phy_bmi_sr_0 <30 &
-                                                      oth_LUCAS_0$phy_bmi_sr_0>24.99,2, 
-                                                    ifelse(oth_LUCAS_0$phy_bmi_sr_0 >29.99,3,NA))))
+                                                      oth_LUCAS_0$phy_bmi_sr_0>24.99,2L, 
+                                                    ifelse(oth_LUCAS_0$phy_bmi_sr_0 >29.99,3L,NA))))
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - self-reported  
 **Variable name**: phy_bmi_cat_sr_1    
@@ -2070,12 +2067,12 @@ oth_LUCAS_0$phy_bmi_cat_sr_0<- ifelse(oth_LUCAS_0$phy_bmi_sr_0 <18.5,0,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_LUCAS_0$phy_bmi_cat_all_0<- ifelse(oth_LUCAS_0$phy_bmi_all_0 <18.5,0,
+oth_LUCAS_0$phy_bmi_cat_all_0<- ifelse(oth_LUCAS_0$phy_bmi_all_0 <18.5,0L,
                                       ifelse(oth_LUCAS_0$phy_bmi_all_0 <25 &
-                                               oth_LUCAS_0$phy_bmi_all_0>18.49, 1, 
+                                               oth_LUCAS_0$phy_bmi_all_0>18.49, 1L, 
                                              ifelse(oth_LUCAS_0$phy_bmi_all_0 <30 &
-                                                      oth_LUCAS_0$phy_bmi_all_0>24.99,2, 
-                                                    ifelse(oth_LUCAS_0$phy_bmi_all_0 >29.99,3,NA))))
+                                                      oth_LUCAS_0$phy_bmi_all_0>24.99,2L, 
+                                                   ifelse(oth_LUCAS_0$phy_bmi_all_0 >29.99,3L,NA))))
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
 **Variable name**: phy_bmi_cat_all_1    
@@ -2207,7 +2204,7 @@ oth_LUCAS_0$phy_bmi_cat_all_0<- ifelse(oth_LUCAS_0$phy_bmi_all_0 <18.5,0,
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined  
 **Variable name**: phy_waist_all_0  
 **Variable description**: Waist circumference of the participant in centimeters - measured and self-reported combined.    
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**:  N/A  
 
@@ -2221,7 +2218,7 @@ oth_LUCAS_0$phy_bmi_cat_all_0<- ifelse(oth_LUCAS_0$phy_bmi_all_0 <18.5,0,
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined   
 **Variable name**: phy_waist_all_1  
 **Variable description**: Waist circumference of the participant in centimeters - measured and self-reported combined.      
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**:  N/A  
 
@@ -2235,7 +2232,7 @@ oth_LUCAS_0$phy_bmi_cat_all_0<- ifelse(oth_LUCAS_0$phy_bmi_all_0 <18.5,0,
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined   
 **Variable name**: phy_waist_all_2  
 **Variable description**: Waist circumference of the participant in centimeters - measured and self-reported combined.    
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**:  N/A  
 
@@ -2249,7 +2246,7 @@ oth_LUCAS_0$phy_bmi_cat_all_0<- ifelse(oth_LUCAS_0$phy_bmi_all_0 <18.5,0,
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined 
 **Variable name**: phy_waist_all_3  
 **Variable description**: Waist circumference of the participant in centimeters - measured and self-reported combined.    
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**:  N/A  
 
@@ -2263,7 +2260,7 @@ oth_LUCAS_0$phy_bmi_cat_all_0<- ifelse(oth_LUCAS_0$phy_bmi_all_0 <18.5,0,
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined   
 **Variable name**: phy_waist_all_4  
 **Variable description**: Waist circumference of the participant in centimeters - measured and self-reported combined.    
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**:  N/A  
 
@@ -2277,7 +2274,7 @@ oth_LUCAS_0$phy_bmi_cat_all_0<- ifelse(oth_LUCAS_0$phy_bmi_all_0 <18.5,0,
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined 
 **Variable name**: phy_waist_all_5  
 **Variable description**: Waist circumference of the participant in centimeters - measured and self-reported combined.    
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**:  N/A  
 
@@ -2291,7 +2288,7 @@ oth_LUCAS_0$phy_bmi_cat_all_0<- ifelse(oth_LUCAS_0$phy_bmi_all_0 <18.5,0,
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined 
 **Variable name**: phy_waist_all_6  
 **Variable description**: Waist circumference of the participant in centimeters - measured and self-reported combined.    
-**Value type**: integer  
+**Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**:  N/A  
 
@@ -2322,9 +2319,9 @@ oth_LUCAS_0$phy_bmi_cat_all_0<- ifelse(oth_LUCAS_0$phy_bmi_all_0 <18.5,0,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_LUCAS_0$poh_sah_0<- ifelse(lucas_w2$Lucas1_07 == 1 | lucas_w2$Lucas1_07 == 2,0, 
-                               ifelse(lucas_w2$Lucas1_07 == 3, 1, 
-                                      ifelse(lucas_w2$Lucas1_07 == 4, 2,NA)))
+oth_LUCAS_0$poh_sah_0<- ifelse(lucas_w2$Lucas1_07 == 1 | lucas_w2$Lucas1_07 == 2,0L, 
+                               ifelse(lucas_w2$Lucas1_07 == 3, 1L, 
+                                      ifelse(lucas_w2$Lucas1_07 == 4, 2L,NA)))
 ```  
 ### **Variable label**:  Self-assessed health   
 **Variable name**:  poh_sah_1  
@@ -2463,9 +2460,9 @@ oth_LUCAS_0$poh_sah_0<- ifelse(lucas_w2$Lucas1_07 == 1 | lucas_w2$Lucas1_07 == 2
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_LUCAS_0$poh_sah_poor_0<- ifelse(lucas_w2$Lucas1_07 == 4, 0, 
+oth_LUCAS_0$poh_sah_poor_0<- ifelse(lucas_w2$Lucas1_07 == 4, 0L, 
                                     ifelse(lucas_w2$Lucas1_07 == 1 |lucas_w2$Lucas1_07 == 2 |
-                                           lucas_w2$Lucas1_07 == 3,1,NA))
+                                           lucas_w2$Lucas1_07 == 3,1L,NA))
 ```  
 ### **Variable label**:  Poor self-assessed health  
 **Variable name**:  poh_sah_poor_1    
@@ -2598,7 +2595,7 @@ oth_LUCAS_0$poh_sah_poor_0<- ifelse(lucas_w2$Lucas1_07 == 4, 0,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_LUCAS_0$poh_sah_good_0<- ifelse(lucas_w2$Lucas1_07 <3, 1, ifelse(lucas_w2$Lucas1_07>2,0,NA))
+oth_LUCAS_0$poh_sah_good_0<- ifelse(lucas_w2$Lucas1_07 <3, 1L, ifelse(lucas_w2$Lucas1_07>2,0L,NA))
 ```  
 ### **Variable label**:  Less than good self-assessed health  
 **Variable name**:  poh_sah_good_1    
@@ -2792,7 +2789,7 @@ oth_LUCAS_0$poh_sah_good_0<- ifelse(lucas_w2$Lucas1_07 <3, 1, ifelse(lucas_w2$Lu
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_LUCAS_0$fct_walk_diff_0<- ifelse(lucas_w2$Lucas23b_07 == 1,1, ifelse(lucas_w2$Lucas23b_07>1,0,NA))
+oth_LUCAS_0$fct_walk_diff_0<- ifelse(lucas_w2$Lucas23b_07 == 1,1L, ifelse(lucas_w2$Lucas23b_07>1,0L,NA))
 ```  
 ### **Variable label**:  Difficulty walking    
 **Variable name**:  fct_walk_diff_1  
