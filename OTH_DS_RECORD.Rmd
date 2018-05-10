@@ -1089,8 +1089,7 @@ oth_RECORD_1$dis_diab_ever_1<- ifelse(RECORD_w2$P2_Q5_33==0 & RECORD_w2$P2_Q5_32
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_RECORD_0$phy_weight_all_0<- as.integer(RECORD_w1_1$Par4)
-
+oth_RECORD_0$phy_weight_all_0<- as.numeric(RECORD_w1_1$Par4)
 ```  
 
 ### **Variable label**: Weight in kg - measured and self-reported combined
@@ -1104,8 +1103,7 @@ oth_RECORD_0$phy_weight_all_0<- as.integer(RECORD_w1_1$Par4)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_RECORD_1$phy_weight_all_1<- as.integer(RECORD_w2$Par4)
-
+oth_RECORD_1$phy_weight_all_1<- as.numeric(RECORD_w2$Par4)
 ```  
 ### **Variable label**: Weight in kg - measured and self-reported combined  
 **Variable name**: phy_weight_all_2    
@@ -1386,8 +1384,7 @@ oth_RECORD_1$phy_weight_all_1<- as.integer(RECORD_w2$Par4)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_RECORD_0$phy_height_all_0<- as.integer(RECORD_w1_1$Par3)
-
+oth_RECORD_0$phy_height_all_0<- as.numeric(RECORD_w1_1$Par3)
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined  
 **Variable name**: phy_height_all_1    
@@ -1400,8 +1397,7 @@ oth_RECORD_0$phy_height_all_0<- as.integer(RECORD_w1_1$Par3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_RECORD_1$phy_height_all_1<- as.integer(RECORD_w2$Par3)
-
+oth_RECORD_1$phy_height_all_1<- as.numeric(RECORD_w2$Par3)
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined    
 **Variable name**: phy_height_all_2    
@@ -1684,7 +1680,6 @@ oth_RECORD_1$phy_height_all_1<- as.integer(RECORD_w2$Par3)
 **R script**:  
 ```{r, echo=TRUE}
 oth_RECORD_0$phy_bmi_all_0<- as.numeric(RECORD_w1_2$bmi)
-
 ```  
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
 **Variable name**: phy_bmi_all_1  
