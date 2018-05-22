@@ -60,7 +60,12 @@ opal.logout(erasmus_opal)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_RECORD_0$dis_hbp_ever_0<- recode(as.character(RECORD_w1_1$Qm33), 'N'=0L, 'O'=1L)  
+oth_RECORD_0$dis_hbp_ever_0<- recode(as.integer(RECORD_w1_1$Qm33), 'N'=0L, 'O'=1L)
+
+oth_RECORD_0_TEST$dis_hbp_ever_0_test<- ifelse(as.integer(RECORD_w1_1$Qm33)=='N',0L,
+                                    ifelse(as.integer(RECORD_w1_1$Qm33)=='O',1L,
+                                    ifelse(is.na(as.integer(RECORD_w1_1$Qm33)) 
+                                           & (RECORD_w2$P2_Q1_15 == 0 & RECORD_w2$P2_Q1_16==1),0L,NA)))
 
 ```  
 ### **Variable label**: Lifetime occurrence of high blood pressure or hypertension    
