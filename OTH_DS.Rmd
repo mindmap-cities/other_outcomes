@@ -7,9 +7,10 @@ output: html_document
 2. [Angina subdomain](#angina-subdomain)
 3. [Myocardial infarction subdomain](#myocardial-infarction-subdomain)
 4. [Stroke subdomain](#stroke-subdomain)
-5. [BMI subdomain](#bmi-subdomain)
-6. [General perception of health subdomain](#general-perception-of-health-subdomain)
-7. [Disability subdomain](#disability-subdomain)
+5. [Diabetes subdomain](#diabetes-subdomain)
+6. [BMI subdomain](#bmi-subdomain)
+7. [General perception of health subdomain](#general-perception-of-health-subdomain)
+8. [Disability subdomain](#disability-subdomain)
 
 # Hypertension subdomain
 

@@ -38,10 +38,12 @@ opal.logout(erasmus_opal)
 2. [Angina subdomain](#angina-subdomain)
 3. [Myocardial infarction subdomain](#myocardial-infarction-subdomain)
 4. [Stroke subdomain](#stroke-subdomain)
-5. [BMI subdomain](#bmi-subdomain)
-6. [General perception of health subdomain](#general-perception-of-health-subdomain)
-7. [Disability subdomain](#disability-subdomain)
+5. [Diabetes subdomain](#diabetes-subdomain)
+6. [BMI subdomain](#bmi-subdomain)
+7. [General perception of health subdomain](#general-perception-of-health-subdomain)
+8. [Disability subdomain](#disability-subdomain)
 
+`
 # Hypertension subdomain
 
 ### **Variable label**: Lifetime occurrence of high blood pressure or hypertension    
@@ -60,12 +62,7 @@ opal.logout(erasmus_opal)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_RECORD_0$dis_hbp_ever_0<- recode(as.integer(RECORD_w1_1$Qm33), 'N'=0L, 'O'=1L)
-
-oth_RECORD_0_TEST$dis_hbp_ever_0_test<- ifelse(as.integer(RECORD_w1_1$Qm33)=='N',0L,
-                                    ifelse(as.integer(RECORD_w1_1$Qm33)=='O',1L,
-                                    ifelse(is.na(as.integer(RECORD_w1_1$Qm33)) 
-                                           & (RECORD_w2$P2_Q1_15 == 0 & RECORD_w2$P2_Q1_16==1),0L,NA)))
+oth_RECORD_0$dis_hbp_ever_0<- recode(as.factor(RECORD_w1_1$Qm33), 'N'=0, 'O'=1)
 
 ```  
 ### **Variable label**: Lifetime occurrence of high blood pressure or hypertension    
@@ -84,10 +81,13 @@ oth_RECORD_0_TEST$dis_hbp_ever_0_test<- ifelse(as.integer(RECORD_w1_1$Qm33)=='N'
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
-oth_RECORD_1$dis_hbp_ever_1<- ifelse(RECORD_w2$P2_Q1_15 == 0 & RECORD_w2$P2_Q1_16==1,0L,
+oth_RECORD_1$dis_hbp_ever_1_1<- ifelse(RECORD_w2$P2_Q1_15 == 0 & RECORD_w2$P2_Q1_16==1,0L,
 ifelse(RECORD_w2$P2_Q1_15 == 1 & RECORD_w2$P2_Q1_16==0,1L,NA))
 
+oth_RECORD_1$dis_hbp_ever_1_2<- recode(as.factor(RECORD_w2$Qm34),'N'=0L,'O'=1L)
+
+oth_RECORD_1$dis_hbp_ever_1<-ifelse(oth_RECORD_1$dis_hbp_ever_1_1==1 & oth_RECORD_1$dis_hbp_ever_1_2==1,1,
+                                    ifelse(oth_RECORD_1$dis_hbp_ever_1_1==0 & oth_RECORD_1$dis_hbp_ever_1_2==0,0,NA))
 ``` 
 ### **Variable label**: Medication for high blood pressure or hypertension    
 **Variable name**:  dis_hbp_med_0  
@@ -247,7 +247,6 @@ oth_RECORD_0$dis_angina_ever_0<- recode(as.character(RECORD_w1_1$Qm35),'N'=0L,'O
 **R script**:  
 ```{r, echo=TRUE}
 oth_RECORD_1$dis_angina_ever_1<- recode(as.character(RECORD_w2$Qm36), 'N'=0L,'O'=1L)
-
 
 ```  
 ### **Variable label**: Lifetime occurrence of angina 
@@ -550,8 +549,13 @@ oth_RECORD_1$dis_stroke_ever_1<- recode(as.character(RECORD_w2$Qm42),'N'=0L,'O'=
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}  
-oth_RECORD_1$dis_diab_ever_1<- ifelse(RECORD_w2$P2_Q5_33==0 & RECORD_w2$P2_Q5_32==1,0L,
+oth_RECORD_1$dis_diab_ever_1_1<- ifelse(RECORD_w2$P2_Q5_33==0 & RECORD_w2$P2_Q5_32==1,0L,
                                       ifelse(RECORD_w2$P2_Q5_33==1 & RECORD_w2$P2_Q5_32==0,1L,NA))
+
+oth_RECORD_1$dis_diab_ever_1_2<- ifelse(RECORD_w2$P2_Q6_37==0 & RECORD_w2$P2_Q6_36==1,0L,
+                                      ifelse(RECORD_w2$P2_Q6_37==1 & RECORD_w2$P2_Q6_36==0,1L,NA))
+oth_RECORD_1$dis_diab_ever_1<-ifelse(oth_RECORD_1$dis_diab_ever_1_1==1 & oth_RECORD_1$dis_diab_ever_1_2==1,
+                                     1,ifelse(oth_RECORD_1$dis_diab_ever_1_1==0 & oth_RECORD_1$dis_diab_ever_1_2==0,0,NA))
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
 **Variable name**: dis_diab_ever_2  
@@ -2088,11 +2092,10 @@ oth_RECORD_1$phy_bmi_all_1[!is.na(as.numeric(RECORD_w2$Par3))& !is.na(as.numeric
 ```{r, echo=TRUE}
 oth_RECORD_0$phy_bmi_cat_all_0<- ifelse(oth_RECORD_0$phy_bmi_all_0 <18.5,0L,
                                 ifelse(oth_RECORD_0$phy_bmi_all_0 <25 &
-                                          oth_RECORD_0$phy_bmi_all_0>18.49, 1L, 
+                                          oth_RECORD_0$phy_bmi_all_0>=18.5, 1L, 
                                 ifelse(oth_RECORD_0$phy_bmi_all_0 <30 &
-                                          oth_RECORD_0$phy_bmi_all_0>24.99,2L, 
-                                ifelse(oth_RECORD_0$phy_bmi_all_0 >29.99,3L,NA))))
-
+                                          oth_RECORD_0$phy_bmi_all_0>=25,2L, 
+                                ifelse(oth_RECORD_0$phy_bmi_all_0 >=30,3L,NA))))
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
 **Variable name**: phy_bmi_cat_all_1    
@@ -2114,11 +2117,10 @@ oth_RECORD_0$phy_bmi_cat_all_0<- ifelse(oth_RECORD_0$phy_bmi_all_0 <18.5,0L,
 ```{r, echo=TRUE}
 oth_RECORD_1$phy_bmi_cat_all_1<- ifelse(oth_RECORD_1$phy_bmi_all_1 <18.5,0L,
                                 ifelse(oth_RECORD_1$phy_bmi_all_1 <25 &
-                                          oth_RECORD_1$phy_bmi_all_1>18.49, 1L, 
+                                          oth_RECORD_1$phy_bmi_all_1>=18.5, 1L, 
                                 ifelse(oth_RECORD_1$phy_bmi_all_1 <30 &
-                                          oth_RECORD_1$phy_bmi_all_1>24.99,2L, 
-                                ifelse(oth_RECORD_1$phy_bmi_all_1 >29.99,3L,NA))))
-
+                                          oth_RECORD_1$phy_bmi_all_1>=25,2L, 
+                                ifelse(oth_RECORD_1$phy_bmi_all_1 >=30,3L,NA))))
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
 **Variable name**: phy_bmi_cat_all_2    

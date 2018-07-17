@@ -37,9 +37,10 @@ opal.logout(erasmus_opal)
 2. [Angina subdomain](#angina-subdomain)
 3. [Myocardial infarction subdomain](#myocardial-infarction-subdomain)
 4. [Stroke subdomain](#stroke-subdomain)
-5. [BMI subdomain](#bmi-subdomain)
-6. [General perception of health subdomain](#general-perception-of-health-subdomain)
-7. [Disability subdomain](#disability-subdomain)
+5. [Diabetes subdomain](#diabetes-subdomain)
+6. [BMI subdomain](#bmi-subdomain)
+7. [General perception of health subdomain](#general-perception-of-health-subdomain)
+8. [Disability subdomain](#disability-subdomain)
 
 # Hypertension subdomain
 
@@ -116,7 +117,7 @@ oth_HUNT_0$dis_hbp_med_0 <- as.integer(HUNT1$BPMedEv_NT1BLQ1)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-oth_HUNT_1$dis_hbp_med_1<- recode(as.integer(HUNT2$BPMedCu_NT2BLQ1), '1'=0L, '2'=0L,'3'=1L,.default = NA_integer_)
+oth_HUNT_1$dis_hbp_med_1<- recode(as.integer(HUNT2$BPMedCu_NT2BLQ1), '1'=1L, '2'=1L,'3'=0L,.default = NA_integer_)
 
 ```  
 ### **Variable label**: Medication for high blood pressure or hypertension    
@@ -1702,9 +1703,9 @@ oth_HUNT_2$phy_bmi_all_2<- HUNT3$Bmi_NT3BLM
 **R script**:  
 ```{r, echo=TRUE}
 oth_HUNT_0$phy_bmi_cat_ms_0<- ifelse(oth_HUNT_0$phy_bmi_ms_0<18.5,0L,
-                              ifelse(18.49<oth_HUNT_0$phy_bmi_ms_0 & oth_HUNT_0$phy_bmi_ms_0<25,1L,
-                              ifelse(24.99<oth_HUNT_0$phy_bmi_ms_0 & oth_HUNT_0$phy_bmi_ms_0<30,2L,
-                              ifelse(oth_HUNT_0$phy_bmi_ms_0>29.99,3L,NA))))
+                              ifelse(oth_HUNT_0$phy_bmi_ms_0>=18.5 & oth_HUNT_0$phy_bmi_ms_0<25,1L,
+                              ifelse(oth_HUNT_0$phy_bmi_ms_0>=25 & oth_HUNT_0$phy_bmi_ms_0<30,2L,
+                              ifelse(oth_HUNT_0$phy_bmi_ms_0>=30,3L,NA))))
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured  
@@ -1726,9 +1727,9 @@ oth_HUNT_0$phy_bmi_cat_ms_0<- ifelse(oth_HUNT_0$phy_bmi_ms_0<18.5,0L,
 **R script**:  
 ```{r, echo=TRUE}
 oth_HUNT_1$phy_bmi_cat_ms_1<- ifelse(oth_HUNT_1$phy_bmi_ms_1<18.5,0L,
-                              ifelse(18.49<oth_HUNT_1$phy_bmi_ms_1 & oth_HUNT_1$phy_bmi_ms_1<25,1L,
-                              ifelse(24.99<oth_HUNT_1$phy_bmi_ms_1 & oth_HUNT_1$phy_bmi_ms_1<30,2L,
-                              ifelse(oth_HUNT_1$phy_bmi_ms_1>29.99,3L,NA))))
+                              ifelse(oth_HUNT_1$phy_bmi_ms_1>=18.5 & oth_HUNT_1$phy_bmi_ms_1<25,1L,
+                              ifelse(oth_HUNT_1$phy_bmi_ms_1>=25 & oth_HUNT_1$phy_bmi_ms_1<30,2L,
+                              ifelse(oth_HUNT_1$phy_bmi_ms_1>=30,3L,NA))))
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured  
@@ -1750,9 +1751,9 @@ oth_HUNT_1$phy_bmi_cat_ms_1<- ifelse(oth_HUNT_1$phy_bmi_ms_1<18.5,0L,
 **R script**:  
 ```{r, echo=TRUE}
 oth_HUNT_2$phy_bmi_cat_ms_2<- ifelse(oth_HUNT_2$phy_bmi_ms_2<18.5,0L,
-                              ifelse(18.49<oth_HUNT_2$phy_bmi_ms_2 & oth_HUNT_2$phy_bmi_ms_2<25,1L,
-                              ifelse(24.99<oth_HUNT_2$phy_bmi_ms_2 & oth_HUNT_2$phy_bmi_ms_2<30,2L,
-                              ifelse(oth_HUNT_2$phy_bmi_ms_2>29.99,3L,NA))))
+                              ifelse(oth_HUNT_2$phy_bmi_ms_2>=18.5 & oth_HUNT_2$phy_bmi_ms_2<25,1L,
+                              ifelse(oth_HUNT_2$phy_bmi_ms_2>=25 & oth_HUNT_2$phy_bmi_ms_2<30,2L,
+                              ifelse(oth_HUNT_2$phy_bmi_ms_2>=30,3L,NA))))
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured  
 **Variable name**: phy_bmi_cat_ms_3  
@@ -1994,10 +1995,10 @@ oth_HUNT_2$phy_bmi_cat_ms_2<- ifelse(oth_HUNT_2$phy_bmi_ms_2<18.5,0L,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_HUNT_0$phy_bmi_cat_all_0<- ifelse(oth_HUNT_0$phy_bmi_ms_0<18.5,0L,
-                              ifelse(18.49<oth_HUNT_0$phy_bmi_ms_0 & oth_HUNT_0$phy_bmi_ms_0<25,1L,
-                              ifelse(24.99<oth_HUNT_0$phy_bmi_ms_0 & oth_HUNT_0$phy_bmi_ms_0<30,2L,
-                              ifelse(oth_HUNT_0$phy_bmi_ms_0>29.99,3L,NA))))
+oth_HUNT_0$phy_bmi_cat_all_0<-ifelse(oth_HUNT_0$phy_bmi_ms_0<18.5,0L,
+                              ifelse(oth_HUNT_0$phy_bmi_ms_0>=18.5 & oth_HUNT_0$phy_bmi_ms_0<25,1L,
+                              ifelse(oth_HUNT_0$phy_bmi_ms_0>=25 & oth_HUNT_0$phy_bmi_ms_0<30,2L,
+                              ifelse(oth_HUNT_0$phy_bmi_ms_0>=30,3L,NA))))
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
 **Variable name**: phy_bmi_cat_all_1    
@@ -2017,10 +2018,10 @@ oth_HUNT_0$phy_bmi_cat_all_0<- ifelse(oth_HUNT_0$phy_bmi_ms_0<18.5,0L,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_HUNT_1$phy_bmi_cat_all_1<- ifelse(oth_HUNT_1$phy_bmi_ms_1<18.5,0L,
-                              ifelse(18.49<oth_HUNT_1$phy_bmi_ms_1 & oth_HUNT_1$phy_bmi_ms_1<25,1L,
-                              ifelse(24.99<oth_HUNT_1$phy_bmi_ms_1 & oth_HUNT_1$phy_bmi_ms_1<30,2L,
-                              ifelse(oth_HUNT_1$phy_bmi_ms_1>29.99,3L,NA))))
+oth_HUNT_1$phy_bmi_cat_all_1<-ifelse(oth_HUNT_1$phy_bmi_ms_1<18.5,0L,
+                              ifelse(oth_HUNT_1$phy_bmi_ms_1>=18.5 & oth_HUNT_1$phy_bmi_ms_1<25,1L,
+                              ifelse(oth_HUNT_1$phy_bmi_ms_1>=25 & oth_HUNT_1$phy_bmi_ms_1<30,2L,
+                              ifelse(oth_HUNT_1$phy_bmi_ms_1>=25,3L,NA))))
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
 **Variable name**: phy_bmi_cat_all_2    
@@ -2041,9 +2042,9 @@ oth_HUNT_1$phy_bmi_cat_all_1<- ifelse(oth_HUNT_1$phy_bmi_ms_1<18.5,0L,
 **R script**:  
 ```{r, echo=TRUE}
 oth_HUNT_2$phy_bmi_cat_all_2<- ifelse(oth_HUNT_2$phy_bmi_ms_2<18.5,0L,
-                              ifelse(18.49<oth_HUNT_2$phy_bmi_ms_2 & oth_HUNT_2$phy_bmi_ms_2<25,1L,
-                              ifelse(24.99<oth_HUNT_2$phy_bmi_ms_2 & oth_HUNT_2$phy_bmi_ms_2<30,2L,
-                              ifelse(oth_HUNT_2$phy_bmi_ms_2>29.99,3L,NA))))
+                              ifelse(oth_HUNT_2$phy_bmi_ms_2>=18.5 & oth_HUNT_2$phy_bmi_ms_2<25,1L,
+                              ifelse(oth_HUNT_2$phy_bmi_ms_2>=25 & oth_HUNT_2$phy_bmi_ms_2<30,2L,
+                              ifelse(oth_HUNT_2$phy_bmi_ms_2>=30,3L,NA))))
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
 **Variable name**: phy_bmi_cat_all_3    
@@ -2374,7 +2375,7 @@ oth_HUNT_2$poh_sah_2<- recode(as.integer(HUNT3$Healt_NT3BLQ1),'3'=0L,'4'=0L,'2'=
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_HUNT_0$poh_sah_poor_0<- recode(as.integer(HUNT1$Healt_NT1BLQ1),'3'=1L,'4'=1L,'2'=0L,'1'=0L,
+oth_HUNT_0$poh_sah_poor_0<- recode(as.integer(HUNT1$Healt_NT1BLQ1),'3'=1L,'4'=1L,'2'=1L,'1'=0L,
                               .default=NA_integer_)
 ```  
 ### **Variable label**:  Poor self-assessed health  
@@ -2393,7 +2394,7 @@ oth_HUNT_0$poh_sah_poor_0<- recode(as.integer(HUNT1$Healt_NT1BLQ1),'3'=1L,'4'=1L
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_HUNT_1$poh_sah_poor_1<- recode(as.integer(HUNT2$Healt_NT2BLQ1),'3'=1L,'4'=1L,'2'=0L,'1'=0L,
+oth_HUNT_1$poh_sah_poor_1<- recode(as.integer(HUNT2$Healt_NT2BLQ1),'3'=1L,'4'=1L,'2'=1L,'1'=0L,
                               .default=NA_integer_)
 ```  
 ### **Variable label**:  Poor self-assessed health  
@@ -2412,7 +2413,7 @@ oth_HUNT_1$poh_sah_poor_1<- recode(as.integer(HUNT2$Healt_NT2BLQ1),'3'=1L,'4'=1L
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_HUNT_2$poh_sah_poor_2<- recode(as.integer(HUNT3$Healt_NT3BLQ1),'3'=1L,'4'=1L,'2'=0L,'1'=0L,
+oth_HUNT_2$poh_sah_poor_2<- recode(as.integer(HUNT3$Healt_NT3BLQ1),'3'=1L,'4'=1L,'2'=1L,'1'=0L,
                               .default=NA_integer_)
 
 ```  
