@@ -1089,7 +1089,7 @@ oth_RECORD_1$dis_diab_ever_1<-ifelse(oth_RECORD_1$dis_diab_ever_1_1==1 & oth_REC
 ```  
 ### **Variable label**: Weight in kg - measured and self-reported combined
 **Variable name**: phy_weight_all_0      
-**Variable description**: Weight of the participant in kilograms - measured and self-reported combined.  
+**Variable description**: Weight of the participant in kilograms - measured and self-reported combined. If both measured and self-reported weight were collected, measured weight was taken.   
 **Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A  
@@ -1103,7 +1103,7 @@ oth_RECORD_0$phy_weight_all_0<- as.numeric(RECORD_w1_1$Par4)
 
 ### **Variable label**: Weight in kg - measured and self-reported combined
 **Variable name**: phy_weight_all_1    
-**Variable description**: Weight of the participant in kilograms - measured and self-reported combined.    
+**Variable description**: Weight of the participant in kilograms - measured and self-reported combined. If both measured and self-reported weight were collected, measured weight was taken.   
 **Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A  
@@ -1116,7 +1116,7 @@ oth_RECORD_1$phy_weight_all_1<- as.numeric(RECORD_w2$Par4)
 ```  
 ### **Variable label**: Weight in kg - measured and self-reported combined  
 **Variable name**: phy_weight_all_2    
-**Variable description**: Weight of the participant in kilograms - measured and self-reported combined.    
+**Variable description**: Weight of the participant in kilograms - measured and self-reported combined. If both measured and self-reported weight were collected, measured weight was taken.    
 **Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A  
@@ -1130,7 +1130,7 @@ oth_RECORD_1$phy_weight_all_1<- as.numeric(RECORD_w2$Par4)
 ```  
 ### **Variable label**: Weight in kg - measured and self-reported combined  
 **Variable name**: phy_weight_all_3     
-**Variable description**: Weight of the participant in kilograms - self-reported and measured combined.   
+**Variable description**: Weight of the participant in kilograms - measured and self-reported combined. If both measured and self-reported weight were collected, measured weight was taken.   
 **Value type**: decimal   
 **Variable unit**: kg    
 **Category coding**: N/A  
@@ -1144,7 +1144,7 @@ oth_RECORD_1$phy_weight_all_1<- as.numeric(RECORD_w2$Par4)
 ```  
 ### **Variable label**: Weight in kg - self-reported and measured combined  
 **Variable name**: phy_weight_all_4    
-**Variable description**: Weight of the participant in kilograms - self-reported and measured combined.  
+**Variable description**: Weight of the participant in kilograms - measured and self-reported combined. If both measured and self-reported weight were collected, measured weight was taken.   
 **Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A  
@@ -1158,7 +1158,7 @@ oth_RECORD_1$phy_weight_all_1<- as.numeric(RECORD_w2$Par4)
 ```  
 ### **Variable label**: Weight in kg - self-reported and measured combined  
 **Variable name**: phy_weight_all_5    
-**Variable description**: Weight of the participant in kilograms - self-reported and measured combined.  
+**Variable description**: Weight of the participant in kilograms - measured and self-reported combined. If both measured and self-reported weight were collected, measured weight was taken.   
 **Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A  
@@ -1172,7 +1172,7 @@ oth_RECORD_1$phy_weight_all_1<- as.numeric(RECORD_w2$Par4)
 ```  
 ### **Variable label**: Weight in kg - self-reported and measured combined  
 **Variable name**: phy_weight_all_6    
-**Variable description**: Weight of the participant in kilograms - self-reported and measured combined.  
+**Variable description**: Weight of the participant in kilograms - measured and self-reported combined. If both measured and self-reported weight were collected, measured weight was taken.   
 **Value type**: decimal  
 **Variable unit**: kg   
 **Category coding**: N/A  
@@ -1384,7 +1384,7 @@ oth_RECORD_1$phy_weight_all_1<- as.numeric(RECORD_w2$Par4)
 
 ### **Variable label**: Height in cm - measured and self-reported combined  
 **Variable name**: phy_height_all_0    
-**Variable description**: Height of the participant in centimeters - self-reported and measured combined.  
+**Variable description**: Height of the participant in centimeters - measured  and self-reported combined. If both measured and self-reported height were collected, measured height was taken.   
 **Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
@@ -1397,7 +1397,7 @@ oth_RECORD_0$phy_height_all_0<- as.numeric(RECORD_w1_1$Par3)
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined  
 **Variable name**: phy_height_all_1    
-**Variable description**: Height of the participant in centimeters - measured and self-reported combined.  
+**Variable description**: Height of the participant in centimeters - measured  and self-reported combined. If both measured and self-reported height were collected, measured height was taken.   
 **Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
@@ -1410,7 +1410,7 @@ oth_RECORD_1$phy_height_all_1<- as.numeric(RECORD_w2$Par3)
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined    
 **Variable name**: phy_height_all_2    
-**Variable description**: Height of the participant in centimeters - measured and self-reported combined.  
+**Variable description**: Height of the participant in centimeters - measured  and self-reported combined. If both measured and self-reported height were collected, measured height was taken.   
 **Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
@@ -1424,7 +1424,7 @@ oth_RECORD_1$phy_height_all_1<- as.numeric(RECORD_w2$Par3)
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined  
 **Variable name**: phy_height_all_3    
-**Variable description**: Height of the participant in centimeters - measured and self-reported combined.  
+**Variable description**: Height of the participant in centimeters - measured  and self-reported combined. If both measured and self-reported height were collected, measured height was taken.   
 **Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
@@ -1438,7 +1438,7 @@ oth_RECORD_1$phy_height_all_1<- as.numeric(RECORD_w2$Par3)
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined  
 **Variable name**: phy_height_all_4    
-**Variable description**: Height of the participant in centimeters - measured and self-reported combined.  
+**Variable description**: Height of the participant in centimeters - measured  and self-reported combined. If both measured and self-reported height were collected, measured height was taken.   
 **Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
@@ -1452,7 +1452,7 @@ oth_RECORD_1$phy_height_all_1<- as.numeric(RECORD_w2$Par3)
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined  
 **Variable name**: phy_height_all_5    
-**Variable description**: Height of the participant in centimeters - measured and self-reported combined.  
+**Variable description**: Height of the participant in centimeters - measured  and self-reported combined. If both measured and self-reported height were collected, measured height was taken.   
 **Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
@@ -1466,7 +1466,7 @@ oth_RECORD_1$phy_height_all_1<- as.numeric(RECORD_w2$Par3)
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined  
 **Variable name**: phy_height_all_6    
-**Variable description**: Height of the participant in centimeters - measured and self-reported combined.  
+**Variable description**: Height of the participant in centimeters - measured  and self-reported combined. If both measured and self-reported height were collected, measured height was taken.   
 **Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**: N/A
@@ -1679,7 +1679,7 @@ oth_RECORD_1$phy_height_all_1<- as.numeric(RECORD_w2$Par3)
 
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
 **Variable name**: phy_bmi_all_0  
-**Variable description**: Weight (in kg) divided by height (in m) squared - measured and self-reported combined.  
+**Variable description**: Weight (in kg) divided by height (in m) squared - measured and self-reported combined. If both measured and self-reported weight and height were collected, measured values were taken.    
 **Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
@@ -1692,7 +1692,7 @@ oth_RECORD_0$phy_bmi_all_0<- as.numeric(RECORD_w1_2$bmi)
 ```  
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
 **Variable name**: phy_bmi_all_1  
-**Variable description**: Weight (in kg) divided by height (in m) squared - measured and self-reported combined.  
+**Variable description**: Weight (in kg) divided by height (in m) squared - measured and self-reported combined. If both measured and self-reported weight and height were collected, measured values were taken.    
 **Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
@@ -1707,7 +1707,7 @@ oth_RECORD_1$phy_bmi_all_1[!is.na(as.numeric(RECORD_w2$Par3))& !is.na(as.numeric
 ```  
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
 **Variable name**: phy_bmi_all_2  
-**Variable description**: Weight (in kg) divided by height (in m) squared - measured and self-reported combined.    
+**Variable description**: Weight (in kg) divided by height (in m) squared - measured and self-reported combined. If both measured and self-reported weight and height were collected, measured values were taken.    
 **Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
@@ -1721,7 +1721,7 @@ oth_RECORD_1$phy_bmi_all_1[!is.na(as.numeric(RECORD_w2$Par3))& !is.na(as.numeric
 ```  
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
 **Variable name**: phy_bmi_all_3  
-**Variable description**: Weight (in kg) divided by height (in m) squared - measured and self-reported combined.  
+**Variable description**: Weight (in kg) divided by height (in m) squared - measured and self-reported combined. If both measured and self-reported weight and height were collected, measured values were taken.    
 **Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
@@ -1735,7 +1735,7 @@ oth_RECORD_1$phy_bmi_all_1[!is.na(as.numeric(RECORD_w2$Par3))& !is.na(as.numeric
 ```  
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
 **Variable name**: phy_bmi_all_4  
-**Variable description**: Weight (in kg) divided by height (in m) squared - measured and self-reported combined.  
+**Variable description**: Weight (in kg) divided by height (in m) squared - measured and self-reported combined. If both measured and self-reported weight and height were collected, measured values were taken.    
 **Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
@@ -1749,7 +1749,7 @@ oth_RECORD_1$phy_bmi_all_1[!is.na(as.numeric(RECORD_w2$Par3))& !is.na(as.numeric
 ```  
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
 **Variable name**: phy_bmi_all_5  
-**Variable description**: Weight (in kg) divided by height (in m) squared - measured and self-reported combined.  
+**Variable description**: Weight (in kg) divided by height (in m) squared - measured and self-reported combined. If both measured and self-reported weight and height were collected, measured values were taken.    
 **Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
@@ -1763,7 +1763,7 @@ oth_RECORD_1$phy_bmi_all_1[!is.na(as.numeric(RECORD_w2$Par3))& !is.na(as.numeric
 ```  
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
 **Variable name**: phy_bmi_all_6  
-**Variable description**: Body mass index - self-reported and measured combined.  
+**Variable description**: Weight (in kg) divided by height (in m) squared - measured and self-reported combined. If both measured and self-reported weight and height were collected, measured values were taken.    
 **Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
@@ -2074,7 +2074,7 @@ oth_RECORD_1$phy_bmi_all_1[!is.na(as.numeric(RECORD_w2$Par3))& !is.na(as.numeric
 
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
 **Variable name**: phy_bmi_cat_all_0    
-**Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - measured and self-reported combined.
+**Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - measured and self-reported combined. If both measured and self-reported weight and height were collected, measured values were taken.      
 **Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
@@ -2099,7 +2099,7 @@ oth_RECORD_0$phy_bmi_cat_all_0<- ifelse(oth_RECORD_0$phy_bmi_all_0 <18.5,0L,
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
 **Variable name**: phy_bmi_cat_all_1    
-**Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - measured and self-reported combined.  
+**Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - measured and self-reported combined. If both measured and self-reported weight and height were collected, measured values were taken.      
 **Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
@@ -2124,7 +2124,7 @@ oth_RECORD_1$phy_bmi_cat_all_1<- ifelse(oth_RECORD_1$phy_bmi_all_1 <18.5,0L,
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
 **Variable name**: phy_bmi_cat_all_2    
-**Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - measured and self-reported combined.  
+**Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - measured and self-reported combined. If both measured and self-reported weight and height were collected, measured values were taken.      
 **Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
@@ -2145,7 +2145,7 @@ oth_RECORD_1$phy_bmi_cat_all_1<- ifelse(oth_RECORD_1$phy_bmi_all_1 <18.5,0L,
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
 **Variable name**: phy_bmi_cat_all_3    
-**Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - measured and self-reported combined.   
+**Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - measured and self-reported combined. If both measured and self-reported weight and height were collected, measured values were taken.      
 **Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
@@ -2166,7 +2166,7 @@ oth_RECORD_1$phy_bmi_cat_all_1<- ifelse(oth_RECORD_1$phy_bmi_all_1 <18.5,0L,
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
 **Variable name**: phy_bmi_cat_all_4    
-**Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - measured and self-reported combined.    
+**Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - measured and self-reported combined. If both measured and self-reported weight and height were collected, measured values were taken.       
 **Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
@@ -2187,7 +2187,7 @@ oth_RECORD_1$phy_bmi_cat_all_1<- ifelse(oth_RECORD_1$phy_bmi_all_1 <18.5,0L,
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
 **Variable name**: phy_bmi_cat_all_5    
-**Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - measured and self-reported combined.  
+**Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - measured and self-reported combined. If both measured and self-reported weight and height were collected, measured values were taken.      
 **Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
@@ -2208,7 +2208,7 @@ oth_RECORD_1$phy_bmi_cat_all_1<- ifelse(oth_RECORD_1$phy_bmi_all_1 <18.5,0L,
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
 **Variable name**: phy_bmi_cat_all_6    
-**Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - measured and self-reported combined.    
+**Variable description**: Body mass index in categories - underweight (<18.5 kg/m2), normal (18.5-24.99 kg/m2), overweight (25 to 29.99 kg/m2), obese ( ≥30 kg/m2) - measured and self-reported combined. If both measured and self-reported weight and height were collected, measured values were taken.        
 **Value type**: integer  
 **Variable unit**: N/A  
 **Category coding**: 
@@ -2230,7 +2230,7 @@ oth_RECORD_1$phy_bmi_cat_all_1<- ifelse(oth_RECORD_1$phy_bmi_all_1 <18.5,0L,
 
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined  
 **Variable name**: phy_waist_all_0  
-**Variable description**: Waist circumference of the participant in centimeters - measured and self-reported combined.    
+**Variable description**: Waist circumference of the participant in centimeters - measured and self-reported combined. If both measured and self-reported waist circumference were collected, measured waist circumference was taken.      
 **Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**:  N/A  
@@ -2244,7 +2244,7 @@ oth_RECORD_0$phy_waist_all_0<- as.numeric(RECORD_w1_1$Par2)
 ```  
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined   
 **Variable name**: phy_waist_all_1  
-**Variable description**: Waist circumference of the participant in centimeters - measured and self-reported combined.      
+**Variable description**: Waist circumference of the participant in centimeters - measured and self-reported combined. If both measured and self-reported waist circumference were collected, measured waist circumference was taken.       
 **Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**:  N/A  
@@ -2258,7 +2258,7 @@ oth_RECORD_1$phy_waist_all_1<- as.numeric(RECORD_w2$Par2)
 ```  
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined   
 **Variable name**: phy_waist_all_2  
-**Variable description**: Waist circumference of the participant in centimeters - measured and self-reported combined.    
+**Variable description**: Waist circumference of the participant in centimeters - measured and self-reported combined. If both measured and self-reported waist circumference were collected, measured waist circumference was taken.      
 **Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**:  N/A  
@@ -2272,7 +2272,7 @@ oth_RECORD_1$phy_waist_all_1<- as.numeric(RECORD_w2$Par2)
 ```  
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined 
 **Variable name**: phy_waist_all_3  
-**Variable description**: Waist circumference of the participant in centimeters - measured and self-reported combined.    
+**Variable description**: Waist circumference of the participant in centimeters - measured and self-reported combined. If both measured and self-reported waist circumference were collected, measured waist circumference was taken.     
 **Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**:  N/A  
@@ -2286,7 +2286,7 @@ oth_RECORD_1$phy_waist_all_1<- as.numeric(RECORD_w2$Par2)
 ```  
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined   
 **Variable name**: phy_waist_all_4  
-**Variable description**: Waist circumference of the participant in centimeters - measured and self-reported combined.    
+**Variable description**: Waist circumference of the participant in centimeters - measured and self-reported combined. If both measured and self-reported waist circumference were collected, measured waist circumference was taken.    
 **Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**:  N/A  
@@ -2300,7 +2300,7 @@ oth_RECORD_1$phy_waist_all_1<- as.numeric(RECORD_w2$Par2)
 ```  
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined 
 **Variable name**: phy_waist_all_5  
-**Variable description**: Waist circumference of the participant in centimeters - measured and self-reported combined.    
+**Variable description**: Waist circumference of the participant in centimeters - measured and self-reported combined. If both measured and self-reported waist circumference were collected, measured waist circumference was taken.    
 **Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**:  N/A  
@@ -2314,7 +2314,7 @@ oth_RECORD_1$phy_waist_all_1<- as.numeric(RECORD_w2$Par2)
 ```  
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined 
 **Variable name**: phy_waist_all_6  
-**Variable description**: Waist circumference of the participant in centimeters - measured and self-reported combined.    
+**Variable description**: Waist circumference of the participant in centimeters - measured and self-reported combined. If both measured and self-reported waist circumference were collected, measured waist circumference was taken.    
 **Value type**: decimal  
 **Variable unit**: cm  
 **Category coding**:  N/A  
