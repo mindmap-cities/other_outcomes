@@ -67,11 +67,11 @@ opal.logout(erasmus_opal)
 0          |  Never had high blood pressure or hypertension  
 1          |  Ever had high blood pressure or hypertension  
 
-**Harmonization status**:  impossible  
-**Harmonization comment**:   
+**Harmonization status**:  complete    
+**Harmonization comment**:   medical conditions now or in past 5 years: Hypertension (high blood pressure)  
 **R script**:  
 ```{r, echo=TRUE}
-
+oth_GLOBE_0$dis_hbp_ever_0<-recode(as.integer(GLOBE1991$v178),"1"=0,"2"=1,"3"=1,"8"=1)
 
 ```  
 ### **Variable label**: Lifetime occurrence of high blood pressure or hypertension    
@@ -206,11 +206,11 @@ oth_GLOBE_0$dis_hbp_med_0<-recode(as.integer(GLOBE1991$v122),'1'=1L,'2'=0L)
 1        |  Ever taken medication  for high blood pressure  
 
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 # Angina subdomain
@@ -377,7 +377,7 @@ oth_GLOBE_0$dis_mi_ever_0<-recode(as.integer(GLOBE1991$SEVMv333),'1'=1L,'2'=0L,.
 **Variable unit**:  years  
 **Category coding**: N/A  
          
-**Harmonization status**:  
+**Harmonization status**:  complete  
 **Harmonization comment**:  Study variable:When did you have the myocardial infarction(s) or heart attack(s)? (first time) (year)
 **R script**:  
 ```{r, echo=TRUE}
@@ -624,11 +624,11 @@ oth_GLOBE_0$dis_diab_ever_0<-recode(as.integer(GLOBE1991$SEVMv347),'1'=1L,'2'=0L
 0          |  Never had diabetes  
 1          |  Ever had diabetes  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}  
-#This is where the R-script will be written  
+  
 
 ```  
 ### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
@@ -639,7 +639,7 @@ oth_GLOBE_0$dis_diab_ever_0<-recode(as.integer(GLOBE1991$SEVMv347),'1'=1L,'2'=0L
 **Category coding**: N/A
 
 **Hamonization status**:  complete  
-**Harmonization comment**:  Study specific:What year were you first diagnosed with diabetes? (Year or age)
+**Harmonization comment**:  Study specific:What year were you first diagnosed with diabetes? (Year or age)  
 **R script**:  
 ```{r, echo=TRUE}  
 oth_GLOBE_0$dis_diab_age_0<-GLOBE1991$SEVMv349
@@ -708,11 +708,11 @@ oth_GLOBE_0$dis_diab_age_0<-GLOBE1991$SEVMv349
 **Variable unit**:  years  
 **Category coding**: N/A
 
-**Hamonization status**:  
+**Hamonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}  
-#This is where the R-script will be written  
+  
 
 ```  
 
@@ -732,8 +732,7 @@ oth_GLOBE_0$dis_diab_age_0<-GLOBE1991$SEVMv349
 **Harmonization comment**:   
 **R script**:
 ```{r, echo=TRUE}
-oth_GLOBE_0$dis_diab_tx_0<-ifelse(oth_GLOBE_0$dis_diab_ever_0==1 & (GLOBE1991$SEVMv352==1|GLOBE1991$SEVMv351==1),1,
-                                  ifelse(oth_GLOBE_0$dis_diab_ever_0==0 | GLOBE1991$SEVMv352==2|GLOBE1991$SEVMv351==2,0,NA))
+oth_GLOBE_0$dis_diab_tx_0<-ifelse(oth_GLOBE_0$dis_diab_ever_0==1 & (GLOBE1991$SEVMv352==1|GLOBE1991$SEVMv351==1 |GLOBE1991$SEVMv362==1|GLOBE1991$SEVMv360==1),1,ifelse(oth_GLOBE_0$dis_diab_ever_0==0 |(GLOBE1991$SEVMv352==2 & GLOBE1991$SEVMv351==2 & GLOBE1991$SEVMv362==2 & GLOBE1991$SEVMv360==2 ),0,NA))
 
 ```  
 ### **Variable label**: Currently under treatment for diabetes  
@@ -825,11 +824,11 @@ oth_GLOBE_1$dis_diab_tx_1<-ifelse(GLOBE1997$r22a==1|GLOBE1997$r23==1,1,
 0        | Not currently under treatment for diabetes  
 1        | Currently under treatment for diabetes  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Currently use insulin for diabetes  
@@ -844,7 +843,7 @@ oth_GLOBE_1$dis_diab_tx_1<-ifelse(GLOBE1997$r22a==1|GLOBE1997$r23==1,1,
 0        | Currently does not use insulin for diabetes treatment  
 1        | Currently has used insulin for diabetes treatment  
 
-**Harmonization status**:  
+**Harmonization status**:  complete  
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
@@ -968,11 +967,11 @@ oth_GLOBE_1$dis_diab_ins_1<-recode(as.integer(GLOBE1997$r23),'1'=1L,'2'=0L)
 **Variable unit**: kg   
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Weight in kg - measured 
@@ -982,11 +981,11 @@ oth_GLOBE_1$dis_diab_ins_1<-recode(as.integer(GLOBE1997$r23),'1'=1L,'2'=0L)
 **Variable unit**: kg   
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Weight in kg - self-reported 
@@ -1066,11 +1065,11 @@ oth_GLOBE_4$phy_weight_sr_4<-GLOBE2014$G14v3
 **Variable unit**: kg   
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Weight in kg - self-reported 
@@ -1080,11 +1079,11 @@ oth_GLOBE_4$phy_weight_sr_4<-GLOBE2014$G14v3
 **Variable unit**: kg   
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Weight in kg - measured and self-reported combined
@@ -1165,11 +1164,11 @@ oth_GLOBE_4$phy_weight_all_4<-GLOBE2014$G14v3
 **Variable unit**: kg   
 **Category coding**: N/A  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Weight in kg - self-reported and measured combined  
@@ -1179,11 +1178,11 @@ oth_GLOBE_4$phy_weight_all_4<-GLOBE2014$G14v3
 **Variable unit**: kg   
 **Category coding**: N/A  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Height in cm - measured  
@@ -1263,11 +1262,11 @@ oth_GLOBE_4$phy_weight_all_4<-GLOBE2014$G14v3
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Height in cm - measured  
@@ -1277,11 +1276,11 @@ oth_GLOBE_4$phy_weight_all_4<-GLOBE2014$G14v3
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 
@@ -1306,7 +1305,7 @@ oth_GLOBE_0$phy_height_sr_0<-GLOBE1991$v127
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
@@ -1321,7 +1320,7 @@ oth_GLOBE_1$phy_height_sr_1<-GLOBE1997$v20
 **Category coding**: N/A
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   Zeros found in the raw data. 
+**Harmonization comment**:   Zeros found in the raw data are coded to NA.   
 **R script**:  
 ```{r, echo=TRUE}
 oth_GLOBE_2$phy_height_sr_2<-ifelse(GLOBE2004$w257>0,GLOBE2004$w257,NA)
@@ -1362,11 +1361,11 @@ oth_GLOBE_4$phy_height_sr_4<-GLOBE2014$G14v4
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Height in cm - self-reported  
@@ -1376,11 +1375,11 @@ oth_GLOBE_4$phy_height_sr_4<-GLOBE2014$G14v4
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 
@@ -1420,7 +1419,7 @@ oth_GLOBE_1$phy_height_all_1<-GLOBE1997$v20
 **Category coding**: N/A
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   Zeros found in the raw data. 
+**Harmonization comment**:   Zeros found in the raw data.  
 **R script**:  
 ```{r, echo=TRUE}
 oth_GLOBE_2$phy_height_all_2<-ifelse(GLOBE2004$w257>0,GLOBE2004$w257,NA)
@@ -1461,11 +1460,11 @@ oth_GLOBE_4$phy_height_all_4<-GLOBE2014$G14v4
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined  
@@ -1475,11 +1474,11 @@ oth_GLOBE_4$phy_height_all_4<-GLOBE2014$G14v4
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 
@@ -1560,11 +1559,11 @@ oth_GLOBE_4$phy_height_all_4<-GLOBE2014$G14v4
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured  
@@ -1574,11 +1573,11 @@ oth_GLOBE_4$phy_height_all_4<-GLOBE2014$G14v4
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 
@@ -1659,11 +1658,11 @@ oth_GLOBE_4$phy_bmi_sr_4<-GLOBE2014$G14v3/(GLOBE2014$G14v4*0.01)^2
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Body mass index (BMI) - self-reported  
@@ -1673,11 +1672,11 @@ oth_GLOBE_4$phy_bmi_sr_4<-GLOBE2014$G14v3/(GLOBE2014$G14v4*0.01)^2
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```   
 
@@ -1716,7 +1715,7 @@ oth_GLOBE_1$phy_bmi_all_1<-GLOBE1997$v19/(GLOBE1997$v20*0.01)^2
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
@@ -1730,7 +1729,7 @@ oth_GLOBE_2$phy_bmi_all_2<-GLOBE2004$w256/(GLOBE2004$w257*0.01)^2
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
@@ -1744,7 +1743,7 @@ oth_GLOBE_3$phy_bmi_all_3<-GLOBE2011$v3_gewicht/(GLOBE2011$v4_lengte*0.01)^2
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
@@ -1758,11 +1757,11 @@ oth_GLOBE_4$phy_bmi_all_4<-GLOBE2014$G14v3/(GLOBE2014$G14v4*0.01)^2
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
@@ -1772,11 +1771,11 @@ oth_GLOBE_4$phy_bmi_all_4<-GLOBE2014$G14v3/(GLOBE2014$G14v4*0.01)^2
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 
@@ -1882,7 +1881,7 @@ oth_GLOBE_4$phy_bmi_all_4<-GLOBE2014$G14v3/(GLOBE2014$G14v4*0.01)^2
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured  
@@ -1899,11 +1898,11 @@ oth_GLOBE_4$phy_bmi_all_4<-GLOBE2014$G14v3/(GLOBE2014$G14v4*0.01)^2
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured  
@@ -1920,11 +1919,11 @@ oth_GLOBE_4$phy_bmi_all_4<-GLOBE2014$G14v3/(GLOBE2014$G14v4*0.01)^2
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 
@@ -2064,11 +2063,11 @@ oth_GLOBE_4$phy_bmi_cat_sr_4<-ifelse(oth_GLOBE_4$phy_bmi_sr_4<18.5,0,
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible 
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - self-reported  
@@ -2085,11 +2084,11 @@ oth_GLOBE_4$phy_bmi_cat_sr_4<-ifelse(oth_GLOBE_4$phy_bmi_sr_4<18.5,0,
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 
@@ -2227,11 +2226,11 @@ oth_GLOBE_4$phy_bmi_cat_all_4<-ifelse(oth_GLOBE_4$phy_bmi_all_4<18.5,0,
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
@@ -2248,11 +2247,11 @@ oth_GLOBE_4$phy_bmi_cat_all_4<-ifelse(oth_GLOBE_4$phy_bmi_all_4<18.5,0,
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 
@@ -2333,11 +2332,11 @@ oth_GLOBE_4$phy_bmi_cat_all_4<-ifelse(oth_GLOBE_4$phy_bmi_all_4<18.5,0,
 **Variable unit**: cm  
 **Category coding**:  N/A  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined 
@@ -2347,11 +2346,11 @@ oth_GLOBE_4$phy_bmi_cat_all_4<-ifelse(oth_GLOBE_4$phy_bmi_all_4<18.5,0,
 **Variable unit**: cm  
 **Category coding**:  N/A  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 
@@ -2470,11 +2469,11 @@ oth_GLOBE_4$poh_sah_4<-recode(as.integer(GLOBE2014$G14v13),'1'=0L,'2'=0L,'3'=0L,
 1 |   Fair health  
 2 |   Poor health  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Self-assessed health   
@@ -2490,11 +2489,11 @@ oth_GLOBE_4$poh_sah_4<-recode(as.integer(GLOBE2014$G14v13),'1'=0L,'2'=0L,'3'=0L,
 1 |   Fair health  
 2 |   Poor health  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 
@@ -2605,11 +2604,11 @@ oth_GLOBE_4$poh_sah_poor_4<-recode(as.integer(GLOBE2014$G14v13),'1'=1L,'2'=1L,'3
 0 |   Poor health
 1 |   Non-poor health
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Poor self-assessed health  
@@ -2624,11 +2623,11 @@ oth_GLOBE_4$poh_sah_poor_4<-recode(as.integer(GLOBE2014$G14v13),'1'=1L,'2'=1L,'3
 0 |   Poor health
 1 |   Non-poor health
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 
@@ -2682,7 +2681,7 @@ oth_GLOBE_1$poh_sah_good_1<-recode(as.integer(GLOBE1997$v1),'1'=1L,'2'=1L,'3'=0L
 0 |   Less than good health  
 1 |   Good health  
 
-**Harmonization status**:  
+**Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
@@ -2720,7 +2719,7 @@ oth_GLOBE_3$poh_sah_good_3<-recode(as.integer(GLOBE2011$v10_alg_gezond),'1'=0L,'
 0 |   Less than good health  
 1 |   Good health  
 
-**Harmonization status**:  
+**Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
@@ -2739,11 +2738,11 @@ oth_GLOBE_4$poh_sah_good_4<-recode(as.integer(GLOBE2014$G14v13),'1'=1L,'2'=1L,'3
 0 |   Less than good health  
 1 |   Good health  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Less than good self-assessed health  
@@ -2758,11 +2757,11 @@ oth_GLOBE_4$poh_sah_good_4<-recode(as.integer(GLOBE2014$G14v13),'1'=1L,'2'=1L,'3
 0 |   Less than good health  
 1 |   Good health  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 
@@ -2934,11 +2933,11 @@ oth_GLOBE_2$fct_walk_diff_2<-recode(as.integer(GLOBE2004$w031),'1'=1L,'2'=0L,'3'
 0 |   Not able to walk without difficulty  
 1 |   Able to walk without difficulty  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Difficulty walking    
@@ -2953,11 +2952,11 @@ oth_GLOBE_2$fct_walk_diff_2<-recode(as.integer(GLOBE2004$w031),'1'=1L,'2'=0L,'3'
 0 |   Not able to walk without difficulty  
 1 |   Able to walk without difficulty  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 
