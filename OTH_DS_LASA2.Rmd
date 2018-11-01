@@ -12,16 +12,16 @@ library(epiDisplay)
 # Create an opal object with the login information
 erasmus_opal <- opal.login()
 #Login to Opal server and assign the content of the LUCAS table(s) to your RStudio environment
-opal.assign.table.tibble(erasmus_opal, 'LASA2B', 'LASA.LASA2B', variables=list('bhbd1','bhart05','bhart06','bcva04','bcva03','bdiabe01','bdiabe02','bdiabe03','bdiabe04','bdiabe04','bmweight','bmwaist','bsubhea1','bmed_hyp','bmvar156','bhart10','bcva02','diabe02','bcva01','bmed153','bmed155','bmed150','bmed152','bage'))
+opal.assign.table.tibble(erasmus_opal, 'LASA2B', 'LASA.LASA2B', variables=list('bhbd1','bhart05','bhart06','bcva04','bcva03','bdiabe01','bdiabe02','bdiabe03','bdiabe04','bdiabe04','bmweight','bmwaist','bsubhea1','bmed_hyp','bmvar156','bhart10','bcva02','diabe02','bcva01','bmed153','bmed155','bmed150','bmed152','bage','badl1a','badl5a','bmed156','bmed157','byear','bhart01'))
 LASA2B <- opal.execute(erasmus_opal,'LASA2B')
 
-opal.assign.table.tibble(erasmus_opal, 'LASA2F', 'LASA.LASA2F', variables=list('fhbd1','fhbd2a','fcva02a','fcva02b','fhart05','fhart06','fcva04','fcva03','fdiabe01','fdiabe02','fdiabe03','fdiabe04','fdiabe04','fmed153','fmed155','fmweight','fmwaist','fsubhea1','fmed152','fmed150','fcva01','fage'))
+opal.assign.table.tibble(erasmus_opal, 'LASA2F', 'LASA.LASA2F', variables=list('fhbd1','fhbd2a','fcva02a','fcva02b','fhart05','fhart06','fcva04','fcva03','fdiabe01','fdiabe02','fdiabe03','fdiabe04','fdiabe04','fmed153','fmed155','fmweight','fmwaist','fsubhea1','fmed152','fmed150','fcva01','fage','fadl1a','fadl5a','fmed156','fmed157','byear','fhart01'))
 LASA2F <- opal.execute(erasmus_opal,'LASA2F')
 
-opal.assign.table.tibble(erasmus_opal, 'LASA2G', 'LASA.LASA2G', variables=list('ghbd1','ghbd2a','ghart05','ghart06','gcva04','gcva03','gcva02a','gcva02b','gdiabe01','gdiabe02','gdiabe03','gdiabe04','gdiabe04','gmweight','gmed155','gmed153','gmed152','gmed150','gmwaist','gsubhea1','gmed155','gmed152','gcva01','gage'))
+opal.assign.table.tibble(erasmus_opal, 'LASA2G', 'LASA.LASA2G', variables=list('ghbd1','ghbd2a','ghart05','ghart06','gcva04','gcva03','gcva02a','gcva02b','gdiabe01','gdiabe02','gdiabe03','gdiabe04','gdiabe04','gmweight','gmed155','gmed153','gmed152','gmed150','gmwaist','gsubhea1','gmed155','gmed152','gcva01','gage','gadl1a','gadl5a','gmed156','gmed157','byear','ghart01'))
 LASA2G <- opal.execute(erasmus_opal,'LASA2G')
 
-opal.assign.table.tibble(erasmus_opal, 'LASA2H', 'LASA.LASA2H', variables=list('HHBD1','HHBD2A','HHART06','HHART05','HCVA02A','HCVA02B','HDIABE01','HDIABE02','HDIABE03','HDIABE04','HMED155','HMED153','HMED150','HMED152','HMED152','hsubhea1','HDIABE01','hage'))
+opal.assign.table.tibble(erasmus_opal, 'LASA2H', 'LASA.LASA2H', variables=list('HHBD1','HHBD2A','HHART06','HHART05','HCVA02A','HCVA02B','HDIABE01','HDIABE02','HDIABE03','HDIABE04','HMED155','HMED153','HMED150','HMED152','HMED152','hsubhea1','HDIABE01','hage','HADL1A','HADL5A','HMED156','HMED157','byear','HHART01'))
 LASA2H <- opal.execute(erasmus_opal,'LASA2H')
 ```
 ## Assign participant id as first column of your harmonized dataframes
@@ -308,7 +308,15 @@ oth_LASA2_1$dis_hbp_ever_1 <- recode(as.integer(LASA2F$fhbd1), '1'=0L,'2'=1L, .d
 **Harmonization comment**:  bhart01 question  
 **R script**:  
 ```{r, echo=TRUE}
-oth_LASA2_0$dis_mi_ever_0 <- recode(as.integer(LASA2B$bhart05),'1'=0L,'2'=1L, .default=NA_integer_)
+#Merging the raw tables LASA2B-LASA2H
+MyMerge2 <- function(x,y){
+  merge(x,y, by=c("id","byear"),all=TRUE)
+}
+med_table2 <- Reduce(MyMerge2, list(LASA2B,LASA2F,LASA2G,LASA2H))
+#Harmonization scripts to create "ever had mi"
+med_table2$dis_mi_ever_0 <- ifelse(as.integer(med_table2$bhart05)==1 | (as.integer(med_table2$bhart05)==-2 & as.integer(med_table2$bhart01)== 1),0L, ifelse(as.integer(med_table2$bhart05)==2,1L,NA))
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_LASA2_0<-merge(oth_LASA2_0,med_table2[,c("id","dis_mi_ever_0")],by="id",all.x=TRUE)
 ```  
 ### **Variable label**: Lifetime occurrence of myocardial infarction    
 **Variable name**:  dis_mi_ever_1  
@@ -326,7 +334,10 @@ oth_LASA2_0$dis_mi_ever_0 <- recode(as.integer(LASA2B$bhart05),'1'=0L,'2'=1L, .d
 **Harmonization comment**: 	fhart01 & fhart05 & dis_mi_ever_0 question  
 **R script**:  
 ```{r, echo=TRUE}
-
+#Harmonization scripts to create "ever had mi"
+med_table2$dis_mi_ever_1  <- ifelse(med_table2$dis_mi_ever_0==1 | (med_table2$dis_mi_ever_0==0 & as.integer(med_table2$fhart05)==2),1L, ifelse(as.integer(med_table2$fhart01)==0 | (med_table2$dis_mi_ever_0==0 & (as.integer(med_table2$fhart01)== 2 | as.integer(med_table2$fhart01)== 3) & as.integer(med_table2$fhart05)==1),0L,NA))
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_LASA2_1<-merge(oth_LASA2_1,med_table[,c("id","dis_mi_ever_1")],by="id",all.x=TRUE)
 ```  
 ### **Variable label**: Lifetime occurrence of myocardial infarction    
 **Variable name**:  dis_mi_ever_2  
@@ -344,7 +355,10 @@ oth_LASA2_0$dis_mi_ever_0 <- recode(as.integer(LASA2B$bhart05),'1'=0L,'2'=1L, .d
 **Harmonization comment**: 	dhart01 & dhart05 & dis_mi_ever_1 question  
 **R script**:  
 ```{r, echo=TRUE}
-
+#Harmonization scripts to create "ever had mi"
+med_table2$dis_mi_ever_2  <- ifelse(med_table2$dis_mi_ever_1==1 | (med_table2$dis_mi_ever_1==0 & as.integer(med_table2$ghart05)==2),1L, ifelse(as.integer(med_table2$ghart01)==0 | (med_table2$dis_mi_ever_1==0 & (as.integer(med_table2$ghart01)== 2 | as.integer(med_table2$ghart01)== 3) & as.integer(med_table2$ghart05)==1),0L,NA))
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_LASA2_2<-merge(oth_LASA2_2,med_table[,c("id","dis_mi_ever_2")],by="id",all.x=TRUE)
 ```  
 
 ### **Variable label**: Age at first Myocardial infarction  
@@ -795,7 +809,7 @@ oth_LASA2_3$dis_diab_tx_3 <- recode(as.integer(LASA2H$HDIABE03), '1'=0L,'2'=1L,'
 **Harmonization comment**:  categories of study-specific variable (Diabetes-taking medication) are No | Yes, insulin injections | Yes, tablets only. If does not do treatment, coded as NA. question  
 **R script**:
 ```{r, echo=TRUE}
-oth_LASA2_0$dis_diab_tx_0 <- recode(as.integer(LASA2B$bdiabe03),'2'=1L,'3'=0L, .default=NA_integer_)
+oth_LASA2_0$dis_diab_tx_0 <- recode(as.integer(LASA2B$bdiabe03),'1'=0L,'2'=1L,'3'=0L, .default=NA_integer_)
 ```  
 ### **Variable label**: Currently use insulin for diabetes  
 **Variable name**:  dis_diab_ins_1  
@@ -813,7 +827,7 @@ oth_LASA2_0$dis_diab_tx_0 <- recode(as.integer(LASA2B$bdiabe03),'2'=1L,'3'=0L, .
 **Harmonization comment**:  categories of study-specific variable (Diabetes-taking medication) are No | Yes, insulin injections | Yes, tablets only. If does not do treatment, coded as NA. question  
 **R script**:
 ```{r, echo=TRUE}
-oth_LASA2_1$dis_diab_tx_1 <- recode(as.integer(LASA2F$fdiabe03),'2'=1L,'3'=0L, .default=NA_integer_)
+oth_LASA2_1$dis_diab_tx_1 <- recode(as.integer(LASA2F$fdiabe03),'1'=0L,'2'=1L,'3'=0L, .default=NA_integer_)
 ```  
 ### **Variable label**: Currently use insulin for diabetes  
 **Variable name**:  dis_diab_ins_2  
@@ -831,7 +845,7 @@ oth_LASA2_1$dis_diab_tx_1 <- recode(as.integer(LASA2F$fdiabe03),'2'=1L,'3'=0L, .
 **Harmonization comment**:  categories of study-specific variable (Diabetes-taking medication) are No | Yes, insulin injections | Yes, tablets only. If does not do treatment, coded as NA. question  
 **R script**:
 ```{r, echo=TRUE}
-oth_LASA2_2$dis_diab_tx_2 <- recode(as.integer(LASA2G$gdiabe03),'2'=1L,'3'=0L, .default=NA_integer_)
+oth_LASA2_2$dis_diab_tx_2 <- recode(as.integer(LASA2G$gdiabe03),'1'=0L,'2'=1L,'3'=0L, .default=NA_integer_)
 ```  
 # BMI subdomain
 
@@ -2090,12 +2104,11 @@ oth_LASA2_3$phy_bmi_cat_all_3 <- ifelse(oth_LASA2_3$phy_bmi_ms_3 <18.5,0L, ifels
 **Variable unit**: cm  
 **Category coding**:  N/A  
 
-**Harmonization status**:  
-**Harmonization comment**:   
+**Harmonization status**:    complete  
+**Harmonization comment**:   This study has two waist circumference measurements. The first measurement was taken.  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
-
+oth_LASA2_0$phy_waist_all_0 <- ifelse(as.numeric(LASA2B$bmed156)>0,as.numeric(LASA2B$bmed156),NA)
 ```  
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined   
 **Variable name**: phy_waist_all_1  
@@ -2104,12 +2117,11 @@ oth_LASA2_3$phy_bmi_cat_all_3 <- ifelse(oth_LASA2_3$phy_bmi_ms_3 <18.5,0L, ifels
 **Variable unit**: cm  
 **Category coding**:  N/A  
 
-**Harmonization status**:  
-**Harmonization comment**:   
+**Harmonization status**:  complete  
+**Harmonization comment**:   This study has two waist circumference measurements. The first measurement was taken.  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
-
+oth_LASA2_1$phy_waist_all_1 <- ifelse(as.numeric(LASA2F$fmed156)>0,as.numeric(LASA2F$fmed156),NA)
 ```  
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined   
 **Variable name**: phy_waist_all_2  
@@ -2118,12 +2130,11 @@ oth_LASA2_3$phy_bmi_cat_all_3 <- ifelse(oth_LASA2_3$phy_bmi_ms_3 <18.5,0L, ifels
 **Variable unit**: cm  
 **Category coding**:  N/A  
 
-**Harmonization status**:  
-**Harmonization comment**:   
+**Harmonization status**:  complete  
+**Harmonization comment**:   This study has two waist circumference measurements. The first measurement was taken.   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
-
+oth_LASA2_2$phy_waist_all_2 <- ifelse(as.numeric(LASA2G$gmed156)>0,as.numeric(LASA2G$gmed156),NA)
 ```  
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined 
 **Variable name**: phy_waist_all_3  
@@ -2133,11 +2144,10 @@ oth_LASA2_3$phy_bmi_cat_all_3 <- ifelse(oth_LASA2_3$phy_bmi_ms_3 <18.5,0L, ifels
 **Category coding**:  N/A  
 
 **Harmonization status**:  
-**Harmonization comment**:   
+**Harmonization comment**:   This study has two waist circumference measurements. The first measurement was taken.  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
-
+oth_LASA2_3$phy_waist_all_3 <- ifelse(as.numeric(LASA2H$HMED156)>0,as.numeric(LASA2H$HMED156),NA)
 ```  
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined   
 **Variable name**: phy_waist_all_4  
@@ -2584,12 +2594,11 @@ oth_LASA2_3$poh_sah_good_3 <- recode(as.integer(LASA2H$hsubhea1),'1'=1L,'2'=1L,'
 0 |   Has no difficulty walking up and down the stairs
 1 |   Has difficulty walking up and down the stairs  
 
-**Harmonization status**:  
-**Harmonization comment**:   
+**Harmonization status**:  complete  
+**Harmonization comment**: Study-specific variable is Stairs: 15 steps without stopping.  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
-
+oth_LASA2_0$fct_stairs_diff_0 <- recode(as.integer(LASA2B$badl1a),'1'=1L,'2'=1L,'3'=1L,'4'=1L,'5'=0L,.default=NA_integer_)
 ```  
 ### **Variable label**:  Difficulty walking up and down the stairs  
 **Variable name**:  fct_stairs_diff_1  
@@ -2603,13 +2612,12 @@ oth_LASA2_3$poh_sah_good_3 <- recode(as.integer(LASA2H$hsubhea1),'1'=1L,'2'=1L,'
 0 |   Has no difficulty walking up and down the stairs
 1 |   Has difficulty walking up and down the stairs  
 
-**Harmonization status**:  
-**Harmonization comment**:   
+**Harmonization status**:  complete  
+**Harmonization comment**: Study-specific variable is Stairs: 15 steps without stopping.  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
-
-```  
+oth_LASA2_1$fct_stairs_diff_1 <- recode(as.integer(LASA2F$fadl1a),'1'=1L,'2'=1L,'3'=1L,'4'=1L,'5'=0L,.default=NA_integer_)
+``` 
 ### **Variable label**:  Difficulty walking up and down the stairs  
 **Variable name**:  fct_stairs_diff_2  
 **Variable description**:  Indicator of whether the participant has difficulty walking up and down the stairs.  
@@ -2622,12 +2630,11 @@ oth_LASA2_3$poh_sah_good_3 <- recode(as.integer(LASA2H$hsubhea1),'1'=1L,'2'=1L,'
 0 |   Has no difficulty walking up and down the stairs
 1 |   Has difficulty walking up and down the stairs  
 
-**Harmonization status**:  
-**Harmonization comment**:   
+**Harmonization status**:  complete  
+**Harmonization comment**: Study-specific variable is Stairs: 15 steps without stopping.  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
-
+oth_LASA2_2$fct_stairs_diff_2 <- recode(as.integer(LASA2G$gadl1a),'1'=1L,'2'=1L,'3'=1L,'4'=1L,'5'=0L,.default=NA_integer_)
 ```  
 
 ### **Variable label**:  Difficulty walking    
@@ -2642,13 +2649,12 @@ oth_LASA2_3$poh_sah_good_3 <- recode(as.integer(LASA2H$hsubhea1),'1'=1L,'2'=1L,'
 0 |   Not able to walk without difficulty  
 1 |   Able to walk without difficulty  
 
-**Harmonization status**:  
-**Harmonization comment**:   
+**Harmonization status**:  complete  
+**Harmonization comment**:  Study-specific variable is Walking: 5 min. outside the house.   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
-
-```  
+oth_LASA2_0$fct_walk_diff_0 <- recode(as.integer(LASA2B$badl5a),'1'=0L,'2'=0L,'3'=0L,'4'=0L,'5'=1L,.default=NA_integer_)
+```
 ### **Variable label**:  Difficulty walking    
 **Variable name**:  fct_walk_diff_1  
 **Variable description**:  Indicator of whether the participant has difficulty walking 2 to 3 blocks, or for about 400 to 500 meters, or for 5 minutes.  
@@ -2661,12 +2667,11 @@ oth_LASA2_3$poh_sah_good_3 <- recode(as.integer(LASA2H$hsubhea1),'1'=1L,'2'=1L,'
 0 |   Not able to walk without difficulty  
 1 |   Able to walk without difficulty  
 
-**Harmonization status**:  
-**Harmonization comment**:   
+**Harmonization status**:  complete  
+**Harmonization comment**:  Study-specific variable is Walking: 5 min. outside the house.   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
-
+oth_LASA2_1$fct_walk_diff_1 <- recode(as.integer(LASA2F$fadl5a),'1'=0L,'2'=0L,'3'=0L,'4'=0L,'5'=1L,.default=NA_integer_)
 ```  
 ### **Variable label**:  Difficulty walking    
 **Variable name**:  fct_walk_diff_2  
@@ -2680,12 +2685,11 @@ oth_LASA2_3$poh_sah_good_3 <- recode(as.integer(LASA2H$hsubhea1),'1'=1L,'2'=1L,'
 0 |   Not able to walk without difficulty  
 1 |   Able to walk without difficulty  
 
-**Harmonization status**:  
-**Harmonization comment**:   
+**Harmonization status**:  complete  
+**Harmonization comment**:  Study-specific variable is Walking: 5 min. outside the house.   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
-
+oth_LASA2_2$fct_walk_diff_2 <- recode(as.integer(LASA2G$gadl5a),'1'=0L,'2'=0L,'3'=0L,'4'=0L,'5'=1L,.default=NA_integer_)
 ```  
 ### **Variable label**:  Difficulty walking    
 **Variable name**:  fct_walk_diff_3  
@@ -2699,13 +2703,12 @@ oth_LASA2_3$poh_sah_good_3 <- recode(as.integer(LASA2H$hsubhea1),'1'=1L,'2'=1L,'
 0 |   Not able to walk without difficulty  
 1 |   Able to walk without difficulty  
 
-**Harmonization status**:  
-**Harmonization comment**:   
+**Harmonization status**:  complete  
+**Harmonization comment**:  Study-specific variable is Walking: 5 min. outside the house.   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
-
-```  
+oth_LASA2_3$fct_walk_diff_3 <- recode(as.integer(LASA2H$HADL5A),'1'=0L,'2'=0L,'3'=0L,'4'=0L,'5'=1L,.default=NA_integer_)
+``` 
 ### **Variable label**:  Difficulty walking    
 **Variable name**:  fct_walk_diff_4  
 **Variable description**:  Indicator of whether the participant has difficulty walking 2 to 3 blocks, or for about 400 to 500 meters, or for 5 minutes.     
