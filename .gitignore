@@ -8,4 +8,14 @@ OTH_DS_validation.Rmd
 OTH_DS_HUNT_validation.Rmd
 OTH_DS_LUCAS_validation.Rmd
 OTH_DS_RECORD_validation.Rmd
+<<<<<<< Updated upstream
 merge oth tables.R
+=======
+<<<<<<< HEAD
+OTH_DS_HUNT_validation.html
+OTH_DS_RECORD_validation.html
+OTH_DS_LUCAS_validation.html
+=======
+merge oth tables.R
+>>>>>>> 51b058c8a75b2fd09a41037f9ef3bed4366c537c
+>>>>>>> Stashed changes
