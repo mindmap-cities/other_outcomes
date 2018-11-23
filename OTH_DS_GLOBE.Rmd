@@ -16,7 +16,7 @@ erasmus_opal <- opal.login()
 opal.assign.table.tibble(erasmus_opal, 'GLOBE1991','GLOBE.GLOBE1991', variables = list('v122','v178','SEGVv116','SEVMv333','SEVMv339','SEVMv334','SEVMv335','SEVMv337','SEVMv341','SEVMv347','SEVMv349','SEVMv348','SEVMv360','SEVMv429','SEVMv362','SEVMv352','SEVMv351','v124','v127','SEVMv546','v107','SEGVv107','v177','v213')) 
 GLOBE1991 <- opal.execute(erasmus_opal,'GLOBE1991')
 # GLOBE1997
-opal.assign.table.tibble(erasmus_opal, 'GLOBE1997','GLOBE.GLOBE1997', variables =list('v19','v20','v1','v13h','r22a','r23'))
+opal.assign.table.tibble(erasmus_opal, 'GLOBE1997','GLOBE.GLOBE1997', variables =list('v19','v20','v1','v13h','r22a','r23','v2k','v2c'))
 GLOBE1997 <- opal.execute(erasmus_opal,'GLOBE1997')
 # GLOBE2004
 opal.assign.table.tibble(erasmus_opal, 'GLOBE2004','GLOBE.GLOBE2004', variables = list('w256','w257','w001','w031')) 
@@ -71,7 +71,16 @@ opal.logout(erasmus_opal)
 **Harmonization comment**:   medical conditions now or in past 5 years: Hypertension (high blood pressure)  
 **R script**:  
 ```{r, echo=TRUE}
-oth_GLOBE_0$dis_hbp_ever_0<-recode(as.integer(GLOBE1991$v178),"1"=0L,"2"=1L,"3"=1L,"8"=1L)
+#HYPERTENSION VARIABLE
+MyMerge <- function(x,y){
+  merge(x,y, by= c("id"),all=TRUE)
+}
+med_table <- Reduce(MyMerge, list(GLOBE1991,GLOBE1997,GLOBE2004,GLOBE2004,GLOBE2011,GLOBE2014))
+#Harmonization scripts to create "ever had "
+
+med_table$dis_hbp_ever_0 <- recode(as.integer(med_table$v178),"1"=0L,"2"=1L,"3"=1L,"8"=1L)
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_GLOBE_0<-merge(oth_GLOBE_0,med_table[,c("id","dis_hbp_ever_0")],by="id",all.x=TRUE)
 
 ```  
 ### **Variable label**: Lifetime occurrence of high blood pressure or hypertension    
@@ -86,11 +95,15 @@ oth_GLOBE_0$dis_hbp_ever_0<-recode(as.integer(GLOBE1991$v178),"1"=0L,"2"=1L,"3"=
 0          |  Never had high blood pressure or hypertension  
 1          |  Ever had high blood pressure or hypertension  
 
-**Harmonization status**:  impossible  
+**Harmonization status**:  complete    
 **Harmonization comment**:   medical conditions past 12 months: Hypertension (high blood pressure)  
 **R script**:  
 ```{r, echo=TRUE}
-
+#Harmonization scripts to create "ever had med"
+med_table$dis_hbp_ever_1  <- ifelse(med_table$dis_hbp_ever_0==1,1L
+                                    ,recode(as.integer(med_table$v2c),'1'=1L,'2'=0L))
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_GLOBE_1<-merge(oth_GLOBE_1,med_table[,c("id","dis_hbp_ever_1")],by="id",all.x=TRUE)
 
 ``` 
 ### **Variable label**: Medication for high blood pressure or hypertension    
@@ -106,11 +119,11 @@ oth_GLOBE_0$dis_hbp_ever_0<-recode(as.integer(GLOBE1991$v178),"1"=0L,"2"=1L,"3"=
 1        |  Ever taken medication  for high blood pressure or hypertension  
 
 
-**Harmonization status**:  complete  
-**Harmonization comment**:  
+**Harmonization status**:  impossible    
+**Harmonization comment**:  Do you use medication for high blood pressure (hypertension)?  
 **R script**:  
 ```{r, echo=TRUE}
-oth_GLOBE_0$dis_hbp_med_0<-recode(as.integer(GLOBE1991$v122),'1'=1L,'2'=0L) 
+ 
 
 ```  
 ### **Variable label**: Medication for high blood pressure or hypertension  
@@ -126,7 +139,7 @@ oth_GLOBE_0$dis_hbp_med_0<-recode(as.integer(GLOBE1991$v122),'1'=1L,'2'=0L)
 1        |  Ever taken medication  for high blood pressure or hypertension    
 
 
-**Harmonization status**:  impossible  
+**Harmonization status**:  impossible      
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
@@ -344,7 +357,7 @@ oth_GLOBE_0$dis_mi_ever_0<-recode(as.integer(GLOBE1991$SEVMv333),'1'=1L,'2'=0L,.
 1        |   Ever had myocardial infarction  
 
 **Harmonization status**:  impossible  
-**Harmonization comment**:  
+**Harmonization comment**:  The question asked was: "For respondents with heart conditions: Have you had a myocardial infarction or a heart attack in the past 3 years?". Since myocardial infarctus is punctual , it's impossible to determine whether the participant had it before or not.
 **R script**:  
 ```{r, echo=TRUE}
 
@@ -533,7 +546,9 @@ oth_GLOBE_0$dis_mi_age_0<-as.integer(GLOBE1991$SEVMv337)
 **Harmonization comment**:  Do you have diabetes, or are you being treated for diabetes by a general practitioner or medical specialist? Do not include gestational diabetes.  
 **R script**:  
 ```{r, echo=TRUE}  
-oth_GLOBE_0$dis_diab_ever_0<-recode(as.integer(GLOBE1991$v213),'1'=0L,'2'=1L,'3'=1L,'8'=1L,.default = NA_integer_)
+med_table$dis_diab_ever_0 <- recode(as.integer(med_table$v213),'1'=0L,'2'=1L,'3'=1L,'8'=1L,.default = NA_integer_)
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_GLOBE_0<-merge(oth_GLOBE_0,med_table[,c("id","dis_diab_ever_0")],by="id",all.x=TRUE)
 
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes or high blood sugar     
@@ -548,11 +563,15 @@ oth_GLOBE_0$dis_diab_ever_0<-recode(as.integer(GLOBE1991$v213),'1'=0L,'2'=1L,'3'
 0          |  Never had diabetes  
 1          |  Ever had diabetes  
 
-**Harmonization status**:  impossible  
-**Harmonization comment**:  
+**Harmonization status**:  complete    
+**Harmonization comment**:  medical conditions past 12 months: Diabetes mellitus
 **R script**:  
 ```{r, echo=TRUE}  
-
+#Harmonization scripts to create "ever had med"
+med_table$dis_diab_ever_1  <- ifelse(med_table$dis_diab_ever_0==1,1L
+                                    ,recode(as.integer(med_table$v2k),'1'=1L,'2'=0L))
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_GLOBE_1<-merge(oth_GLOBE_1,med_table[,c("id","dis_diab_ever_1")],by="id",all.x=TRUE)
 
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
@@ -732,7 +751,7 @@ oth_GLOBE_0$dis_diab_age_0<-GLOBE1991$SEVMv349
 **Harmonization comment**:   Question was only asked to a subset of participant.  
 **R script**:
 ```{r, echo=TRUE}
-oth_GLOBE_0$dis_diab_tx_0<-ifelse(oth_GLOBE_0$dis_diab_ever_0==1 & (GLOBE1991$SEVMv352==1|GLOBE1991$SEVMv351==1 |GLOBE1991$SEVMv362==1|GLOBE1991$SEVMv360==1),1,ifelse(oth_GLOBE_0$dis_diab_ever_0==0 |(GLOBE1991$SEVMv352==2 & GLOBE1991$SEVMv351==2 & GLOBE1991$SEVMv362==2 & GLOBE1991$SEVMv360==2 ),0,NA))
+oth_GLOBE_0$dis_diab_tx_0<-ifelse(oth_GLOBE_0$dis_diab_ever_0==1 & (GLOBE1991$SEVMv352==1|GLOBE1991$SEVMv351==1 |GLOBE1991$SEVMv362==1|GLOBE1991$SEVMv360==1),1L,ifelse(oth_GLOBE_0$dis_diab_ever_0==0 |(GLOBE1991$SEVMv352==2 & GLOBE1991$SEVMv351==2 & GLOBE1991$SEVMv362==2 & GLOBE1991$SEVMv360==2 ),0L,NA))
 
 ```  
 ### **Variable label**: Currently under treatment for diabetes  
@@ -751,8 +770,8 @@ oth_GLOBE_0$dis_diab_tx_0<-ifelse(oth_GLOBE_0$dis_diab_ever_0==1 & (GLOBE1991$SE
 **Harmonization comment**:  
 **R script**:
 ```{r, echo=TRUE}
-oth_GLOBE_1$dis_diab_tx_1<-ifelse(GLOBE1997$r22a==1|GLOBE1997$r23==1,1,
-                                  ifelse(GLOBE1997$r22a==2 | GLOBE1997$r23==2,0,NA))
+oth_GLOBE_1$dis_diab_tx_1<-ifelse(oth_GLOBE_1$dis_diab_ever_1==1 & (GLOBE1997$r22a==1|GLOBE1997$r23)==1,1L,
+                                  ifelse( oth_GLOBE_1$dis_diab_ever_1==0 | (GLOBE1997$r22a==2 & GLOBE1997$r23==2),0L,NA))
 
 ```  
 ### **Variable label**: Currently under treatment for diabetes  
@@ -847,7 +866,7 @@ oth_GLOBE_1$dis_diab_tx_1<-ifelse(GLOBE1997$r22a==1|GLOBE1997$r23==1,1,
 **Harmonization comment**:  Question was only asked to a subset of participant.  
 **R script**:  
 ```{r, echo=TRUE}
-oth_GLOBE_0$dis_diab_ins_0<-ifelse(GLOBE1991$SEVMv352==1,1,ifelse(GLOBE1991$SEVMv352==2,0,NA))
+oth_GLOBE_0$dis_diab_ins_0<-ifelse(oth_GLOBE_0$dis_diab_tx_0==0,0L,                         ifelse(oth_GLOBE_0$dis_diab_tx_0==1,recode(as.integer(GLOBE1991$SEVMv352),'1'=1L,'2'=0L),NA))
 
 ```  
 ### **Variable label**: Currently use insulin for diabetes  
@@ -866,7 +885,8 @@ oth_GLOBE_0$dis_diab_ins_0<-ifelse(GLOBE1991$SEVMv352==1,1,ifelse(GLOBE1991$SEVM
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-oth_GLOBE_1$dis_diab_ins_1<-recode(as.integer(GLOBE1997$r23),'1'=1L,'2'=0L)
+oth_GLOBE_1$dis_diab_ins_1<-ifelse(oth_GLOBE_1$dis_diab_tx_1==0,0L,
+                                   ifelse(oth_GLOBE_1$dis_diab_tx_1==1,recode(as.integer(GLOBE1997$r23),'1'=1L,'2'=0L),NA))
 
 ```  
 ### **Variable label**: Currently use insulin for diabetes  
