@@ -8,5 +8,7 @@ OTH_DS_validation.Rmd
 OTH_DS_HUNT_validation.Rmd
 OTH_DS_LUCAS_validation.Rmd
 OTH_DS_RECORD_validation.Rmd
-merge oth tables.R
-OTH_DS_GLOBE_Validation.Rmd
+OTH_DS_HUNT_validation.html
+OTH_DS_RECORD_validation.html
+OTH_DS_LUCAS_validation.html
+
