@@ -223,11 +223,11 @@ oth_LASA1_1$dis_hbp_ever_1 <- recode(as.integer(LASA1C$chbd1), '1'=0L,'2'=1L, .d
 0        |  Never had angina
 1        |  Ever had angina  
   
-**Harmonization status**:  complete    
-**Harmonization comment**:  Two study-specific variables were used : "heart: chest pain during exertion" and "heart: exertion pain disappears in 10 minutes") which by definition indicates the presence of angina pectoris. Also, in general once a respondent has had a cardiovascular disease (s)he is affected by this chronic disease for the rest of his(her) life. Clinically, this holds true for all cardiovascular conditions under LASA study. For "heart: chest pain during exertion", participants coded to "no exertion: chest pain" were considered to have angina pectoris.  
+**Harmonization status**:  impossible      
+**Harmonization comment**:  Incompatible: Two study-specific variables available ("heart: chest pain during exertion" and "heart: exertion pain disappears in 10 minutes") however, only studies with self-reported doctor-diagnosis angina were considered for harmonization.  
 **R script**:  
 ```{r, echo=TRUE}
-#oth_LASA1_0$dis_angina_ever_0 <- ifelse(as.integer(LASA1B$bhart01)==0,0L, ifelse(as.integer(LASA1B$bhart10)==0 | as.integer(LASA1B$bhart10)>2,0L, ifelse(((as.integer(LASA1B$bhart10)==1 & as.integer(LASA1B$bhart11)== 1) | as.integer(LASA1B$bhart10)==2),1L, NA)))
+
 ```  
 ### **Variable label**: Lifetime occurrence of angina 
 **Variable name**:  dis_angina_ever_1  
@@ -241,11 +241,11 @@ oth_LASA1_1$dis_hbp_ever_1 <- recode(as.integer(LASA1C$chbd1), '1'=0L,'2'=1L, .d
 0        |  Never had angina
 1        |  Ever had angina  
   
-**Harmonization status**:  complete    
-**Harmonization comment**:  Two study-specific variables were used : "heart: chest pain during exertion" and "heart: exertion pain disappears in 10 minutes") which by definition indicates the presence of angina pectoris. Also, in general once a respondent has had a cardiovascular disease (s)he is affected by this chronic disease for the rest of his(her) life. Clinically, this holds true for all cardiovascular conditions under LASA study. For "heart: chest pain during exertion", participants coded to "no exertion: chest pain" were considered to have angina pectoris.  
+**Harmonization status**:  impossible      
+**Harmonization comment**:  Incompatible: Two study-specific variables available ("heart: chest pain during exertion" and "heart: exertion pain disappears in 10 minutes") however, only studies with self-reported doctor-diagnosis angina were considered for harmonization.  
 **R script**:  
 ```{r, echo=TRUE}
-#oth_LASA1_1$dis_angina_ever_1 <- ifelse(as.integer(LASA1C$chart01)==0,0L, ifelse(as.integer(LASA1C$chart10)==0 | as.integer(LASA1C$chart10)>2,0L, ifelse(((as.integer(LASA1C$chart10)==1 & as.integer(LASA1C$chart11)== 1) | as.integer(LASA1C$chart10)==2),1L, NA)))
+
 ``` 
 ### **Variable label**: Lifetime occurrence of angina 
 **Variable name**:  dis_angina_ever_2  
@@ -259,13 +259,10 @@ oth_LASA1_1$dis_hbp_ever_1 <- recode(as.integer(LASA1C$chbd1), '1'=0L,'2'=1L, .d
 0        |  Never had angina
 1        |  Ever had angina  
   
-**Harmonization status**:  complete    
-**Harmonization comment**:  Two study-specific variables were used : "heart: chest pain during exertion" and "heart: exertion pain disappears in 10 minutes") which by definition indicates the presence of angina pectoris. Also, in general once a respondent has had a cardiovascular disease (s)he is affected by this chronic disease for the rest of his(her) life. Clinically, this holds true for all cardiovascular conditions under LASA study. For "heart: chest pain during exertion", participants coded to "no exertion: chest pain" were considered to have angina pectoris.  
+**Harmonization status**:  impossible      
+**Harmonization comment**:  Incompatible: Two study-specific variables available ("heart: chest pain during exertion" and "heart: exertion pain disappears in 10 minutes") however, only studies with self-reported doctor-diagnosis angina were considered for harmonization.  
 **R script**:  
 ```{r, echo=TRUE}
-#oth_LASA1_2$dis_angina_ever_2 <- ifelse(as.integer(LASA1D$dhart01)==0,0L, ifelse(as.integer(LASA1D$dhart10)==1 | as.integer(LASA1D$dhart10)>3,0L, ifelse(((as.integer(LASA1D$dhart10)==2 & as.integer(LASA1D$dhart11)== 2) | as.integer(LASA1D$dhart10)==3),1L, NA)))
-
-#impossible???
 
 ```   
 ### **Variable label**: Lifetime occurrence of angina 
@@ -280,13 +277,10 @@ oth_LASA1_1$dis_hbp_ever_1 <- recode(as.integer(LASA1C$chbd1), '1'=0L,'2'=1L, .d
 0        |  Never had angina
 1        |  Ever had angina  
   
-**Harmonization status**:  complete    
-**Harmonization comment**:  Two study-specific variables were used : "heart: chest pain during exertion" and "heart: exertion pain disappears in 10 minutes") which by definition indicates the presence of angina pectoris. Also, in general once a respondent has had a cardiovascular disease (s)he is affected by this chronic disease for the rest of his(her) life. Clinically, this holds true for all cardiovascular conditions under LASA study. For "heart: chest pain during exertion", participants coded to "no exertion: chest pain" were considered to have angina pectoris.  
+**Harmonization status**:  impossible      
+**Harmonization comment**:  Incompatible: Two study-specific variables available ("heart: chest pain during exertion" and "heart: exertion pain disappears in 10 minutes") however, only studies with self-reported doctor-diagnosis angina were considered for harmonization.  
 **R script**:  
 ```{r, echo=TRUE}
-#oth_LASA1_3$dis_angina_ever_3 <- ifelse(as.integer(LASA1E$ehart01)==0,0L, ifelse(as.integer(LASA1E$ehart10)==0 | as.integer(LASA1E$ehart10)>2,0L, ifelse(((as.integer(LASA1E$ehart10)==1 & as.integer(LASA1E$ehart11)== 1) | as.integer(LASA1E$ehart10)==2),1L, NA)))
-
-#impossible???
 
 ```
 ### **Variable label**: Lifetime occurrence of angina 
@@ -301,14 +295,10 @@ oth_LASA1_1$dis_hbp_ever_1 <- recode(as.integer(LASA1C$chbd1), '1'=0L,'2'=1L, .d
 0        |  Never had angina
 1        |  Ever had angina  
   
-**Harmonization status**:  complete    
-**Harmonization comment**:  Two study-specific variables were used : "heart: chest pain during exertion" and "heart: exertion pain disappears in 10 minutes") which by definition indicates the presence of angina pectoris. Also, in general once a respondent has had a cardiovascular disease (s)he is affected by this chronic disease for the rest of his(her) life. Clinically, this holds true for all cardiovascular conditions under LASA study. For "heart: chest pain during exertion", participants coded to "no exertion: chest pain" were considered to have angina pectoris.  
+**Harmonization status**:  impossible      
+**Harmonization comment**:  Incompatible: Two study-specific variables available ("heart: chest pain during exertion" and "heart: exertion pain disappears in 10 minutes") however, only studies with self-reported doctor-diagnosis angina were considered for harmonization.  
 **R script**:  
 ```{r, echo=TRUE}
-#oth_LASA1_4$dis_angina_ever_4 <- ifelse(as.integer(LASA1F$fhart01)==0,0L, ifelse(as.integer(LASA1F$fhart10)==0 | as.integer(LASA1F$fhart10)>2,0L, ifelse(((as.integer(LASA1F$fhart10)==1 & as.integer(LASA1F$fhart11)== 1) | as.integer(LASA1F$fhart10)==2),1L, NA)))
-
-
-#impossible???
 
 ```
 
@@ -761,11 +751,13 @@ oth_LASA1_0$dis_diab_age_0 <- ifelse(as.integer(LASA1B$bdiabe02)<0,NA,as.integer
 0        | Not currently under treatment for diabetes  
 1        | Currently under treatment for diabetes  
 
-**Harmonization status**:  
-**Harmonization comment**:  Categories of study-specific variable (Diabetes-taking medication) are No | Yes, insulin injections | Yes, tablets only.  
+**Harmonization status**:  complete  
+**Harmonization comment**:  Two variables are used for harmonization "Diabetes-taking medication" categorized as: No | Yes, insulin injections | Yes, tablets only and "Diabetes: treatment doctor" categorized as: No | Yes, family physician | Yes, specialist.  
 **R script**:
 ```{r, echo=TRUE}
-oth_LASA1_0$dis_diab_tx_0 <- recode(as.integer(LASA1B$bdiabe03), '0'=0L,'1'=1L,'2'=1L, .default=NA_integer_)
+oth_LASA1_0$dis_diab_tx_0<- ifelse(as.integer(LASA1B$bdiabe03)==0 & as.integer(LASA1B$bdiabe04)==0,0L,
+                             ifelse(as.integer(LASA1B$bdiabe03)==1 | as.integer(LASA1B$bdiabe03)==2 |
+                                    as.integer(LASA1B$bdiabe04)==1 | as.integer(LASA1B$bdiabe04)==2,1L,NA))
 ```  
 ### **Variable label**: Currently under treatment for diabetes  
 **Variable name**:  dis_diab_tx_1  
@@ -780,10 +772,12 @@ oth_LASA1_0$dis_diab_tx_0 <- recode(as.integer(LASA1B$bdiabe03), '0'=0L,'1'=1L,'
 1        | Currently under treatment for diabetes  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  Categories of study-specific variable (Diabetes-taking medication) are No | Yes, insulin injections | Yes, tablets only.  
+**Harmonization comment**:  Two variables are used for harmonization "Diabetes-taking medication" categorized as: No | Yes, insulin injections | Yes, tablets only and "Diabetes: treatment doctor" categorized as: No | Yes, family physician | Yes, specialist.  
 **R script**:
 ```{r, echo=TRUE}
-oth_LASA1_1$dis_diab_tx_1 <- recode(as.integer(LASA1C$cdiabe03), '1'=0L,'2'=1L,'3'=1L, .default=NA_integer_)
+oth_LASA1_1$dis_diab_tx_1<- ifelse(as.integer(LASA1C$cdiabe03)==1 & as.integer(LASA1C$cdiabe04)==1,0L,
+                             ifelse(as.integer(LASA1C$cdiabe03)==2 | as.integer(LASA1C$cdiabe03)==3 |
+                                    as.integer(LASA1C$cdiabe04)==2 | as.integer(LASA1C$cdiabe04)==3,1L,NA))
 ```  
 ### **Variable label**: Currently under treatment for diabetes  
 **Variable name**:  dis_diab_tx_2  
@@ -798,11 +792,13 @@ oth_LASA1_1$dis_diab_tx_1 <- recode(as.integer(LASA1C$cdiabe03), '1'=0L,'2'=1L,'
 1        | Currently under treatment for diabetes  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  Categories of study-specific variable (Diabetes-taking medication) are No | Yes, insulin injections | Yes, tablets only.  
+**Harmonization comment**:  Two variables are used for harmonization "Diabetes-taking medication" categorized as: No | Yes, insulin injections | Yes, tablets only and "Diabetes: treatment doctor" categorized as: No | Yes, family physician | Yes, specialist.  
 **R script**:
 ```{r, echo=TRUE}
-oth_LASA1_2$dis_diab_tx_2 <- recode(as.integer(LASA1D$ddiabe03), '1'=0L,'2'=1L,'3'=1L, .default=NA_integer_)
-```  
+oth_LASA1_2$dis_diab_tx_2<- ifelse(as.integer(LASA1D$ddiabe03)==1 & as.integer(LASA1D$ddiabe04)==1,0L,
+                             ifelse(as.integer(LASA1D$ddiabe03)==2 | as.integer(LASA1D$ddiabe03)==3 |
+                                    as.integer(LASA1D$ddiabe04)==2 | as.integer(LASA1D$ddiabe04)==3,1L,NA))
+```   
 ### **Variable label**: Currently under treatment for diabetes  
 **Variable name**:  dis_diab_tx_3  
 **Variable description**:  Indicator of whether the participant is currently under treatment for diabetes.    
@@ -816,11 +812,13 @@ oth_LASA1_2$dis_diab_tx_2 <- recode(as.integer(LASA1D$ddiabe03), '1'=0L,'2'=1L,'
 1        | Currently under treatment for diabetes  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  Categories of study-specific variable (Diabetes-taking medication) are No | Yes, insulin injections | Yes, tablets only.  
+**Harmonization comment**:  Two variables are used for harmonization "Diabetes-taking medication" categorized as: No | Yes, insulin injections | Yes, tablets only and "Diabetes: treatment doctor" categorized as: No | Yes, family physician | Yes, specialist.  
 **R script**:
 ```{r, echo=TRUE}
-oth_LASA1_3$dis_diab_tx_3 <- recode(as.integer(LASA1E$ediabe03), '1'=0L,'2'=1L,'3'=1L, .default=NA_integer_)
-```  
+oth_LASA1_3$dis_diab_tx_3<- ifelse(as.integer(LASA1E$ediabe03)==1 & as.integer(LASA1E$ediabe04)==1,0L,
+                             ifelse(as.integer(LASA1E$ediabe03)==2 | as.integer(LASA1E$ediabe03)==3 |
+                                    as.integer(LASA1E$ediabe04)==2 | as.integer(LASA1E$ediabe04)==3,1L,NA))
+```   
 ### **Variable label**: Currently under treatment for diabetes  
 **Variable name**:  dis_diab_tx_4  
 **Variable description**:  Indicator of whether the participant is currently under treatment for diabetes.    
@@ -834,10 +832,12 @@ oth_LASA1_3$dis_diab_tx_3 <- recode(as.integer(LASA1E$ediabe03), '1'=0L,'2'=1L,'
 1        | Currently under treatment for diabetes  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  Categories of study-specific variable (Diabetes-taking medication) are No | Yes, insulin injections | Yes, tablets only.  
+**Harmonization comment**:  Two variables are used for harmonization "Diabetes-taking medication" categorized as: No | Yes, insulin injections | Yes, tablets only and "Diabetes: treatment doctor" categorized as: No | Yes, family physician | Yes, specialist.  
 **R script**:
 ```{r, echo=TRUE}
-oth_LASA1_4$dis_diab_tx_4 <- recode(as.integer(LASA1F$fdiabe03), '1'=0L,'2'=1L,'3'=1L, .default=NA_integer_)
+oth_LASA1_4$dis_diab_tx_4<- ifelse(as.integer(LASA1F$fdiabe03)==1 & as.integer(LASA1F$fdiabe04)==1,0L,
+                             ifelse(as.integer(LASA1F$fdiabe03)==2 | as.integer(LASA1F$fdiabe03)==3 |
+                                    as.integer(LASA1F$fdiabe04)==2 | as.integer(LASA1F$fdiabe04)==3,1L,NA))
 ```    
 ### **Variable label**: Currently under treatment for diabetes  
 **Variable name**:  dis_diab_tx_5  
@@ -852,11 +852,13 @@ oth_LASA1_4$dis_diab_tx_4 <- recode(as.integer(LASA1F$fdiabe03), '1'=0L,'2'=1L,'
 1        | Currently under treatment for diabetes  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  Categories of study-specific variable (Diabetes-taking medication) are No | Yes, insulin injections | Yes, tablets only.  
+**Harmonization comment**:  Two variables are used for harmonization "Diabetes-taking medication" categorized as: No | Yes, insulin injections | Yes, tablets only and "Diabetes: treatment doctor" categorized as: No | Yes, family physician | Yes, specialist.  
 **R script**:
 ```{r, echo=TRUE}
-oth_LASA1_5$dis_diab_tx_5 <- recode(as.integer(LASA1G$gdiabe03), '1'=0L,'2'=1L,'3'=1L, .default=NA_integer_)
-``` 
+oth_LASA1_5$dis_diab_tx_5<- ifelse(as.integer(LASA1G$gdiabe03)==1 & as.integer(LASA1G$gdiabe04)==1,0L,
+                             ifelse(as.integer(LASA1G$gdiabe03)==2 | as.integer(LASA1G$gdiabe03)==3 |
+                                    as.integer(LASA1G$gdiabe04)==2 | as.integer(LASA1G$gdiabe04)==3,1L,NA))
+```  
 ### **Variable label**: Currently use insulin for diabetes  
 **Variable name**:  dis_diab_ins_0  
 **Variable description**:  Indicator of whether the participant uses insulin for diabetes treatment.  
