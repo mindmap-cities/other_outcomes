@@ -97,8 +97,15 @@ opal.logout(erasmus_opal)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-oth_HUNT_0$dis_hbp_med_0 <- as.integer(HUNT1$BPMedEv_NT1BLQ1)
+MyMerge <- function(x,y){
+  merge(x,y, by= c("id"),all=TRUE)
+}
+med_table_hunt <- Reduce(MyMerge, list(HUNT1,HUNT2,HUNT3))
 
+#HBP med
+med_table_hunt$dis_hbp_med_0 <- as.integer(med_table_hunt$BPMedEv_NT1BLQ1)
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_HUNT_0<-merge(oth_HUNT_0,med_table_hunt[,c("id","dis_hbp_med_0")],by="id",all.x=TRUE)
 ```  
 ### **Variable label**: Medication for high blood pressure or hypertension  
 **Variable name**:  dis_hbp_med_1  
@@ -117,8 +124,13 @@ oth_HUNT_0$dis_hbp_med_0 <- as.integer(HUNT1$BPMedEv_NT1BLQ1)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-oth_HUNT_1$dis_hbp_med_1<- recode(as.integer(HUNT2$BPMedCu_NT2BLQ1), '1'=1L, '2'=1L,'3'=0L,.default = NA_integer_)
-
+#HBP med
+med_table_hunt$dis_hbp_med_1<- ifelse(med_table_hunt$dis_hbp_med_0==0 & as.integer(med_table_hunt$BPMedCu_NT2BLQ1)=='3',0L,
+                               ifelse(med_table_hunt$dis_hbp_med_0==1| 
+                                      as.integer(med_table_hunt$BPMedCu_NT2BLQ1)=='1' | 
+                                      as.integer(med_table_hunt$BPMedCu_NT2BLQ1)=='2',1L,NA))
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_HUNT_1<-merge(oth_HUNT_1,med_table_hunt[,c("id","dis_hbp_med_1")],by="id",all.x=TRUE)
 ```  
 ### **Variable label**: Medication for high blood pressure or hypertension    
 **Variable name**:  dis_hbp_med_2  
@@ -137,7 +149,11 @@ oth_HUNT_1$dis_hbp_med_1<- recode(as.integer(HUNT2$BPMedCu_NT2BLQ1), '1'=1L, '2'
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-oth_HUNT_2$dis_hbp_med_2<- as.integer(HUNT3$BPMedEv_NT3BLQ1)
+#HBP med
+med_table_hunt$dis_hbp_med_2<- ifelse(med_table_hunt$dis_hbp_med_1==0 & as.integer(med_table_hunt$BPMedEv_NT3BLQ1)==0,0L,
+                           ifelse(med_table_hunt$dis_hbp_med_1==1 |as.integer(med_table_hunt$BPMedEv_NT3BLQ1)==1,1L,NA))
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_HUNT_2<-merge(oth_HUNT_2,med_table_hunt[,c("id","dis_hbp_med_2")],by="id",all.x=TRUE)
 ```  
 ### **Variable label**: Medication for high blood pressure or hypertension    
 **Variable name**:  dis_hbp_med_3    
@@ -215,8 +231,10 @@ oth_HUNT_2$dis_hbp_med_2<- as.integer(HUNT3$BPMedEv_NT3BLQ1)
 A few Yes (value 1) was corrected to No (value 0) if the participants had answered No to the same disease in both HUNT2 and HUNT3 and not reported age first time of the disease.
 **R script**:  
 ```{r, echo=TRUE}
-oth_HUNT_0$dis_angina_ever_0<- as.integer(HUNT1$CarAngEv_NT1BLQ1)
-
+#angina
+med_table_hunt$dis_angina_ever_0<- as.integer(med_table_hunt$CarAngEv_NT1BLQ1)
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_HUNT_0<-merge(oth_HUNT_0,med_table_hunt[,c("id","dis_angina_ever_0")],by="id",all.x=TRUE)
 ```  
 ### **Variable label**: Lifetime occurrence of angina 
 **Variable name**:  dis_angina_ever_1    
@@ -234,8 +252,11 @@ oth_HUNT_0$dis_angina_ever_0<- as.integer(HUNT1$CarAngEv_NT1BLQ1)
 **Harmonization comment**:  Missing was set as No if the participant also had answered No to having the same disease in HUNT3. Missing was corrected to Yes if the participant had answered Yes to the same disease in HUNT1. No was corrected to Yes if the participant had answered Yes to the same disease in HUNT1 and HUNT3 or only in HUNT3 and reported age at first time having the disease before partAge in HUNT2. A few Yes was corrected to No (value 0) if the participants had answered No to the same disease in both HUNT1 and HUNT3 and not reported the AGE first time having the disease in HUNT3.  
 **R script**:  
 ```{r, echo=TRUE}
-oth_HUNT_1$dis_angina_ever_1<- as.integer(HUNT2$CarAngEv_NT2BLQ1)
-
+#angina
+med_table_hunt$dis_angina_ever_1<- ifelse(med_table_hunt$dis_angina_ever_0==0 & as.integer(med_table_hunt$CarAngEv_NT2BLQ1)==0,0L,
+                                    ifelse(med_table_hunt$dis_angina_ever_0==1 | as.integer(med_table_hunt$CarAngEv_NT2BLQ1)==1,1L,NA))
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_HUNT_1<-merge(oth_HUNT_1,med_table_hunt[,c("id","dis_angina_ever_1")],by="id",all.x=TRUE)
 ```  
 ### **Variable label**: Lifetime occurrence of angina 
 **Variable name**:  dis_angina_ever_2  
@@ -255,8 +276,11 @@ oth_HUNT_1$dis_angina_ever_1<- as.integer(HUNT2$CarAngEv_NT2BLQ1)
 A few Yes was corrected to No (value 0) if the participants had answered No to the same disease at the CVD follow-up and in HUNT1 and/or HUNT2 and not reported the age at first time having the disease in HUNT3.  
 **R script**:  
 ```{r, echo=TRUE}
-oth_HUNT_2$dis_angina_ever_2<- as.integer(HUNT3$CarAngEv_NT3BLQ1)
-
+#angina
+med_table_hunt$dis_angina_ever_2<- ifelse(med_table_hunt$dis_angina_ever_1==0 & as.integer(med_table_hunt$CarAngEv_NT3BLQ1)==0,0L,
+                                  ifelse(med_table_hunt$dis_angina_ever_1==1 | as.integer(med_table_hunt$CarAngEv_NT3BLQ1)==1, 1L, NA))
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_HUNT_2<-merge(oth_HUNT_2,med_table_hunt[,c("id","dis_angina_ever_2")],by="id",all.x=TRUE)  
 ```  
 ### **Variable label**: Lifetime occurrence of angina 
 **Variable name**:  dis_angina_ever_3  
@@ -313,8 +337,10 @@ oth_HUNT_2$dis_angina_ever_2<- as.integer(HUNT3$CarAngEv_NT3BLQ1)
 **Harmonization comment**:  Missing was set as No (Value 0) if the participant also had answered No to having the same illness in HUNT2 and/or HUNT3. A few Yes (value 1) was corrected to No (value 0) if the participants had answered No to the same disease in both HUNT2 and HUNT3 and not reported age first time of the disease.  
 **R script**:  
 ```{r, echo=TRUE}
-oth_HUNT_0$dis_mi_ever_0<-as.integer(HUNT1$CarInfEv_NT1BLQ1)
-
+#mi
+med_table_hunt$dis_mi_ever_0<-as.integer(med_table_hunt$CarInfEv_NT1BLQ1)
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_HUNT_0<-merge(oth_HUNT_0,med_table_hunt[,c("id","dis_mi_ever_0")],by="id",all.x=TRUE)
 ```  
 ### **Variable label**: Lifetime occurrence of myocardial infarction    
 **Variable name**:  dis_mi_ever_1  
@@ -332,8 +358,11 @@ oth_HUNT_0$dis_mi_ever_0<-as.integer(HUNT1$CarInfEv_NT1BLQ1)
 **Harmonization comment**:  Missing was set as No if the participant also had answered No to having the same disease in HUNT3. Missing was corrected to Yes if the participant had answered Yes to the same disease in HUNT1. No was corrected to Yes if the participant had answered Yes to the same disease in HUNT1 and HUNT3 or only in HUNT3 and reported age at first time having the disease before partAge in HUNT2. A few Yes was corrected to No (value 0) if the participants had answered No to the same disease in both HUNT1 and HUNT3 and not reported the AGE first time having the disease in HUNT3.  
 **R script**:  
 ```{r, echo=TRUE}
-oth_HUNT_1$dis_mi_ever_1<- as.integer(HUNT2$CarInfEv_NT2BLQ1)
-
+#mi
+med_table_hunt$dis_mi_ever_1<- ifelse(med_table_hunt$dis_mi_ever_0==0 & as.integer(med_table_hunt$CarInfEv_NT2BLQ1)==0,0L,
+                               ifelse(med_table_hunt$dis_mi_ever_0==1 | as.integer(med_table_hunt$CarInfEv_NT2BLQ1)==1,1,NA))
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_HUNT_1<-merge(oth_HUNT_1,med_table_hunt[,c("id","dis_mi_ever_1")],by="id",all.x=TRUE)
 ```  
 ### **Variable label**: Lifetime occurrence of myocardial infarction    
 **Variable name**:  dis_mi_ever_2  
@@ -353,8 +382,11 @@ oth_HUNT_1$dis_mi_ever_1<- as.integer(HUNT2$CarInfEv_NT2BLQ1)
 A few Yes was corrected to No (value 0) if the participants had answered No to the same disease at the CVD follow-up and in HUNT1 and/or HUNT2 and not reported the age at first time having the disease in HUNT3.  
 **R script**:  
 ```{r, echo=TRUE}
-oth_HUNT_2$dis_mi_ever_2<- as.integer(HUNT3$CarInfEv_NT3BLQ1)
-
+#mi
+med_table_hunt$dis_mi_ever_2<- ifelse(med_table_hunt$dis_mi_ever_1==0 & as.integer(med_table_hunt$CarInfEv_NT3BLQ1)==0,0L,
+                               ifelse(med_table_hunt$dis_mi_ever_1==1 | as.integer(med_table_hunt$CarInfEv_NT3BLQ1)==1,1,NA))
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_HUNT_2<-merge(oth_HUNT_2,med_table_hunt[,c("id","dis_mi_ever_2")],by="id",all.x=TRUE) 
 ```  
 
 ### **Variable label**: Age at first Myocardial infarction  
@@ -418,7 +450,10 @@ oth_HUNT_2$dis_mi_age_2<- as.numeric(HUNT3$CarInfAg_NT3BLQ1)
 A few Yes (value 1) was corrected to No (value 0) if the participants had answered No to the same disease in both HUNT2 and HUNT3 and not reported age first time of the disease.  
 **R script**:  
 ```{r, echo=TRUE}
-oth_HUNT_0$dis_stroke_ever_0<- as.integer(HUNT1$ApoplEv_NT1BLQ1)
+#stroke
+med_table_hunt$dis_stroke_ever_0<- as.integer(med_table_hunt$ApoplEv_NT1BLQ1)
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_HUNT_0<-merge(oth_HUNT_0,med_table_hunt[,c("id","dis_stroke_ever_0")],by="id",all.x=TRUE)
 ```  
 ### **Variable label**: Lifetime occurrence of stroke or CVA  
 **Variable name**:  dis_stroke_ever_1  
@@ -436,8 +471,11 @@ oth_HUNT_0$dis_stroke_ever_0<- as.integer(HUNT1$ApoplEv_NT1BLQ1)
 **Harmonization comment**:  Missing was set as No if the participant also had answered No to having the same disease in HUNT3. Missing was corrected to Yes if the participant had answered Yes to the same disease in HUNT1. No was corrected to Yes if the participant had answered Yes to the same disease in HUNT1 and HUNT3 or only in HUNT3 and reported age at first time having the disease before partAge in HUNT2. A few Yes was corrected to No (value 0) if the participants had answered No to the same disease in both HUNT1 and HUNT3 and not reported the AGE first time having the disease in HUNT3.  
 **R script**:  
 ```{r, echo=TRUE}
-oth_HUNT_1$dis_stroke_ever_1<-as.integer(HUNT2$ApoplEv_NT2BLQ1)
-
+#stroke
+med_table_hunt$dis_stroke_ever_1<- ifelse(med_table_hunt$dis_stroke_ever_0==0 & as.integer(med_table_hunt$ApoplEv_NT2BLQ1)==0,0L,
+                                   ifelse(med_table_hunt$dis_stroke_ever_0==1 | as.integer(med_table_hunt$ApoplEv_NT2BLQ1)==1,1L,NA))
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_HUNT_1<-merge(oth_HUNT_1,med_table_hunt[,c("id","dis_stroke_ever_1")],by="id",all.x=TRUE)
 ```  
 ### **Variable label**: Lifetime occurrence of stroke or CVA  
 **Variable name**:  dis_stroke_ever_2  
@@ -455,7 +493,11 @@ oth_HUNT_1$dis_stroke_ever_1<-as.integer(HUNT2$ApoplEv_NT2BLQ1)
 **Harmonization comment**:  No was corrected to Yes if the participant had: 1) reported Yes to the same disease in HUNT2 and reported age first time having the the disease in HUNT2 and/or HUNT3, 2) reported Yes at both HUNT2 and at CVD follow-up in HUNT3 or 3) reported Yes at the CVD follow-up in HUNT3 and reported age at first time having the disease.  A few Yes was corrected to No (value 0) if the participants had answered No to the same disease at the CVD follow-up and in HUNT1 and/or HUNT2 and not reported the age at first time having the disease in HUNT3.  
 **R script**:  
 ```{r, echo=TRUE}
-oth_HUNT_2$dis_stroke_ever_2<- as.integer(HUNT3$ApoplEv_NT3BLQ1)
+#stroke
+med_table_hunt$dis_stroke_ever_2<- ifelse(med_table_hunt$dis_stroke_ever_1==0 & as.integer(med_table_hunt$ApoplEv_NT3BLQ1)==0,0L,
+                                   ifelse(med_table_hunt$dis_stroke_ever_1==1 | as.integer(med_table_hunt$ApoplEv_NT3BLQ1)==1,1L,NA))
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_HUNT_2<-merge(oth_HUNT_2,med_table_hunt[,c("id","dis_stroke_ever_2")],by="id",all.x=TRUE)
 ```  
 ### **Variable label**: Age at first stroke or CVA  
 **Variable name**:  dis_stroke_age_0  
@@ -519,7 +561,10 @@ oth_HUNT_2$dis_stroke_age_2<- as.numeric(HUNT3$ApoplAg_NT3BLQ1)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}  
-oth_HUNT_0$dis_diab_ever_0<- as.integer(HUNT1$DiaEv_NT1BLQ1)
+#diabetes
+med_table_hunt$dis_diab_ever_0<- as.integer(med_table_hunt$DiaEv_NT1BLQ1)
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_HUNT_2<-merge(oth_HUNT_2,med_table_hunt[,c("id","dis_diab_ever_2")],by="id",all.x=TRUE)
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes or high blood sugar     
 **Variable name**: dis_diab_ever_1  
@@ -537,7 +582,11 @@ oth_HUNT_0$dis_diab_ever_0<- as.integer(HUNT1$DiaEv_NT1BLQ1)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}  
-oth_HUNT_1$dis_diab_ever_1<- as.integer(HUNT2$DiaEv_NT2BLQ1) 
+#diabetes
+med_table_hunt$dis_diab_ever_1<- ifelse(med_table_hunt$dis_diab_ever_0==0 & as.integer(med_table_hunt$DiaEv_NT2BLQ1)==0,0L,
+                                 ifelse(med_table_hunt$dis_diab_ever_0==1 | as.integer(med_table_hunt$DiaEv_NT2BLQ1)==1,1L,NA))
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_HUNT_1<-merge(oth_HUNT_1,med_table_hunt[,c("id","dis_diab_ever_1")],by="id",all.x=TRUE)
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
 **Variable name**: dis_diab_ever_2  
@@ -555,7 +604,11 @@ oth_HUNT_1$dis_diab_ever_1<- as.integer(HUNT2$DiaEv_NT2BLQ1)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}  
-oth_HUNT_2$dis_diab_ever_2<- as.integer(HUNT3$DiaEv_NT3BLQ1)
+#diabetes
+med_table_hunt$dis_diab_ever_2<- ifelse(med_table_hunt$dis_diab_ever_1==0 & as.integer(med_table_hunt$DiaEv_NT3BLQ1)==0,0L,
+                                 ifelse(med_table_hunt$dis_diab_ever_1==1 | as.integer(med_table_hunt$DiaEv_NT3BLQ1)==1,1L,NA))
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_HUNT_2<-merge(oth_HUNT_2,med_table_hunt[,c("id","dis_diab_ever_2")],by="id",all.x=TRUE)
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes or high blood sugar     
 **Variable name**: dis_diab_ever_3  
