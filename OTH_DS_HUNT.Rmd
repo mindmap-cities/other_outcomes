@@ -97,6 +97,11 @@ opal.logout(erasmus_opal)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
+MyMerge <- function(x,y){
+  merge(x,y, by= c("id"),all=TRUE)
+}
+med_table_hunt <- Reduce(MyMerge, list(HUNT1,HUNT2,HUNT3))
+
 #HBP med
 med_table_hunt$dis_hbp_med_0 <- as.integer(med_table_hunt$BPMedEv_NT1BLQ1)
 #Direct mapping to harmonized tables keeping correct participants for each wave
