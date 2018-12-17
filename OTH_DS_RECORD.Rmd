@@ -19,7 +19,7 @@ RECORD_w1_1 <- opal.execute(erasmus_opal,'RECORD_w1_1')
 opal.assign.table.tibble(erasmus_opal, 'RECORD_w1_2', 'RECORD.RECORD_w1_2',variables=list('bmi')) 
 RECORD_w1_2 <- opal.execute(erasmus_opal,'RECORD_w1_2')
 # RECORD wave 2
-opal.assign.table.tibble(erasmus_opal, 'RECORD_w2', 'RECORD.RECORD_W2', variables=list('P2_Q1_15','P2_Q1_16','Qm36','Qm35','Qm42','P2_Q5_33','P2_Q5_32','P2_Q5_31','Par1','Par2','Par3','Par4','Qm72')) 
+opal.assign.table.tibble(erasmus_opal, 'RECORD_w2', 'RECORD.RECORD_W2', variables=list('P2_Q1_15','P2_Q1_16','Qm36','Qm35','Qm42','P2_Q5_33','P2_Q5_32','P2_Q5_31','Par1','Par2','Par3','Par4','Qm72','P2_Q6_37','P2_Q6_36')) 
 RECORD_w2 <- opal.execute(erasmus_opal,'RECORD_w2')
 ```
 ## Assign participant id as first column of your harmonized dataframes
@@ -62,8 +62,23 @@ opal.logout(erasmus_opal)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_RECORD_0$dis_hbp_ever_0<- recode(as.factor(RECORD_w1_1$Qm33), 'N'=0, 'O'=1)
+RECORD_W2_2<- RECORD_w2
+names(RECORD_W2_2)[names(RECORD_W2_2)=="Qm35"]<- "Qm35_2"
+names(RECORD_W2_2)[names(RECORD_W2_2)=="Par1"]<- "Par1_2"
+names(RECORD_W2_2)[names(RECORD_W2_2)=="Par2"]<- "Par2_2"
+names(RECORD_W2_2)[names(RECORD_W2_2)=="Par3"]<- "Par3_2"
+names(RECORD_W2_2)[names(RECORD_W2_2)=="Par4"]<- "Par4_2"
 
+MyMerge <- function(x,y){
+  merge(x,y, by= c("id"),all=TRUE)
+}
+
+med_table_record <- Reduce(MyMerge, list(RECORD_w1_1,RECORD_W2_2))
+
+
+med_table_record$dis_hbp_ever_0 <- recode(as.factor(med_table_record$Qm33), 'N'=0, 'O'=1)
+
+oth_RECORD_0<-merge(oth_RECORD_0,med_table_record[,c("id","dis_hbp_ever_0")],by="id",all.x=TRUE)
 ```  
 ### **Variable label**: Lifetime occurrence of high blood pressure or hypertension    
 **Variable name**: dis_hbp_ever_1  
@@ -81,13 +96,18 @@ oth_RECORD_0$dis_hbp_ever_0<- recode(as.factor(RECORD_w1_1$Qm33), 'N'=0, 'O'=1)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_RECORD_1$dis_hbp_ever_1_1<- ifelse(RECORD_w2$P2_Q1_15 == 0 & RECORD_w2$P2_Q1_16==1,0L,
-ifelse(RECORD_w2$P2_Q1_15 == 1 & RECORD_w2$P2_Q1_16==0,1L,NA))
+med_table_record$dis_hbp_ever_1_1<- ifelse(med_table_record$P2_Q1_15 == 0 & med_table_record$P2_Q1_16==1,0L,
+                                       ifelse(med_table_record$P2_Q1_15 == 1 & med_table_record$P2_Q1_16==0,1L,NA))
 
-oth_RECORD_1$dis_hbp_ever_1_2<- recode(as.factor(RECORD_w2$Qm34),'N'=0L,'O'=1L)
+med_table_record$dis_hbp_ever_1_2<- recode(as.factor(med_table_record$Qm34),'N'=0L,'O'=1L)
 
-oth_RECORD_1$dis_hbp_ever_1<-ifelse(oth_RECORD_1$dis_hbp_ever_1_1==1 & oth_RECORD_1$dis_hbp_ever_1_2==1,1,
-                                    ifelse(oth_RECORD_1$dis_hbp_ever_1_1==0 & oth_RECORD_1$dis_hbp_ever_1_2==0,0,NA))
+med_table_record$dis_hbp_ever_1_3<-ifelse(med_table_record$dis_hbp_ever_1_1==1 & med_table_record$dis_hbp_ever_1_2==1,1,
+                                    ifelse(med_table_record$dis_hbp_ever_1_1==0 & med_table_record$dis_hbp_ever_1_2==0,0,NA))
+
+med_table_record$dis_hbp_ever_1<- ifelse(med_table_record$dis_hbp_ever_0==0 & med_table_record$dis_hbp_ever_1_3==0,0L,
+                           ifelse(med_table_record$dis_hbp_ever_0==1 | med_table_record$dis_hbp_ever_1_3==1,1L,NA))
+
+oth_RECORD_1<-merge(oth_RECORD_1,med_table_record[,c("id","dis_hbp_ever_1")],by="id",all.x=TRUE)
 ``` 
 ### **Variable label**: Medication for high blood pressure or hypertension    
 **Variable name**:  dis_hbp_med_0  
@@ -227,8 +247,9 @@ oth_RECORD_1$dis_hbp_ever_1<-ifelse(oth_RECORD_1$dis_hbp_ever_1_1==1 & oth_RECOR
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-oth_RECORD_0$dis_angina_ever_0<- recode(as.character(RECORD_w1_1$Qm35),'N'=0L,'O'=1L)
+med_table_record$dis_angina_ever_0<- recode(as.character(med_table_record$Qm35),'N'=0L,'O'=1L)
 
+oth_RECORD_0<-merge(oth_RECORD_0,med_table_record[,c("id","dis_angina_ever_0")],by="id",all.x=TRUE)
 ```  
 ### **Variable label**: Lifetime occurrence of angina 
 **Variable name**:  dis_angina_ever_1  
@@ -246,8 +267,10 @@ oth_RECORD_0$dis_angina_ever_0<- recode(as.character(RECORD_w1_1$Qm35),'N'=0L,'O
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-oth_RECORD_1$dis_angina_ever_1<- recode(as.character(RECORD_w2$Qm36), 'N'=0L,'O'=1L)
+med_table_record$dis_angina_ever_1<- ifelse(med_table_record$dis_angina_ever_0==0 & as.character(med_table_record$Qm36)=='N',0L,
+                              ifelse(med_table_record$dis_angina_ever_0==1 | as.character(med_table_record$Qm36)=='O',1L,NA))
 
+oth_RECORD_1<-merge(oth_RECORD_1,med_table_record[,c("id","dis_angina_ever_1")],by="id",all.x=TRUE)
 ```  
 ### **Variable label**: Lifetime occurrence of angina 
 **Variable name**:  dis_angina_ever_2  
@@ -325,8 +348,10 @@ oth_RECORD_1$dis_angina_ever_1<- recode(as.character(RECORD_w2$Qm36), 'N'=0L,'O'
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-oth_RECORD_0$dis_mi_ever_0<- recode(as.character(RECORD_w1_1$Qm34),'N'=0L,'O'=1L)
-
+#mi
+med_table_record$dis_mi_ever_0<- recode(as.character(med_table_record$Qm34),'N'=0L,'O'=1L)
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_RECORD_0<-merge(oth_RECORD_0,med_table_record[,c("id","dis_mi_ever_0")],by="id",all.x=TRUE)
 ```  
 ### **Variable label**: Lifetime occurrence of myocardial infarction    
 **Variable name**:  dis_mi_ever_1  
@@ -344,8 +369,11 @@ oth_RECORD_0$dis_mi_ever_0<- recode(as.character(RECORD_w1_1$Qm34),'N'=0L,'O'=1L
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-oth_RECORD_1$dis_mi_ever_1<- recode(as.character(RECORD_w2$Qm35),'N'=0L,'O'=1L)
-
+#mi
+med_table_record$dis_mi_ever_1<- ifelse(med_table_record$dis_mi_ever_0==0 & as.character(med_table_record$Qm35_2)=='N',0L,
+                                ifelse(med_table_record$dis_mi_ever_0==1 | as.character(med_table_record$Qm35_2)=='O',1L,NA))
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_RECORD_1<-merge(oth_RECORD_1,med_table_record[,c("id","dis_mi_ever_1")],by="id",all.x=TRUE)
 ```  
 ### **Variable label**: Lifetime occurrence of myocardial infarction    
 **Variable name**:  dis_mi_ever_2  
@@ -427,8 +455,10 @@ oth_RECORD_1$dis_mi_ever_1<- recode(as.character(RECORD_w2$Qm35),'N'=0L,'O'=1L)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-oth_RECORD_0$dis_stroke_ever_0<- recode(as.character(RECORD_w1_1$Qm41),'N'=0L,'O'=1L)
-
+#stroke
+med_table_record$dis_stroke_ever_0<- recode(as.character(med_table_record$Qm41),'N'=0L,'O'=1L)
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_RECORD_0<-merge(oth_RECORD_0,med_table_record[,c("id","dis_stroke_ever_0")],by="id",all.x=TRUE)
 ```  
 ### **Variable label**: Lifetime occurrence of stroke or CVA  
 **Variable name**:  dis_stroke_ever_1  
@@ -446,8 +476,10 @@ oth_RECORD_0$dis_stroke_ever_0<- recode(as.character(RECORD_w1_1$Qm41),'N'=0L,'O
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-oth_RECORD_1$dis_stroke_ever_1<- recode(as.character(RECORD_w2$Qm42),'N'=0L,'O'=1L)
-
+med_table_record$dis_stroke_ever_1<- ifelse(med_table_record$dis_stroke_ever_0==0 & as.character(med_table_record$Qm42)=='N',0L,
+                                            ifelse(med_table_record$dis_mi_ever_0==1 | as.character(med_table_record$Qm42)=='O',1L,NA))
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_RECORD_1<-merge(oth_RECORD_1,med_table_record[,c("id","dis_stroke_ever_1")],by="id",all.x=TRUE)
 ```  
 ### **Variable label**: Lifetime occurrence of stroke or CVA  
 **Variable name**:  dis_stroke_ever_2  
@@ -466,7 +498,6 @@ oth_RECORD_1$dis_stroke_ever_1<- recode(as.character(RECORD_w2$Qm42),'N'=0L,'O'=
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**: Age at first stroke or CVA  
 **Variable name**:  dis_stroke_age_0  
@@ -479,7 +510,6 @@ oth_RECORD_1$dis_stroke_ever_1<- recode(as.character(RECORD_w2$Qm42),'N'=0L,'O'=
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**: Age at first stroke or CVA  
@@ -494,7 +524,6 @@ oth_RECORD_1$dis_stroke_ever_1<- recode(as.character(RECORD_w2$Qm42),'N'=0L,'O'=
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**: Age at first stroke or CVA  
 **Variable name**:  dis_stroke_age_2  
@@ -507,7 +536,6 @@ oth_RECORD_1$dis_stroke_ever_1<- recode(as.character(RECORD_w2$Qm42),'N'=0L,'O'=
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 
@@ -531,7 +559,6 @@ oth_RECORD_1$dis_stroke_ever_1<- recode(as.character(RECORD_w2$Qm42),'N'=0L,'O'=
 **R script**:  
 ```{r, echo=TRUE}  
  
-
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes or high blood sugar     
 **Variable name**: dis_diab_ever_1  
@@ -549,13 +576,18 @@ oth_RECORD_1$dis_stroke_ever_1<- recode(as.character(RECORD_w2$Qm42),'N'=0L,'O'=
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}  
-oth_RECORD_1$dis_diab_ever_1_1<- ifelse(RECORD_w2$P2_Q5_33==0 & RECORD_w2$P2_Q5_32==1,0L,
-                                      ifelse(RECORD_w2$P2_Q5_33==1 & RECORD_w2$P2_Q5_32==0,1L,NA))
+#diabetes
+med_table_record$dis_diab_ever_1_1<- ifelse(med_table_record$P2_Q5_33==0 & med_table_record$P2_Q5_32==1,0L,
+                                        ifelse(med_table_record$P2_Q5_33==1 & med_table_record$P2_Q5_32==0,1L,NA))
 
-oth_RECORD_1$dis_diab_ever_1_2<- ifelse(RECORD_w2$P2_Q6_37==0 & RECORD_w2$P2_Q6_36==1,0L,
-                                      ifelse(RECORD_w2$P2_Q6_37==1 & RECORD_w2$P2_Q6_36==0,1L,NA))
-oth_RECORD_1$dis_diab_ever_1<-ifelse(oth_RECORD_1$dis_diab_ever_1_1==1 & oth_RECORD_1$dis_diab_ever_1_2==1,
-                                     1,ifelse(oth_RECORD_1$dis_diab_ever_1_1==0 & oth_RECORD_1$dis_diab_ever_1_2==0,0,NA))
+med_table_record$dis_diab_ever_1_2<- ifelse(med_table_record$P2_Q6_37==0 & med_table_record$P2_Q6_36==1,0L,
+                                        ifelse(med_table_record$P2_Q6_37==1 & med_table_record$P2_Q6_36==0,1L,NA))
+
+med_table_record$dis_diab_ever_1<-ifelse(med_table_record$dis_diab_ever_1_1==1 & med_table_record$dis_diab_ever_1_2==1,
+                                     1,ifelse(med_table_record$dis_diab_ever_1_1==0 & med_table_record$dis_diab_ever_1_2==0,0,NA))
+
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_RECORD_1<-merge(oth_RECORD_1,med_table_record[,c("id","dis_diab_ever_1")],by="id",all.x=TRUE)
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
 **Variable name**: dis_diab_ever_2  
