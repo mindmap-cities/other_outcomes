@@ -93,7 +93,7 @@ oth_RECORD_0<-merge(oth_RECORD_0,med_table_record[,c("id","dis_hbp_ever_0")],by=
 1          |  Ever had high blood pressure or hypertension  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   
+**Harmonization comment**: Baseline only asks about high blood pressure whereas this wave asks for high blood pressure and also hypertension. Both variables were combined.    
 **R script**:  
 ```{r, echo=TRUE}
 med_table_record$dis_hbp_ever_1_1<- ifelse(med_table_record$P2_Q1_15 == 0 & med_table_record$P2_Q1_16==1,0L,
