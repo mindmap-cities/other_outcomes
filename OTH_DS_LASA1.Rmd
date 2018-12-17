@@ -755,9 +755,7 @@ oth_LASA1_0$dis_diab_age_0 <- ifelse(as.integer(LASA1B$bdiabe02)<0,NA,as.integer
 **Harmonization comment**:  Two variables are used for harmonization "Diabetes-taking medication" categorized as: No | Yes, insulin injections | Yes, tablets only and "Diabetes: treatment doctor" categorized as: No | Yes, family physician | Yes, specialist.  
 **R script**:
 ```{r, echo=TRUE}
-oth_LASA1_0$dis_diab_tx_0<- ifelse(as.integer(LASA1B$bdiabe03)==0 & as.integer(LASA1B$bdiabe04)==0,0L,
-                             ifelse(as.integer(LASA1B$bdiabe03)==1 | as.integer(LASA1B$bdiabe03)==2 |
-                                    as.integer(LASA1B$bdiabe04)==1 | as.integer(LASA1B$bdiabe04)==2,1L,NA))
+oth_LASA1_0$dis_diab_tx_0<- ifelse((as.integer(LASA1B$bdiabe03)==0 & as.integer(LASA1B$bdiabe04)==0) | (as.integer(LASA1B$bdiabe01)==0 & as.integer(LASA1B$bdiabe03)==-2) & (as.integer(LASA1B$bdiabe01)==0 & as.integer(LASA1B$bdiabe04)==-2),0L, ifelse(as.integer(LASA1B$bdiabe03)==1 | as.integer(LASA1B$bdiabe03)==2 | as.integer(LASA1B$bdiabe04)==1 | as.integer(LASA1B$bdiabe04)==2,1L,NA))
 ```  
 ### **Variable label**: Currently under treatment for diabetes  
 **Variable name**:  dis_diab_tx_1  
