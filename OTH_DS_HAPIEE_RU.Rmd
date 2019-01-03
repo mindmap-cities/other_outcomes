@@ -1,7 +1,5 @@
 ---
 title: "oth_DS_HAPIEE_RU"
-author: "Aliou Sarr"
-date: "12/20/2018"
 output: html_document
 ---
 ---
@@ -335,7 +333,7 @@ oth_HAPIEE_RU_1<-merge(oth_HAPIEE_RU_1,med_table[,c("id","dis_angina_ever_1")],b
 0        |   Never had myocardial infarction
 1        |   Ever had myocardial infarction  
 
-**Harmonization status**:  impossible  
+**Harmonization status**:  complete    
 **Harmonization comment**:  Participants that responded "No or do not know" (Category 3) to "Diagnosed/hospitalised for heart attack/acute myocardial infarction" are recoded as "Never had myocardial infarction".  
 **R script**:  
 ```{r, echo=TRUE}
@@ -810,7 +808,7 @@ oth_HAPIEE_RU_1$dis_diab_tx_1<-ifelse(oth_HAPIEE_RU_1$dis_diab_ever_1==0,0L,reco
 0        | Not currently under treatment for diabetes  
 1        | Currently under treatment for diabetes  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:
 ```{r, echo=TRUE}
@@ -829,7 +827,7 @@ oth_HAPIEE_RU_1$dis_diab_tx_1<-ifelse(oth_HAPIEE_RU_1$dis_diab_ever_1==0,0L,reco
 0        | Not currently under treatment for diabetes  
 1        | Currently under treatment for diabetes  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:
 ```{r, echo=TRUE}
@@ -848,7 +846,7 @@ oth_HAPIEE_RU_1$dis_diab_tx_1<-ifelse(oth_HAPIEE_RU_1$dis_diab_ever_1==0,0L,reco
 0        | Not currently under treatment for diabetes  
 1        | Currently under treatment for diabetes  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:
 ```{r, echo=TRUE}
@@ -2649,7 +2647,7 @@ oth_HAPIEE_RU_1$poh_sah_poor_1<-recode(as.integer(HAPIEE_W2$w2h7),"1"=0L,"2"=0L,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Less than good self-assessed health  
