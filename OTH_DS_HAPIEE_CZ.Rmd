@@ -1,7 +1,5 @@
 ---
-title: "OTH_DS_HAPIEE_CZ"
-author: "Aliou Sarr"
-date: "12/19/2018"
+title: "oth_DS_HAPIEE_CZ"
 output: html_document
 ---
 ---
@@ -333,7 +331,7 @@ oth_HAPIEE_CZ_0$dis_angina_ever_0<-recode(as.integer(HAPIEE_W1$h10b),"1"=1L,"2"=
 0        |   Never had myocardial infarction
 1        |   Ever had myocardial infarction  
 
-**Harmonization status**:  impossible  
+**Harmonization status**:  complete  
 **Harmonization comment**:  Participants that responded "No or do not know" (Category 3) to "Diagnosed/hospitalised for heart attack/acute myocardial infarction" are recoded as "Never had myocardial infarction".  
 **R script**:  
 ```{r, echo=TRUE}
