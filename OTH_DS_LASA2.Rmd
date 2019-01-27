@@ -12,7 +12,7 @@ library(epiDisplay)
 # Create an opal object with the login information
 erasmus_opal <- opal.login()
 #Login to Opal server and assign the content of the LUCAS table(s) to your RStudio environment
-opal.assign.table.tibble(erasmus_opal, 'LASA2B', 'LASA.LASA2B', variables=list('bhbd1','bhart05','bhart06','bcva04','bcva03','bdiabe01','bdiabe02','bdiabe03','bdiabe04','bdiabe04','bmweight','bmwaist','bsubhea1','bmed_hyp','bmvar156','bhart10','bcva02','diabe02','bcva01','bmed153','bmed155','bmed150','bmed152','bage','badl1a','badl5a','bmed156','bmed157','byear','bhart01'))
+opal.assign.table.tibble(erasmus_opal, 'LASA2B', 'LASA.LASA2B', variables=list('bhbd1','bhart05','bhart06','bcva04','bcva03','bdiabe01','bdiabe02','bdiabe03','bdiabe04','bdiabe04','bmweight','bmwaist','bsubhea1','bmed_hyp','bmvar156','bhart10','bcva02','diabe02','bcva01','bmed153','bmed155','bmed150','bmed152','bage','badl1a','badl5a','bmed156','bmed157','byear','bhart01','bcva02b','bcva03j','bcva04j'))
 LASA2B <- opal.execute(erasmus_opal,'LASA2B')
 
 opal.assign.table.tibble(erasmus_opal, 'LASA2F', 'LASA.LASA2F', variables=list('fhbd1','fhbd2a','fcva02a','fcva02b','fhart05','fhart06','fcva04','fcva03','fdiabe01','fdiabe02','fdiabe03','fdiabe04','fdiabe04','fmed153','fmed155','fmweight','fmwaist','fsubhea1','fmed152','fmed150','fcva01','fage','fadl1a','fadl5a','fmed156','fmed157','byear','fhart01'))
@@ -305,18 +305,18 @@ oth_LASA2_1$dis_hbp_ever_1 <- recode(as.integer(LASA2F$fhbd1), '1'=0L,'2'=1L, .d
 1        |   Ever had myocardial infarction  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  bhart01 question  
+**Harmonization comment**:     
 **R script**:  
 ```{r, echo=TRUE}
 #Merging the raw tables LASA2B-LASA2H
 MyMerge2 <- function(x,y){
   merge(x,y, by=c("id","byear"),all=TRUE)
 }
-med_table2 <- Reduce(MyMerge2, list(LASA2B,LASA2F,LASA2G,LASA2H))
+med_table_lasa2 <- Reduce(MyMerge2, list(LASA2B,LASA2F,LASA2G,LASA2H))
 #Harmonization scripts to create "ever had mi"
-med_table2$dis_mi_ever_0 <- ifelse(as.integer(med_table2$bhart05)==1 | (as.integer(med_table2$bhart05)==-2 & as.integer(med_table2$bhart01)== 1),0L, ifelse(as.integer(med_table2$bhart05)==2,1L,NA))
+med_table_lasa2$dis_mi_ever_0 <- ifelse(as.integer(med_table_lasa2$bhart05)==1 | (as.integer(med_table_lasa2$bhart05)==-2 & as.integer(med_table_lasa2$bhart01)== 1),0L, ifelse(as.integer(med_table_lasa2$bhart05)==2,1L,NA))
 #Direct mapping to harmonized tables keeping correct participants for each wave
-oth_LASA2_0<-merge(oth_LASA2_0,med_table2[,c("id","dis_mi_ever_0")],by="id",all.x=TRUE)
+oth_LASA2_0<-merge(oth_LASA2_0,med_table_lasa2[,c("id","dis_mi_ever_0")],by="id",all.x=TRUE)
 ```  
 ### **Variable label**: Lifetime occurrence of myocardial infarction    
 **Variable name**:  dis_mi_ever_1  
@@ -331,13 +331,13 @@ oth_LASA2_0<-merge(oth_LASA2_0,med_table2[,c("id","dis_mi_ever_0")],by="id",all.
 1        |   Ever had myocardial infarction  
 
 **Harmonization status**:  complete  
-**Harmonization comment**: 	fhart01 & fhart05 & dis_mi_ever_0 question  
+**Harmonization comment**: 	Ever had myocardial infraction was collected at baseline (bhart05). The harmonized variable "ever had myocardial infarction" was created using "ever had myocardial infarction" from baseline and "myocardial infarction since last interview" of previous and current waves. To create this variable, all LASA1 data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.    
 **R script**:  
 ```{r, echo=TRUE}
 #Harmonization scripts to create "ever had mi"
-med_table2$dis_mi_ever_1  <- ifelse(med_table2$dis_mi_ever_0==1 | (med_table2$dis_mi_ever_0==0 & as.integer(med_table2$fhart05)==2),1L, ifelse(as.integer(med_table2$fhart01)==0 | (med_table2$dis_mi_ever_0==0 & (as.integer(med_table2$fhart01)== 2 | as.integer(med_table2$fhart01)== 3) & as.integer(med_table2$fhart05)==1),0L,NA))
+med_table_lasa2$dis_mi_ever_1  <- ifelse(med_table_lasa2$dis_mi_ever_0==1 | (med_table_lasa2$dis_mi_ever_0==0 & as.integer(med_table_lasa2$fhart05)==2),1L, ifelse(as.integer(med_table_lasa2$fhart01)==0 | (med_table_lasa2$dis_mi_ever_0==0 & (as.integer(med_table_lasa2$fhart01)== 2 | as.integer(med_table_lasa2$fhart01)== 3) & as.integer(med_table_lasa2$fhart05)==1),0L,NA))
 #Direct mapping to harmonized tables keeping correct participants for each wave
-oth_LASA2_1<-merge(oth_LASA2_1,med_table[,c("id","dis_mi_ever_1")],by="id",all.x=TRUE)
+oth_LASA2_1<-merge(oth_LASA2_1,med_table_lasa2[,c("id","dis_mi_ever_1")],by="id",all.x=TRUE)
 ```  
 ### **Variable label**: Lifetime occurrence of myocardial infarction    
 **Variable name**:  dis_mi_ever_2  
@@ -351,14 +351,14 @@ oth_LASA2_1<-merge(oth_LASA2_1,med_table[,c("id","dis_mi_ever_1")],by="id",all.x
 0        |   Never had myocardial infarction
 1        |   Ever had myocardial infarction  
 
-**Harmonization status**:  
-**Harmonization comment**: 	dhart01 & dhart05 & dis_mi_ever_1 question  
+**Harmonization status**:  complete  
+**Harmonization comment**: 	Ever had myocardial infraction was collected at baseline (bhart05). The harmonized variable "ever had myocardial infarction" was created using "ever had myocardial infarction" from baseline and "myocardial infarction since last interview" of previous and current waves. To create this variable, all LASA1 data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.      
 **R script**:  
 ```{r, echo=TRUE}
 #Harmonization scripts to create "ever had mi"
-med_table2$dis_mi_ever_2  <- ifelse(med_table2$dis_mi_ever_1==1 | (med_table2$dis_mi_ever_1==0 & as.integer(med_table2$ghart05)==2),1L, ifelse(as.integer(med_table2$ghart01)==0 | (med_table2$dis_mi_ever_1==0 & (as.integer(med_table2$ghart01)== 2 | as.integer(med_table2$ghart01)== 3) & as.integer(med_table2$ghart05)==1),0L,NA))
+med_table_lasa2$dis_mi_ever_2  <- ifelse(med_table_lasa2$dis_mi_ever_1==1 | (med_table_lasa2$dis_mi_ever_1==0 & as.integer(med_table_lasa2$ghart05)==2),1L, ifelse(as.integer(med_table_lasa2$ghart01)==0 | (med_table_lasa2$dis_mi_ever_1==0 & (as.integer(med_table_lasa2$ghart01)== 2 | as.integer(med_table_lasa2$ghart01)== 3) & as.integer(med_table_lasa2$ghart05)==1),0L,NA))
 #Direct mapping to harmonized tables keeping correct participants for each wave
-oth_LASA2_2<-merge(oth_LASA2_2,med_table[,c("id","dis_mi_ever_2")],by="id",all.x=TRUE)
+oth_LASA2_2<-merge(oth_LASA2_2,med_table_lasa2[,c("id","dis_mi_ever_2")],by="id",all.x=TRUE)
 ```  
 
 ### **Variable label**: Age at first Myocardial infarction  
@@ -368,11 +368,13 @@ oth_LASA2_2<-merge(oth_LASA2_2,med_table[,c("id","dis_mi_ever_2")],by="id",all.x
 **Variable unit**:  years  
 **Category coding**: N/A  
          
-**Harmonization status**:  impossible  
-**Harmonization comment**:  
+**Harmonization status**:  complete    
+**Harmonization comment**:  Age at first myocardial infraction was calculated using "year of first mi if more than one mi", "year of mi if not more than one mi" and "birth year of respondent". To create this variable, all LASA1 data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created. 
 **R script**:  
 ```{r, echo=TRUE}
-
+#med_table_lasa2$dis_mi_age_0 <- ifelse(med_table_lasa2$bhart05==1 & med_table_lasa2$bhart06==1, ifelse(as.numeric(med_table_lasa2$bhart07j)>=0 & as.numeric(med_table_lasa2$bhart07j)> as.numeric(med_table_lasa2$byear),as.integer((as.numeric(med_table_lasa2$bhart07j) - as.numeric(med_table_lasa2$byear))),NA), ifelse(med_table_lasa2$bhart05==1 & med_table_lasa2$bhart06==2, ifelse(as.numeric(med_table_lasa2$bhart08j)>=0 & as.numeric(med_table_lasa2$bhart08) > as.numeric(med_table_lasa2$byear), as.integer(as.numeric((med_table_lasa2$bhart08j) - as.numeric(med_table_lasa2$byear))),NA),NA))
+#Direct mapping to harmonized tables keeping correct participants for each wave
+#oth_LASA2_0 <- merge(oth_LASA2_0,med_table_lasa2[,c("id","dis_mi_age_0")],by="id",all.x=TRUE)
 ```  
 ### **Variable label**: Age at first Myocardial infarction  
 **Variable name**:  dis_mi_age_1  
@@ -381,7 +383,7 @@ oth_LASA2_2<-merge(oth_LASA2_2,med_table[,c("id","dis_mi_ever_2")],by="id",all.x
 **Variable unit**:  years  
 **Category coding**: N/A  
          
-**Harmonization status**:  impossible  
+**Harmonization status**:    
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
@@ -394,7 +396,7 @@ oth_LASA2_2<-merge(oth_LASA2_2,med_table[,c("id","dis_mi_ever_2")],by="id",all.x
 **Variable unit**:  years  
 **Category coding**: N/A  
          
-**Harmonization status**:  impossible    
+**Harmonization status**:      
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
@@ -418,7 +420,10 @@ oth_LASA2_2<-merge(oth_LASA2_2,med_table[,c("id","dis_mi_ever_2")],by="id",all.x
 **Harmonization comment**:    
 **R script**:  
 ```{r, echo=TRUE}
-oth_LASA2_0$dis_stroke_ever_0 <- recode(as.integer(LASA2B$bcva01),'1'=0L,'2'=1L,.default=NA_integer_)
+#Harmonization scripts to create "stroke ever"
+med_table_lasa2$dis_stroke_ever_0 <- recode(as.integer(med_table_lasa2$bcva01),'1'=0L,'2'=1L,.default=NA_integer_)
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_LASA2_0<-merge(oth_LASA2_0,med_table_lasa2[,c("id","dis_stroke_ever_0")],by="id",all.x=TRUE)
 ```  
 ### **Variable label**: Lifetime occurrence of stroke or CVA  
 **Variable name**:  dis_stroke_ever_1  
@@ -436,7 +441,10 @@ oth_LASA2_0$dis_stroke_ever_0 <- recode(as.integer(LASA2B$bcva01),'1'=0L,'2'=1L,
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-oth_LASA2_1$dis_stroke_ever_1 <- recode(as.integer(LASA2F$fcva01),'0'=0L,'1'=1L,'2'=1L,'3'=1L,.default=NA_integer_)
+#Harmonization scripts to create "stroke ever"
+med_table_lasa2$dis_stroke_ever_1 <- ifelse(med_table_lasa2$dis_stroke_ever_0==1 | (med_table_lasa2$dis_stroke_ever_0==0 & med_table_lasa2$fcva02a==2),1L, ifelse(med_table_lasa2$dis_stroke_ever_0==0 & (med_table_lasa2$fcva02a==1 | med_table_lasa2$fcva02a==-2),0L,NA))
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_LASA2_1<- merge(oth_LASA2_1, med_table_lasa2[,c("id","dis_stroke_ever_1")],by="id",all.x=TRUE)
 ```  
 ### **Variable label**: Lifetime occurrence of stroke or CVA  
 **Variable name**:  dis_stroke_ever_2  
@@ -455,6 +463,10 @@ oth_LASA2_1$dis_stroke_ever_1 <- recode(as.integer(LASA2F$fcva01),'0'=0L,'1'=1L,
 **R script**:  
 ```{r, echo=TRUE}
 oth_LASA2_2$dis_stroke_ever_2 <- recode(as.integer(LASA2G$gcva01),'0'=0L,'1'=1L,'2'=1L,'3'=1L,.default=NA_integer_)
+#Harmonization scripts to create "stroke ever"
+med_table_lasa2$dis_stroke_ever_2 <- ifelse(med_table_lasa2$dis_stroke_ever_1==1 | (med_table_lasa2$dis_stroke_ever_1==0 & med_table_lasa2$gcva02a==2),1L, ifelse(med_table_lasa2$dis_stroke_ever_1==0 & (med_table_lasa2$gcva02a==1 | med_table_lasa2$gcva02a==-2),0L,NA))
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_LASA2_2<- merge(oth_LASA2_2,med_table_lasa2[,c("id","dis_stroke_ever_2")],by="id",all.x=TRUE)
 ```  
 ### **Variable label**: Age at first stroke or CVA  
 **Variable name**:  dis_stroke_age_0  
@@ -463,11 +475,14 @@ oth_LASA2_2$dis_stroke_ever_2 <- recode(as.integer(LASA2G$gcva01),'0'=0L,'1'=1L,
 **Variable unit**:  years  
 **Category coding**: N/A  
          
-**Harmonization status**:  
-**Harmonization comment**:  bcva02b (CVA: how many times), if =1-->bcva03j (if 1 stroke, year), if =2-->bcva04j (if 1 strong, first stroke year)
+**Harmonization status**:  complete  
+**Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-
+#Harmonization scripts to create "age frist sroke"
+med_table_lasa2$dis_stroke_age_0 <-ifelse(med_table_lasa2$bcva01==2 & med_table_lasa2$bcva02b==1, ifelse(med_table_lasa2$bcva03j>=0 & med_table_lasa2$byear>=0 & med_table_lasa2$bcva03j > med_table_lasa2$byear, med_table_lasa2$bcva03j - med_table_lasa2$byear,NA), ifelse(med_table_lasa2$bcva01==2 & med_table_lasa2$bcva02b==2, ifelse(med_table_lasa2$bcva04j>=0 & med_table_lasa2$byear>=0 & med_table_lasa2$bcva04j > med_table_lasa2$byear, med_table_lasa2$bcva04j - med_table_lasa2$byear,NA),NA))
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_LASA2_0<- merge(oth_LASA2_0,med_table_lasa2[,c("id","dis_stroke_age_0")],by="id",all.x=TRUE)
 ```  
 ### **Variable label**: Age at first stroke or CVA  
 **Variable name**:  dis_stroke_age_1  
@@ -477,10 +492,13 @@ oth_LASA2_2$dis_stroke_ever_2 <- recode(as.integer(LASA2G$gcva01),'0'=0L,'1'=1L,
 **Category coding**: N/A  
          
 **Harmonization status**:  complete  
-**Harmonization comment**: fcva02b (number of strokes) fcva01:(CVA) fcva02a:(stroke since last interview), fcva03j: (CVA: 1, stroke year), fcva04j:(CVA: > 1, first stroke year), fage (Age at LASA main/telephonic interview (w3)), fmage (Age at LASA medical interview (w3)) collection years 1995-1996
+**Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
+#Harmonization scripts to create "age frist sroke"
+med_table_lasa2$dis_stroke_age_1 <- ifelse(med_table_lasa2$dis_stroke_ever_0==1, med_table_lasa2$dis_stroke_age_0, ifelse(med_table_lasa2$dis_stroke_ever_0==0 & med_table_lasa2$fcva02a==2 & med_table_lasa2$fcva02b==1, ifelse(med_table_lasa2$fcva03j>=0 & med_table_lasa2$byear>=0 & med_table_lasa2$fcva03j > med_table_lasa2$byear, med_table_lasa2$fcva03j_yr - med_table_lasa2$byear,NA), ifelse(med_table_lasa2$dis_stroke_ever_0==0 & med_table_lasa2$fcva02a==2 & med_table_lasa2$fcva02b==2, ifelse(med_table_lasa2$fcva04>=0 & med_table_lasa2$byear>=0 & med_table_lasa2$fcva04j > med_table_lasa2$byear, med_table_lasa2$fcva04j - med_table_lasa2$byear,NA),NA)))
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_LASA2_1<- merge(oth_LASA2_1,med_table_lasa2[,c("id","dis_stroke_age_1")],by="id",all.x=TRUE)
 ```  
 ### **Variable label**: Age at first stroke or CVA  
 **Variable name**:  dis_stroke_age_2  
@@ -493,7 +511,10 @@ oth_LASA2_2$dis_stroke_ever_2 <- recode(as.integer(LASA2G$gcva01),'0'=0L,'1'=1L,
 **Harmonization comment**: gcva01 (CVA), gcva02a (CVA: stroke since last interview), gcva02b (CVA: no of strokes), gcva04j (CVA: > 1, first stroke year), gcva03j (CVA: 1, stroke year), collection years 1998-1999
 **R script**:  
 ```{r, echo=TRUE}
-
+#Harmonization scripts to create "age frist sroke"
+med_table_lasa2$dis_stroke_age_2 <- ifelse(med_table_lasa2$dis_stroke_ever_1==1, med_table_lasa2$dis_stroke_age_1, ifelse(med_table_lasa2$dis_stroke_ever_1==0 & med_table_lasa2$gcva02a==2 & med_table_lasa2$gcva02b==1, ifelse(med_table_lasa2$gcva03j>=0 & med_table_lasa2$byear>=0 & med_table_lasa2$gcva03j > med_table_lasa2$byear, med_table_lasa2$dcva03j_yr - med_table_lasa2$byear,NA), ifelse(med_table_lasa2$dis_stroke_ever_1==0 & med_table_lasa2$dcva02a==2 & med_table_lasa2$gcva02b==2, ifelse(med_table_lasa2$gcva04j>=0 & med_table_lasa2$byear>=0 & med_table_lasa2$gcva04j > med_table_lasa2$byear, med_table_lasa2$gcva04j - med_table_lasa2$byear,NA),NA)))
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_LASA2_2<-merge(oth_LASA2_2,med_table_lasa2[,c("id","dis_stroke_age_2")],by="id",all.x=TRUE)
 ```  
 
 
@@ -514,8 +535,11 @@ oth_LASA2_2$dis_stroke_ever_2 <- recode(as.integer(LASA2G$gcva01),'0'=0L,'1'=1L,
 **Harmonization status**:  complete  
 **Harmonization comment**:  Currently has diabetes is used. In general once a respondent has diabetes, they are affected by this chronic disease for life.  
 **R script**:  
-```{r, echo=TRUE}  
-oth_LASA2_0$dis_diab_ever_0 <- recode(as.integer(LASA2B$bdiabe01), '1'=0L, '2'=1L, .default=NA_integer_)
+```{r, echo=TRUE}
+#Harmonization scripts to create
+med_table_lasa2$dis_diab_ever_0<- recode(as.integer(med_table_lasa2$bdiabe01),'1'=0L,'2'=1L, .default=NA_integer_)
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_LASA2_0<-merge(oth_LASA2_0,med_table_lasa2[,c("id","dis_diab_ever_0")],by="id",all.x = TRUE)
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes or high blood sugar     
 **Variable name**: dis_diab_ever_1  
@@ -533,7 +557,10 @@ oth_LASA2_0$dis_diab_ever_0 <- recode(as.integer(LASA2B$bdiabe01), '1'=0L, '2'=1
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}  
-oth_LASA2_1$dis_diab_ever_1 <- recode(as.integer(LASA2F$fdiabe01), '0'=0L, '1'=1L, '2'=1L, '3'=1L, .default=NA_integer_)
+#Harmonization scripts to create diabetes ever
+med_table_lasa2$dis_diab_ever_1<- ifelse(med_table_lasa2$dis_diab_ever_0==0 & as.integer(med_table_lasa2$fdiabe01)==0,0L, ifelse(med_table_lasa2$dis_diab_ever_0==1| as.integer(med_table_lasa2$fdiabe01)==1 | as.integer(med_table_lasa2$fdiabe01)==2 | as.integer(med_table_lasa2$fdiabe01)==3,1L,NA))
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_LASA2_1<- merge(oth_LASA2_1,med_table_lasa2[,c("id","dis_diab_ever_1")],by="id", all.x=TRUE)
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
 **Variable name**: dis_diab_ever_2  
@@ -552,6 +579,12 @@ oth_LASA2_1$dis_diab_ever_1 <- recode(as.integer(LASA2F$fdiabe01), '0'=0L, '1'=1
 **R script**:  
 ```{r, echo=TRUE}  
 oth_LASA2_2$dis_diab_ever_2 <- recode(as.integer(LASA2G$gdiabe01), '0'=0L,'1'=1L,'2'=1L,'3'=1L, .default=NA_integer_)
+
+
+#Harmonization scripts to create
+med_table_lasa2$dis_diab_ever_2<- ifelse(med_table_lasa2$dis_diab_ever_1==0 & as.integer(med_table_lasa2$gdiabe01)==0,0L, ifelse(med_table_lasa2$dis_diab_ever_1==1| as.integer(med_table_lasa2$gdiabe01)==1 | as.integer(med_table_lasa2$gdiabe01)==2 | as.integer(med_table_lasa2$gdiabe01)==3,1L,NA))
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_LASA2_2<- merge(oth_LASA2_2,med_table_lasa2[,c("id","dis_diab_ever_2")],by="id", all.x=TRUE)
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes or high blood sugar     
 **Variable name**: dis_diab_ever_3  
@@ -570,6 +603,11 @@ oth_LASA2_2$dis_diab_ever_2 <- recode(as.integer(LASA2G$gdiabe01), '0'=0L,'1'=1L
 **R script**:  
 ```{r, echo=TRUE}  
 oth_LASA2_3$dis_diab_ever_3 <- recode(as.integer(LASA2H$HDIABE01),'0'=0L,'1'=1L,'2'=1L,'3'=1L, .default=NA_integer_)
+
+#Harmonization scripts to create
+med_table_lasa2$dis_diab_ever_3<- ifelse(med_table_lasa2$dis_diab_ever_2==0 & as.integer(med_table_lasa2$HDIABE01)==0,0L, ifelse(med_table_lasa2$dis_diab_ever_2==1| as.integer(med_table_lasa2$HDIABE01)==1 | as.integer(med_table_lasa2$HDIABE01)==2 | as.integer(med_table_lasa2$HDIABE01)==3,1L,NA))
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_LASA2_3<- merge(oth_LASA2_3,med_table_lasa2[,c("id","dis_diab_ever_3")],by="id", all.x=TRUE)
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
 **Variable name**: dis_diab_ever_4  
@@ -627,7 +665,7 @@ oth_LASA2_0$dis_diab_age_0 <- ifelse(as.integer(LASA2B$bdiabe02)<0,NA,as.integer
 **Category coding**: N/A
 
 **Hamonization status**:  complete  
-**Harmonization comment**:  
+**Harmonization comment**:  QUESTION
 **R script**:  
 ```{r, echo=TRUE}  
 oth_LASA2_1$dis_diab_age_1 <- ifelse(as.integer(LASA2F$fdiabe02)<0,NA,as.integer(LASA2F$fdiabe02))
@@ -640,7 +678,7 @@ oth_LASA2_1$dis_diab_age_1 <- ifelse(as.integer(LASA2F$fdiabe02)<0,NA,as.integer
 **Category coding**: N/A
 
 **Hamonization status**:  complete  
-**Harmonization comment**:  
+**Harmonization comment**:  QUESTION
 **R script**:  
 ```{r, echo=TRUE}  
 oth_LASA2_2$dis_diab_age_2 <- ifelse(as.integer(LASA2G$gdiabe02)<0,NA,as.integer(LASA2G$gdiabe02))
@@ -653,7 +691,7 @@ oth_LASA2_2$dis_diab_age_2 <- ifelse(as.integer(LASA2G$gdiabe02)<0,NA,as.integer
 **Category coding**: N/A
 
 **Hamonization status**:  complete  
-**Harmonization comment**:  
+**Harmonization comment**:  QUESTION
 **R script**:  
 ```{r, echo=TRUE}  
 oth_LASA2_3$dis_diab_age_3 <- ifelse(as.integer(LASA2H$HDIABE02)<0,NA,as.integer(LASA2H$HDIABE02))
@@ -701,9 +739,7 @@ oth_LASA2_3$dis_diab_age_3 <- ifelse(as.integer(LASA2H$HDIABE02)<0,NA,as.integer
 **Harmonization comment**:  Two variables are used for harmonization "Diabetes-taking medication" categorized as: No | Yes, insulin injections | Yes, tablets only and "Diabetes: treatment doctor" categorized as: No | Yes, family physician | Yes, specialist.  
 **R script**:
 ```{r, echo=TRUE}
-oth_LASA2_0$dis_diab_tx_0<- ifelse(as.integer(LASA2B$bdiabe03)==1 & as.integer(LASA2B$bdiabe04)==1,0L,
-                             ifelse(as.integer(LASA2B$bdiabe03)==2 | as.integer(LASA2B$bdiabe03)==3 |
-                                    as.integer(LASA2B$bdiabe04)==2 | as.integer(LASA2B$bdiabe04)==3,1L,NA))
+oth_LASA2_0$dis_diab_tx_0<- ifelse(as.integer(LASA2B$bdiabe03)==1 & as.integer(LASA2B$bdiabe04)==1 | (as.integer(LASA2B$bdiabe01)==1 & as.integer(LASA2B$bdiabe03)==-2) & (as.integer(LASA2B$bdiabe01)==1 & as.integer(LASA2B$bdiabe04)==-2),0L, ifelse(as.integer(LASA2B$bdiabe03)==2 | as.integer(LASA2B$bdiabe03)==3 | as.integer(LASA2B$bdiabe04)==2 | as.integer(LASA2B$bdiabe04)==3,1L,NA))
 ``` 
 ### **Variable label**: Currently under treatment for diabetes  
 **Variable name**:  dis_diab_tx_1  
