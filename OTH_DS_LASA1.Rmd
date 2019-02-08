@@ -347,7 +347,7 @@ oth_LASA1_0<-merge(oth_LASA1_0,med_table_lasa1[,c("id","dis_mi_ever_0")],by="id"
 **R script**:  
 ```{r, echo=TRUE}
 #Harmonization scripts to create "ever had mi"
-med_table_lasa1$dis_mi_ever_1  <- ifelse(med_table_lasa1$dis_mi_ever_0==1 | (med_table_lasa1$dis_mi_ever_0==0 & as.integer(med_table_lasa1$chart05)==2),1L, ifelse((med_table_lasa1$dis_mi_ever_0==0 & as.integer(med_table_lasa1$chart05)==1) | (med_table_lasa1$dis_mi_ever_0==0 & as.integer(med_table_lasa1$chart05)==-2 & as.integer(med_table_lasa1$chart01== 0)) | (med_table_lasa1$dis_mi_ever_0==0 & as.integer(med_table_lasa1$chart05)==-2 & as.integer(med_table_lasa1$chart01)==1),0L,NA))
+med_table_lasa1$dis_mi_ever_1  <- ifelse(med_table_lasa1$dis_mi_ever_0==1 | as.integer(med_table_lasa1$chart05)==2,1L, ifelse((med_table_lasa1$dis_mi_ever_0==0 & as.integer(med_table_lasa1$chart05)==1)  | (med_table_lasa1$dis_mi_ever_0==0 & as.integer(med_table_lasa1$chart05)==-2  & as.integer(med_table_lasa1$chart01== 0)) | (med_table_lasa1$dis_mi_ever_0==0 & as.integer(med_table_lasa1$chart05)==-2  & as.integer(med_table_lasa1$chart01)==1)  | (med_table_lasa1$dis_mi_ever_0==0 & as.integer(med_table_lasa1$chart05)== 1  & as.integer(med_table_lasa1$chart01)==2)  | (med_table_lasa1$dis_mi_ever_0==0 & as.integer(med_table_lasa1$chart05)== 1  & as.integer(med_table_lasa1$chart01)==3),0L,NA))
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_LASA1_1<-merge(oth_LASA1_1,med_table_lasa1[,c("id","dis_mi_ever_1")],by="id",all.x=TRUE)
 ```  
@@ -368,7 +368,7 @@ oth_LASA1_1<-merge(oth_LASA1_1,med_table_lasa1[,c("id","dis_mi_ever_1")],by="id"
 **R script**:  
 ```{r, echo=TRUE}
 #Harmonization scripts to create "ever had mi"
-med_table_lasa1$dis_mi_ever_2  <- ifelse(med_table_lasa1$dis_mi_ever_1==1 | (med_table_lasa1$dis_mi_ever_1==0 & as.integer(med_table_lasa1$dhart05)==2),1L, ifelse((med_table_lasa1$dis_mi_ever_1==0 & as.integer(med_table_lasa1$dhart05)==1) | (med_table_lasa1$dis_mi_ever_1==0 & as.integer(med_table_lasa1$dhart05)==-2 & as.integer(med_table_lasa1$dhart01)== 0) | (med_table_lasa1$dis_mi_ever_1==0 & as.integer(med_table_lasa1$dhart05)==-2 & as.integer(med_table_lasa1$dhart01)== 1),0L,NA))
+med_table_lasa1$dis_mi_ever_2  <- ifelse(med_table_lasa1$dis_mi_ever_1==1 | as.integer(med_table_lasa1$dhart05)==2,1L, ifelse((med_table_lasa1$dis_mi_ever_1==0 & as.integer(med_table_lasa1$dhart05)==1)  | (med_table_lasa1$dis_mi_ever_1==0 & as.integer(med_table_lasa1$dhart05)==-2  & as.integer(med_table_lasa1$dhart01== 0)) | (med_table_lasa1$dis_mi_ever_1==0 & as.integer(med_table_lasa1$dhart05)==-2  & as.integer(med_table_lasa1$dhart01)==1)  | (med_table_lasa1$dis_mi_ever_1==0 & as.integer(med_table_lasa1$dhart05)== 1  & as.integer(med_table_lasa1$dhart01)==2)  | (med_table_lasa1$dis_mi_ever_1==0 & as.integer(med_table_lasa1$dhart05)== 1  & as.integer(med_table_lasa1$dhart01)==3),0L,NA))
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_LASA1_2<-merge(oth_LASA1_2,med_table_lasa1[,c("id","dis_mi_ever_2")],by="id",all.x=TRUE)
 ```  
