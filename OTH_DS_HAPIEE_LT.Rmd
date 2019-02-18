@@ -3,12 +3,10 @@ title: "oth_DS_HAPIEE_LT"
 output: html_document
 ---
 ---
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 library(epiDisplay)
 library(dplyr)
 library(data.table)
-
-
 # Connecting with Opal data server
 ## Login to server and assign study data
 #Load Opal R library
@@ -63,7 +61,7 @@ oth_HAPIEE_LT_0 <- data.frame(id = HAPIEE_W2$id )
 **Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 oth_HAPIEE_LT_0$dis_hbp_ever_0<-recode(as.integer(HAPIEE_W2$w2h14),"1"=1L,"2"=0L,.default=NA_integer_)
 
 ```  
@@ -82,7 +80,7 @@ oth_HAPIEE_LT_0$dis_hbp_ever_0<-recode(as.integer(HAPIEE_W2$w2h14),"1"=1L,"2"=0L
 **Harmonization status**:  impossible   
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ``` 
@@ -102,7 +100,7 @@ oth_HAPIEE_LT_0$dis_hbp_ever_0<-recode(as.integer(HAPIEE_W2$w2h14),"1"=1L,"2"=0L
 **Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -122,7 +120,7 @@ oth_HAPIEE_LT_0$dis_hbp_ever_0<-recode(as.integer(HAPIEE_W2$w2h14),"1"=1L,"2"=0L
 **Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -142,7 +140,7 @@ oth_HAPIEE_LT_0$dis_hbp_ever_0<-recode(as.integer(HAPIEE_W2$w2h14),"1"=1L,"2"=0L
 **Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -162,7 +160,7 @@ oth_HAPIEE_LT_0$dis_hbp_ever_0<-recode(as.integer(HAPIEE_W2$w2h14),"1"=1L,"2"=0L
 **Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -182,7 +180,7 @@ oth_HAPIEE_LT_0$dis_hbp_ever_0<-recode(as.integer(HAPIEE_W2$w2h14),"1"=1L,"2"=0L
 **Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -202,7 +200,7 @@ oth_HAPIEE_LT_0$dis_hbp_ever_0<-recode(as.integer(HAPIEE_W2$w2h14),"1"=1L,"2"=0L
 **Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -223,7 +221,7 @@ oth_HAPIEE_LT_0$dis_hbp_ever_0<-recode(as.integer(HAPIEE_W2$w2h14),"1"=1L,"2"=0L
 **Harmonization status**:  complete    
 **Harmonization comment**:  Participants that responded "No or do not know" (Category 3) to "Diagnosed/hospitalised for angina/ischaemic heart disease" are recoded as "Never had angina".  
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 oth_HAPIEE_LT_0$dis_angina_ever_0<-recode(as.integer(HAPIEE_W2$h10b_lt),"0"=1L,"1"=1L,"1"=1L,"2"=1L,"3"=0L,.default=NA_integer_)
 
 ```  
@@ -242,7 +240,7 @@ oth_HAPIEE_LT_0$dis_angina_ever_0<-recode(as.integer(HAPIEE_W2$h10b_lt),"0"=1L,"
 **Harmonization status**:  impossible     
 **Harmonization comment**:   
 **R script**:   
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -261,7 +259,7 @@ oth_HAPIEE_LT_0$dis_angina_ever_0<-recode(as.integer(HAPIEE_W2$h10b_lt),"0"=1L,"
 **Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -280,7 +278,7 @@ oth_HAPIEE_LT_0$dis_angina_ever_0<-recode(as.integer(HAPIEE_W2$h10b_lt),"0"=1L,"
 **Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -299,7 +297,7 @@ oth_HAPIEE_LT_0$dis_angina_ever_0<-recode(as.integer(HAPIEE_W2$h10b_lt),"0"=1L,"
 **Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -321,7 +319,7 @@ oth_HAPIEE_LT_0$dis_angina_ever_0<-recode(as.integer(HAPIEE_W2$h10b_lt),"0"=1L,"
 **Harmonization status**:  complete    
 **Harmonization comment**:  Participants that responded "No or do not know" (Category 3) to "Diagnosed/hospitalised for heart attack/acute myocardial infarction" are recoded as "Never had myocardial infarction".  
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 oth_HAPIEE_LT_0$dis_mi_ever_0<-recode(as.integer(HAPIEE_W2$h10a_lt),"1"=1L,"2"=1L,"3"=0L,.default=NA_integer_)
 
 ```  
@@ -340,7 +338,7 @@ oth_HAPIEE_LT_0$dis_mi_ever_0<-recode(as.integer(HAPIEE_W2$h10a_lt),"1"=1L,"2"=1
 **Harmonization status**:  impossible      
 **Harmonization comment**:  
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -359,7 +357,7 @@ oth_HAPIEE_LT_0$dis_mi_ever_0<-recode(as.integer(HAPIEE_W2$h10a_lt),"1"=1L,"2"=1
 **Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -374,7 +372,7 @@ oth_HAPIEE_LT_0$dis_mi_ever_0<-recode(as.integer(HAPIEE_W2$h10a_lt),"1"=1L,"2"=1
 **Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -388,7 +386,7 @@ oth_HAPIEE_LT_0$dis_mi_ever_0<-recode(as.integer(HAPIEE_W2$h10a_lt),"1"=1L,"2"=1
 **Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -402,7 +400,7 @@ oth_HAPIEE_LT_0$dis_mi_ever_0<-recode(as.integer(HAPIEE_W2$h10a_lt),"1"=1L,"2"=1
 **Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -423,7 +421,7 @@ oth_HAPIEE_LT_0$dis_mi_ever_0<-recode(as.integer(HAPIEE_W2$h10a_lt),"1"=1L,"2"=1
 **Harmonization status**:  complete  
 **Harmonization comment**:  Participants that responded "No or do not know" (Category 3) to "Diagnosed/hospitalised for stroke" are recoded as "Never had stroke or CVA". 
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 oth_HAPIEE_LT_0$dis_stroke_ever_0<-recode(as.integer(HAPIEE_W2$h10c_lt),"1"=1L,"2"=1L,"3"=0L,.default=NA_integer_)
 
 ```  
@@ -442,7 +440,7 @@ oth_HAPIEE_LT_0$dis_stroke_ever_0<-recode(as.integer(HAPIEE_W2$h10c_lt),"1"=1L,"
 **Harmonization status**:  impossible      
 **Harmonization comment**:  
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -461,7 +459,7 @@ oth_HAPIEE_LT_0$dis_stroke_ever_0<-recode(as.integer(HAPIEE_W2$h10c_lt),"1"=1L,"
 **Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -475,7 +473,7 @@ oth_HAPIEE_LT_0$dis_stroke_ever_0<-recode(as.integer(HAPIEE_W2$h10c_lt),"1"=1L,"
 **Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 ```  
 ### **Variable label**: Age at first stroke or CVA  
@@ -488,7 +486,7 @@ oth_HAPIEE_LT_0$dis_stroke_ever_0<-recode(as.integer(HAPIEE_W2$h10c_lt),"1"=1L,"
 **Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -502,7 +500,7 @@ oth_HAPIEE_LT_0$dis_stroke_ever_0<-recode(as.integer(HAPIEE_W2$h10c_lt),"1"=1L,"
 **Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -525,7 +523,7 @@ oth_HAPIEE_LT_0$dis_stroke_ever_0<-recode(as.integer(HAPIEE_W2$h10c_lt),"1"=1L,"
 **Harmonization status**:  complete  
 **Harmonization comment**:  
 **R script**:  
-```{r, echo=TLTE}  
+```{r, echo=TRUE}  
 oth_HAPIEE_LT_0$dis_diab_ever_0<-recode(as.integer(HAPIEE_W2$w2h15),"1"=1L,"2"=0L) 
 
 ```  
@@ -544,7 +542,7 @@ oth_HAPIEE_LT_0$dis_diab_ever_0<-recode(as.integer(HAPIEE_W2$w2h15),"1"=1L,"2"=0
 **Harmonization status**:  impossible    
 **Harmonization comment**:  
 **R script**:  
-```{r, echo=TLTE}  
+```{r, echo=TRUE}  
 
 
 ```  
@@ -563,7 +561,7 @@ oth_HAPIEE_LT_0$dis_diab_ever_0<-recode(as.integer(HAPIEE_W2$w2h15),"1"=1L,"2"=0
 **Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
-```{r, echo=TLTE}  
+```{r, echo=TRUE}  
 
 
 ```  
@@ -582,7 +580,7 @@ oth_HAPIEE_LT_0$dis_diab_ever_0<-recode(as.integer(HAPIEE_W2$w2h15),"1"=1L,"2"=0
 **Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
-```{r, echo=TLTE}  
+```{r, echo=TRUE}  
 
 
 ```  
@@ -601,7 +599,7 @@ oth_HAPIEE_LT_0$dis_diab_ever_0<-recode(as.integer(HAPIEE_W2$w2h15),"1"=1L,"2"=0
 **Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
-```{r, echo=TLTE}  
+```{r, echo=TRUE}  
 
 
 ```  
@@ -620,7 +618,7 @@ oth_HAPIEE_LT_0$dis_diab_ever_0<-recode(as.integer(HAPIEE_W2$w2h15),"1"=1L,"2"=0
 **Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
-```{r, echo=TLTE}  
+```{r, echo=TRUE}  
 
 
 ```  
@@ -634,7 +632,7 @@ oth_HAPIEE_LT_0$dis_diab_ever_0<-recode(as.integer(HAPIEE_W2$w2h15),"1"=1L,"2"=0
 **Hamonization status**:  complete    
 **Harmonization comment**:  
 **R script**:  
-```{r, echo=TLTE}  
+```{r, echo=TRUE}  
 oth_HAPIEE_LT_0$dis_diab_age_0<-ifelse(as.integer(HAPIEE_W2$h15a_lt)==998 |  as.integer(HAPIEE_W2$h15a_lt)==999,NA,
                                       as.integer(HAPIEE_W2$h15a_lt)) 
 
@@ -649,7 +647,7 @@ oth_HAPIEE_LT_0$dis_diab_age_0<-ifelse(as.integer(HAPIEE_W2$h15a_lt)==998 |  as.
 **Hamonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}  
+```{r, echo=TRUE}  
  
 
 ```  
@@ -663,7 +661,7 @@ oth_HAPIEE_LT_0$dis_diab_age_0<-ifelse(as.integer(HAPIEE_W2$h15a_lt)==998 |  as.
 **Hamonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
-```{r, echo=TLTE}  
+```{r, echo=TRUE}  
 
 
 ```  
@@ -677,7 +675,7 @@ oth_HAPIEE_LT_0$dis_diab_age_0<-ifelse(as.integer(HAPIEE_W2$h15a_lt)==998 |  as.
 **Hamonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
-```{r, echo=TLTE}  
+```{r, echo=TRUE}  
 
 
 ```  
@@ -691,7 +689,7 @@ oth_HAPIEE_LT_0$dis_diab_age_0<-ifelse(as.integer(HAPIEE_W2$h15a_lt)==998 |  as.
 **Hamonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
-```{r, echo=TLTE}  
+```{r, echo=TRUE}  
 
 
 ```  
@@ -705,7 +703,7 @@ oth_HAPIEE_LT_0$dis_diab_age_0<-ifelse(as.integer(HAPIEE_W2$h15a_lt)==998 |  as.
 **Hamonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
-```{r, echo=TLTE}  
+```{r, echo=TRUE}  
 
 
 ```  
@@ -725,7 +723,7 @@ oth_HAPIEE_LT_0$dis_diab_age_0<-ifelse(as.integer(HAPIEE_W2$h15a_lt)==998 |  as.
 **Harmonization status**:  complete  
 **Harmonization comment**:  
 **R script**:
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 oth_HAPIEE_LT_0$dis_diab_tx_0<-ifelse(oth_HAPIEE_LT_0$dis_diab_ever_0==0,0L,recode(as.integer(HAPIEE_W2$w2h15b),"1"=1L,"2"=1L,"3"=1L,"4"=1L,"5"=0L,.default=NA_integer_))
 
 
@@ -745,7 +743,7 @@ oth_HAPIEE_LT_0$dis_diab_tx_0<-ifelse(oth_HAPIEE_LT_0$dis_diab_ever_0==0,0L,reco
 **Harmonization status**:  impossible    
 **Harmonization comment**:  
 **R script**:
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -764,7 +762,7 @@ oth_HAPIEE_LT_0$dis_diab_tx_0<-ifelse(oth_HAPIEE_LT_0$dis_diab_ever_0==0,0L,reco
 **Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -783,7 +781,7 @@ oth_HAPIEE_LT_0$dis_diab_tx_0<-ifelse(oth_HAPIEE_LT_0$dis_diab_ever_0==0,0L,reco
 **Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -802,7 +800,7 @@ oth_HAPIEE_LT_0$dis_diab_tx_0<-ifelse(oth_HAPIEE_LT_0$dis_diab_ever_0==0,0L,reco
 **Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -821,7 +819,7 @@ oth_HAPIEE_LT_0$dis_diab_tx_0<-ifelse(oth_HAPIEE_LT_0$dis_diab_ever_0==0,0L,reco
 **Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -840,7 +838,7 @@ oth_HAPIEE_LT_0$dis_diab_tx_0<-ifelse(oth_HAPIEE_LT_0$dis_diab_ever_0==0,0L,reco
 **Harmonization status**:  complete  
 **Harmonization comment**:  
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 oth_HAPIEE_LT_0$dis_diab_ins_0<-ifelse(oth_HAPIEE_LT_0$dis_diab_ever_0==0,0L,recode(as.integer(HAPIEE_W2$w2h15b),"1"=0L,"2"=1L,"3"=0L,"4"=1L,"5"=0L))
 
 ```  
@@ -859,7 +857,7 @@ oth_HAPIEE_LT_0$dis_diab_ins_0<-ifelse(oth_HAPIEE_LT_0$dis_diab_ever_0==0,0L,rec
 **Harmonization status**:  impossible    
 **Harmonization comment**:  
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -878,7 +876,7 @@ oth_HAPIEE_LT_0$dis_diab_ins_0<-ifelse(oth_HAPIEE_LT_0$dis_diab_ever_0==0,0L,rec
 **Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -894,7 +892,7 @@ oth_HAPIEE_LT_0$dis_diab_ins_0<-ifelse(oth_HAPIEE_LT_0$dis_diab_ever_0==0,0L,rec
 **Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 oth_HAPIEE_LT_0$phy_weight_ms_0<-HAPIEE_W2$e51_lt
 
 ```  
@@ -908,7 +906,7 @@ oth_HAPIEE_LT_0$phy_weight_ms_0<-HAPIEE_W2$e51_lt
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -922,7 +920,7 @@ oth_HAPIEE_LT_0$phy_weight_ms_0<-HAPIEE_W2$e51_lt
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -936,7 +934,7 @@ oth_HAPIEE_LT_0$phy_weight_ms_0<-HAPIEE_W2$e51_lt
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -950,7 +948,7 @@ oth_HAPIEE_LT_0$phy_weight_ms_0<-HAPIEE_W2$e51_lt
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -964,7 +962,7 @@ oth_HAPIEE_LT_0$phy_weight_ms_0<-HAPIEE_W2$e51_lt
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -978,7 +976,7 @@ oth_HAPIEE_LT_0$phy_weight_ms_0<-HAPIEE_W2$e51_lt
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -992,7 +990,7 @@ oth_HAPIEE_LT_0$phy_weight_ms_0<-HAPIEE_W2$e51_lt
 **Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 oth_HAPIEE_LT_0$phy_weight_sr_0<-ifelse(HAPIEE_W2$h6_lt==999999,NA,HAPIEE_W2$h6_lt)
 
 ```  
@@ -1006,7 +1004,7 @@ oth_HAPIEE_LT_0$phy_weight_sr_0<-ifelse(HAPIEE_W2$h6_lt==999999,NA,HAPIEE_W2$h6_
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1020,7 +1018,7 @@ oth_HAPIEE_LT_0$phy_weight_sr_0<-ifelse(HAPIEE_W2$h6_lt==999999,NA,HAPIEE_W2$h6_
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1034,7 +1032,7 @@ oth_HAPIEE_LT_0$phy_weight_sr_0<-ifelse(HAPIEE_W2$h6_lt==999999,NA,HAPIEE_W2$h6_
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1048,7 +1046,7 @@ oth_HAPIEE_LT_0$phy_weight_sr_0<-ifelse(HAPIEE_W2$h6_lt==999999,NA,HAPIEE_W2$h6_
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1062,7 +1060,7 @@ oth_HAPIEE_LT_0$phy_weight_sr_0<-ifelse(HAPIEE_W2$h6_lt==999999,NA,HAPIEE_W2$h6_
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1076,7 +1074,7 @@ oth_HAPIEE_LT_0$phy_weight_sr_0<-ifelse(HAPIEE_W2$h6_lt==999999,NA,HAPIEE_W2$h6_
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1090,7 +1088,7 @@ oth_HAPIEE_LT_0$phy_weight_sr_0<-ifelse(HAPIEE_W2$h6_lt==999999,NA,HAPIEE_W2$h6_
 **Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 oth_HAPIEE_LT_0$phy_weight_all_0<-HAPIEE_W2$e51_lt
 
 ```  
@@ -1105,7 +1103,7 @@ oth_HAPIEE_LT_0$phy_weight_all_0<-HAPIEE_W2$e51_lt
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1119,7 +1117,7 @@ oth_HAPIEE_LT_0$phy_weight_all_0<-HAPIEE_W2$e51_lt
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1133,7 +1131,7 @@ oth_HAPIEE_LT_0$phy_weight_all_0<-HAPIEE_W2$e51_lt
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1147,7 +1145,7 @@ oth_HAPIEE_LT_0$phy_weight_all_0<-HAPIEE_W2$e51_lt
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1161,7 +1159,7 @@ oth_HAPIEE_LT_0$phy_weight_all_0<-HAPIEE_W2$e51_lt
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1175,7 +1173,7 @@ oth_HAPIEE_LT_0$phy_weight_all_0<-HAPIEE_W2$e51_lt
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1189,7 +1187,7 @@ oth_HAPIEE_LT_0$phy_weight_all_0<-HAPIEE_W2$e51_lt
 **Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 oth_HAPIEE_LT_0$phy_height_ms_0<-HAPIEE_W2$e52_lt
 
 ```  
@@ -1203,7 +1201,7 @@ oth_HAPIEE_LT_0$phy_height_ms_0<-HAPIEE_W2$e52_lt
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1217,7 +1215,7 @@ oth_HAPIEE_LT_0$phy_height_ms_0<-HAPIEE_W2$e52_lt
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1231,7 +1229,7 @@ oth_HAPIEE_LT_0$phy_height_ms_0<-HAPIEE_W2$e52_lt
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1245,7 +1243,7 @@ oth_HAPIEE_LT_0$phy_height_ms_0<-HAPIEE_W2$e52_lt
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1259,7 +1257,7 @@ oth_HAPIEE_LT_0$phy_height_ms_0<-HAPIEE_W2$e52_lt
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1273,7 +1271,7 @@ oth_HAPIEE_LT_0$phy_height_ms_0<-HAPIEE_W2$e52_lt
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1288,7 +1286,7 @@ oth_HAPIEE_LT_0$phy_height_ms_0<-HAPIEE_W2$e52_lt
 **Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 oth_HAPIEE_LT_0$phy_height_sr_0<-ifelse(HAPIEE_W2$h5_lt==99999,NA,HAPIEE_W2$h5_lt)
 
 ```  
@@ -1302,7 +1300,7 @@ oth_HAPIEE_LT_0$phy_height_sr_0<-ifelse(HAPIEE_W2$h5_lt==99999,NA,HAPIEE_W2$h5_l
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1316,7 +1314,7 @@ oth_HAPIEE_LT_0$phy_height_sr_0<-ifelse(HAPIEE_W2$h5_lt==99999,NA,HAPIEE_W2$h5_l
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1330,7 +1328,7 @@ oth_HAPIEE_LT_0$phy_height_sr_0<-ifelse(HAPIEE_W2$h5_lt==99999,NA,HAPIEE_W2$h5_l
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1344,7 +1342,7 @@ oth_HAPIEE_LT_0$phy_height_sr_0<-ifelse(HAPIEE_W2$h5_lt==99999,NA,HAPIEE_W2$h5_l
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1358,7 +1356,7 @@ oth_HAPIEE_LT_0$phy_height_sr_0<-ifelse(HAPIEE_W2$h5_lt==99999,NA,HAPIEE_W2$h5_l
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1372,7 +1370,7 @@ oth_HAPIEE_LT_0$phy_height_sr_0<-ifelse(HAPIEE_W2$h5_lt==99999,NA,HAPIEE_W2$h5_l
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1387,7 +1385,7 @@ oth_HAPIEE_LT_0$phy_height_sr_0<-ifelse(HAPIEE_W2$h5_lt==99999,NA,HAPIEE_W2$h5_l
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 oth_HAPIEE_LT_0$phy_height_all_0<-HAPIEE_W2$e52_lt
 
 ```  
@@ -1401,7 +1399,7 @@ oth_HAPIEE_LT_0$phy_height_all_0<-HAPIEE_W2$e52_lt
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1415,7 +1413,7 @@ oth_HAPIEE_LT_0$phy_height_all_0<-HAPIEE_W2$e52_lt
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1429,7 +1427,7 @@ oth_HAPIEE_LT_0$phy_height_all_0<-HAPIEE_W2$e52_lt
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1443,7 +1441,7 @@ oth_HAPIEE_LT_0$phy_height_all_0<-HAPIEE_W2$e52_lt
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1457,7 +1455,7 @@ oth_HAPIEE_LT_0$phy_height_all_0<-HAPIEE_W2$e52_lt
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1471,7 +1469,7 @@ oth_HAPIEE_LT_0$phy_height_all_0<-HAPIEE_W2$e52_lt
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1486,7 +1484,7 @@ oth_HAPIEE_LT_0$phy_height_all_0<-HAPIEE_W2$e52_lt
 **Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 oth_HAPIEE_LT_0$phy_bmi_ms_0<-HAPIEE_W2$d_bmi_lt
 
 ```  
@@ -1500,7 +1498,7 @@ oth_HAPIEE_LT_0$phy_bmi_ms_0<-HAPIEE_W2$d_bmi_lt
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1514,7 +1512,7 @@ oth_HAPIEE_LT_0$phy_bmi_ms_0<-HAPIEE_W2$d_bmi_lt
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1528,7 +1526,7 @@ oth_HAPIEE_LT_0$phy_bmi_ms_0<-HAPIEE_W2$d_bmi_lt
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1542,7 +1540,7 @@ oth_HAPIEE_LT_0$phy_bmi_ms_0<-HAPIEE_W2$d_bmi_lt
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1556,7 +1554,7 @@ oth_HAPIEE_LT_0$phy_bmi_ms_0<-HAPIEE_W2$d_bmi_lt
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1570,7 +1568,7 @@ oth_HAPIEE_LT_0$phy_bmi_ms_0<-HAPIEE_W2$d_bmi_lt
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1585,7 +1583,7 @@ oth_HAPIEE_LT_0$phy_bmi_ms_0<-HAPIEE_W2$d_bmi_lt
 **Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 oth_HAPIEE_LT_0$phy_bmi_sr_0<-oth_HAPIEE_LT_0$phy_weight_sr_0/(oth_HAPIEE_LT_0$phy_height_sr_0*0.01)^2
 
 ```  
@@ -1599,7 +1597,7 @@ oth_HAPIEE_LT_0$phy_bmi_sr_0<-oth_HAPIEE_LT_0$phy_weight_sr_0/(oth_HAPIEE_LT_0$p
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1613,7 +1611,7 @@ oth_HAPIEE_LT_0$phy_bmi_sr_0<-oth_HAPIEE_LT_0$phy_weight_sr_0/(oth_HAPIEE_LT_0$p
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1627,7 +1625,7 @@ oth_HAPIEE_LT_0$phy_bmi_sr_0<-oth_HAPIEE_LT_0$phy_weight_sr_0/(oth_HAPIEE_LT_0$p
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1641,7 +1639,7 @@ oth_HAPIEE_LT_0$phy_bmi_sr_0<-oth_HAPIEE_LT_0$phy_weight_sr_0/(oth_HAPIEE_LT_0$p
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1655,7 +1653,7 @@ oth_HAPIEE_LT_0$phy_bmi_sr_0<-oth_HAPIEE_LT_0$phy_weight_sr_0/(oth_HAPIEE_LT_0$p
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1669,7 +1667,7 @@ oth_HAPIEE_LT_0$phy_bmi_sr_0<-oth_HAPIEE_LT_0$phy_weight_sr_0/(oth_HAPIEE_LT_0$p
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```   
@@ -1684,7 +1682,7 @@ oth_HAPIEE_LT_0$phy_bmi_sr_0<-oth_HAPIEE_LT_0$phy_weight_sr_0/(oth_HAPIEE_LT_0$p
 **Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 oth_HAPIEE_LT_0$phy_bmi_all_0<-HAPIEE_W2$d_bmi_lt
 
 ```  
@@ -1698,7 +1696,7 @@ oth_HAPIEE_LT_0$phy_bmi_all_0<-HAPIEE_W2$d_bmi_lt
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1712,7 +1710,7 @@ oth_HAPIEE_LT_0$phy_bmi_all_0<-HAPIEE_W2$d_bmi_lt
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1726,7 +1724,7 @@ oth_HAPIEE_LT_0$phy_bmi_all_0<-HAPIEE_W2$d_bmi_lt
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1740,7 +1738,7 @@ oth_HAPIEE_LT_0$phy_bmi_all_0<-HAPIEE_W2$d_bmi_lt
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1754,7 +1752,7 @@ oth_HAPIEE_LT_0$phy_bmi_all_0<-HAPIEE_W2$d_bmi_lt
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1768,7 +1766,7 @@ oth_HAPIEE_LT_0$phy_bmi_all_0<-HAPIEE_W2$d_bmi_lt
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1790,7 +1788,7 @@ oth_HAPIEE_LT_0$phy_bmi_all_0<-HAPIEE_W2$d_bmi_lt
 **Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 oth_HAPIEE_LT_0$phy_bmi_cat_ms_0<- ifelse(oth_HAPIEE_LT_0$phy_bmi_ms_0<18.5,0L,
                               ifelse(oth_HAPIEE_LT_0$phy_bmi_ms_0>=18.5 & oth_HAPIEE_LT_0$phy_bmi_ms_0<25,1L,
                               ifelse(oth_HAPIEE_LT_0$phy_bmi_ms_0>=25 & oth_HAPIEE_LT_0$phy_bmi_ms_0<30,2L,
@@ -1814,7 +1812,7 @@ oth_HAPIEE_LT_0$phy_bmi_cat_ms_0<- ifelse(oth_HAPIEE_LT_0$phy_bmi_ms_0<18.5,0L,
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1835,7 +1833,7 @@ oth_HAPIEE_LT_0$phy_bmi_cat_ms_0<- ifelse(oth_HAPIEE_LT_0$phy_bmi_ms_0<18.5,0L,
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1856,7 +1854,7 @@ oth_HAPIEE_LT_0$phy_bmi_cat_ms_0<- ifelse(oth_HAPIEE_LT_0$phy_bmi_ms_0<18.5,0L,
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1877,7 +1875,7 @@ oth_HAPIEE_LT_0$phy_bmi_cat_ms_0<- ifelse(oth_HAPIEE_LT_0$phy_bmi_ms_0<18.5,0L,
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1898,7 +1896,7 @@ oth_HAPIEE_LT_0$phy_bmi_cat_ms_0<- ifelse(oth_HAPIEE_LT_0$phy_bmi_ms_0<18.5,0L,
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1919,7 +1917,7 @@ oth_HAPIEE_LT_0$phy_bmi_cat_ms_0<- ifelse(oth_HAPIEE_LT_0$phy_bmi_ms_0<18.5,0L,
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1941,7 +1939,7 @@ oth_HAPIEE_LT_0$phy_bmi_cat_ms_0<- ifelse(oth_HAPIEE_LT_0$phy_bmi_ms_0<18.5,0L,
 **Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 oth_HAPIEE_LT_0$phy_bmi_cat_sr_0<- ifelse(oth_HAPIEE_LT_0$phy_bmi_sr_0<18.5,0L,
                               ifelse(oth_HAPIEE_LT_0$phy_bmi_sr_0>=18.5 & oth_HAPIEE_LT_0$phy_bmi_sr_0<25,1L,
                               ifelse(oth_HAPIEE_LT_0$phy_bmi_sr_0>=25 & oth_HAPIEE_LT_0$phy_bmi_sr_0<30,2L,
@@ -1965,7 +1963,7 @@ oth_HAPIEE_LT_0$phy_bmi_cat_sr_0<- ifelse(oth_HAPIEE_LT_0$phy_bmi_sr_0<18.5,0L,
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -1986,7 +1984,7 @@ oth_HAPIEE_LT_0$phy_bmi_cat_sr_0<- ifelse(oth_HAPIEE_LT_0$phy_bmi_sr_0<18.5,0L,
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -2007,7 +2005,7 @@ oth_HAPIEE_LT_0$phy_bmi_cat_sr_0<- ifelse(oth_HAPIEE_LT_0$phy_bmi_sr_0<18.5,0L,
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -2028,7 +2026,7 @@ oth_HAPIEE_LT_0$phy_bmi_cat_sr_0<- ifelse(oth_HAPIEE_LT_0$phy_bmi_sr_0<18.5,0L,
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -2049,7 +2047,7 @@ oth_HAPIEE_LT_0$phy_bmi_cat_sr_0<- ifelse(oth_HAPIEE_LT_0$phy_bmi_sr_0<18.5,0L,
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -2070,7 +2068,7 @@ oth_HAPIEE_LT_0$phy_bmi_cat_sr_0<- ifelse(oth_HAPIEE_LT_0$phy_bmi_sr_0<18.5,0L,
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -2092,7 +2090,7 @@ oth_HAPIEE_LT_0$phy_bmi_cat_sr_0<- ifelse(oth_HAPIEE_LT_0$phy_bmi_sr_0<18.5,0L,
 **Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 oth_HAPIEE_LT_0$phy_bmi_cat_all_0<- ifelse(oth_HAPIEE_LT_0$phy_bmi_all_0<18.5,0L,
                               ifelse(oth_HAPIEE_LT_0$phy_bmi_all_0>=18.5 & oth_HAPIEE_LT_0$phy_bmi_all_0<25,1L,
                               ifelse(oth_HAPIEE_LT_0$phy_bmi_all_0>=25 & oth_HAPIEE_LT_0$phy_bmi_all_0<30,2L,
@@ -2116,7 +2114,7 @@ oth_HAPIEE_LT_0$phy_bmi_cat_all_0<- ifelse(oth_HAPIEE_LT_0$phy_bmi_all_0<18.5,0L
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -2137,7 +2135,7 @@ oth_HAPIEE_LT_0$phy_bmi_cat_all_0<- ifelse(oth_HAPIEE_LT_0$phy_bmi_all_0<18.5,0L
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -2158,7 +2156,7 @@ oth_HAPIEE_LT_0$phy_bmi_cat_all_0<- ifelse(oth_HAPIEE_LT_0$phy_bmi_all_0<18.5,0L
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -2179,7 +2177,7 @@ oth_HAPIEE_LT_0$phy_bmi_cat_all_0<- ifelse(oth_HAPIEE_LT_0$phy_bmi_all_0<18.5,0L
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -2200,7 +2198,7 @@ oth_HAPIEE_LT_0$phy_bmi_cat_all_0<- ifelse(oth_HAPIEE_LT_0$phy_bmi_all_0<18.5,0L
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -2221,7 +2219,7 @@ oth_HAPIEE_LT_0$phy_bmi_cat_all_0<- ifelse(oth_HAPIEE_LT_0$phy_bmi_all_0<18.5,0L
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -2236,7 +2234,7 @@ oth_HAPIEE_LT_0$phy_bmi_cat_all_0<- ifelse(oth_HAPIEE_LT_0$phy_bmi_all_0<18.5,0L
 **Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 oth_HAPIEE_LT_0$phy_waist_all_0<-ifelse(HAPIEE_W2$e61_lt==999.9,NA,HAPIEE_W2$e61_lt)
 
 ```  
@@ -2250,7 +2248,7 @@ oth_HAPIEE_LT_0$phy_waist_all_0<-ifelse(HAPIEE_W2$e61_lt==999.9,NA,HAPIEE_W2$e61
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -2264,7 +2262,7 @@ oth_HAPIEE_LT_0$phy_waist_all_0<-ifelse(HAPIEE_W2$e61_lt==999.9,NA,HAPIEE_W2$e61
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -2278,7 +2276,7 @@ oth_HAPIEE_LT_0$phy_waist_all_0<-ifelse(HAPIEE_W2$e61_lt==999.9,NA,HAPIEE_W2$e61
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -2292,7 +2290,7 @@ oth_HAPIEE_LT_0$phy_waist_all_0<-ifelse(HAPIEE_W2$e61_lt==999.9,NA,HAPIEE_W2$e61
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -2306,7 +2304,7 @@ oth_HAPIEE_LT_0$phy_waist_all_0<-ifelse(HAPIEE_W2$e61_lt==999.9,NA,HAPIEE_W2$e61
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -2320,7 +2318,7 @@ oth_HAPIEE_LT_0$phy_waist_all_0<-ifelse(HAPIEE_W2$e61_lt==999.9,NA,HAPIEE_W2$e61
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -2343,7 +2341,7 @@ oth_HAPIEE_LT_0$phy_waist_all_0<-ifelse(HAPIEE_W2$e61_lt==999.9,NA,HAPIEE_W2$e61
 **Harmonization status**:  complete    
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 oth_HAPIEE_LT_0$poh_sah_0<-recode(as.integer(HAPIEE_W2$w2h7),"1"=0L,"2"=0L,"3"=1L,"4"=2L,"5"=2L)
 
 ```  
@@ -2363,7 +2361,7 @@ oth_HAPIEE_LT_0$poh_sah_0<-recode(as.integer(HAPIEE_W2$w2h7),"1"=0L,"2"=0L,"3"=1
 **Harmonization status**:  impossible    
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -2383,7 +2381,7 @@ oth_HAPIEE_LT_0$poh_sah_0<-recode(as.integer(HAPIEE_W2$w2h7),"1"=0L,"2"=0L,"3"=1
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -2403,7 +2401,7 @@ oth_HAPIEE_LT_0$poh_sah_0<-recode(as.integer(HAPIEE_W2$w2h7),"1"=0L,"2"=0L,"3"=1
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -2423,7 +2421,7 @@ oth_HAPIEE_LT_0$poh_sah_0<-recode(as.integer(HAPIEE_W2$w2h7),"1"=0L,"2"=0L,"3"=1
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -2443,7 +2441,7 @@ oth_HAPIEE_LT_0$poh_sah_0<-recode(as.integer(HAPIEE_W2$w2h7),"1"=0L,"2"=0L,"3"=1
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -2463,7 +2461,7 @@ oth_HAPIEE_LT_0$poh_sah_0<-recode(as.integer(HAPIEE_W2$w2h7),"1"=0L,"2"=0L,"3"=1
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -2483,7 +2481,7 @@ oth_HAPIEE_LT_0$poh_sah_0<-recode(as.integer(HAPIEE_W2$w2h7),"1"=0L,"2"=0L,"3"=1
 **Harmonization status**:  complete    
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 oth_HAPIEE_LT_0$poh_sah_poor_0<-recode(as.integer(HAPIEE_W2$w2h7),"1"=0L,"2"=0L,"3"=0L,"4"=1L,"5"=1L)
 
 ```  
@@ -2502,7 +2500,7 @@ oth_HAPIEE_LT_0$poh_sah_poor_0<-recode(as.integer(HAPIEE_W2$w2h7),"1"=0L,"2"=0L,
 **Harmonization status**:  impossible    
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -2521,7 +2519,7 @@ oth_HAPIEE_LT_0$poh_sah_poor_0<-recode(as.integer(HAPIEE_W2$w2h7),"1"=0L,"2"=0L,
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -2540,7 +2538,7 @@ oth_HAPIEE_LT_0$poh_sah_poor_0<-recode(as.integer(HAPIEE_W2$w2h7),"1"=0L,"2"=0L,
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -2559,7 +2557,7 @@ oth_HAPIEE_LT_0$poh_sah_poor_0<-recode(as.integer(HAPIEE_W2$w2h7),"1"=0L,"2"=0L,
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -2578,7 +2576,7 @@ oth_HAPIEE_LT_0$poh_sah_poor_0<-recode(as.integer(HAPIEE_W2$w2h7),"1"=0L,"2"=0L,
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -2597,7 +2595,7 @@ oth_HAPIEE_LT_0$poh_sah_poor_0<-recode(as.integer(HAPIEE_W2$w2h7),"1"=0L,"2"=0L,
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -2617,7 +2615,7 @@ oth_HAPIEE_LT_0$poh_sah_poor_0<-recode(as.integer(HAPIEE_W2$w2h7),"1"=0L,"2"=0L,
 **Harmonization status**:  complete    
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 oth_HAPIEE_LT_0$poh_sah_good_0<-recode(as.integer(HAPIEE_W2$w2h7),"1"=1L,"2"=1L,"3"=0L,"4"=0L,"5"=0L)
 
 ```  
@@ -2636,7 +2634,7 @@ oth_HAPIEE_LT_0$poh_sah_good_0<-recode(as.integer(HAPIEE_W2$w2h7),"1"=1L,"2"=1L,
 **Harmonization status**:  impossible    
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -2655,7 +2653,7 @@ oth_HAPIEE_LT_0$poh_sah_good_0<-recode(as.integer(HAPIEE_W2$w2h7),"1"=1L,"2"=1L,
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -2674,7 +2672,7 @@ oth_HAPIEE_LT_0$poh_sah_good_0<-recode(as.integer(HAPIEE_W2$w2h7),"1"=1L,"2"=1L,
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -2693,7 +2691,7 @@ oth_HAPIEE_LT_0$poh_sah_good_0<-recode(as.integer(HAPIEE_W2$w2h7),"1"=1L,"2"=1L,
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -2712,7 +2710,7 @@ oth_HAPIEE_LT_0$poh_sah_good_0<-recode(as.integer(HAPIEE_W2$w2h7),"1"=1L,"2"=1L,
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -2731,7 +2729,7 @@ oth_HAPIEE_LT_0$poh_sah_good_0<-recode(as.integer(HAPIEE_W2$w2h7),"1"=1L,"2"=1L,
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -2754,7 +2752,7 @@ oth_HAPIEE_LT_0$poh_sah_good_0<-recode(as.integer(HAPIEE_W2$w2h7),"1"=1L,"2"=1L,
 **Harmonization status**:  complete    
 **Harmonization comment**:   Variable label used for harmonization:"Health limits climbing several flights of stairs"  
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 oth_HAPIEE_LT_0$fct_stairs_diff_0<-ifelse(HAPIEE_W2$id %in% HAPIEE_W2_hl$id,recode(as.integer(HAPIEE_W2_hl$w2h8d),"1"=1L,"2"=1L,"3"=0L,.default=NA_integer_),NA)
 
 ```  
@@ -2773,7 +2771,7 @@ oth_HAPIEE_LT_0$fct_stairs_diff_0<-ifelse(HAPIEE_W2$id %in% HAPIEE_W2_hl$id,reco
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -2792,7 +2790,7 @@ oth_HAPIEE_LT_0$fct_stairs_diff_0<-ifelse(HAPIEE_W2$id %in% HAPIEE_W2_hl$id,reco
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -2812,7 +2810,7 @@ oth_HAPIEE_LT_0$fct_stairs_diff_0<-ifelse(HAPIEE_W2$id %in% HAPIEE_W2_hl$id,reco
 **Harmonization status**:  complete    
 **Harmonization comment**:   Variable label used for harmonization: "Walking one kilometer""  
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 oth_HAPIEE_LT_0$fct_walk_diff_0<-ifelse(HAPIEE_W2$id %in% HAPIEE_W2_hl$id,recode(as.integer(HAPIEE_W2_hl$w2h8h),"1"=1L,"2"=1L,"3"=0L,.default=NA_integer_),NA)
 
 ```  
@@ -2831,7 +2829,7 @@ oth_HAPIEE_LT_0$fct_walk_diff_0<-ifelse(HAPIEE_W2$id %in% HAPIEE_W2_hl$id,recode
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -2850,7 +2848,7 @@ oth_HAPIEE_LT_0$fct_walk_diff_0<-ifelse(HAPIEE_W2$id %in% HAPIEE_W2_hl$id,recode
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -2869,7 +2867,7 @@ oth_HAPIEE_LT_0$fct_walk_diff_0<-ifelse(HAPIEE_W2$id %in% HAPIEE_W2_hl$id,recode
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -2888,7 +2886,7 @@ oth_HAPIEE_LT_0$fct_walk_diff_0<-ifelse(HAPIEE_W2$id %in% HAPIEE_W2_hl$id,recode
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -2907,7 +2905,7 @@ oth_HAPIEE_LT_0$fct_walk_diff_0<-ifelse(HAPIEE_W2$id %in% HAPIEE_W2_hl$id,recode
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
@@ -2926,7 +2924,7 @@ oth_HAPIEE_LT_0$fct_walk_diff_0<-ifelse(HAPIEE_W2$id %in% HAPIEE_W2_hl$id,recode
 **Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
-```{r, echo=TLTE}
+```{r, echo=TRUE}
 
 
 ```  
