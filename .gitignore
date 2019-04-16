@@ -14,3 +14,5 @@ OTH_DS_LUCAS_validation.html
 merge oth tables.R
 OTH_DS_GLOBE_validation.Rmd
 OTH_DS_HAPIEE_RU_validation.Rmd
+OTH_DS_HAPIEE_CZ_validation.Rmd
+OTH_DS_HAPIEE_LT_validation.Rmd
