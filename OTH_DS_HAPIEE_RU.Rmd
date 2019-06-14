@@ -21,16 +21,29 @@ opal.assign.table.tibble(erasmus_opal, 'HAPIEE_W1', 'HAPIEE.HAPIEE_W1',variables
 
 HAPIEE_W1<- opal.execute(erasmus_opal,'HAPIEE_W1')
 
+#HAPIEE_W1_hl 
+opal.assign.table.tibble(erasmus_opal, 'HAPIEE_W1_hl', 'HAPIEE.HAPIEE_W1_hl',variables = list('h8d','h8h'))
+
+HAPIEE_W1_hl<- opal.execute(erasmus_opal,'HAPIEE_W1_hl')
+
 #HAPIEE_W2 
 opal.assign.table.tibble(erasmus_opal, 'HAPIEE_W2', 'HAPIEE.HAPIEE_W2',variables = list('country','w2h14','w2h10c','w2h10a','w2h10b','w2h15','w2h15b','w2h7','h15a_lt'))
 
 HAPIEE_W2<- opal.execute(erasmus_opal,'HAPIEE_W2')
+
+
+#HAPIEE_W2_hl 
+opal.assign.table.tibble(erasmus_opal, 'HAPIEE_W2_hl', 'HAPIEE.HAPIEE_W2_hl',variables = list('w2h8d','w2h8h'))
+
+HAPIEE_W2_hl<- opal.execute(erasmus_opal,'HAPIEE_W2_hl')
 
 ```
 ## Select country-specific sample
 ```{r,echo=FALSE}
 HAPIEE_W1 <- subset(HAPIEE_W1, HAPIEE_W1$country==2)
 HAPIEE_W2 <- subset(HAPIEE_W2, HAPIEE_W2$country==2)
+HAPIEE_W1_hl<-subset(HAPIEE_W1_hl,HAPIEE_W1_hl$id %in% HAPIEE_W1$id)
+HAPIEE_W2_hl<-subset(HAPIEE_W2_hl,HAPIEE_W2_hl$id %in% HAPIEE_W2$id)
 ```
 ## Assign participant id as first column of your harmonized dataframes
 ```{r, echo=FALSE}
@@ -2780,11 +2793,11 @@ oth_HAPIEE_RU_1$poh_sah_good_1<-recode(as.integer(HAPIEE_W2$w2h7),"1"=1L,"2"=1L,
 0 |   Has no difficulty walking up and down the stairs
 1 |   Has difficulty walking up and down the stairs  
 
-**Harmonization status**:  impossible  
-**Harmonization comment**:   
+**Harmonization status**:  complete    
+**Harmonization comment**:   Variable label used for harmonization:"Health limits climbing several flights of stairs"  
 **R script**:  
 ```{r, echo=TRUE}
-
+oth_HAPIEE_RU_0$fct_stairs_diff_0<-recode(as.integer(HAPIEE_W1_hl$h8d),"1"=1L,"2"=1L,"3"=0L)
 
 ```  
 ### **Variable label**:  Difficulty walking up and down the stairs  
@@ -2799,11 +2812,11 @@ oth_HAPIEE_RU_1$poh_sah_good_1<-recode(as.integer(HAPIEE_W2$w2h7),"1"=1L,"2"=1L,
 0 |   Has no difficulty walking up and down the stairs
 1 |   Has difficulty walking up and down the stairs  
 
-**Harmonization status**:  impossible  
-**Harmonization comment**:   
+**Harmonization status**:  complete    
+**Harmonization comment**:   Variable label used for harmonization:"Health limits climbing several flights of stairs"  
 **R script**:  
 ```{r, echo=TRUE}
-
+oth_HAPIEE_RU_1$fct_stairs_diff_1<-ifelse(HAPIEE_W2$id %in% HAPIEE_W2_hl$id,recode(as.integer(HAPIEE_W2_hl$w2h8d),"1"=1L,"2"=1L,"3"=0L,.default=NA_integer_),NA)
 
 ```  
 ### **Variable label**:  Difficulty walking up and down the stairs  
@@ -2838,11 +2851,11 @@ oth_HAPIEE_RU_1$poh_sah_good_1<-recode(as.integer(HAPIEE_W2$w2h7),"1"=1L,"2"=1L,
 0 |   Not able to walk without difficulty  
 1 |   Able to walk without difficulty  
 
-**Harmonization status**:  impossible  
-**Harmonization comment**:   
+**Harmonization status**:  complete    
+**Harmonization comment**:   Variable label used for harmonization: "Walking one kilometer"  
 **R script**:  
 ```{r, echo=TRUE}
-
+oth_HAPIEE_RU_0$fct_walk_diff_0<-recode(as.integer(HAPIEE_W1_hl$h8h),"1"=1L,"2"=1L,"3"=0L)
 
 ```  
 ### **Variable label**:  Difficulty walking    
@@ -2857,11 +2870,11 @@ oth_HAPIEE_RU_1$poh_sah_good_1<-recode(as.integer(HAPIEE_W2$w2h7),"1"=1L,"2"=1L,
 0 |   Not able to walk without difficulty  
 1 |   Able to walk without difficulty  
 
-**Harmonization status**:  impossible  
-**Harmonization comment**:   
+**Harmonization status**:  complete    
+**Harmonization comment**:   Variable label used for harmonization: "Walking one kilometer"  
 **R script**:  
 ```{r, echo=TRUE}
-
+oth_HAPIEE_RU_1$fct_walk_diff_1<-ifelse(HAPIEE_W2$id %in% HAPIEE_W2_hl$id,recode(as.integer(HAPIEE_W2_hl$w2h8h),"1"=1L,"2"=1L,"3"=0L,.default=NA_integer_),NA)
 
 ```  
 ### **Variable label**:  Difficulty walking    
