@@ -94,7 +94,7 @@ opal.logout(erasmus_opal)
 
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  
+**Harmonization comment**:  The harmonized variable "participant has ever taken medication for high blood pressure or hypertension" for followup waves was created using "participant has ever taken medication for high blood pressure or hypertension" from baseline and previous and current waves. To create this variable, all HUNT data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 **R script**:  
 ```{r, echo=TRUE}
 MyMerge <- function(x,y){
@@ -121,7 +121,7 @@ oth_HUNT_0<-merge(oth_HUNT_0,med_table_hunt[,c("id","dis_hbp_med_0")],by="id",al
 
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  
+**Harmonization comment**:  The harmonized variable "participant has ever taken medication for high blood pressure or hypertension" for followup waves was created using "participant has ever taken medication for high blood pressure or hypertension" from baseline and previous and current waves. To create this variable, all HUNT data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 **R script**:  
 ```{r, echo=TRUE}
 #HBP med
@@ -228,7 +228,8 @@ oth_HUNT_2<-merge(oth_HUNT_2,med_table_hunt[,c("id","dis_hbp_med_2")],by="id",al
   
 **Harmonization status**:  complete  
 **Harmonization comment**:  Missing was set as No (Value 0) if the participant also had answered No to having the same illness in HUNT2 and/or HUNT3.
-A few Yes (value 1) was corrected to No (value 0) if the participants had answered No to the same disease in both HUNT2 and HUNT3 and not reported age first time of the disease.
+A few Yes (value 1) was corrected to No (value 0) if the participants had answered No to the same disease in both HUNT2 and HUNT3 and not reported age first time of the disease.  
+The harmonized variable "Lifetime occurrence of angina (pain or discomfort in chest)" for followup waves was created using "Lifetime occurrence of angina (pain or discomfort in chest)" from baseline and previous and current waves. To create this variable, all HUNT data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 **R script**:  
 ```{r, echo=TRUE}
 #angina
@@ -250,6 +251,7 @@ oth_HUNT_0<-merge(oth_HUNT_0,med_table_hunt[,c("id","dis_angina_ever_0")],by="id
   
 **Harmonization status**:  complete  
 **Harmonization comment**:  Missing was set as No if the participant also had answered No to having the same disease in HUNT3. Missing was corrected to Yes if the participant had answered Yes to the same disease in HUNT1. No was corrected to Yes if the participant had answered Yes to the same disease in HUNT1 and HUNT3 or only in HUNT3 and reported age at first time having the disease before partAge in HUNT2. A few Yes was corrected to No (value 0) if the participants had answered No to the same disease in both HUNT1 and HUNT3 and not reported the AGE first time having the disease in HUNT3.  
+The harmonized variable "Lifetime occurrence of angina (pain or discomfort in chest)" for followup waves was created using "Lifetime occurrence of angina (pain or discomfort in chest)" from baseline and previous and current waves. To create this variable, all HUNT data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 **R script**:  
 ```{r, echo=TRUE}
 #angina
@@ -274,6 +276,7 @@ oth_HUNT_1<-merge(oth_HUNT_1,med_table_hunt[,c("id","dis_angina_ever_1")],by="id
 **Harmonization comment**:  No was corrected to Yes if the participant had: 1) reported Yes to the same disease in HUNT2 and reported age first time having the the disease in HUNT2 and/or HUNT3,
 2) reported Yes at both HUNT2 and at CVD follow-up in HUNT3 or 3) reported Yes at the CVD follow-up in HUNT3 and reported age at first time having the disease. 
 A few Yes was corrected to No (value 0) if the participants had answered No to the same disease at the CVD follow-up and in HUNT1 and/or HUNT2 and not reported the age at first time having the disease in HUNT3.  
+The harmonized variable "Lifetime occurrence of angina (pain or discomfort in chest)" for followup waves was created using "Lifetime occurrence of angina (pain or discomfort in chest)" from baseline and previous and current waves. To create this variable, all HUNT data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 **R script**:  
 ```{r, echo=TRUE}
 #angina
@@ -335,6 +338,7 @@ oth_HUNT_2<-merge(oth_HUNT_2,med_table_hunt[,c("id","dis_angina_ever_2")],by="id
 
 **Harmonization status**:  complete  
 **Harmonization comment**:  Missing was set as No (Value 0) if the participant also had answered No to having the same illness in HUNT2 and/or HUNT3. A few Yes (value 1) was corrected to No (value 0) if the participants had answered No to the same disease in both HUNT2 and HUNT3 and not reported age first time of the disease.  
+The harmonized variable "Lifetime occurrence of myocardial infarction (heart attack)" for followup waves was created using "Lifetime occurrence of myocardial infarction (heart attack)" from baseline and previous and current waves. To create this variable, all HUNT data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 **R script**:  
 ```{r, echo=TRUE}
 #mi
@@ -356,6 +360,7 @@ oth_HUNT_0<-merge(oth_HUNT_0,med_table_hunt[,c("id","dis_mi_ever_0")],by="id",al
 
 **Harmonization status**:  complete  
 **Harmonization comment**:  Missing was set as No if the participant also had answered No to having the same disease in HUNT3. Missing was corrected to Yes if the participant had answered Yes to the same disease in HUNT1. No was corrected to Yes if the participant had answered Yes to the same disease in HUNT1 and HUNT3 or only in HUNT3 and reported age at first time having the disease before partAge in HUNT2. A few Yes was corrected to No (value 0) if the participants had answered No to the same disease in both HUNT1 and HUNT3 and not reported the AGE first time having the disease in HUNT3.  
+The harmonized variable "Lifetime occurrence of myocardial infarction (heart attack)" for followup waves was created using "Lifetime occurrence of myocardial infarction (heart attack)" from baseline and previous and current waves. To create this variable, all HUNT data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 **R script**:  
 ```{r, echo=TRUE}
 #mi
@@ -380,6 +385,7 @@ oth_HUNT_1<-merge(oth_HUNT_1,med_table_hunt[,c("id","dis_mi_ever_1")],by="id",al
 **Harmonization comment**:  No was corrected to Yes if the participant had: 1) reported Yes to the same disease in HUNT2 and reported age first time having the the disease in HUNT2 and/or HUNT3,
 2) reported Yes at both HUNT2 and at CVD follow-up in HUNT3 or 3) reported Yes at the CVD follow-up in HUNT3 and reported age at first time having the disease. 
 A few Yes was corrected to No (value 0) if the participants had answered No to the same disease at the CVD follow-up and in HUNT1 and/or HUNT2 and not reported the age at first time having the disease in HUNT3.  
+The harmonized variable "Lifetime occurrence of myocardial infarction (heart attack)" for followup waves was created using "Lifetime occurrence of myocardial infarction (heart attack)" from baseline and previous and current waves. To create this variable, all HUNT data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 **R script**:  
 ```{r, echo=TRUE}
 #mi
@@ -448,6 +454,7 @@ oth_HUNT_2$dis_mi_age_2<- as.numeric(HUNT3$CarInfAg_NT3BLQ1)
 **Harmonization status**:  complete  
 **Harmonization comment**:  Answers were compared between the same questions in the baseline questionnaire (Q1) at HUNT1, HUNT2 and HUNT3 and corrected if possible. Missing was set as No (Value 0) if the participant also had answered No to having the same illness in HUNT2 and/or HUNT3.
 A few Yes (value 1) was corrected to No (value 0) if the participants had answered No to the same disease in both HUNT2 and HUNT3 and not reported age first time of the disease.  
+The harmonized variable "Lifetime occurrence of stroke or cerebrovascular accident (CVA)" for followup waves was created using "Lifetime occurrence of stroke or cerebrovascular accident (CVA)" from baseline and previous and current waves. To create this variable, all HUNT data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 **R script**:  
 ```{r, echo=TRUE}
 #stroke
@@ -469,6 +476,7 @@ oth_HUNT_0<-merge(oth_HUNT_0,med_table_hunt[,c("id","dis_stroke_ever_0")],by="id
 
 **Harmonization status**:  complete  
 **Harmonization comment**:  Missing was set as No if the participant also had answered No to having the same disease in HUNT3. Missing was corrected to Yes if the participant had answered Yes to the same disease in HUNT1. No was corrected to Yes if the participant had answered Yes to the same disease in HUNT1 and HUNT3 or only in HUNT3 and reported age at first time having the disease before partAge in HUNT2. A few Yes was corrected to No (value 0) if the participants had answered No to the same disease in both HUNT1 and HUNT3 and not reported the AGE first time having the disease in HUNT3.  
+The harmonized variable "Lifetime occurrence of stroke or cerebrovascular accident (CVA)" for followup waves was created using "Lifetime occurrence of stroke or cerebrovascular accident (CVA)" from baseline and previous and current waves. To create this variable, all HUNT data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 **R script**:  
 ```{r, echo=TRUE}
 #stroke
@@ -491,6 +499,7 @@ oth_HUNT_1<-merge(oth_HUNT_1,med_table_hunt[,c("id","dis_stroke_ever_1")],by="id
 
 **Harmonization status**:  complete  
 **Harmonization comment**:  No was corrected to Yes if the participant had: 1) reported Yes to the same disease in HUNT2 and reported age first time having the the disease in HUNT2 and/or HUNT3, 2) reported Yes at both HUNT2 and at CVD follow-up in HUNT3 or 3) reported Yes at the CVD follow-up in HUNT3 and reported age at first time having the disease.  A few Yes was corrected to No (value 0) if the participants had answered No to the same disease at the CVD follow-up and in HUNT1 and/or HUNT2 and not reported the age at first time having the disease in HUNT3.  
+The harmonized variable "Lifetime occurrence of stroke or cerebrovascular accident (CVA)" for followup waves was created using "Lifetime occurrence of stroke or cerebrovascular accident (CVA)" from baseline and previous and current waves. To create this variable, all HUNT data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 **R script**:  
 ```{r, echo=TRUE}
 #stroke
@@ -564,7 +573,7 @@ oth_HUNT_2$dis_stroke_age_2<- as.numeric(HUNT3$ApoplAg_NT3BLQ1)
 #diabetes
 med_table_hunt$dis_diab_ever_0<- as.integer(med_table_hunt$DiaEv_NT1BLQ1)
 #Direct mapping to harmonized tables keeping correct participants for each wave
-oth_HUNT_2<-merge(oth_HUNT_2,med_table_hunt[,c("id","dis_diab_ever_2")],by="id",all.x=TRUE)
+oth_HUNT_0<-merge(oth_HUNT_0,med_table_hunt[,c("id","dis_diab_ever_0")],by="id",all.x=TRUE)
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes or high blood sugar     
 **Variable name**: dis_diab_ever_1  
@@ -579,7 +588,7 @@ oth_HUNT_2<-merge(oth_HUNT_2,med_table_hunt[,c("id","dis_diab_ever_2")],by="id",
 1          |  Ever had diabetes  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  
+**Harmonization comment**:  The harmonized variable "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" for followup waves was created using "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" from baseline and previous and current waves. To create this variable, all HUNT data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 **R script**:  
 ```{r, echo=TRUE}  
 #diabetes
@@ -601,7 +610,7 @@ oth_HUNT_1<-merge(oth_HUNT_1,med_table_hunt[,c("id","dis_diab_ever_1")],by="id",
 1          |  Ever had diabetes  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  
+**Harmonization comment**:  The harmonized variable "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" for followup waves was created using "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" from baseline and previous and current waves. To create this variable, all HUNT data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 **R script**:  
 ```{r, echo=TRUE}  
 #diabetes
