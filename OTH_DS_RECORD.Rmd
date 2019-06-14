@@ -60,7 +60,7 @@ opal.logout(erasmus_opal)
 1          |  Ever had high blood pressure or hypertension  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   The harmonized variable "Lifetime occurrence of high blood pressure or hypertension" for followup waves was created using "Lifetime occurrence of high blood pressure or hypertension" from baseline and previous and current waves. To create this variable, all HUNT data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
+**Harmonization comment**:   The harmonized variable "Lifetime occurrence of high blood pressure or hypertension" for followup waves was created using "Lifetime occurrence of high blood pressure or hypertension" from baseline and previous and current waves. To create this variable, all RECORD data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 **R script**:  
 ```{r, echo=TRUE}
 RECORD_W2_2<- RECORD_w2
@@ -95,7 +95,7 @@ oth_RECORD_0<-merge(oth_RECORD_0,med_table_record[,c("id","dis_hbp_ever_0")],by=
 
 **Harmonization status**:  complete  
 **Harmonization comment**: Baseline only asks about high blood pressure whereas this wave asks for high blood pressure and also hypertension. Both variables were combined.    
-The harmonized variable "Lifetime occurrence of high blood pressure or hypertension" for followup waves was created using "Lifetime occurrence of high blood pressure or hypertension" from baseline and previous and current waves. To create this variable, all HUNT data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
+The harmonized variable "Lifetime occurrence of high blood pressure or hypertension" for followup waves was created using "Lifetime occurrence of high blood pressure or hypertension" from baseline and previous and current waves. To create this variable, all RECORD data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 **R script**:  
 ```{r, echo=TRUE}
 med_table_record$dis_hbp_ever_1_1<- ifelse(med_table_record$P2_Q1_15 == 0 & med_table_record$P2_Q1_16==1,0L,
@@ -246,7 +246,7 @@ oth_RECORD_1<-merge(oth_RECORD_1,med_table_record[,c("id","dis_hbp_ever_1")],by=
 1        |  Ever had angina  
   
 **Harmonization status**:  complete  
-**Harmonization comment**:  The harmonized variable "Lifetime occurrence of angina (pain or discomfort in chest)" for followup waves was created using "of angina (pain or discomfort in chest)" from baseline and previous and current waves. To create this variable, all HUNT data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
+**Harmonization comment**:  The harmonized variable "Lifetime occurrence of angina (pain or discomfort in chest)" for followup waves was created using "of angina (pain or discomfort in chest)" from baseline and previous and current waves. To create this variable, all RECORD data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 **R script**:  
 ```{r, echo=TRUE}
 med_table_record$dis_angina_ever_0<- recode(as.character(med_table_record$Qm35),'N'=0L,'O'=1L)
@@ -266,7 +266,7 @@ oth_RECORD_0<-merge(oth_RECORD_0,med_table_record[,c("id","dis_angina_ever_0")],
 1        |  Ever had angina  
   
 **Harmonization status**:  complete  
-**Harmonization comment**:  The harmonized variable "Lifetime occurrence of angina (pain or discomfort in chest)" for followup waves was created using "of angina (pain or discomfort in chest)" from baseline and previous and current waves. To create this variable, all HUNT data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
+**Harmonization comment**:  The harmonized variable "Lifetime occurrence of angina (pain or discomfort in chest)" for followup waves was created using "of angina (pain or discomfort in chest)" from baseline and previous and current waves. To create this variable, all RECORD data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 **R script**:  
 ```{r, echo=TRUE}
 med_table_record$dis_angina_ever_1<- ifelse(med_table_record$dis_angina_ever_0==0 & as.character(med_table_record$Qm36)=='N',0L,
@@ -347,7 +347,7 @@ oth_RECORD_1<-merge(oth_RECORD_1,med_table_record[,c("id","dis_angina_ever_1")],
 1        |   Ever had myocardial infarction  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  The harmonized variable "Lifetime occurrence of myocardial infarction (heart attack)" for followup waves was created using "Lifetime occurrence of myocardial infarction (heart attack)" from baseline and previous and current waves. To create this variable, all HUNT data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
+**Harmonization comment**:  The harmonized variable "Lifetime occurrence of myocardial infarction (heart attack)" for followup waves was created using "Lifetime occurrence of myocardial infarction (heart attack)" from baseline and previous and current waves. To create this variable, all RECORD data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 **R script**:  
 ```{r, echo=TRUE}
 #mi
@@ -368,7 +368,7 @@ oth_RECORD_0<-merge(oth_RECORD_0,med_table_record[,c("id","dis_mi_ever_0")],by="
 1        |   Ever had myocardial infarction  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  The harmonized variable "Lifetime occurrence of myocardial infarction (heart attack)" for followup waves was created using "Lifetime occurrence of myocardial infarction (heart attack)" from baseline and previous and current waves. To create this variable, all HUNT data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
+**Harmonization comment**:  The harmonized variable "Lifetime occurrence of myocardial infarction (heart attack)" for followup waves was created using "Lifetime occurrence of myocardial infarction (heart attack)" from baseline and previous and current waves. To create this variable, all RECORD data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 **R script**:  
 ```{r, echo=TRUE}
 #mi
@@ -454,7 +454,7 @@ oth_RECORD_1<-merge(oth_RECORD_1,med_table_record[,c("id","dis_mi_ever_1")],by="
 1        |   Ever had stroke or CVA  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  The harmonized variable "Lifetime occurrence of stroke or cerebrovascular accident (CVA)" for followup waves was created using "Lifetime occurrence of stroke or cerebrovascular accident (CVA)" from baseline and previous and current waves. To create this variable, all HUNT data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
+**Harmonization comment**:  The harmonized variable "Lifetime occurrence of stroke or cerebrovascular accident (CVA)" for followup waves was created using "Lifetime occurrence of stroke or cerebrovascular accident (CVA)" from baseline and previous and current waves. To create this variable, all RECORD data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 **R script**:  
 ```{r, echo=TRUE}
 #stroke
@@ -475,7 +475,7 @@ oth_RECORD_0<-merge(oth_RECORD_0,med_table_record[,c("id","dis_stroke_ever_0")],
 1        |   Ever had stroke or CVA  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  The harmonized variable "Lifetime occurrence of stroke or cerebrovascular accident (CVA)" for followup waves was created using "Lifetime occurrence of stroke or cerebrovascular accident (CVA)" from baseline and previous and current waves. To create this variable, all HUNT data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
+**Harmonization comment**:  The harmonized variable "Lifetime occurrence of stroke or cerebrovascular accident (CVA)" for followup waves was created using "Lifetime occurrence of stroke or cerebrovascular accident (CVA)" from baseline and previous and current waves. To create this variable, all RECORD data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 **R script**:  
 ```{r, echo=TRUE}
 med_table_record$dis_stroke_ever_1<- ifelse(med_table_record$dis_stroke_ever_0==0 & as.character(med_table_record$Qm42)=='N',0L,
