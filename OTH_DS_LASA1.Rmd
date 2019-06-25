@@ -91,7 +91,7 @@ opal.logout(erasmus_opal)
 1          |  Ever had high blood pressure or hypertension  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   
+**Harmonization comment**:   Currently has hypertension is used. In general once a respondent has hypertension, they are affected by this chronic disease for life.   
 **R script**:  
 ```{r, echo=TRUE}
 oth_LASA1_1$dis_hbp_ever_1 <- recode(as.integer(LASA1C$chbd1), '1'=0L,'2'=1L, .default=NA_integer_)
@@ -724,7 +724,7 @@ oth_LASA1_1<-merge(oth_LASA1_1,med_table_lasa1[,c("id","dis_diab_age_1")],by="id
 **R script**:  
 ```{r, echo=TRUE}  
 #Harmonization scripts to create
-med_table_lasa1$dis_diab_age_2<- ifelse(med_table_lasa1$dis_diab_ever_1, med_table_lasa1$dis_diab_age_1, ifelse(med_table_lasa1$ddiabe02>=0 & (med_table_lasa1$ddiabe02 <= med_table_lasa1$dage), med_table_lasa1$ddiabe02,NA))
+med_table_lasa1$dis_diab_age_2<- ifelse(med_table_lasa1$dis_diab_ever_1==1, med_table_lasa1$dis_diab_age_1, ifelse(med_table_lasa1$ddiabe02>=0 & (med_table_lasa1$ddiabe02 <= med_table_lasa1$dage), med_table_lasa1$ddiabe02,NA))
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_LASA1_2<-merge(oth_LASA1_2,med_table_lasa1[,c("id","dis_diab_age_2")],by="id",all.x=TRUE)
 ```  
@@ -740,7 +740,7 @@ oth_LASA1_2<-merge(oth_LASA1_2,med_table_lasa1[,c("id","dis_diab_age_2")],by="id
 **R script**:  
 ```{r, echo=TRUE}  
 #Harmonization scripts to create
-med_table_lasa1$dis_diab_age_3<- ifelse(med_table_lasa1$dis_diab_ever_2, med_table_lasa1$dis_diab_age_2, ifelse(med_table_lasa1$ediabe02>=0 & (med_table_lasa1$ediabe02 <= med_table_lasa1$eage), med_table_lasa1$ediabe02,NA))
+med_table_lasa1$dis_diab_age_3<- ifelse(med_table_lasa1$dis_diab_ever_2==1, med_table_lasa1$dis_diab_age_2, ifelse(med_table_lasa1$ediabe02>=0 & (med_table_lasa1$ediabe02 <= med_table_lasa1$eage), med_table_lasa1$ediabe02,NA))
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_LASA1_3<-merge(oth_LASA1_3,med_table_lasa1[,c("id","dis_diab_age_3")],by="id",all.x=TRUE)
 ```  
@@ -756,7 +756,7 @@ oth_LASA1_3<-merge(oth_LASA1_3,med_table_lasa1[,c("id","dis_diab_age_3")],by="id
 **R script**:  
 ```{r, echo=TRUE}  
 #Harmonization scripts to create
-med_table_lasa1$dis_diab_age_4<- ifelse(med_table_lasa1$dis_diab_ever_3, med_table_lasa1$dis_diab_age_3, ifelse(med_table_lasa1$fdiabe02>=0 & (med_table_lasa1$fdiabe02 <= med_table_lasa1$fage), med_table_lasa1$fdiabe02,NA))
+med_table_lasa1$dis_diab_age_4<- ifelse(med_table_lasa1$dis_diab_ever_3==1, med_table_lasa1$dis_diab_age_3, ifelse(med_table_lasa1$fdiabe02>=0 & (med_table_lasa1$fdiabe02 <= med_table_lasa1$fage), med_table_lasa1$fdiabe02,NA))
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_LASA1_4<-merge(oth_LASA1_4,med_table_lasa1[,c("id","dis_diab_age_4")],by="id",all.x=TRUE)
 ```  
@@ -772,7 +772,7 @@ oth_LASA1_4<-merge(oth_LASA1_4,med_table_lasa1[,c("id","dis_diab_age_4")],by="id
 **R script**:  
 ```{r, echo=TRUE}  
 #Harmonization scripts to create
-med_table_lasa1$dis_diab_age_5<- ifelse(med_table_lasa1$dis_diab_ever_4, med_table_lasa1$dis_diab_age_4, ifelse(med_table_lasa1$gdiabe02>=0 & (med_table_lasa1$gdiabe02 <= med_table_lasa1$gage), med_table_lasa1$gdiabe02,NA))
+med_table_lasa1$dis_diab_age_5<- ifelse(med_table_lasa1$dis_diab_ever_4==1, med_table_lasa1$dis_diab_age_4, ifelse(med_table_lasa1$gdiabe02>=0 & (med_table_lasa1$gdiabe02 <= med_table_lasa1$gage), med_table_lasa1$gdiabe02,NA))
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_LASA1_5<-merge(oth_LASA1_5,med_table_lasa1[,c("id","dis_diab_age_5")],by="id",all.x=TRUE)
 ```  
@@ -791,6 +791,7 @@ oth_LASA1_5<-merge(oth_LASA1_5,med_table_lasa1[,c("id","dis_diab_age_5")],by="id
 
 **Harmonization status**:  complete  
 **Harmonization comment**:  Two variables are used for harmonization. "Diabetes-taking medication" categorized as: No | Yes, insulin injections | Yes, tablets only and "Diabetes: treatment doctor" categorized as: No | Yes, family physician | Yes, specialist.  
+Non diabetics are coded as "Not currently under treatment for diabetes".     
 **R script**:
 ```{r, echo=TRUE}
 oth_LASA1_0$dis_diab_tx_0<- ifelse((as.integer(LASA1B$bdiabe03)==0 & as.integer(LASA1B$bdiabe04)==0) | ((as.integer(LASA1B$bdiabe01)==0 & as.integer(LASA1B$bdiabe03)==-2) & (as.integer(LASA1B$bdiabe01)==0 & as.integer(LASA1B$bdiabe04)==-2)),0L, ifelse(as.integer(LASA1B$bdiabe03)>=1 | as.integer(LASA1B$bdiabe04)>=1,1L,NA))
@@ -809,6 +810,7 @@ oth_LASA1_0$dis_diab_tx_0<- ifelse((as.integer(LASA1B$bdiabe03)==0 & as.integer(
 
 **Harmonization status**:  complete  
 **Harmonization comment**:  Two variables are used for harmonization. "Diabetes-taking medication" categorized as: No | Yes, insulin injections | Yes, tablets only and "Diabetes: treatment doctor" categorized as: No | Yes, family physician | Yes, specialist.  
+Non diabetics are coded as "Not currently under treatment for diabetes".     
 **R script**:
 ```{r, echo=TRUE}
 oth_LASA1_1$dis_diab_tx_1<- ifelse((as.integer(LASA1C$cdiabe03)==1 & as.integer(LASA1C$cdiabe04)==1) | ((as.integer(LASA1C$cdiabe01)==0 & as.integer(LASA1C$cdiabe03)==-2) & (as.integer(LASA1C$cdiabe01)==0 & as.integer(LASA1C$cdiabe04)==-2)),0L, ifelse(as.integer(LASA1C$cdiabe03)>=2 | as.integer(LASA1C$cdiabe04)>=2,1L,NA))
@@ -827,6 +829,7 @@ oth_LASA1_1$dis_diab_tx_1<- ifelse((as.integer(LASA1C$cdiabe03)==1 & as.integer(
 
 **Harmonization status**:  complete  
 **Harmonization comment**:  Two variables are used for harmonization. "Diabetes-taking medication" categorized as: No | Yes, insulin injections | Yes, tablets only and "Diabetes: treatment doctor" categorized as: No | Yes, family physician | Yes, specialist.  
+Non diabetics are coded as "Not currently under treatment for diabetes".     
 **R script**:
 ```{r, echo=TRUE}
 oth_LASA1_2$dis_diab_tx_2<- ifelse((as.integer(LASA1D$ddiabe03)==1 & as.integer(LASA1D$ddiabe04)==1) | ((as.integer(LASA1D$ddiabe01)==0 & as.integer(LASA1D$ddiabe03)==-2) & (as.integer(LASA1D$ddiabe01)==0 & as.integer(LASA1D$ddiabe04)==-2)),0L, ifelse(as.integer(LASA1D$ddiabe03)>=2 | as.integer(LASA1D$ddiabe04)>=2,1L,NA))
@@ -845,6 +848,7 @@ oth_LASA1_2$dis_diab_tx_2<- ifelse((as.integer(LASA1D$ddiabe03)==1 & as.integer(
 
 **Harmonization status**:  complete  
 **Harmonization comment**:  Two variables are used for harmonization. "Diabetes-taking medication" categorized as: No | Yes, insulin injections | Yes, tablets only and "Diabetes: treatment doctor" categorized as: No | Yes, family physician | Yes, specialist.  
+Non diabetics are coded as "Not currently under treatment for diabetes".     
 **R script**:
 ```{r, echo=TRUE}
 oth_LASA1_3$dis_diab_tx_3<- ifelse((as.integer(LASA1E$ediabe03)==1 & as.integer(LASA1E$ediabe04)==1) | ((as.integer(LASA1E$ediabe01)==0 & as.integer(LASA1E$ediabe03)==-2) & (as.integer(LASA1E$ediabe01)==0 & as.integer(LASA1E$ediabe04)==-2)),0L, ifelse(as.integer(LASA1E$ediabe03)>=2 | as.integer(LASA1E$ediabe04)>=2,1L,NA))
@@ -863,6 +867,7 @@ oth_LASA1_3$dis_diab_tx_3<- ifelse((as.integer(LASA1E$ediabe03)==1 & as.integer(
 
 **Harmonization status**:  complete  
 **Harmonization comment**:  Two variables are used for harmonization. "Diabetes-taking medication" categorized as: No | Yes, insulin injections | Yes, tablets only and "Diabetes: treatment doctor" categorized as: No | Yes, family physician | Yes, specialist.  
+Non diabetics are coded as "Not currently under treatment for diabetes".     
 **R script**:
 ```{r, echo=TRUE}
 oth_LASA1_4$dis_diab_tx_4<- ifelse((as.integer(LASA1F$fdiabe03)==1 & as.integer(LASA1F$fdiabe04)==1) | ((as.integer(LASA1F$fdiabe01)==0 & as.integer(LASA1F$fdiabe03)==-2) & (as.integer(LASA1F$fdiabe01)==0 & as.integer(LASA1F$fdiabe04)==-2)),0L, ifelse(as.integer(LASA1F$fdiabe03)>=2 | as.integer(LASA1F$fdiabe04)>=2,1L,NA))
@@ -881,6 +886,7 @@ oth_LASA1_4$dis_diab_tx_4<- ifelse((as.integer(LASA1F$fdiabe03)==1 & as.integer(
 
 **Harmonization status**:  complete  
 **Harmonization comment**:  Two variables are used for harmonization. "Diabetes-taking medication" categorized as: No | Yes, insulin injections | Yes, tablets only and "Diabetes: treatment doctor" categorized as: No | Yes, family physician | Yes, specialist.  
+Non diabetics are coded as "Not currently under treatment for diabetes".     
 **R script**:
 ```{r, echo=TRUE}
 oth_LASA1_5$dis_diab_tx_5<- ifelse((as.integer(LASA1G$gdiabe03)==1 & as.integer(LASA1G$gdiabe04)==1) | ((as.integer(LASA1G$gdiabe01)==0 & as.integer(LASA1G$gdiabe03)==-2) & (as.integer(LASA1G$gdiabe01)==0 & as.integer(LASA1G$gdiabe04)==-2)),0L, ifelse(as.integer(LASA1G$gdiabe03)>=2 | as.integer(LASA1G$gdiabe04)>=2,1L,NA))
@@ -899,9 +905,10 @@ oth_LASA1_5$dis_diab_tx_5<- ifelse((as.integer(LASA1G$gdiabe03)==1 & as.integer(
 
 **Harmonization status**:  complete  
 **Harmonization comment**:  Categories of study-specific variable (Diabetes-taking medication) are No | Yes, insulin injections | Yes, tablets only. If respondent does not do treatment for diabetes then coded as NA in "Currently use insulin for diabetes".   
+Non diabetics and participants that responded no to "currently taking treatment" are coded as "Currently does not use insulin for diabetes treatment."   
 **R script**:
 ```{r, echo=TRUE}
-oth_LASA1_0$dis_diab_ins_0 <- recode(as.integer(LASA1B$bdiabe03),'0'=0L,'1'=1L,'2'=0L, .default=NA_integer_)
+oth_LASA1_0$dis_diab_ins_0 <- ifelse(oth_LASA1_0$dis_diab_tx_0==0,0L,recode(as.integer(LASA1B$bdiabe03),'0'=0L,'1'=1L,'2'=0L, .default=NA_integer_))
 ```  
 ### **Variable label**: Currently use insulin for diabetes  
 **Variable name**:  dis_diab_ins_1  
@@ -917,9 +924,10 @@ oth_LASA1_0$dis_diab_ins_0 <- recode(as.integer(LASA1B$bdiabe03),'0'=0L,'1'=1L,'
 
 **Harmonization status**:  complete  
 **Harmonization comment**:  Categories of study-specific variable (Diabetes-taking medication) are No | Yes, insulin injections | Yes, tablets only. If respondent does not do treatment for diabetes then coded as NA in "Currently use insulin for diabetes".  
+Non diabetics and participants that responded no to "currently taking treatment" are coded as "Currently does not use insulin for diabetes treatment."   
 **R script**:
 ```{r, echo=TRUE}
-oth_LASA1_1$dis_diab_ins_1 <- recode(as.integer(LASA1C$cdiabe03),'1'=0L,'2'=1L,'3'=0L, .default=NA_integer_)
+oth_LASA1_1$dis_diab_ins_1 <- ifelse(oth_LASA1_1$dis_diab_tx_1==0,0L,recode(as.integer(LASA1C$cdiabe03),'1'=0L,'2'=1L,'3'=0L, .default=NA_integer_))
 ```  
 ### **Variable label**: Currently use insulin for diabetes  
 **Variable name**:  dis_diab_ins_2  
@@ -935,9 +943,10 @@ oth_LASA1_1$dis_diab_ins_1 <- recode(as.integer(LASA1C$cdiabe03),'1'=0L,'2'=1L,'
 
 **Harmonization status**:  complete  
 **Harmonization comment**:  Categories of study-specific variable (Diabetes-taking medication) are No | Yes, insulin injections | Yes, tablets only. If respondent does not do treatment for diabetes then coded as NA in "Currently use insulin for diabetes".   
+Non diabetics and participants that responded no to "currently taking treatment" are coded as "Currently does not use insulin for diabetes treatment."   
 **R script**:
 ```{r, echo=TRUE}
-oth_LASA1_2$dis_diab_ins_2 <- recode(as.integer(LASA1D$ddiabe03),'1'=0L,'2'=1L,'3'=0L, .default=NA_integer_)
+oth_LASA1_2$dis_diab_ins_2 <- ifelse(oth_LASA1_2$dis_diab_tx_2==0,0L,recode(as.integer(LASA1D$ddiabe03),'1'=0L,'2'=1L,'3'=0L, .default=NA_integer_))
 ```  
 # BMI subdomain
 
@@ -2301,7 +2310,7 @@ oth_LASA1_6$phy_waist_all_6 <- ifelse(as.numeric(LASA1H$HMED156)>0,as.numeric(LA
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_LASA1_0$poh_sah_0 <- recode(as.integer(LASA1B$bsubhea1),'1'=0L,'2'=0L,'1'=1L,'4'=1L,'5'=3L,.default=NA_integer_)
+oth_LASA1_0$poh_sah_0 <- recode(as.integer(LASA1B$bsubhea1),'1'=0L,'2'=0L,'3'=1L,'4'=1L,'5'=3L,.default=NA_integer_)
 ```  
 ### **Variable label**:  Self-assessed health   
 **Variable name**:  poh_sah_1  
@@ -2320,7 +2329,7 @@ oth_LASA1_0$poh_sah_0 <- recode(as.integer(LASA1B$bsubhea1),'1'=0L,'2'=0L,'1'=1L
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_LASA1_1$poh_sah_1 <- recode(as.integer(LASA1C$csubhea1),'1'=0L,'2'=0L,'1'=1L,'4'=1L,'5'=3L,.default=NA_integer_)
+oth_LASA1_1$poh_sah_1  <- recode(as.integer(LASA1C$csubhea1),'1'=0L,'2'=0L,'3'=1L,'4'=1L,'5'=3L,.default=NA_integer_)
 ```  
 ### **Variable label**:  Self-assessed health   
 **Variable name**:  poh_sah_2  
@@ -2339,7 +2348,7 @@ oth_LASA1_1$poh_sah_1 <- recode(as.integer(LASA1C$csubhea1),'1'=0L,'2'=0L,'1'=1L
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_LASA1_2$poh_sah_2 <- recode(as.integer(LASA1D$dsubhea1),'1'=0L,'2'=0L,'1'=1L,'4'=1L,'5'=3L,.default=NA_integer_)
+oth_LASA1_2$poh_sah_2  <- recode(as.integer(LASA1D$dsubhea1),'1'=0L,'2'=0L,'3'=1L,'4'=1L,'5'=3L,.default=NA_integer_)
 ```  
 ### **Variable label**:  Self-assessed health   
 **Variable name**:  poh_sah_3  
@@ -2358,7 +2367,7 @@ oth_LASA1_2$poh_sah_2 <- recode(as.integer(LASA1D$dsubhea1),'1'=0L,'2'=0L,'1'=1L
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_LASA1_3$poh_sah_3 <- recode(as.integer(LASA1E$esubhea1),'1'=0L,'2'=0L,'1'=1L,'4'=1L,'5'=3L,.default=NA_integer_)
+oth_LASA1_3$poh_sah_3  <- recode(as.integer(LASA1E$esubhea1),'1'=0L,'2'=0L,'3'=1L,'4'=1L,'5'=3L,.default=NA_integer_)
 ```  
 ### **Variable label**:  Self-assessed health   
 **Variable name**:  poh_sah_4  
@@ -2377,7 +2386,7 @@ oth_LASA1_3$poh_sah_3 <- recode(as.integer(LASA1E$esubhea1),'1'=0L,'2'=0L,'1'=1L
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_LASA1_4$poh_sah_4 <- recode(as.integer(LASA1F$fsubhea1),'1'=0L,'2'=0L,'1'=1L,'4'=1L,'5'=3L,.default=NA_integer_)
+oth_LASA1_4$poh_sah_4  <- recode(as.integer(LASA1F$fsubhea1),'1'=0L,'2'=0L,'3'=1L,'4'=1L,'5'=3L,.default=NA_integer_)
 ```  
 ### **Variable label**:  Self-assessed health   
 **Variable name**:  poh_sah_5  
@@ -2396,7 +2405,7 @@ oth_LASA1_4$poh_sah_4 <- recode(as.integer(LASA1F$fsubhea1),'1'=0L,'2'=0L,'1'=1L
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_LASA1_5$poh_sah_5 <- recode(as.integer(LASA1G$gsubhea1),'1'=0L,'2'=0L,'1'=1L,'4'=1L,'5'=3L,.default=NA_integer_)
+oth_LASA1_5$poh_sah_5  <- recode(as.integer(LASA1G$gsubhea1),'1'=0L,'2'=0L,'3'=1L,'4'=1L,'5'=3L,.default=NA_integer_)
 ```  
 ### **Variable label**:  Self-assessed health   
 **Variable name**:  poh_sah_6  
@@ -2415,7 +2424,7 @@ oth_LASA1_5$poh_sah_5 <- recode(as.integer(LASA1G$gsubhea1),'1'=0L,'2'=0L,'1'=1L
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_LASA1_6$poh_sah_6 <- recode(as.integer(LASA1H$hsubhea1),'1'=0L,'2'=0L,'1'=1L,'4'=1L,'5'=3L,.default=NA_integer_)
+oth_LASA1_6$poh_sah_6 <- recode(as.integer(LASA1H$hsubhea1),'1'=0L,'2'=0L,'3'=1L,'4'=1L,'5'=3L,.default=NA_integer_)
 ```  
 
 ### **Variable label**:  Poor self-assessed health  
