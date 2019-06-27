@@ -68,7 +68,7 @@ opal.logout(erasmus_opal)
 1          |  Ever had high blood pressure or hypertension  
 
 **Harmonization status**:  complete    
-**Harmonization comment**:   medical conditions now or in past 5 years: Hypertension (high blood pressure)  
+**Harmonization comment**:   Study-specific variable "medical conditions now or in past 5 years: Hypertension (high blood pressure)" was used for harmonization.    
 **R script**:  
 ```{r, echo=TRUE}
 #HYPERTENSION VARIABLE
@@ -96,7 +96,7 @@ oth_GLOBE_0<-merge(oth_GLOBE_0,med_table[,c("id","dis_hbp_ever_0")],by="id",all.
 1          |  Ever had high blood pressure or hypertension  
 
 **Harmonization status**:  complete    
-**Harmonization comment**:   medical conditions past 12 months: Hypertension (high blood pressure)  
+**Harmonization comment**:   The harmonized variable "Lifetime occurrence of high blood pressure or hypertension" for followup waves was created using "Lifetime occurrence of high blood pressure or hypertension" from baseline and the study-specific variable "medical conditions past 12 months: Hypertension (high blood pressure)" from current wave. To create this variable, all GLOBE data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 **R script**:  
 ```{r, echo=TRUE}
 #Harmonization scripts to create "ever had med"
@@ -120,7 +120,7 @@ oth_GLOBE_1<-merge(oth_GLOBE_1,med_table[,c("id","dis_hbp_ever_1")],by="id",all.
 
 
 **Harmonization status**:  impossible    
-**Harmonization comment**:  Do you use medication for high blood pressure (hypertension)?  
+**Harmonization comment**:  Study-specific variable is current use of medication for high blood pressure (hypertention).  
 **R script**:  
 ```{r, echo=TRUE}
  
@@ -339,7 +339,7 @@ oth_GLOBE_1<-merge(oth_GLOBE_1,med_table[,c("id","dis_hbp_ever_1")],by="id",all.
 1        |   Ever had myocardial infarction  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  Question was only asked to a subset of participants.  
+**Harmonization comment**:  Lifetime occurence of myocardial infarction was only collected for a subset of participants.  
 **R script**:  
 ```{r, echo=TRUE}
 oth_GLOBE_0$dis_mi_ever_0<-recode(as.integer(GLOBE1991$SEVMv333),'1'=1L,'2'=0L,.default = NA_integer_)
@@ -357,7 +357,7 @@ oth_GLOBE_0$dis_mi_ever_0<-recode(as.integer(GLOBE1991$SEVMv333),'1'=1L,'2'=0L,.
 1        |   Ever had myocardial infarction  
 
 **Harmonization status**:  impossible  
-**Harmonization comment**:  The question asked was: "For respondents with heart conditions: Have you had a myocardial infarction or a heart attack in the past 3 years?". Since myocardial infarctus is punctual , it's impossible to determine whether the participant had it before or not.
+**Harmonization comment**:  The question asked was: "For respondents with heart conditions: Have you had a myocardial infarction or a heart attack in the past 3 years?". Since myocardial infarctus is punctual , it's impossible to determine whether the participant had it before or not.  
 **R script**:  
 ```{r, echo=TRUE}
 
@@ -543,7 +543,7 @@ oth_GLOBE_0$dis_mi_age_0<-as.integer(GLOBE1991$SEVMv337)
 1          |  Ever had diabetes  
 
 **Harmonization status**:  impossible  
-**Harmonization comment**:  Do you have diabetes, or are you being treated for diabetes by a general practitioner or medical specialist? Do not include gestational diabetes.  
+**Harmonization comment**:  Study-specific question "Do you have diabetes, or are you being treated for diabetes by a general practitioner or medical specialist? Do not include gestational diabetes" was used for harmonization. In general once a respondent has diabetes, they are affected by this chronic disease for life. The harmonized variable "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" for followup waves was created using "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" from baseline and previous and current waves. To create this variable, all GLOBE data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 **R script**:  
 ```{r, echo=TRUE}  
 med_table$dis_diab_ever_0 <- recode(as.integer(med_table$v213),'1'=0L,'2'=1L,'3'=1L,'8'=1L,.default = NA_integer_)
@@ -564,7 +564,7 @@ oth_GLOBE_0<-merge(oth_GLOBE_0,med_table[,c("id","dis_diab_ever_0")],by="id",all
 1          |  Ever had diabetes  
 
 **Harmonization status**:  complete    
-**Harmonization comment**:  medical conditions past 12 months: Diabetes mellitus
+**Harmonization comment**:  Study-specific question "medical conditions past 12 months: Diabetes mellitus" was used for harmonization. In general once a respondent has diabetes, they are affected by this chronic disease for life. The harmonized variable "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" for followup waves was created using "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" from baseline and previous and current waves. To create this variable, all GLOBE data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 **R script**:  
 ```{r, echo=TRUE}  
 #Harmonization scripts to create "ever had med"
@@ -748,7 +748,8 @@ oth_GLOBE_0$dis_diab_age_0<-GLOBE1991$SEVMv349
 1        | Currently under treatment for diabetes  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   Question was only asked to a subset of participant.  
+**Harmonization comment**:   Four variables (which were only asked to a subset of participants) were used for harmonizaton: "Are you being treated for diabetes by the internist", "Do you use tablets for diabetes?", "Are you being treated for diabetes by the general practitioner?" and "Do you use insulin?".  
+Non diabetics are coded as "Not currently under treatment for diabetes".   
 **R script**:
 ```{r, echo=TRUE}
 oth_GLOBE_0$dis_diab_tx_0<-ifelse(oth_GLOBE_0$dis_diab_ever_0==1 & (GLOBE1991$SEVMv352==1|GLOBE1991$SEVMv351==1 |GLOBE1991$SEVMv362==1|GLOBE1991$SEVMv360==1),1L,ifelse(oth_GLOBE_0$dis_diab_ever_0==0 |(GLOBE1991$SEVMv352==2 & GLOBE1991$SEVMv351==2 & GLOBE1991$SEVMv362==2 & GLOBE1991$SEVMv360==2 ),0L,NA))
@@ -767,7 +768,8 @@ oth_GLOBE_0$dis_diab_tx_0<-ifelse(oth_GLOBE_0$dis_diab_ever_0==1 & (GLOBE1991$SE
 1        | Currently under treatment for diabetes  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  
+**Harmonization comment**:  Two study-specific variables were used for harmonizaton: "For responsdents with diabetis: Do you use insulin?" and "For responsdents with diabetis: Do you use tablets for diabetes? Do not include gestational diabetes".  
+Non diabetics are coded as "Not currently under treatment for diabetes".   
 **R script**:
 ```{r, echo=TRUE}
 oth_GLOBE_1$dis_diab_tx_1<-ifelse(oth_GLOBE_1$dis_diab_ever_1==1 & (GLOBE1997$r22a==1|GLOBE1997$r23)==1,1L,
@@ -863,7 +865,7 @@ oth_GLOBE_1$dis_diab_tx_1<-ifelse(oth_GLOBE_1$dis_diab_ever_1==1 & (GLOBE1997$r2
 1        | Currently has used insulin for diabetes treatment  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  Question was only asked to a subset of participant.  
+**Harmonization comment**:  Currently use insulin for diabetes was only collected for a subset of participants.  
 **R script**:  
 ```{r, echo=TRUE}
 oth_GLOBE_0$dis_diab_ins_0<-ifelse(oth_GLOBE_0$dis_diab_tx_0==0,0L,                         ifelse(oth_GLOBE_0$dis_diab_tx_0==1,recode(as.integer(GLOBE1991$SEVMv352),'1'=1L,'2'=0L),NA))
@@ -1016,7 +1018,7 @@ oth_GLOBE_1$dis_diab_ins_1<-ifelse(oth_GLOBE_1$dis_diab_tx_1==0,0L,
 **Category coding**: N/A
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   
+**Harmonization comment**:   Study-specific variable measures weight without clothes.  
 **R script**:  
 ```{r, echo=TRUE}
 oth_GLOBE_0$phy_weight_sr_0<-GLOBE1991$v124
@@ -1044,7 +1046,7 @@ oth_GLOBE_1$phy_weight_sr_1<-GLOBE1997$v19
 **Category coding**: N/A
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   Zeros found in the raw data and recoded to missing.    
+**Harmonization comment**:   Study-specific variable measures weight without clothes. Zeros found in the raw data and recoded to missing.    
 **R script**:  
 ```{r, echo=TRUE}
 oth_GLOBE_2$phy_weight_sr_2<-ifelse(GLOBE2004$w256>0,GLOBE2004$w256,NA)
@@ -1058,7 +1060,7 @@ oth_GLOBE_2$phy_weight_sr_2<-ifelse(GLOBE2004$w256>0,GLOBE2004$w256,NA)
 **Category coding**: N/A
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   
+**Harmonization comment**:   Study-specific variable measures weight without clothes.  
 **R script**:  
 ```{r, echo=TRUE}
 oth_GLOBE_3$phy_weight_sr_3<-GLOBE2011$v3_gewicht
@@ -1072,7 +1074,7 @@ oth_GLOBE_3$phy_weight_sr_3<-GLOBE2011$v3_gewicht
 **Category coding**: N/A
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   
+**Harmonization comment**:   Study-specific variable measures weight without clothes.  
 **R script**:  
 ```{r, echo=TRUE}
 oth_GLOBE_4$phy_weight_sr_4<-GLOBE2014$G14v3  
@@ -1129,7 +1131,7 @@ oth_GLOBE_0$phy_weight_all_0<-GLOBE1991$v124
 **Category coding**: N/A  
 
 **Harmonization status**:  complete 
-**Harmonization comment**:   
+**Harmonization comment**:   Study-specific variable measures weight without clothes.  
 **R script**:  
 ```{r, echo=TRUE}
 oth_GLOBE_1$phy_weight_all_1<-GLOBE1997$v19
@@ -1143,7 +1145,7 @@ oth_GLOBE_1$phy_weight_all_1<-GLOBE1997$v19
 **Category coding**: N/A  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   Zeros found in the raw data and recoded as missing.    
+**Harmonization comment**:   Study-specific variable measures weight without clothes. Zeros found in the raw data and recoded as missing.    
 **R script**:  
 ```{r, echo=TRUE}
 oth_GLOBE_2$phy_weight_all_2<-ifelse(GLOBE2004$w256>0,GLOBE2004$w256,NA)
@@ -1157,7 +1159,7 @@ oth_GLOBE_2$phy_weight_all_2<-ifelse(GLOBE2004$w256>0,GLOBE2004$w256,NA)
 **Category coding**: N/A  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   
+**Harmonization comment**:   Study-specific variable measures weight without clothes.  
 **R script**:  
 ```{r, echo=TRUE}
 oth_GLOBE_3$phy_weight_all_3<-GLOBE2011$v3_gewicht
@@ -1171,7 +1173,7 @@ oth_GLOBE_3$phy_weight_all_3<-GLOBE2011$v3_gewicht
 **Category coding**: N/A  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   
+**Harmonization comment**:   Study-specific variable measures weight without clothes.  
 **R script**:  
 ```{r, echo=TRUE}
 oth_GLOBE_4$phy_weight_all_4<-GLOBE2014$G14v3
@@ -1312,7 +1314,7 @@ oth_GLOBE_4$phy_weight_all_4<-GLOBE2014$G14v3
 **Category coding**: N/A
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   
+**Harmonization comment**:   Study-specific variable measures height without clothes. 
 **R script**:  
 ```{r, echo=TRUE}
 oth_GLOBE_0$phy_height_sr_0<-GLOBE1991$v127
@@ -1326,7 +1328,7 @@ oth_GLOBE_0$phy_height_sr_0<-GLOBE1991$v127
 **Category coding**: N/A
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   
+**Harmonization comment**:   Study-specific variable measures height without clothes.
 **R script**:  
 ```{r, echo=TRUE}
 oth_GLOBE_1$phy_height_sr_1<-GLOBE1997$v20
@@ -1340,7 +1342,7 @@ oth_GLOBE_1$phy_height_sr_1<-GLOBE1997$v20
 **Category coding**: N/A
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   Zeros found in the raw data are coded to missing.     
+**Harmonization comment**:   Study-specific variable measures height without clothes. Zeros found in the raw data are coded to missing.     
 **R script**:  
 ```{r, echo=TRUE}
 oth_GLOBE_2$phy_height_sr_2<-ifelse(GLOBE2004$w257>0,GLOBE2004$w257,NA)
@@ -1354,7 +1356,7 @@ oth_GLOBE_2$phy_height_sr_2<-ifelse(GLOBE2004$w257>0,GLOBE2004$w257,NA)
 **Category coding**: N/A
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   
+**Harmonization comment**:   Study-specific variable measures height without clothes.  
 **R script**:  
 ```{r, echo=TRUE}
 oth_GLOBE_3$phy_height_sr_3<-GLOBE2011$v4_lengte
@@ -1368,7 +1370,7 @@ oth_GLOBE_3$phy_height_sr_3<-GLOBE2011$v4_lengte
 **Category coding**: N/A
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   
+**Harmonization comment**:   Study-specific variable measures weight without clothes.  
 **R script**:  
 ```{r, echo=TRUE}
 oth_GLOBE_4$phy_height_sr_4<-GLOBE2014$G14v4
@@ -1411,7 +1413,7 @@ oth_GLOBE_4$phy_height_sr_4<-GLOBE2014$G14v4
 **Category coding**: N/A
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   
+**Harmonization comment**:   Study-specific variable measures weight without clothes.  
 **R script**:  
 ```{r, echo=TRUE}
 oth_GLOBE_0$phy_height_all_0<-GLOBE1991$v127
@@ -1425,7 +1427,7 @@ oth_GLOBE_0$phy_height_all_0<-GLOBE1991$v127
 **Category coding**: N/A
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   
+**Harmonization comment**:   Study-specific variable measures weight without clothes.  
 **R script**:  
 ```{r, echo=TRUE}
 oth_GLOBE_1$phy_height_all_1<-GLOBE1997$v20
@@ -1439,7 +1441,7 @@ oth_GLOBE_1$phy_height_all_1<-GLOBE1997$v20
 **Category coding**: N/A
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   Zeros found in the raw data and recoded to missing.   
+**Harmonization comment**:   Study-specific variable measures weight without clothes.Zeros found in the raw data and recoded to missing.   
 **R script**:  
 ```{r, echo=TRUE}
 oth_GLOBE_2$phy_height_all_2<-ifelse(GLOBE2004$w257>0,GLOBE2004$w257,NA)
@@ -1453,7 +1455,7 @@ oth_GLOBE_2$phy_height_all_2<-ifelse(GLOBE2004$w257>0,GLOBE2004$w257,NA)
 **Category coding**: N/A
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   
+**Harmonization comment**:   Study-specific variable measures weight without clothes.  
 **R script**:  
 ```{r, echo=TRUE}
 oth_GLOBE_3$phy_height_all_3<-GLOBE2011$v4_lengte
@@ -1467,7 +1469,7 @@ oth_GLOBE_3$phy_height_all_3<-GLOBE2011$v4_lengte
 **Category coding**: N/A
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   
+**Harmonization comment**:   Study-specific variable measures height without clothes.
 **R script**:  
 ```{r, echo=TRUE}
 oth_GLOBE_4$phy_height_all_4<-GLOBE2014$G14v4
