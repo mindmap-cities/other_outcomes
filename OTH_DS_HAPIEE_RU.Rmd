@@ -920,7 +920,7 @@ oth_HAPIEE_RU_1$dis_diab_ins_1<-ifelse(oth_HAPIEE_RU_1$dis_diab_ever_1==0,0L,rec
 **R script**:  
 ```{r, echo=TRUE}
 
-
+ 
 ```  
 # BMI subdomain
 
