@@ -74,7 +74,7 @@ oth_HAPIEE_CZ_1 <- data.frame(id = HAPIEE_W2$id )
 1          |  Ever had high blood pressure or hypertension  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   
+**Harmonization comment**:   The harmonized variable "Lifetime occurrence of high blood pressure or hypertension" for followup waves was created using "Lifetime occurrence of high blood pressure or hypertension" from baseline and followup wave. To create this variable, all HAPIEE_CZ data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 **R script**:  
 ```{r, echo=TRUE}
 #HYPERTENSION VARIABLE
@@ -102,11 +102,10 @@ oth_HAPIEE_CZ_0<-merge(oth_HAPIEE_CZ_0,med_table[,c("id","dis_hbp_ever_0")],by="
 1          |  Ever had high blood pressure or hypertension  
 
 **Harmonization status**:  complete    
-**Harmonization comment**:   
+**Harmonization comment**:   The harmonized variable "Lifetime occurrence of high blood pressure or hypertension" for followup waves was created using "Lifetime occurrence of high blood pressure or hypertension" from baseline and followup wave. To create this variable, all HAPIEE_CZ data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 **R script**:  
 ```{r, echo=TRUE}
-med_table$dis_hbp_ever_1  <- ifelse(med_table$dis_hbp_ever_0==1,1L
-                                    ,recode(as.integer(med_table$w2h14),"1"=1L,"2"=0L,.default=NA_integer_))
+med_table$dis_hbp_ever_1<- ifelse(med_table$dis_hbp_ever_0==0 & as.integer(med_table$w2h14)==2, 0L, ifelse(med_table$dis_hbp_ever_0==1 | as.integer(med_table$w2h14)==1,1L,NA))
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_HAPIEE_CZ_1<-merge(oth_HAPIEE_CZ_1,med_table[,c("id","dis_hbp_ever_1")],by="id",all.x=TRUE)
 
@@ -246,7 +245,8 @@ oth_HAPIEE_CZ_1<-merge(oth_HAPIEE_CZ_1,med_table[,c("id","dis_hbp_ever_1")],by="
 1        |  Ever had angina  
   
 **Harmonization status**:  complete    
-**Harmonization comment**:  Participants that responded "No or do not know" (Category 3) to "Diagnosed/hospitalised for angina/ischaemic heart disease" are recoded as "Never had angina".  
+**Harmonization comment**:  Study-specific variable is categorized as Lt: Yes, angina | Yes, diagnosed & hospitalised | Yes, diagnosed, never hospitalised | No or do not know. Participants who responded "No or do not know" were coded as "Never had angina" in the harmonized variable.  
+
 **R script**:  
 ```{r, echo=TRUE}
 oth_HAPIEE_CZ_0$dis_angina_ever_0<-recode(as.integer(HAPIEE_W1$h10b),"1"=1L,"2"=1L,"3"=0L,.default=NA_integer_)
@@ -344,7 +344,7 @@ oth_HAPIEE_CZ_0$dis_angina_ever_0<-recode(as.integer(HAPIEE_W1$h10b),"1"=1L,"2"=
 1        |   Ever had myocardial infarction  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  Participants that responded "No or do not know" (Category 3) to "Diagnosed/hospitalised for heart attack/acute myocardial infarction" are recoded as "Never had myocardial infarction".  
+**Harmonization comment**:   Study-specific variable is categorized as Yes, diagnosed & hospitalised | Yes, diagnosed, never hospitalised | No or do not know. Participants who responded "No or do not know" were coded as "Never had myocardial infarction" in the harmonized variable.  
 **R script**:  
 ```{r, echo=TRUE}
 oth_HAPIEE_CZ_0$dis_mi_ever_0<-recode(as.integer(HAPIEE_W1$h10a),"1"=1L,"2"=1L,"3"=0L,.default=NA_integer_)
@@ -548,7 +548,8 @@ oth_HAPIEE_CZ_0$dis_stroke_ever_0<-recode(as.integer(HAPIEE_W1$h10c),"1"=1L,"2"=
 1          |  Ever had diabetes  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  
+**Harmonization comment**:  he harmonized variable "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" for followup waves was created using "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" from baseline and followup wave. To create this variable, all HAPIEE_CZ data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
+
 **R script**:  
 ```{r, echo=TRUE}  
 med_table$dis_diab_ever_0 <- recode(as.integer(HAPIEE_W1$h15),"1"=1L,"2"=0L,.default = NA_integer_)
@@ -569,12 +570,11 @@ oth_HAPIEE_CZ_0<-merge(oth_HAPIEE_CZ_0,med_table[,c("id","dis_diab_ever_0")],by=
 1          |  Ever had diabetes  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  
+**Harmonization comment**:  he harmonized variable "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" for followup waves was created using "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" from baseline and followup wave. To create this variable, all HAPIEE_CZ data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
+
 **R script**:  
 ```{r, echo=TRUE}  
-#Harmonization scripts to create "ever had med"
-med_table$dis_diab_ever_1 <- ifelse(med_table$dis_diab_ever_0==1,1L
-                                    ,recode(as.integer(med_table$w2h15),'1'=1L,'2'=0L))
+med_table$dis_diab_ever_1 <- ifelse(med_table$dis_diab_ever_0==0 & as.integer(med_table$w2h15)==2,0L, ifelse(med_table$dis_diab_ever_0==1 | as.integer(med_table$w2h15)==1 | as.integer(med_table$w2h15)==1,1L,NA))
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_HAPIEE_CZ_1<-merge(oth_HAPIEE_CZ_1,med_table[,c("id","dis_diab_ever_1")],by="id",all.x=TRUE)
 
@@ -753,10 +753,10 @@ oth_HAPIEE_CZ_0$dis_diab_age_0<-as.integer(HAPIEE_W1$h15a)
 1        | Currently under treatment for diabetes  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  
+**Harmonization comment**:  Study-specific variable "if YES (you been told by a doctor you have diabetes), how are you treated?" is categorized as: Only by diet | By diet and insulin | By diet and tablets | By diet, tablets and insulin | No treatment. Participants who reported being treated for diabetes by diet only were coded as not currently under treatment for diabetes.     
 **R script**:
 ```{r, echo=TRUE}
-oth_HAPIEE_CZ_0$dis_diab_tx_0<-ifelse(oth_HAPIEE_CZ_0$dis_diab_ever_0==0,0L,recode(as.integer(HAPIEE_W1$h15b),"1"=1L,"2"=1L,"3"=1L,"4"=1L,"5"=0L))
+oth_HAPIEE_CZ_0$dis_diab_tx_0<-ifelse(oth_HAPIEE_CZ_0$dis_diab_ever_0==0,0L,recode(as.integer(HAPIEE_W1$h15b),"1"=0L,"2"=1L,"3"=1L,"4"=1L,"5"=0L,.default=NA_integer_))
 
 ```  
 ### **Variable label**: Currently under treatment for diabetes  
@@ -772,10 +772,10 @@ oth_HAPIEE_CZ_0$dis_diab_tx_0<-ifelse(oth_HAPIEE_CZ_0$dis_diab_ever_0==0,0L,reco
 1        | Currently under treatment for diabetes  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  
+**Harmonization comment**:  Study-specific variable "How are you treated for diabetes?" is categorized as: Only by diet | By diet and insulin | By diet and tablets | By diet, tablets and insulin | No treatment. Participants who reported being treated for diabetes by diet only were coded as not currently under treatment for diabetes.   
 **R script**:
 ```{r, echo=TRUE}
-oth_HAPIEE_CZ_1$dis_diab_tx_1<-ifelse(oth_HAPIEE_CZ_1$dis_diab_ever_1==0,0L,recode(as.integer(HAPIEE_W2$w2h15b),"1"=1L,"2"=1L,"3"=1L,"4"=1L,"5"=0L,.default=NA_integer_))
+oth_HAPIEE_CZ_1$dis_diab_tx_1<-ifelse(oth_HAPIEE_CZ_1$dis_diab_ever_1==0,0L,recode(as.integer(HAPIEE_W2$w2h15b),"1"=0L,"2"=1L,"3"=1L,"4"=1L,"5"=0L,.default=NA_integer_))
 
 ```  
 ### **Variable label**: Currently under treatment for diabetes  
@@ -810,7 +810,7 @@ oth_HAPIEE_CZ_1$dis_diab_tx_1<-ifelse(oth_HAPIEE_CZ_1$dis_diab_ever_1==0,0L,reco
 1        | Currently under treatment for diabetes  
 
 **Harmonization status**:  impossible  
-**Harmonization comment**:  
+**Harmonization comment**:   
 **R script**:
 ```{r, echo=TRUE}
 
@@ -870,7 +870,7 @@ oth_HAPIEE_CZ_1$dis_diab_tx_1<-ifelse(oth_HAPIEE_CZ_1$dis_diab_ever_1==0,0L,reco
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-oth_HAPIEE_CZ_0$dis_diab_ins_0<-ifelse(oth_HAPIEE_CZ_0$dis_diab_ever_0==0,0L,recode(as.integer(HAPIEE_W1$h15b),"1"=0L,"2"=1L,"3"=0L,"4"=1L,"5"=0L))
+oth_HAPIEE_CZ_0$dis_diab_ins_0<-ifelse(oth_HAPIEE_CZ_0$dis_diab_ever_0==0,0L,recode(as.integer(HAPIEE_W1$h15b),"1"=0L,"2"=1L,"3"=0L,"4"=1L,"5"=0L, .default=NA_integer_))
 
 ```  
 ### **Variable label**: Currently use insulin for diabetes  
@@ -889,7 +889,7 @@ oth_HAPIEE_CZ_0$dis_diab_ins_0<-ifelse(oth_HAPIEE_CZ_0$dis_diab_ever_0==0,0L,rec
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-oth_HAPIEE_CZ_1$dis_diab_ins_1<-ifelse(oth_HAPIEE_CZ_1$dis_diab_ever_1==0,0L,recode(as.integer(HAPIEE_W2$w2h15b),"1"=0L,"2"=1L,"3"=0L,"4"=1L,"5"=0L))
+oth_HAPIEE_CZ_1$dis_diab_ins_1<-ifelse(oth_HAPIEE_CZ_1$dis_diab_ever_1==0,0L,recode(as.integer(HAPIEE_W2$w2h15b),"1"=0L,"2"=1L,"3"=0L,"4"=1L,"5"=0L,.default=NA_integer_))
 
 ```  
 ### **Variable label**: Currently use insulin for diabetes  
