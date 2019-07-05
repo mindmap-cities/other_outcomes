@@ -810,7 +810,7 @@ oth_HAPIEE_CZ_1$dis_diab_tx_1<-ifelse(oth_HAPIEE_CZ_1$dis_diab_ever_1==0,0L,reco
 1        | Currently under treatment for diabetes  
 
 **Harmonization status**:  impossible  
-**Harmonization comment**:  
+**Harmonization comment**:   
 **R script**:
 ```{r, echo=TRUE}
 
