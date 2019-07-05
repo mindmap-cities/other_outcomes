@@ -59,7 +59,7 @@ oth_HAPIEE_LT_0 <- data.frame(id = HAPIEE_W2$id )
 1          |  Ever had high blood pressure or hypertension  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   
+**Harmonization comment**: 
 **R script**:  
 ```{r, echo=TRUE}
 oth_HAPIEE_LT_0$dis_hbp_ever_0<-recode(as.integer(HAPIEE_W2$w2h14),"1"=1L,"2"=0L,.default=NA_integer_)
@@ -219,7 +219,8 @@ oth_HAPIEE_LT_0$dis_hbp_ever_0<-recode(as.integer(HAPIEE_W2$w2h14),"1"=1L,"2"=0L
 1        |  Ever had angina  
   
 **Harmonization status**:  complete    
-**Harmonization comment**:  Participants that responded "No or do not know" (Category 3) to "Diagnosed/hospitalised for angina/ischaemic heart disease" are recoded as "Never had angina".  
+**Harmonization comment**:  Study-specific variable is categorized as Lt: Yes, angina | Yes, diagnosed & hospitalised | Yes, diagnosed, never hospitalised | No or do not know. Participants who responded "No or do not know" were coded as "Never had angina" in the harmonized variable.  
+ 
 **R script**:  
 ```{r, echo=TRUE}
 oth_HAPIEE_LT_0$dis_angina_ever_0<-recode(as.integer(HAPIEE_W2$h10b_lt),"0"=1L,"1"=1L,"1"=1L,"2"=1L,"3"=0L,.default=NA_integer_)
@@ -317,7 +318,8 @@ oth_HAPIEE_LT_0$dis_angina_ever_0<-recode(as.integer(HAPIEE_W2$h10b_lt),"0"=1L,"
 1        |   Ever had myocardial infarction  
 
 **Harmonization status**:  complete    
-**Harmonization comment**:  Participants that responded "No or do not know" (Category 3) to "Diagnosed/hospitalised for heart attack/acute myocardial infarction" are recoded as "Never had myocardial infarction".  
+**Harmonization comment**: Study-specific variable is categorized as Yes, diagnosed & hospitalised | Yes, diagnosed, never hospitalised | No or do not know. Participants who responded "No or do not know" were coded as "Never had myocardial infarction" in the harmonized variable.  
+ 
 **R script**:  
 ```{r, echo=TRUE}
 oth_HAPIEE_LT_0$dis_mi_ever_0<-recode(as.integer(HAPIEE_W2$h10a_lt),"1"=1L,"2"=1L,"3"=0L,.default=NA_integer_)
@@ -419,7 +421,8 @@ oth_HAPIEE_LT_0$dis_mi_ever_0<-recode(as.integer(HAPIEE_W2$h10a_lt),"1"=1L,"2"=1
 1        |   Ever had stroke or CVA  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  Participants that responded "No or do not know" (Category 3) to "Diagnosed/hospitalised for stroke" are recoded as "Never had stroke or CVA". 
+**Harmonization comment**:  Study-specific variable is categorized as Yes, diagnosed & hospitalised | Yes, diagnosed, never hospitalised | No or do not know. Participants who responded "No or do not know" were coded as "Never had myocardial infarction" in the harmonized variable.  
+ 
 **R script**:  
 ```{r, echo=TRUE}
 oth_HAPIEE_LT_0$dis_stroke_ever_0<-recode(as.integer(HAPIEE_W2$h10c_lt),"1"=1L,"2"=1L,"3"=0L,.default=NA_integer_)
@@ -521,7 +524,7 @@ oth_HAPIEE_LT_0$dis_stroke_ever_0<-recode(as.integer(HAPIEE_W2$h10c_lt),"1"=1L,"
 1          |  Ever had diabetes  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  
+**Harmonization comment**:    
 **R script**:  
 ```{r, echo=TRUE}  
 oth_HAPIEE_LT_0$dis_diab_ever_0<-recode(as.integer(HAPIEE_W2$w2h15),"1"=1L,"2"=0L) 
@@ -721,10 +724,10 @@ oth_HAPIEE_LT_0$dis_diab_age_0<-ifelse(as.integer(HAPIEE_W2$h15a_lt)==998 |  as.
 1        | Currently under treatment for diabetes  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  
+**Harmonization comment**:  Study-specific variable "if YES (you been told by a doctor you have diabetes), how are you treated?" is categorized as: Only by diet | By diet and insulin | By diet and tablets | By diet, tablets and insulin | No treatment. Participants who reported being treated for diabetes by diet only were coded as not currently under treatment for diabetes.   
 **R script**:
 ```{r, echo=TRUE}
-oth_HAPIEE_LT_0$dis_diab_tx_0<-ifelse(oth_HAPIEE_LT_0$dis_diab_ever_0==0,0L,recode(as.integer(HAPIEE_W2$w2h15b),"1"=1L,"2"=1L,"3"=1L,"4"=1L,"5"=0L,.default=NA_integer_))
+oth_HAPIEE_LT_0$dis_diab_tx_0<-ifelse(oth_HAPIEE_LT_0$dis_diab_ever_0==0,0L,recode(as.integer(HAPIEE_W1$h15b),"1"=0L,"2"=1L,"3"=1L,"4"=1L,"5"=0L))
 
 
 ```  
