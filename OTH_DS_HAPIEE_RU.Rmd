@@ -767,7 +767,7 @@ summary(HAPIEE_W1$h15a)
 **Harmonization comment**:  Study-specific variable "if YES (you been told by a doctor you have diabetes), how are you treated?" is categorized as: Only by diet | By diet and insulin | By diet and tablets | By diet, tablets and insulin | No treatment. Participants who reported being treated for diabetes by diet only were coded as not currently under treatment for diabetes.    
 **R script**:
 ```{r, echo=TRUE}
-oth_HAPIEE_RU_1$dis_diab_tx_1<-ifelse(oth_HAPIEE_RU_1$dis_diab_ever_1==0,0L,recode(as.integer(HAPIEE_W2$w2h15b),"1"=0L,"2"=1L,"3"=1L,"4"=1L,"5"=0L,.default = NA_integer_))
+oth_HAPIEE_RU_0$dis_diab_tx_0<-ifelse(oth_HAPIEE_RU_0$dis_diab_ever_0==0,0L,recode(as.integer(HAPIEE_W1$h15b),"1"=0L,"2"=1L,"3"=1L,"4"=1L,"5"=0L,.default = NA_integer_))
 
 ```  
 ### **Variable label**: Currently under treatment for diabetes  
@@ -786,7 +786,7 @@ oth_HAPIEE_RU_1$dis_diab_tx_1<-ifelse(oth_HAPIEE_RU_1$dis_diab_ever_1==0,0L,reco
 **Harmonization comment**:  Study-specific variable "How are you treated for diabetes?" is categorized as: Only by diet | By diet and insulin | By diet and tablets | By diet, tablets and insulin | No treatment. Participants who reported being treated for diabetes by diet only were coded as not currently under treatment for diabetes.  
 **R script**:
 ```{r, echo=TRUE}
-oth_HAPIEE_RU_1$dis_diab_tx_1<-ifelse(oth_HAPIEE_RU_1$dis_diab_ever_1==0,0L,recode(as.integer(HAPIEE_W2$w2h15b),"1"=0L,"2"=1L,"3"=1L,"4"=1L,"5"=0L))
+oth_HAPIEE_RU_1$dis_diab_tx_1<-ifelse(oth_HAPIEE_RU_1$dis_diab_ever_1==0,0L,recode(as.integer(HAPIEE_W2$w2h15b),"1"=0L,"2"=1L,"3"=1L,"4"=1L,"5"=0L,.default = NA_integer_))
 
 ```  
 ### **Variable label**: Currently under treatment for diabetes  
