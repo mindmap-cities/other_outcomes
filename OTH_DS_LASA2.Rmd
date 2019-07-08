@@ -1567,7 +1567,7 @@ oth_LASA2_3$phy_bmi_ms_3[!is.na(as.numeric(LASA2H$HMED153) & !is.na(as.numeric(L
 **Category coding**: N/A
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   One pariticpant has value for self-reported BMI.    
+**Harmonization comment**:   One participant has value for self-reported BMI.    
 **R script**:  
 ```{r, echo=TRUE}
 oth_LASA2_0$phy_bmi_sr_0[!is.na(as.numeric(LASA2B$bmed155) & !is.na(as.numeric(LASA2B$bmed152)))] <- ifelse((as.numeric(LASA2B$bmed155)[!is.na(as.numeric(LASA2B$bmed155) & !is.na(as.numeric(LASA2B$bmed152)))] <0 | as.numeric(LASA2B$bmed152)[!is.na(as.numeric(LASA2B$bmed152) & !is.na(as.numeric(LASA2B$bmed155)))] <0),NA, (as.numeric(LASA2B$bmed155)[!is.na(as.numeric(LASA2B$bmed155) & !is.na(as.numeric(LASA2B$bmed152)))]) / ((0.01*as.numeric(LASA2B$bmed152[!is.na(as.numeric(LASA2B$bmed152) & !is.na(as.numeric(LASA2B$bmed155)))]))^2))
@@ -1580,7 +1580,7 @@ oth_LASA2_0$phy_bmi_sr_0[!is.na(as.numeric(LASA2B$bmed155) & !is.na(as.numeric(L
 **Category coding**: N/A
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   One pariticpant has value for self-reported BMI.    
+**Harmonization comment**:   One participant has value for self-reported BMI.    
 **R script**:  
 ```{r, echo=TRUE}
 oth_LASA2_1$phy_bmi_sr_1[!is.na(as.numeric(LASA2F$fmed155) & !is.na(as.numeric(LASA2F$fmed152)))] <- ifelse((as.numeric(LASA2F$fmed155)[!is.na(as.numeric(LASA2F$fmed155) & !is.na(as.numeric(LASA2F$fmed152)))] <0 | as.numeric(LASA2F$fmed152)[!is.na(as.numeric(LASA2F$fmed152) & !is.na(as.numeric(LASA2F$fmed155)))] <0),NA, (as.numeric(LASA2F$fmed155)[!is.na(as.numeric(LASA2F$fmed155) & !is.na(as.numeric(LASA2F$fmed152)))]) / ((0.01*as.numeric(LASA2F$fmed152[!is.na(as.numeric(LASA2F$fmed152) & !is.na(as.numeric(LASA2F$fmed155)))]))^2))
