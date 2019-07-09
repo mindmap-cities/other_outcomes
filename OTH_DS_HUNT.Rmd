@@ -416,8 +416,8 @@ oth_HUNT_2<-merge(oth_HUNT_2,med_table_hunt[,c("id","dis_mi_ever_2")],by="id",al
 **Category coding**: N/A  
          
 **Harmonization status**:  complete  
-**Harmonization comment**:  There are som errors regarding reported age. Mainly they have reported the correct age, however some have reported the year at onset, and others number of year since onset. Inconsistencies were checked, and if possible corrected based on probability and reported age in questionnaire from HUNT3. If the reported age was unlikely to be true the age was set to missing.
-There are also som missing (they had not reported age at onset). If possible missing was set equal to reported age in HUNT3 if age was before partAge in HUNT2.  
+**Harmonization comment**:  There are some errors regarding reported age. Mainly they have reported the correct age, however some have reported the year at onset, and others number of year since onset. Inconsistencies were checked, and if possible corrected based on probability and reported age in questionnaire from HUNT3. If the reported age was unlikely to be true the age was set to missing.
+There are also some missing (they had not reported age at onset). If possible missing was set equal to reported age in HUNT3 if age was before partAge in HUNT2.  
 **R script**:  
 ```{r, echo=TRUE}
 oth_HUNT_1$dis_mi_age_1<- as.numeric(HUNT2$CarInfAg_NT2BLQ1)
@@ -430,8 +430,8 @@ oth_HUNT_1$dis_mi_age_1<- as.numeric(HUNT2$CarInfAg_NT2BLQ1)
 **Category coding**: N/A  
          
 **Harmonization status**:  complete  
-**Harmonization comment**:  There are som errors regarding reported age. Mainly they have reported the correct age, however some have reported the year at onset, and others number of year since onset. Inconsistencies were checked, and if possible corrected based on probability and reported age in questionnaire from HUNT2. If the reported age was unlikely to be true the age was set to missing.
-There are also som missing (they had not reported age at onset) and if possible missing was set equal to reported age in HUNT2.  
+**Harmonization comment**:  There are some errors regarding reported age. Mainly they have reported the correct age, however some have reported the year at onset, and others number of year since onset. Inconsistencies were checked, and if possible corrected based on probability and reported age in questionnaire from HUNT2. If the reported age was unlikely to be true the age was set to missing.
+There are also some missing (they had not reported age at onset) and if possible missing was set equal to reported age in HUNT2.  
 **R script**:  
 ```{r, echo=TRUE}
 oth_HUNT_2$dis_mi_age_2<- as.numeric(HUNT3$CarInfAg_NT3BLQ1)
@@ -529,8 +529,8 @@ oth_HUNT_2<-merge(oth_HUNT_2,med_table_hunt[,c("id","dis_stroke_ever_2")],by="id
 **Category coding**: N/A  
          
 **Harmonization status**:  complete  
-**Harmonization comment**:  There are som errors regarding reported age. Mainly they have reported the correct age, however some have reported the year at onset, and others number of year since onset. Inconsistencies were checked, and if possible corrected based on probability and reported age in questionnaire from HUNT3. If the reported age was unlikely to be true the age was set to missing.
-There are also som missing (they had not reported age at onset). If possible missing was set equal to reported age in HUNT3 if age was before partAge in HUNT2.  
+**Harmonization comment**:  There are some errors regarding reported age. Mainly they have reported the correct age, however some have reported the year at onset, and others number of year since onset. Inconsistencies were checked, and if possible corrected based on probability and reported age in questionnaire from HUNT3. If the reported age was unlikely to be true the age was set to missing.
+There are also some missing (they had not reported age at onset). If possible missing was set equal to reported age in HUNT3 if age was before partAge in HUNT2.  
 **R script**:  
 ```{r, echo=TRUE}
 oth_HUNT_1$dis_stroke_age_1<- as.numeric(HUNT2$ApoplAg_NT2BLQ1)
@@ -543,8 +543,8 @@ oth_HUNT_1$dis_stroke_age_1<- as.numeric(HUNT2$ApoplAg_NT2BLQ1)
 **Category coding**: N/A  
          
 **Harmonization status**:  complete  
-**Harmonization comment**:  There are som errors regarding reported age. Mainly they have reported the correct age, however some have reported the year at onset, and others number of year since onset. Inconsistencies were checked, and if possible corrected based on probability and reported age in questionnaire from HUNT2. If the reported age was unlikely to be true the age was set to missing.
-There are also som missing (they had not reported age at onset) and if possible missing was set equal to reported age in HUNT2.  
+**Harmonization comment**:  There are some errors regarding reported age. Mainly they have reported the correct age, however some have reported the year at onset, and others number of year since onset. Inconsistencies were checked, and if possible corrected based on probability and reported age in questionnaire from HUNT2. If the reported age was unlikely to be true the age was set to missing.
+There are also some missing (they had not reported age at onset) and if possible missing was set equal to reported age in HUNT2.  
 **R script**:  
 ```{r, echo=TRUE}
 oth_HUNT_2$dis_stroke_age_2<- as.numeric(HUNT3$ApoplAg_NT3BLQ1)
@@ -694,7 +694,7 @@ oth_HUNT_2<-merge(oth_HUNT_2,med_table_hunt[,c("id","dis_diab_ever_2")],by="id",
 **Category coding**: N/A
 
 **Hamonization status**:  complete  
-**Harmonization comment**:  There are som errors regarding reported age. Mainly they have reported the correct age, however some have reported the year at onset, and others number of year since onset. Inconsistencies were checked, and if possible corrected based on probability and reported age at interview (attendance day) or questionnaire in HUNT1, HUNT2 and HUNT3. If the reported age was unlikely to be true the age was set to missing. There are also som missing (they had not reported age at onset). If possible missing was set equal to reported age in HUNT1.  
+**Harmonization comment**:  There are some errors regarding reported age. Mainly they have reported the correct age, however some have reported the year at onset, and others number of year since onset. Inconsistencies were checked, and if possible corrected based on probability and reported age at interview (attendance day) or questionnaire in HUNT1, HUNT2 and HUNT3. If the reported age was unlikely to be true the age was set to missing. There are also some missing (they had not reported age at onset). If possible missing was set equal to reported age in HUNT1.  
 **R script**:  
 ```{r, echo=TRUE}  
 oth_HUNT_1$dis_diab_age_1<- as.numeric(HUNT2$DiaAg_NT2BLQ1)
@@ -708,7 +708,7 @@ oth_HUNT_1$dis_diab_age_1<- as.numeric(HUNT2$DiaAg_NT2BLQ1)
 **Category coding**: N/A
 
 **Hamonization status**:  complete  
-**Harmonization comment**:  There are som errors regarding reported age. Mainly they have reported the correct age at onset, however some have reported the year at onsett, and others number of year since onset. Inconsistencies were checked, and if possible corrected based on probability and reported age at interview (attendance day) or questionnaire in HUNT1, HUNT2 and HUNT3. If the reported age was unlikely to be true the age was set to missing. There are also som missing (they had not reported age at onset). If possible missing was set equal to reported age in HUNT1 and/or HUNT2 if age at onset was befor participation date.  
+**Harmonization comment**:  There are some errors regarding reported age. Mainly they have reported the correct age at onset, however some have reported the year at onset, and others number of year since onset. Inconsistencies were checked, and if possible corrected based on probability and reported age at interview (attendance day) or questionnaire in HUNT1, HUNT2 and HUNT3. If the reported age was unlikely to be true the age was set to missing. There are also some missing (they had not reported age at onset). If possible missing was set equal to reported age in HUNT1 and/or HUNT2 if age at onset was before participation date.  
 **R script**:  
 ```{r, echo=TRUE}  
 oth_HUNT_2$dis_diab_age_2<- as.numeric(HUNT3$DiaAg_NT3BLQ1)

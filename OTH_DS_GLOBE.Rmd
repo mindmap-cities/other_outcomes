@@ -120,7 +120,7 @@ oth_GLOBE_1<-merge(oth_GLOBE_1,med_table[,c("id","dis_hbp_ever_1")],by="id",all.
 
 
 **Harmonization status**:  impossible    
-**Harmonization comment**:  Study-specific variable is current use of medication for high blood pressure (hypertention).  
+**Harmonization comment**:  Study-specific variable is current use of medication for high blood pressure (hypertension).  
 **R script**:  
 ```{r, echo=TRUE}
  
@@ -339,7 +339,7 @@ oth_GLOBE_1<-merge(oth_GLOBE_1,med_table[,c("id","dis_hbp_ever_1")],by="id",all.
 1        |   Ever had myocardial infarction  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  Lifetime occurence of myocardial infarction was only collected for a subset of participants.  
+**Harmonization comment**:  Lifetime occurrence of myocardial infarction was only collected for a subset of participants.  
 **R script**:  
 ```{r, echo=TRUE}
 oth_GLOBE_0$dis_mi_ever_0<-recode(as.integer(GLOBE1991$SEVMv333),'1'=1L,'2'=0L,.default = NA_integer_)
@@ -357,7 +357,7 @@ oth_GLOBE_0$dis_mi_ever_0<-recode(as.integer(GLOBE1991$SEVMv333),'1'=1L,'2'=0L,.
 1        |   Ever had myocardial infarction  
 
 **Harmonization status**:  impossible  
-**Harmonization comment**:  The question asked was: "For respondents with heart conditions: Have you had a myocardial infarction or a heart attack in the past 3 years?". Since myocardial infarctus is punctual , it's impossible to determine whether the participant had it before or not.  
+**Harmonization comment**:  The question asked was: "For respondents with heart conditions: Have you had a myocardial infarction or a heart attack in the past 3 years?". Since myocardial infarction is punctual , it's impossible to determine whether the participant had it before or not.  
 **R script**:  
 ```{r, echo=TRUE}
 
@@ -748,7 +748,7 @@ oth_GLOBE_0$dis_diab_age_0<-GLOBE1991$SEVMv349
 1        | Currently under treatment for diabetes  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   Four variables (which were only asked to a subset of participants) were used for harmonizaton: "Are you being treated for diabetes by the internist", "Do you use tablets for diabetes?", "Are you being treated for diabetes by the general practitioner?" and "Do you use insulin?".  
+**Harmonization comment**:   Four variables (which were only asked to a subset of participants) were used for harmonization: "Are you being treated for diabetes by the internist", "Do you use tablets for diabetes?", "Are you being treated for diabetes by the general practitioner?" and "Do you use insulin?".  
 Non diabetics are coded as "Not currently under treatment for diabetes".   
 **R script**:
 ```{r, echo=TRUE}
@@ -768,7 +768,7 @@ oth_GLOBE_0$dis_diab_tx_0<-ifelse(oth_GLOBE_0$dis_diab_ever_0==1 & (GLOBE1991$SE
 1        | Currently under treatment for diabetes  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  Two study-specific variables were used for harmonizaton: "For responsdents with diabetis: Do you use insulin?" and "For responsdents with diabetis: Do you use tablets for diabetes? Do not include gestational diabetes".  
+**Harmonization comment**:  Two study-specific variables were used for harmonization: "For respondents with diabetes: Do you use insulin?" and "For respondents with diabetes: Do you use tablets for diabetes? Do not include gestational diabetes".  
 Non diabetics are coded as "Not currently under treatment for diabetes".   
 **R script**:
 ```{r, echo=TRUE}

@@ -73,7 +73,7 @@ opal.logout(erasmus_opal)
 1          |  Ever had high blood pressure or hypertension  
 
 **Harmonization status**:  impossible  
-**Harmonization comment**:   Study-specific variable is "use of antiypertensives (bmed_hyp)".  
+**Harmonization comment**:   Study-specific variable is "use of antihypertensives (bmed_hyp)".  
 **R script**:  
 ```{r, echo=TRUE}
 
@@ -2206,7 +2206,7 @@ oth_LASA1_6$phy_bmi_cat_all_6 <- ifelse(oth_LASA1_6$phy_bmi_all_6 <18.5,0L, ifel
 **Variable unit**: cm  
 **Category coding**:  N/A  
 
-**Harmonization status**:  commplete  
+**Harmonization status**:  complete  
 ****Harmonization comment**:  This study has two waist circumference measurements. The first measurement was taken for harmonization.  
 **R script**:  
 ```{r, echo=TRUE}
