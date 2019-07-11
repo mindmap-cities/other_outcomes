@@ -1021,7 +1021,7 @@ oth_GLOBE_1$dis_diab_ins_1<-ifelse(oth_GLOBE_1$dis_diab_tx_1==0,0L,
 **Harmonization comment**:   Study-specific variable measures weight without clothes.  
 **R script**:  
 ```{r, echo=TRUE}
-oth_GLOBE_0$phy_weight_sr_0<-GLOBE1991$v124
+oth_GLOBE_0$phy_weight_sr_0<-as.numeric(GLOBE1991$v124)
 
 ```  
 ### **Variable label**: Weight in kg - self-reported 
@@ -1032,10 +1032,10 @@ oth_GLOBE_0$phy_weight_sr_0<-GLOBE1991$v124
 **Category coding**: N/A
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   
+**Harmonization comment**:   Study-specific variable measures weight without clothes.  
 **R script**:  
 ```{r, echo=TRUE}
-oth_GLOBE_1$phy_weight_sr_1<-GLOBE1997$v19
+oth_GLOBE_1$phy_weight_sr_1<-as.numeric(GLOBE1997$v19)
 
 ```  
 ### **Variable label**: Weight in kg - self-reported 
@@ -1049,7 +1049,7 @@ oth_GLOBE_1$phy_weight_sr_1<-GLOBE1997$v19
 **Harmonization comment**:   Study-specific variable measures weight without clothes. Zeros found in the raw data and recoded to missing.    
 **R script**:  
 ```{r, echo=TRUE}
-oth_GLOBE_2$phy_weight_sr_2<-ifelse(GLOBE2004$w256>0,GLOBE2004$w256,NA)
+oth_GLOBE_2$phy_weight_sr_2<-as.numeric(ifelse(GLOBE2004$w256>0,GLOBE2004$w256,NA))
 
 ```  
 ### **Variable label**: Weight in kg - self-reported 
@@ -1063,7 +1063,7 @@ oth_GLOBE_2$phy_weight_sr_2<-ifelse(GLOBE2004$w256>0,GLOBE2004$w256,NA)
 **Harmonization comment**:   Study-specific variable measures weight without clothes.  
 **R script**:  
 ```{r, echo=TRUE}
-oth_GLOBE_3$phy_weight_sr_3<-GLOBE2011$v3_gewicht
+oth_GLOBE_3$phy_weight_sr_3<-as.numeric(GLOBE2011$v3_gewicht)
 
 ```  
 ### **Variable label**: Weight in kg - self-reported 
@@ -1077,7 +1077,7 @@ oth_GLOBE_3$phy_weight_sr_3<-GLOBE2011$v3_gewicht
 **Harmonization comment**:   Study-specific variable measures weight without clothes.  
 **R script**:  
 ```{r, echo=TRUE}
-oth_GLOBE_4$phy_weight_sr_4<-GLOBE2014$G14v3  
+oth_GLOBE_4$phy_weight_sr_4<-as.numeric(GLOBE2014$G14v3)
 
 ```  
 ### **Variable label**: Weight in kg - self-reported 
@@ -1314,10 +1314,10 @@ oth_GLOBE_4$phy_weight_all_4<-GLOBE2014$G14v3
 **Category coding**: N/A
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   Study-specific variable measures height without clothes. 
+**Harmonization comment**:  Study-specific variable measures height without shoes.    
 **R script**:  
 ```{r, echo=TRUE}
-oth_GLOBE_0$phy_height_sr_0<-GLOBE1991$v127
+oth_GLOBE_0$phy_height_sr_0<-as.numeric(GLOBE1991$v127)
 
 ```  
 ### **Variable label**: Height in cm - self-reported  
@@ -1328,10 +1328,10 @@ oth_GLOBE_0$phy_height_sr_0<-GLOBE1991$v127
 **Category coding**: N/A
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   Study-specific variable measures height without clothes.
+**Harmonization comment**:  Study-specific variable measures height without shoes.    
 **R script**:  
 ```{r, echo=TRUE}
-oth_GLOBE_1$phy_height_sr_1<-GLOBE1997$v20
+oth_GLOBE_1$phy_height_sr_1<-as.numeric(GLOBE1997$v20)
 
 ```  
 ### **Variable label**: Height in cm - self-reported  
@@ -1342,10 +1342,10 @@ oth_GLOBE_1$phy_height_sr_1<-GLOBE1997$v20
 **Category coding**: N/A
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   Study-specific variable measures height without clothes. Zeros found in the raw data are coded to missing.     
+**Harmonization comment**:   Study-specific variable measures height without shoes. Zeros found in the raw data are coded to missing.     
 **R script**:  
 ```{r, echo=TRUE}
-oth_GLOBE_2$phy_height_sr_2<-ifelse(GLOBE2004$w257>0,GLOBE2004$w257,NA)
+oth_GLOBE_2$phy_height_sr_2<-as.numeric(GLOBE2004$w257>0,GLOBE2004$w257,NA)
 
 ```  
 ### **Variable label**: Height in cm - self-reported  
@@ -1356,10 +1356,10 @@ oth_GLOBE_2$phy_height_sr_2<-ifelse(GLOBE2004$w257>0,GLOBE2004$w257,NA)
 **Category coding**: N/A
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   Study-specific variable measures height without clothes.  
+**Harmonization comment**:  Study-specific variable measures height without shoes.    
 **R script**:  
 ```{r, echo=TRUE}
-oth_GLOBE_3$phy_height_sr_3<-GLOBE2011$v4_lengte
+oth_GLOBE_3$phy_height_sr_3<-as.numeric(GLOBE2011$v4_lengte)
 
 ```  
 ### **Variable label**: Height in cm - self-reported  
@@ -1370,10 +1370,10 @@ oth_GLOBE_3$phy_height_sr_3<-GLOBE2011$v4_lengte
 **Category coding**: N/A
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   Study-specific variable measures weight without clothes.  
+**Harmonization comment**:   Study-specific variable measures height without shoes.    
 **R script**:  
 ```{r, echo=TRUE}
-oth_GLOBE_4$phy_height_sr_4<-GLOBE2014$G14v4
+oth_GLOBE_4$phy_height_sr_4<-as.numeric(GLOBE2014$G14v4)
 
 ```  
 ### **Variable label**: Height in cm - self-reported  
@@ -1614,7 +1614,7 @@ oth_GLOBE_4$phy_height_all_4<-GLOBE2014$G14v4
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_GLOBE_0$phy_bmi_sr_0<-GLOBE1991$v124/(GLOBE1991$v127*0.01)^2
+oth_GLOBE_0$phy_bmi_sr_0<-as.numeric(GLOBE1991$v124/(GLOBE1991$v127*0.01)^2)
 
 ```  
 ### **Variable label**: Body mass index (BMI) - self-reported  
@@ -1628,7 +1628,7 @@ oth_GLOBE_0$phy_bmi_sr_0<-GLOBE1991$v124/(GLOBE1991$v127*0.01)^2
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_GLOBE_1$phy_bmi_sr_1<-GLOBE1997$v19/(GLOBE1997$v20*0.01)^2
+oth_GLOBE_1$phy_bmi_sr_1<-as.numeric(GLOBE1997$v19/(GLOBE1997$v20*0.01)^2)
 
 ```  
 ### **Variable label**: Body mass index (BMI) - self-reported  
@@ -1642,7 +1642,7 @@ oth_GLOBE_1$phy_bmi_sr_1<-GLOBE1997$v19/(GLOBE1997$v20*0.01)^2
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_GLOBE_2$phy_bmi_sr_2<-ifelse(GLOBE2004$w256>0 & GLOBE2004$w257>0,GLOBE2004$w256/(GLOBE2004$w257*0.01)^2,NA)
+oth_GLOBE_2$phy_bmi_sr_2<-as.numeric(ifelse(GLOBE2004$w256>0 & GLOBE2004$w257>0,GLOBE2004$w256/(GLOBE2004$w257*0.01)^2,NA))
 
 ```  
 ### **Variable label**: Body mass index (BMI) - self-reported  
@@ -1656,7 +1656,7 @@ oth_GLOBE_2$phy_bmi_sr_2<-ifelse(GLOBE2004$w256>0 & GLOBE2004$w257>0,GLOBE2004$w
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_GLOBE_3$phy_bmi_sr_3<-GLOBE2011$v3_gewicht/(GLOBE2011$v4_lengte*0.01)^2
+oth_GLOBE_3$phy_bmi_sr_3<-as.numeric(GLOBE2011$v3_gewicht/(GLOBE2011$v4_lengte*0.01)^2)
 
 ```  
 ### **Variable label**: Body mass index (BMI) - self-reported  
@@ -1670,7 +1670,7 @@ oth_GLOBE_3$phy_bmi_sr_3<-GLOBE2011$v3_gewicht/(GLOBE2011$v4_lengte*0.01)^2
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_GLOBE_4$phy_bmi_sr_4<-GLOBE2014$G14v3/(GLOBE2014$G14v4*0.01)^2
+oth_GLOBE_4$phy_bmi_sr_4<-as.numeric(GLOBE2014$G14v3/(GLOBE2014$G14v4*0.01)^2)
 
 ```  
 ### **Variable label**: Body mass index (BMI) - self-reported  
@@ -2302,7 +2302,6 @@ oth_GLOBE_4$phy_bmi_cat_all_4<-ifelse(oth_GLOBE_4$phy_bmi_all_4<18.5,0,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined   
