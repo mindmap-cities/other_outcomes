@@ -550,9 +550,9 @@ oth_HAPIEE_RU_1<-merge(oth_HAPIEE_RU_1,med_table[,c("id","dis_stroke_ever_1")],b
 
 # Diabetes subdomain  
 
-### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar  
+### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes or high blood sugar  
 **Variable name**: dis_diab_ever_0  
-**Variable description**:  Occurrence of diabetes, borderline diabetes, or high blood sugar, at any point during the life of the participant.    
+**Variable description**:  Occurrence of diabetes, borderline diabetes or high blood sugar, at any point during the life of the participant.    
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding:**
@@ -563,7 +563,7 @@ oth_HAPIEE_RU_1<-merge(oth_HAPIEE_RU_1,med_table[,c("id","dis_stroke_ever_1")],b
 1          |  Ever had diabetes  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  The harmonized variable "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" for followup waves was created using "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" from baseline and followup wave. To create this variable, all HAPIEE_RU data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
+**Harmonization comment**:  The harmonized variable "Lifetime occurrence of diabetes, borderline diabetes or high blood sugar" for followup waves was created using "Lifetime occurrence of diabetes, borderline diabetes or high blood sugar" from baseline and followup wave. To create this variable, all HAPIEE_RU data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
 **R script**:  
 ```{r, echo=TRUE}  
 med_table$dis_diab_ever_0 <- recode(as.integer(HAPIEE_W1$h15),"1"=1L,"2"=0L,.default = NA_integer_)
@@ -573,7 +573,7 @@ oth_HAPIEE_RU_0<-merge(oth_HAPIEE_RU_0,med_table[,c("id","dis_diab_ever_0")],by=
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes or high blood sugar     
 **Variable name**: dis_diab_ever_1  
-**Variable description**:  Occurrence of diabetes, borderline diabetes, or high blood sugar, at any point during the life of the participant.      
+**Variable description**:  Occurrence of diabetes, borderline diabetes or high blood sugar, at any point during the life of the participant.      
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding:**
@@ -584,16 +584,16 @@ oth_HAPIEE_RU_0<-merge(oth_HAPIEE_RU_0,med_table[,c("id","dis_diab_ever_0")],by=
 1          |  Ever had diabetes  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  The harmonized variable "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" for followup waves was created using "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" from baseline and followup wave. To create this variable, all HAPIEE_RU data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
+**Harmonization comment**:  The harmonized variable "Lifetime occurrence of diabetes, borderline diabetes or high blood sugar" for followup waves was created using "Lifetime occurrence of diabetes, borderline diabetes or high blood sugar" from baseline and followup wave. To create this variable, all HAPIEE_RU data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
 **R script**:  
 ```{r, echo=TRUE}  
 med_table$dis_diab_ever_1 <- ifelse(med_table$dis_diab_ever_0==0 & as.integer(med_table$w2h15)==2,0L, ifelse(med_table$dis_diab_ever_0==1 | as.integer(med_table$w2h15)==1 | as.integer(med_table$w2h15)==1,1L,NA))
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_HAPIEE_RU_1<-merge(oth_HAPIEE_RU_1,med_table[,c("id","dis_diab_ever_1")],by="id",all.x=TRUE)
 ```  
-### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
+### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes or high blood sugar     
 **Variable name**: dis_diab_ever_2  
-**Variable description**:  Occurrence of diabetes, borderline diabetes, or high blood sugar, at any point during the life of the participant.    
+**Variable description**:  Occurrence of diabetes, borderline diabetes or high blood sugar, at any point during the life of the participant.    
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding:**
@@ -612,7 +612,7 @@ oth_HAPIEE_RU_1<-merge(oth_HAPIEE_RU_1,med_table[,c("id","dis_diab_ever_1")],by=
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes or high blood sugar     
 **Variable name**: dis_diab_ever_3  
-**Variable description**:  Occurrence of diabetes, borderline diabetes, or high blood sugar, at any point during the life of the participant.      
+**Variable description**:  Occurrence of diabetes, borderline diabetes or high blood sugar, at any point during the life of the participant.      
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding:**
@@ -629,9 +629,9 @@ oth_HAPIEE_RU_1<-merge(oth_HAPIEE_RU_1,med_table[,c("id","dis_diab_ever_1")],by=
   
 
 ```  
-### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
+### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes or high blood sugar     
 **Variable name**: dis_diab_ever_4  
-**Variable description**:  Occurrence of diabetes, borderline diabetes, or high blood sugar, at any point during the life of the participant.      
+**Variable description**:  Occurrence of diabetes, borderline diabetes or high blood sugar, at any point during the life of the participant.      
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding:**
@@ -648,9 +648,9 @@ oth_HAPIEE_RU_1<-merge(oth_HAPIEE_RU_1,med_table[,c("id","dis_diab_ever_1")],by=
 
 
 ```  
-### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
+### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes or high blood sugar     
 **Variable name**: dis_diab_ever_5  
-**Variable description**:  Occurrence of diabetes, borderline diabetes, or high blood sugar, at any point during the life of the participant.      
+**Variable description**:  Occurrence of diabetes, borderline diabetes or high blood sugar, at any point during the life of the participant.      
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding:**
@@ -667,9 +667,9 @@ oth_HAPIEE_RU_1<-merge(oth_HAPIEE_RU_1,med_table[,c("id","dis_diab_ever_1")],by=
 
 
 ```  
-### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
+### **Variable label**: Age at diagnosis of diabetes, borderline diabetes or high blood sugar  
 **Variable name**:  dis_diab_age_0    
-**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes, or high blood sugar.    
+**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes or high blood sugar.    
 **Value type**:  integer  
 **Variable unit**:  years  
 **Category coding**: N/A
@@ -681,9 +681,9 @@ oth_HAPIEE_RU_1<-merge(oth_HAPIEE_RU_1,med_table[,c("id","dis_diab_ever_1")],by=
 oth_HAPIEE_RU_0$dis_diab_age_0<-as.integer(HAPIEE_W1$h15a) 
 summary(HAPIEE_W1$h15a)
 ```  
-### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
+### **Variable label**: Age at diagnosis of diabetes, borderline diabetes or high blood sugar  
 **Variable name**:  dis_diab_age_1    
-**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes, or high blood sugar.    
+**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes or high blood sugar.    
 **Value type**:  integer  
 **Variable unit**:  years  
 **Category coding**: N/A
@@ -695,9 +695,9 @@ summary(HAPIEE_W1$h15a)
  
 
 ```  
-### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
+### **Variable label**: Age at diagnosis of diabetes, borderline diabetes or high blood sugar  
 **Variable name**:  dis_diab_age_2    
-**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes, or high blood sugar.    
+**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes or high blood sugar.    
 **Value type**:  integer  
 **Variable unit**:  years  
 **Category coding**: N/A
@@ -709,9 +709,9 @@ summary(HAPIEE_W1$h15a)
 
 
 ```  
-### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
+### **Variable label**: Age at diagnosis of diabetes, borderline diabetes or high blood sugar  
 **Variable name**:  dis_diab_age_3    
-**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes, or high blood sugar.    
+**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes or high blood sugar.    
 **Value type**:  integer  
 **Variable unit**:  years  
 **Category coding**: N/A
@@ -723,9 +723,9 @@ summary(HAPIEE_W1$h15a)
 
 
 ```  
-### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
+### **Variable label**: Age at diagnosis of diabetes, borderline diabetes or high blood sugar  
 **Variable name**:  dis_diab_age_4    
-**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes, or high blood sugar.    
+**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes or high blood sugar.    
 **Value type**:  integer  
 **Variable unit**:  years  
 **Category coding**: N/A
@@ -737,9 +737,9 @@ summary(HAPIEE_W1$h15a)
   
 
 ```  
-### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
+### **Variable label**: Age at diagnosis of diabetes, borderline diabetes or high blood sugar  
 **Variable name**:  dis_diab_age_5    
-**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes, or high blood sugar.    
+**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes or high blood sugar.    
 **Value type**:  integer  
 **Variable unit**:  years  
 **Category coding**: N/A
