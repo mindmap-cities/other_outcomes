@@ -548,7 +548,7 @@ oth_HAPIEE_CZ_0$dis_stroke_ever_0<-recode(as.integer(HAPIEE_W1$h10c),"1"=1L,"2"=
 1          |  Ever had diabetes  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  he harmonized variable "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" for followup waves was created using "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" from baseline and followup wave. To create this variable, all HAPIEE_CZ data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
+**Harmonization comment**:  The harmonized variable "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" for followup waves was created using "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" from baseline and followup wave. To create this variable, all HAPIEE_CZ data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
 
 **R script**:  
 ```{r, echo=TRUE}  
@@ -570,7 +570,7 @@ oth_HAPIEE_CZ_0<-merge(oth_HAPIEE_CZ_0,med_table[,c("id","dis_diab_ever_0")],by=
 1          |  Ever had diabetes  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  he harmonized variable "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" for followup waves was created using "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" from baseline and followup wave. To create this variable, all HAPIEE_CZ data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
+**Harmonization comment**:  The harmonized variable "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" for followup waves was created using "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" from baseline and followup wave. To create this variable, all HAPIEE_CZ data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
 
 **R script**:  
 ```{r, echo=TRUE}  
