@@ -553,9 +553,9 @@ oth_LASA1_2<-merge(oth_LASA1_2,med_table_lasa1[,c("id","dis_stroke_age_2")],by="
 
 # Diabetes subdomain  
 
-### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes or high blood sugar  
+### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar  
 **Variable name**: dis_diab_ever_0  
-**Variable description**:  Occurrence of diabetes, borderline diabetes or high blood sugar, at any point during the life of the participant.    
+**Variable description**:  Occurrence of diabetes, borderline diabetes, or high blood sugar, at any point during the life of the participant.    
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding:**
@@ -566,7 +566,7 @@ oth_LASA1_2<-merge(oth_LASA1_2,med_table_lasa1[,c("id","dis_stroke_age_2")],by="
 1          |  Ever had diabetes  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  Currently has diabetes is used. In general once a respondent has diabetes, they are affected by this chronic disease for life. The harmonized variable "Lifetime occurrence of diabetes, borderline diabetes or high blood sugar" for followup waves was created using "Lifetime occurrence of diabetes, borderline diabetes or high blood sugar" from baseline and previous and current waves. To create this variable, all LASA1 data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
+**Harmonization comment**:  Currently has diabetes is used. In general once a respondent has diabetes, they are affected by this chronic disease for life. The harmonized variable "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" for followup waves was created using "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" from baseline and previous and current waves. To create this variable, all LASA1 data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 **R script**:  
 ```{r, echo=TRUE}  
 #Harmonization scripts to create
@@ -574,9 +574,9 @@ med_table_lasa1$dis_diab_ever_0<- recode(as.integer(med_table_lasa1$bdiabe01),'0
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_LASA1_0<-merge(oth_LASA1_0,med_table_lasa1[,c("id","dis_diab_ever_0")],by="id",all.x = TRUE)
 ```  
-### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes or high blood sugar     
+### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
 **Variable name**: dis_diab_ever_1  
-**Variable description**:  Occurrence of diabetes, borderline diabetes or high blood sugar, at any point during the life of the participant.      
+**Variable description**:  Occurrence of diabetes, borderline diabetes, or high blood sugar, at any point during the life of the participant.      
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding:**
@@ -587,7 +587,7 @@ oth_LASA1_0<-merge(oth_LASA1_0,med_table_lasa1[,c("id","dis_diab_ever_0")],by="i
 1          |  Ever had diabetes  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  Currently has diabetes is used. In general once a respondent has diabetes, they are affected by this chronic disease for life. The harmonized variable "Lifetime occurrence of diabetes, borderline diabetes or high blood sugar" for followup waves was created using "Lifetime occurrence of diabetes, borderline diabetes or high blood sugar" from baseline and previous and current waves. To create this variable, all LASA1 data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
+**Harmonization comment**:  Currently has diabetes is used. In general once a respondent has diabetes, they are affected by this chronic disease for life. The harmonized variable "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" for followup waves was created using "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" from baseline and previous and current waves. To create this variable, all LASA1 data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 **R script**:  
 ```{r, echo=TRUE}  
 #Harmonization scripts to create diabetes ever
@@ -595,9 +595,9 @@ med_table_lasa1$dis_diab_ever_1<- ifelse(med_table_lasa1$dis_diab_ever_0==0 & as
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_LASA1_1<- merge(oth_LASA1_1,med_table_lasa1[,c("id","dis_diab_ever_1")],by="id", all.x=TRUE)
 ```  
-### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes or high blood sugar     
+### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
 **Variable name**: dis_diab_ever_2  
-**Variable description**:  Occurrence of diabetes, borderline diabetes or high blood sugar, at any point during the life of the participant.    
+**Variable description**:  Occurrence of diabetes, borderline diabetes, or high blood sugar, at any point during the life of the participant.    
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding:**
@@ -608,7 +608,7 @@ oth_LASA1_1<- merge(oth_LASA1_1,med_table_lasa1[,c("id","dis_diab_ever_1")],by="
 1          |  Ever had diabetes  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  Currently has diabetes is used. In general once a respondent has diabetes, they are affected by this chronic disease for life. The harmonized variable "Lifetime occurrence of diabetes, borderline diabetes or high blood sugar" for followup waves was created using "Lifetime occurrence of diabetes, borderline diabetes or high blood sugar" from baseline and previous and current waves. To create this variable, all LASA1 data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
+**Harmonization comment**:  Currently has diabetes is used. In general once a respondent has diabetes, they are affected by this chronic disease for life. The harmonized variable "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" for followup waves was created using "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" from baseline and previous and current waves. To create this variable, all LASA1 data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 **R script**:  
 ```{r, echo=TRUE}  
 #Harmonization scripts to create
@@ -616,9 +616,9 @@ med_table_lasa1$dis_diab_ever_2<- ifelse(med_table_lasa1$dis_diab_ever_1==0 & as
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_LASA1_2<- merge(oth_LASA1_2,med_table_lasa1[,c("id","dis_diab_ever_2")],by="id", all.x=TRUE)
 ```  
-### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes or high blood sugar     
+### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
 **Variable name**: dis_diab_ever_3  
-**Variable description**:  Occurrence of diabetes, borderline diabetes or high blood sugar, at any point during the life of the participant.      
+**Variable description**:  Occurrence of diabetes, borderline diabetes, or high blood sugar, at any point during the life of the participant.      
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding:**
@@ -629,7 +629,7 @@ oth_LASA1_2<- merge(oth_LASA1_2,med_table_lasa1[,c("id","dis_diab_ever_2")],by="
 1          |  Ever had diabetes  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  Currently has diabetes is used. In general once a respondent has diabetes, they are affected by this chronic disease for life. The harmonized variable "Lifetime occurrence of diabetes, borderline diabetes or high blood sugar" for followup waves was created using "Lifetime occurrence of diabetes, borderline diabetes or high blood sugar" from baseline and previous and current waves. To create this variable, all LASA1 data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
+**Harmonization comment**:  Currently has diabetes is used. In general once a respondent has diabetes, they are affected by this chronic disease for life. The harmonized variable "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" for followup waves was created using "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" from baseline and previous and current waves. To create this variable, all LASA1 data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 **R script**:  
 ```{r, echo=TRUE}  
 #Harmonization scripts to create
@@ -637,9 +637,9 @@ med_table_lasa1$dis_diab_ever_3<- ifelse(med_table_lasa1$dis_diab_ever_2==0 & as
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_LASA1_3<- merge(oth_LASA1_3,med_table_lasa1[,c("id","dis_diab_ever_3")],by="id", all.x=TRUE)
 ```  
-### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes or high blood sugar     
+### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
 **Variable name**: dis_diab_ever_4  
-**Variable description**:  Occurrence of diabetes, borderline diabetes or high blood sugar, at any point during the life of the participant.      
+**Variable description**:  Occurrence of diabetes, borderline diabetes, or high blood sugar, at any point during the life of the participant.      
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding:**
@@ -650,7 +650,7 @@ oth_LASA1_3<- merge(oth_LASA1_3,med_table_lasa1[,c("id","dis_diab_ever_3")],by="
 1          |  Ever had diabetes  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  Currently has diabetes is used. In general once a respondent has diabetes, they are affected by this chronic disease for life. The harmonized variable "Lifetime occurrence of diabetes, borderline diabetes or high blood sugar" for followup waves was created using "Lifetime occurrence of diabetes, borderline diabetes or high blood sugar" from baseline and previous and current waves. To create this variable, all LASA1 data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
+**Harmonization comment**:  Currently has diabetes is used. In general once a respondent has diabetes, they are affected by this chronic disease for life. The harmonized variable "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" for followup waves was created using "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" from baseline and previous and current waves. To create this variable, all LASA1 data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 **R script**:  
 ```{r, echo=TRUE}  
 #Harmonization scripts to create
@@ -658,9 +658,9 @@ med_table_lasa1$dis_diab_ever_4<- ifelse(med_table_lasa1$dis_diab_ever_3==0 & as
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_LASA1_4<- merge(oth_LASA1_4,med_table_lasa1[,c("id","dis_diab_ever_4")],by="id", all.x=TRUE)
 ```  
-### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes or high blood sugar     
+### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
 **Variable name**: dis_diab_ever_5  
-**Variable description**:  Occurrence of diabetes, borderline diabetes or high blood sugar, at any point during the life of the participant.      
+**Variable description**:  Occurrence of diabetes, borderline diabetes, or high blood sugar, at any point during the life of the participant.      
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding:**
@@ -671,7 +671,7 @@ oth_LASA1_4<- merge(oth_LASA1_4,med_table_lasa1[,c("id","dis_diab_ever_4")],by="
 1          |  Ever had diabetes  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  Currently has diabetes is used. In general once a respondent has diabetes, they are affected by this chronic disease for life. The harmonized variable "Lifetime occurrence of diabetes, borderline diabetes or high blood sugar" for followup waves was created using "Lifetime occurrence of diabetes, borderline diabetes or high blood sugar" from baseline and previous and current waves. To create this variable, all LASA1 data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
+**Harmonization comment**:  Currently has diabetes is used. In general once a respondent has diabetes, they are affected by this chronic disease for life. The harmonized variable "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" for followup waves was created using "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" from baseline and previous and current waves. To create this variable, all LASA1 data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 **R script**:  
 ```{r, echo=TRUE}  
 #Harmonization scripts to create
@@ -679,15 +679,15 @@ med_table_lasa1$dis_diab_ever_5<- ifelse(med_table_lasa1$dis_diab_ever_4==0 & as
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_LASA1_5<- merge(oth_LASA1_5,med_table_lasa1[,c("id","dis_diab_ever_5")],by="id", all.x=TRUE)
 ```  
-### **Variable label**: Age at diagnosis of diabetes, borderline diabetes or high blood sugar  
+### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
 **Variable name**:  dis_diab_age_0    
-**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes or high blood sugar.    
+**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes, or high blood sugar.    
 **Value type**:  integer  
 **Variable unit**:  years  
 **Category coding**: N/A
 
 **Hamonization status**:  complete  
-**Harmonization comment**: Age at diabetes was collected at baseline (bdiabe02).  Age at diabetes in followup waves was collected for respondents who did not have diabetes in previous waves. the harmonized variable "Age at diagnosis of diabetes, borderline diabetes or high blood sugar" for followup waves was created using previous and current waves. To create this variable, all LASA1 data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.    
+**Harmonization comment**: Age at diabetes was collected at baseline (bdiabe02).  Age at diabetes in followup waves was collected for respondents who did not have diabetes in previous waves. the harmonized variable "Age at diagnosis of diabetes, borderline diabetes, or high blood sugar" for followup waves was created using previous and current waves. To create this variable, all LASA1 data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.    
 
 **R script**:  
 ```{r, echo=TRUE}  
@@ -696,15 +696,15 @@ med_table_lasa1$dis_diab_age_0 <- ifelse(as.integer(med_table_lasa1$bdiabe02)>=0
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_LASA1_0<- merge(oth_LASA1_0,med_table_lasa1[,c("id","dis_diab_age_0")],by="id",all.x=TRUE)
 ```  
-### **Variable label**: Age at diagnosis of diabetes, borderline diabetes or high blood sugar  
+### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
 **Variable name**:  dis_diab_age_1    
-**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes or high blood sugar.    
+**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes, or high blood sugar.    
 **Value type**:  integer  
 **Variable unit**:  years  
 **Category coding**: N/A
 
 **Hamonization status**:  complete  
-**Harmonization comment**:  Age at diabetes was collected at baseline (bdiabe02).  Age at diabetes in followup waves was collected for respondents who did not have diabetes in previous waves. the harmonized variable "Age at diagnosis of diabetes, borderline diabetes or high blood sugar" for followup waves was created using previous and current waves. To create this variable, all LASA1 data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
+**Harmonization comment**:  Age at diabetes was collected at baseline (bdiabe02).  Age at diabetes in followup waves was collected for respondents who did not have diabetes in previous waves. the harmonized variable "Age at diagnosis of diabetes, borderline diabetes, or high blood sugar" for followup waves was created using previous and current waves. To create this variable, all LASA1 data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 **R script**:  
 ```{r, echo=TRUE}  
 #Harmonization scripts to create
@@ -712,15 +712,15 @@ med_table_lasa1$dis_diab_age_1<- ifelse(med_table_lasa1$dis_diab_ever_0==1, med_
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_LASA1_1<-merge(oth_LASA1_1,med_table_lasa1[,c("id","dis_diab_age_1")],by="id",all.x=TRUE)
 ```  
-### **Variable label**: Age at diagnosis of diabetes, borderline diabetes or high blood sugar  
+### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
 **Variable name**:  dis_diab_age_2    
-**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes or high blood sugar.    
+**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes, or high blood sugar.    
 **Value type**:  integer  
 **Variable unit**:  years  
 **Category coding**: N/A
 
 **Hamonization status**:  complete  
-**Harmonization comment**:  Age at diabetes was collected at baseline (bdiabe02).  Age at diabetes in followup waves was collected for respondents who did not have diabetes in previous waves. the harmonized variable "Age at diagnosis of diabetes, borderline diabetes or high blood sugar" for followup waves was created using previous and current waves. To create this variable, all LASA1 data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
+**Harmonization comment**:  Age at diabetes was collected at baseline (bdiabe02).  Age at diabetes in followup waves was collected for respondents who did not have diabetes in previous waves. the harmonized variable "Age at diagnosis of diabetes, borderline diabetes, or high blood sugar" for followup waves was created using previous and current waves. To create this variable, all LASA1 data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 **R script**:  
 ```{r, echo=TRUE}  
 #Harmonization scripts to create
@@ -728,15 +728,15 @@ med_table_lasa1$dis_diab_age_2<- ifelse(med_table_lasa1$dis_diab_ever_1==1, med_
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_LASA1_2<-merge(oth_LASA1_2,med_table_lasa1[,c("id","dis_diab_age_2")],by="id",all.x=TRUE)
 ```  
-### **Variable label**: Age at diagnosis of diabetes, borderline diabetes or high blood sugar  
+### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
 **Variable name**:  dis_diab_age_3    
-**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes or high blood sugar.    
+**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes, or high blood sugar.    
 **Value type**:  integer  
 **Variable unit**:  years  
 **Category coding**: N/A
 
 **Hamonization status**:  complete  
-**Harmonization comment**: Age at diabetes was collected at baseline (bdiabe02).  Age at diabetes in followup waves was collected for respondents who did not have diabetes in previous waves. the harmonized variable "Age at diagnosis of diabetes, borderline diabetes or high blood sugar" for followup waves was created using previous and current waves. To create this variable, all LASA1 data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.    
+**Harmonization comment**: Age at diabetes was collected at baseline (bdiabe02).  Age at diabetes in followup waves was collected for respondents who did not have diabetes in previous waves. the harmonized variable "Age at diagnosis of diabetes, borderline diabetes, or high blood sugar" for followup waves was created using previous and current waves. To create this variable, all LASA1 data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.    
 **R script**:  
 ```{r, echo=TRUE}  
 #Harmonization scripts to create
@@ -744,15 +744,15 @@ med_table_lasa1$dis_diab_age_3<- ifelse(med_table_lasa1$dis_diab_ever_2==1, med_
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_LASA1_3<-merge(oth_LASA1_3,med_table_lasa1[,c("id","dis_diab_age_3")],by="id",all.x=TRUE)
 ```  
-### **Variable label**: Age at diagnosis of diabetes, borderline diabetes or high blood sugar  
+### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
 **Variable name**:  dis_diab_age_4    
-**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes or high blood sugar.    
+**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes, or high blood sugar.    
 **Value type**:  integer  
 **Variable unit**:  years  
 **Category coding**: N/A
 
 **Hamonization status**:  complete  
-**Harmonization comment**:  Age at diabetes was collected at baseline (bdiabe02).  Age at diabetes in followup waves was collected for respondents who did not have diabetes in previous waves. the harmonized variable "Age at diagnosis of diabetes, borderline diabetes or high blood sugar" for followup waves was created using previous and current waves. To create this variable, all LASA1 data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
+**Harmonization comment**:  Age at diabetes was collected at baseline (bdiabe02).  Age at diabetes in followup waves was collected for respondents who did not have diabetes in previous waves. the harmonized variable "Age at diagnosis of diabetes, borderline diabetes, or high blood sugar" for followup waves was created using previous and current waves. To create this variable, all LASA1 data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 **R script**:  
 ```{r, echo=TRUE}  
 #Harmonization scripts to create
@@ -760,15 +760,15 @@ med_table_lasa1$dis_diab_age_4<- ifelse(med_table_lasa1$dis_diab_ever_3==1, med_
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_LASA1_4<-merge(oth_LASA1_4,med_table_lasa1[,c("id","dis_diab_age_4")],by="id",all.x=TRUE)
 ```  
-### **Variable label**: Age at diagnosis of diabetes, borderline diabetes or high blood sugar  
+### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
 **Variable name**:  dis_diab_age_5    
-**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes or high blood sugar.    
+**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes, or high blood sugar.    
 **Value type**:  integer  
 **Variable unit**:  years  
 **Category coding**: N/A
 
 **Hamonization status**:  complete  
-**Harmonization comment**:  Age at diabetes was collected at baseline (bdiabe02).  Age at diabetes in followup waves was collected for respondents who did not have diabetes in previous waves. the harmonized variable "Age at diagnosis of diabetes, borderline diabetes or high blood sugar" for followup waves was created using previous and current waves. To create this variable, all LASA1 data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.    
+**Harmonization comment**:  Age at diabetes was collected at baseline (bdiabe02).  Age at diabetes in followup waves was collected for respondents who did not have diabetes in previous waves. the harmonized variable "Age at diagnosis of diabetes, borderline diabetes, or high blood sugar" for followup waves was created using previous and current waves. To create this variable, all LASA1 data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.    
 **R script**:  
 ```{r, echo=TRUE}  
 #Harmonization scripts to create

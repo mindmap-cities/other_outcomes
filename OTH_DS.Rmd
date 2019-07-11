@@ -477,9 +477,9 @@ output: html_document
 
 # Diabetes subdomain  
 
-### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes or high blood sugar  
+### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar  
 **Variable name**: dis_diab_ever_0  
-**Variable description**:  Occurrence of diabetes, borderline diabetes or high blood sugar, at any point during the life of the participant.    
+**Variable description**:  Occurrence of diabetes, borderline diabetes, or high blood sugar, at any point during the life of the participant.    
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding:**
@@ -496,9 +496,9 @@ output: html_document
 #This is where the R-script will be written  
 
 ```  
-### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes or high blood sugar     
+### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
 **Variable name**: dis_diab_ever_1  
-**Variable description**:  Occurrence of diabetes, borderline diabetes or high blood sugar, at any point during the life of the participant.      
+**Variable description**:  Occurrence of diabetes, borderline diabetes, or high blood sugar, at any point during the life of the participant.      
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding:**
@@ -515,9 +515,9 @@ output: html_document
 #This is where the R-script will be written  
 
 ```  
-### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes or high blood sugar     
+### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
 **Variable name**: dis_diab_ever_2  
-**Variable description**:  Occurrence of diabetes, borderline diabetes or high blood sugar, at any point during the life of the participant.    
+**Variable description**:  Occurrence of diabetes, borderline diabetes, or high blood sugar, at any point during the life of the participant.    
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding:**
@@ -534,9 +534,9 @@ output: html_document
 #This is where the R-script will be written  
 
 ```  
-### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes or high blood sugar     
+### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
 **Variable name**: dis_diab_ever_3  
-**Variable description**:  Occurrence of diabetes, borderline diabetes or high blood sugar, at any point during the life of the participant.      
+**Variable description**:  Occurrence of diabetes, borderline diabetes, or high blood sugar, at any point during the life of the participant.      
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding:**
@@ -553,9 +553,9 @@ output: html_document
 #This is where the R-script will be written  
 
 ```  
-### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes or high blood sugar     
+### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
 **Variable name**: dis_diab_ever_4  
-**Variable description**:  Occurrence of diabetes, borderline diabetes or high blood sugar, at any point during the life of the participant.      
+**Variable description**:  Occurrence of diabetes, borderline diabetes, or high blood sugar, at any point during the life of the participant.      
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding:**
@@ -572,9 +572,9 @@ output: html_document
 #This is where the R-script will be written  
 
 ```  
-### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes or high blood sugar     
+### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
 **Variable name**: dis_diab_ever_5  
-**Variable description**:  Occurrence of diabetes, borderline diabetes or high blood sugar, at any point during the life of the participant.      
+**Variable description**:  Occurrence of diabetes, borderline diabetes, or high blood sugar, at any point during the life of the participant.      
 **Value type**:  integer  
 **Variable unit**:  N/A  
 **Category coding:**
@@ -591,9 +591,9 @@ output: html_document
 #This is where the R-script will be written  
 
 ```  
-### **Variable label**: Age at diagnosis of diabetes, borderline diabetes or high blood sugar  
+### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
 **Variable name**:  dis_diab_age_0    
-**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes or high blood sugar.    
+**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes, or high blood sugar.    
 **Value type**:  integer  
 **Variable unit**:  years  
 **Category coding**: N/A
@@ -605,9 +605,9 @@ output: html_document
 #This is where the R-script will be written  
 
 ```  
-### **Variable label**: Age at diagnosis of diabetes, borderline diabetes or high blood sugar  
+### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
 **Variable name**:  dis_diab_age_1    
-**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes or high blood sugar.    
+**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes, or high blood sugar.    
 **Value type**:  integer  
 **Variable unit**:  years  
 **Category coding**: N/A
@@ -619,9 +619,9 @@ output: html_document
 #This is where the R-script will be written  
 
 ```  
-### **Variable label**: Age at diagnosis of diabetes, borderline diabetes or high blood sugar  
+### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
 **Variable name**:  dis_diab_age_2    
-**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes or high blood sugar.    
+**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes, or high blood sugar.    
 **Value type**:  integer  
 **Variable unit**:  years  
 **Category coding**: N/A
@@ -633,9 +633,9 @@ output: html_document
 #This is where the R-script will be written  
 
 ```  
-### **Variable label**: Age at diagnosis of diabetes, borderline diabetes or high blood sugar  
+### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
 **Variable name**:  dis_diab_age_3    
-**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes or high blood sugar.    
+**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes, or high blood sugar.    
 **Value type**:  integer  
 **Variable unit**:  years  
 **Category coding**: N/A
@@ -647,9 +647,9 @@ output: html_document
 #This is where the R-script will be written  
 
 ```  
-### **Variable label**: Age at diagnosis of diabetes, borderline diabetes or high blood sugar  
+### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
 **Variable name**:  dis_diab_age_4    
-**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes or high blood sugar.    
+**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes, or high blood sugar.    
 **Value type**:  integer  
 **Variable unit**:  years  
 **Category coding**: N/A
@@ -661,9 +661,9 @@ output: html_document
 #This is where the R-script will be written  
 
 ```  
-### **Variable label**: Age at diagnosis of diabetes, borderline diabetes or high blood sugar  
+### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
 **Variable name**:  dis_diab_age_5    
-**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes or high blood sugar.    
+**Variable description**: Age of the participant at first diagnosis of diabetes, borderline diabetes, or high blood sugar.    
 **Value type**:  integer  
 **Variable unit**:  years  
 **Category coding**: N/A

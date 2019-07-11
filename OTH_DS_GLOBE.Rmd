@@ -551,7 +551,7 @@ med_table$dis_diab_ever_0 <- recode(as.integer(med_table$v213),'1'=0L,'2'=1L,'3'
 oth_GLOBE_0<-merge(oth_GLOBE_0,med_table[,c("id","dis_diab_ever_0")],by="id",all.x=TRUE)
 
 ```  
-### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes or high blood sugar     
+### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
 **Variable name**: dis_diab_ever_1  
 **Variable description**:  Occurrence of diabetes, borderline diabetes, or high blood sugar, at any point during the life of the participant.      
 **Value type**:  integer  
@@ -593,7 +593,7 @@ oth_GLOBE_1<-merge(oth_GLOBE_1,med_table[,c("id","dis_diab_ever_1")],by="id",all
 
 
 ```  
-### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes or high blood sugar     
+### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
 **Variable name**: dis_diab_ever_3  
 **Variable description**:  Occurrence of diabetes, borderline diabetes, or high blood sugar, at any point during the life of the participant.      
 **Value type**:  integer  
