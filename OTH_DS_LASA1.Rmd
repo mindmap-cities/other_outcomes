@@ -901,7 +901,7 @@ oth_LASA1_5$dis_diab_tx_5<- ifelse((as.integer(LASA1G$gdiabe03)==1 & as.integer(
 **Code** | **Category Label**  
 ---------| ---------------------------------------------  
 0        | Currently does not use insulin for diabetes treatment  
-1        | Currently has used insulin for diabetes treatment  
+1        | Currently does use insulin for diabetes treatment  
 
 **Harmonization status**:  complete  
 **Harmonization comment**:  Categories of study-specific variable (Diabetes-taking medication) are No | Yes, insulin injections | Yes, tablets only. If respondent does not do treatment for diabetes then coded as NA in "Currently use insulin for diabetes".   
@@ -920,7 +920,7 @@ oth_LASA1_0$dis_diab_ins_0 <- ifelse(oth_LASA1_0$dis_diab_tx_0==0,0L,recode(as.i
 **Code** | **Category Label**  
 ---------| ---------------------------------------------  
 0        | Currently does not use insulin for diabetes treatment  
-1        | Currently has used insulin for diabetes treatment  
+1        | Currently does use insulin for diabetes treatment  
 
 **Harmonization status**:  complete  
 **Harmonization comment**:  Categories of study-specific variable (Diabetes-taking medication) are No | Yes, insulin injections | Yes, tablets only. If respondent does not do treatment for diabetes then coded as NA in "Currently use insulin for diabetes".  
@@ -939,7 +939,7 @@ oth_LASA1_1$dis_diab_ins_1 <- ifelse(oth_LASA1_1$dis_diab_tx_1==0,0L,recode(as.i
 **Code** | **Category Label**  
 ---------| ---------------------------------------------  
 0        | Currently does not use insulin for diabetes treatment  
-1        | Currently has used insulin for diabetes treatment  
+1        | Currently does use insulin for diabetes treatment  
 
 **Harmonization status**:  complete  
 **Harmonization comment**:  Categories of study-specific variable (Diabetes-taking medication) are No | Yes, insulin injections | Yes, tablets only. If respondent does not do treatment for diabetes then coded as NA in "Currently use insulin for diabetes".   

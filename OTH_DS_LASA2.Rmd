@@ -869,7 +869,7 @@ oth_LASA2_3$dis_diab_tx_3<- ifelse(oth_LASA2_3$dis_diab_ever_3==0,0,ifelse(as.in
 **Code** | **Category Label**  
 ---------| ---------------------------------------------  
 0        | Currently does not use insulin for diabetes treatment  
-1        | Currently has used insulin for diabetes treatment  
+1        | Currently does use insulin for diabetes treatment  
 
 **Harmonization status**:  complete  
 **Harmonization comment**:  Categories of study-specific variable (Diabetes-taking medication) are No | Yes, insulin injections | Yes, tablets only. If respondent does not do treatment for diabetes then coded as NA in "Currently use insulin for diabetes".   
@@ -888,7 +888,7 @@ oth_LASA2_0$dis_diab_ins_0 <- ifelse(oth_LASA2_0$dis_diab_tx_0==0,0,recode(as.in
 **Code** | **Category Label**  
 ---------| ---------------------------------------------  
 0        | Currently does not use insulin for diabetes treatment  
-1        | Currently has used insulin for diabetes treatment  
+1        | Currently does use insulin for diabetes treatment  
 
 **Harmonization status**:  complete  
 **Harmonization comment**:  Categories of study-specific variable (Diabetes-taking medication) are No | Yes, insulin injections | Yes, tablets only. If respondent does not do treatment for diabetes then coded as NA in "Currently use insulin for diabetes".   
@@ -907,7 +907,7 @@ oth_LASA2_1$dis_diab_ins_1 <- ifelse(oth_LASA2_1$dis_diab_ever_1==0,0,recode(as.
 **Code** | **Category Label**  
 ---------| ---------------------------------------------  
 0        | Currently does not use insulin for diabetes treatment  
-1        | Currently has used insulin for diabetes treatment  
+1        | Currently does use insulin for diabetes treatment  
 
 **Harmonization status**:  complete  
 **Harmonization comment**:  Categories of study-specific variable (Diabetes-taking medication) are No | Yes, insulin injections | Yes, tablets only. If respondent does not do treatment for diabetes then coded as NA in "Currently use insulin for diabetes".    

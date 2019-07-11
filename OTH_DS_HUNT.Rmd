@@ -872,7 +872,7 @@ oth_HUNT_2$dis_diab_age_2<- as.numeric(HUNT3$DiaAg_NT3BLQ1)
 **Code** | **Category Label**  
 ---------| ---------------------------------------------  
 0        | Currently does not use insulin for diabetes treatment  
-1        | Currently has used insulin for diabetes treatment  
+1        | Currently does use insulin for diabetes treatment  
 
 **Harmonization status**:  impossible  
 **Harmonization comment**:  
@@ -890,7 +890,7 @@ oth_HUNT_2$dis_diab_age_2<- as.numeric(HUNT3$DiaAg_NT3BLQ1)
 **Code** | **Category Label**  
 ---------| ---------------------------------------------  
 0        | Currently does not use insulin for diabetes treatment  
-1        | Currently has used insulin for diabetes treatment  
+1        | Currently does use insulin for diabetes treatment  
 
 **Harmonization status**:  impossible  
 **Harmonization comment**:  
@@ -908,7 +908,7 @@ oth_HUNT_2$dis_diab_age_2<- as.numeric(HUNT3$DiaAg_NT3BLQ1)
 **Code** | **Category Label**  
 ---------| ---------------------------------------------  
 0        | Currently does not use insulin for diabetes treatment  
-1        | Currently has used insulin for diabetes treatment  
+1        | Currently does use insulin for diabetes treatment  
 
 **Harmonization status**:  impossible  
 **Harmonization comment**:  

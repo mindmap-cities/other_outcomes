@@ -876,7 +876,7 @@ oth_RECORD_1<-merge(oth_RECORD_1,med_table_record[,c("id","dis_diab_ever_1")],by
 **Code** | **Category Label**  
 ---------| ---------------------------------------------  
 0        | Currently does not use insulin for diabetes treatment  
-1        | Currently has used insulin for diabetes treatment  
+1        | Currently does use insulin for diabetes treatment  
 
 **Harmonization status**:  impossible  
 **Harmonization comment**:  
@@ -895,7 +895,7 @@ oth_RECORD_1<-merge(oth_RECORD_1,med_table_record[,c("id","dis_diab_ever_1")],by
 **Code** | **Category Label**  
 ---------| ---------------------------------------------  
 0        | Currently does not use insulin for diabetes treatment  
-1        | Currently has used insulin for diabetes treatment  
+1        | Currently does use insulin for diabetes treatment  
 
 **Harmonization status**:  impossible  
 **Harmonization comment**:  
@@ -914,7 +914,7 @@ oth_RECORD_1<-merge(oth_RECORD_1,med_table_record[,c("id","dis_diab_ever_1")],by
 **Code** | **Category Label**  
 ---------| ---------------------------------------------  
 0        | Currently does not use insulin for diabetes treatment  
-1        | Currently has used insulin for diabetes treatment  
+1        | Currently does use insulin for diabetes treatment  
 
 **Harmonization status**:  impossible  
 **Harmonization comment**:  

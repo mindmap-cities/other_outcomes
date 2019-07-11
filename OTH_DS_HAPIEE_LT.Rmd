@@ -836,7 +836,7 @@ oth_HAPIEE_LT_0$dis_diab_tx_0<-ifelse(oth_HAPIEE_LT_0$dis_diab_ever_0==0,0L,reco
 **Code** | **Category Label**  
 ---------| ---------------------------------------------  
 0        | Currently does not use insulin for diabetes treatment  
-1        | Currently has used insulin for diabetes treatment  
+1        | Currently does use insulin for diabetes treatment  
 
 **Harmonization status**:  complete  
 **Harmonization comment**:  
@@ -855,7 +855,7 @@ oth_HAPIEE_LT_0$dis_diab_ins_0<-ifelse(oth_HAPIEE_LT_0$dis_diab_ever_0==0,0L,rec
 **Code** | **Category Label**  
 ---------| ---------------------------------------------  
 0        | Currently does not use insulin for diabetes treatment  
-1        | Currently has used insulin for diabetes treatment  
+1        | Currently does use insulin for diabetes treatment  
 
 **Harmonization status**:  impossible    
 **Harmonization comment**:  
@@ -874,7 +874,7 @@ oth_HAPIEE_LT_0$dis_diab_ins_0<-ifelse(oth_HAPIEE_LT_0$dis_diab_ever_0==0,0L,rec
 **Code** | **Category Label**  
 ---------| ---------------------------------------------  
 0        | Currently does not use insulin for diabetes treatment  
-1        | Currently has used insulin for diabetes treatment  
+1        | Currently does use insulin for diabetes treatment  
 
 **Harmonization status**:  impossible  
 **Harmonization comment**:  

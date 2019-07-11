@@ -862,7 +862,7 @@ oth_GLOBE_1$dis_diab_tx_1<-ifelse(oth_GLOBE_1$dis_diab_ever_1==1 & (GLOBE1997$r2
 **Code** | **Category Label**  
 ---------| ---------------------------------------------  
 0        | Currently does not use insulin for diabetes treatment  
-1        | Currently has used insulin for diabetes treatment  
+1        | Currently does use insulin for diabetes treatment  
 
 **Harmonization status**:  complete  
 **Harmonization comment**:  Currently use insulin for diabetes was only collected for a subset of participants.  
@@ -881,7 +881,7 @@ oth_GLOBE_0$dis_diab_ins_0<-ifelse(oth_GLOBE_0$dis_diab_tx_0==0,0L,             
 **Code** | **Category Label**  
 ---------| ---------------------------------------------  
 0        | Currently does not use insulin for diabetes treatment  
-1        | Currently has used insulin for diabetes treatment  
+1        | Currently does use insulin for diabetes treatment  
 
 **Harmonization status**:  complete  
 **Harmonization comment**:  
@@ -901,7 +901,7 @@ oth_GLOBE_1$dis_diab_ins_1<-ifelse(oth_GLOBE_1$dis_diab_tx_1==0,0L,
 **Code** | **Category Label**  
 ---------| ---------------------------------------------  
 0        | Currently does not use insulin for diabetes treatment  
-1        | Currently has used insulin for diabetes treatment  
+1        | Currently does use insulin for diabetes treatment  
 
 **Harmonization status**:  impossible  
 **Harmonization comment**:  
