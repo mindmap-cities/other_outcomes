@@ -2,6 +2,97 @@
 title: "Other outcomes DataSchema"
 output: html_document
 ---
+# Connecting with Opal data server
+## Login to server and assign study data
+```{r, echo=FALSE}
+#Load Opal R library
+library(opal)
+library(tidyverse)
+library(epiDisplay)
+# Create an opal object with the login information
+erasmus_opal <- opal.login()
+#Login to Opal server and assign the content of the GLOBE table(s) to your RStudio environment
+
+# COP BASE PART1
+opal.assign.table.tibble(erasmus_opal, 'CLSA','CLSA.cop4_baseline_part1_', variables =list("WGT_WEIGHT1_KG_COM", "WGT_WEIGHT2_KG_COM", "WGT_WEIGHT_KG_COM", "HGT_HEIGHT_M_COM","HWT_DISW_COM", "HWT_DBMI_COM"))
+CLSA_cop0_p1 <- opal.execute(erasmus_opal,'CLSA')
+
+# COP BASE PART2
+opal.assign.table.tibble(erasmus_opal, 'CLSA','CLSA.cop4_baseline_part2_', variables =list("WHC_WAIST_CM_COM", "WHC_CLTHLAYERS_COM", "GEN_HLTH_COM", "FUL_FSTR_COM", "FUL_WK23B_COM", "CCC_HBP_COM", "HBP_EVRMED_COM", "CCC_ANGI_COM", "CCC_AMI_COM", "IHD_AMIAGE_NB_COM", "CCC_CVA_COM", "STR_CVAAGE_NB_COM", "DIA_DIAB_COM", "DIA_AGE_NB_COM", "DIA_MED_COM", 
+"DIA_MEDINSNAME_HUMU_COM", "DIA_MEDINSNAME_LEVE_COM", "DIA_MEDINSNAME_HUMA_COM", "DIA_MEDINSNAME_NOVOR_COM",
+"DIA_MEDINSNAME_NOVOM_COM","DIA_MEDINSNAME_LANT_COM","DIA_MEDINSNAME_OT_COM","DIA_MEDAGE_NB_COM"))
+CLSA_cop0_p2 <- opal.execute(erasmus_opal,'CLSA')
+
+
+CLSA_cop0<-merge(CLSA_cop0_p1, CLSA_cop0_p2, by="id")
+str(CLSA_cop0)
+# COP BASE PART3
+#opal.assign.table.tibble(erasmus_opal, 'CLSA','CLSA.cop4_baseline_part3_v', variables =list("PSD_DCTOFF_COM"))
+#CLSA_cop_0_p3 <- opal.execute(erasmus_opal,'CLSA')
+
+# TRA BASE PART1
+opal.assign.table.tibble(erasmus_opal, 'CLSA','CLSA.tra3_4_baseline_part1_v', variables =list("HWT_WGHT_KG_TRM"))
+CLSA_tra0_p1 <- opal.execute(erasmus_opal,'CLSA')
+
+# TRA BASE PART2
+opal.assign.table.tibble(erasmus_opal, 'CLSA','CLSA.tra3_4_baseline_part2_v', variables =list("HWT_DHT_M_TRM", "HWT_DISW_TRM", "HWT_DBMI_TRM"))
+CLSA_tra0_p2 <- opal.execute(erasmus_opal,'CLSA')
+
+CLSA_tra0<-merge(CLSA_tra0_p1, CLSA_tra0_p2, by="id")
+
+# COP FU1 PART1
+opal.assign.table.tibble(erasmus_opal, 'CLSA','CLSA.cop_fu1_part1_v', variables =list("WGT_WEIGHT1_KG_COF1", "WGT_WEIGHT2_KG_COF1","GEN_HLTH_COF1", "WGT_WEIGHT_KG_COF1", "HGT_HEIGHT_M_COF1","HWT_DBMI_COF1"))
+CLSA_cop1_p1 <- opal.execute(erasmus_opal,'CLSA')
+
+# COP fu1 PART2
+opal.assign.table.tibble(erasmus_opal, 'CLSA','CLSA.cop_fu1_part2_', variables =list("WHC_WAIST_CM_COF1", "WHC_CLTHLAYERS_COF1", "FUL_FSTR_COF1", "FUL_WK23B_COF1", "CCC_HBP_COF1", "HBP_EVRMED_COF1", "CCC_ANGI_COF1", "CCC_AMI_COF1", "IHD_AMIAGE_NB_COF1", "CCC_CVA_COF1", "STR_CVAAGE_NB_COF1", "DIA_DIAB_COF1", "DIA_AGE_NB_COF1", "DIA_MED_COF1", "HWT_DISW_COF1",
+"DIA_MEDINSNAME_HUMU_COF1", "DIA_MEDINSNAME_LEVE_COF1", "DIA_MEDINSNAME_HUMA_COF1", "DIA_MEDINSNAME_NOVOR_COF1",
+"DIA_MEDINSNAME_NOVOM_COF1","DIA_MEDINSNAME_LANT_COF1","DIA_MEDINSNAME_OT_COF1","DIA_MEDAGE_NB_COF1"))
+CLSA_cop1_p2 <- opal.execute(erasmus_opal,'CLSA')
+
+CLSA_cop1<-merge(CLSA_cop1_p1, CLSA_cop1_p2, by="id")
+str(CLSA_cop0)
+# COP fu1 PART3
+#opal.assign.table.tibble(erasmus_opal, 'CLSA','CLSA.cop4_fu1line_part3_v', variables =list("PSD_DCTOFF_COM"))
+#CLSA_cop_0_p3 <- opal.execute(erasmus_opal,'CLSA')
+
+# TRA fu1 PART1
+opal.assign.table.tibble(erasmus_opal, 'CLSA','CLSA.tra_fu1_part1_view', variables =list("HWT_WGHT_KG_TRF1"))
+CLSA_tra1_p1 <- opal.execute(erasmus_opal,'CLSA')
+
+# TRA fu1 PART2
+opal.assign.table.tibble(erasmus_opal, 'CLSA','CLSA.tra_fu1_part2_view', variables =list("HWT_DHT_M_TRF1", "HWT_DISW_TRF1"))
+CLSA_tra1_p2 <- opal.execute(erasmus_opal,'CLSA')
+
+CLSA_tra1<-merge(CLSA_tra0_p1, CLSA_tra0_p2, by="id")
+
+
+```
+## Assign participant id as first column of your harmonized dataframes
+```{r, echo=FALSE}
+oth_CLSA_0_p1 <- data.frame(id = CLSA_cop0_p1$id)
+oth_CLSA_0_p2 <- data.frame(id = CLSA_cop0_p2$id)
+oth_CLSA_0<-merge(oth_CLSA_0_p1, oth_CLSA_0_p2, by="id")
+
+oth_CLSA_t0_p1 <- data.frame(id = CLSA_tra0_p1$id)
+oth_CLSA_t0_p2 <- data.frame(id = CLSA_tra0_p2$id)
+oth_CLSA_t0<-merge(oth_CLSA_t0_p1, oth_CLSA_t0_p2, by="id")
+
+
+oth_CLSA_1_p1 <- data.frame(id = CLSA_cop1_p1$id)
+oth_CLSA_1_p2 <- data.frame(id = CLSA_cop1_p2$id)
+oth_CLSA_1<-merge(oth_CLSA_1_p1, oth_CLSA_1_p2, by="id")
+
+oth_CLSA_t1_p1 <- data.frame(id = CLSA_tra1_p1$id)
+oth_CLSA_t1_p2 <- data.frame(id = CLSA_tra1_p2$id)
+oth_CLSA_t1<-merge(oth_CLSA_t1_p1, oth_CLSA_t1_p2, by="id")
+
+```
+## When you are done with your work, logout of Opal server
+```{r, echo=FALSE}
+opal.logout(erasmus_opal)
+```
+
 # Table of Contents
 1. [Hypertension subdomain](#hypertension-subdomain)
 2. [Angina subdomain](#angina-subdomain)
@@ -360,7 +451,7 @@ CCC_AMI_COM
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+IHD_AMIAGE_NB_COM
 
 ```  
 ### **Variable label**: Age at first Myocardial infarction  
@@ -830,7 +921,14 @@ DIA_MED_COM
 **Harmonization comment**:  The 7 study-specific variables are asking about the use of six different medications by product names HUMALOG, APIDRA, NOVORAPID, LANTUS, NOVOMIX, LEVEMIR and Other medications. All the medications asked with specific names are insulin medications. 
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+DIA_MEDINSNAME_HUMU_COM
+DIA_MEDINSNAME_LEVE_COM
+DIA_MEDINSNAME_HUMA_COM
+DIA_MEDINSNAME_NOVOR_COM
+DIA_MEDINSNAME_NOVOM_COM
+DIA_MEDINSNAME_LANT_COM
+DIA_MEDINSNAME_OT_COM
+DIA_MEDAGE_NB_COM
 
 ```  
 ### **Variable label**: Currently use insulin for diabetes  
@@ -881,10 +979,12 @@ DIA_MED_COM
 **Category coding**: N/A
 
 **Harmonization status**:  
-**Harmonization comment**:   
+**Harmonization comment**:   There are three study-specific variables: Measurement 1, Measurement 2, and Average weight. Average weight is used for harmonization.  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+WGT_WEIGHT1_KG_COM
+WGT_WEIGHT2_KG_COM
+WGT_WEIGHT_KG_COM
 
 ```  
 ### **Variable label**: Weight in kg - measured 
@@ -979,10 +1079,12 @@ DIA_MED_COM
 **Category coding**: N/A
 
 **Harmonization status**:  
-**Harmonization comment**:   
+**Harmonization comment**: Self-reported weight data is available only for a subset of participants who were interviewed for the tracking (tra3_4) part of the data collection. 
 **R script**:  
 ```{r, echo=TRUE}
 #This is where the R-script will be written
+HWT_WGHT_KG_TRM
+
 
 ```  
 ### **Variable label**: Weight in kg - self-reported 
@@ -996,8 +1098,7 @@ DIA_MED_COM
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
-
+HWT_WGHT_KG_TRF1
 ```  
 ### **Variable label**: Weight in kg - self-reported 
 **Variable name**: phy_weight_sr_2    
@@ -1077,11 +1178,10 @@ DIA_MED_COM
 **Category coding**: N/A  
 
 **Harmonization status**:  
-**Harmonization comment**:   
+**Harmonization comment**: The average weight of two measurements of the baseline data collection is taken.   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
-
+WGT_WEIGHT_KG_COM
 ```  
 
 ### **Variable label**: Weight in kg - measured and self-reported combined
@@ -1095,7 +1195,7 @@ DIA_MED_COM
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+WGT_WEIGHT_KG_COF1
 
 ```  
 ### **Variable label**: Weight in kg - measured and self-reported combined  
@@ -1176,10 +1276,10 @@ DIA_MED_COM
 **Category coding**: N/A
 
 **Harmonization status**:  
-**Harmonization comment**:   
+**Harmonization comment**:  The study specific variables include Measurement 1 -height in cm, Measurement 2-height in cm, and Average height in m. Average of the measurements are taken for harmonizing this variable.   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+HGT_HEIGHT_M_COM *100
 
 ```  
 ### **Variable label**: Height in cm - measured  
@@ -1193,7 +1293,7 @@ DIA_MED_COM
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+HGT_HEIGHT_M_COF1 *100
 
 ```  
 ### **Variable label**: Height in cm - measured  
@@ -1275,10 +1375,10 @@ DIA_MED_COM
 **Category coding**: N/A
 
 **Harmonization status**:  
-**Harmonization comment**:   
+**Harmonization comment**:   This variable is only included in the Tracking questionnaire that only a subset of the participants filled. 
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+HWT_DHT_M_TRM
 
 ```  
 ### **Variable label**: Height in cm - self-reported  
@@ -1292,7 +1392,7 @@ DIA_MED_COM
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+HWT_DHT_M_TRF1
 
 ```  
 ### **Variable label**: Height in cm - self-reported  
@@ -1377,7 +1477,7 @@ DIA_MED_COM
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+HGT_HEIGHT_M_COM *100
 
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined  
@@ -1391,7 +1491,7 @@ DIA_MED_COM
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+HGT_HEIGHT_M_COF1*100
 
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined    
@@ -1476,7 +1576,10 @@ DIA_MED_COM
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+oth_CLSA_0$phy_bmi_ms_0 <-CLSA_cop0$HWT_DBMI_COM
+
+
+
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured  
@@ -1490,7 +1593,8 @@ DIA_MED_COM
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+oth_CLSA_1$phy_bmi_ms_1 <-CLSA_cop1$HWT_DBMI_COF1
+
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured  
@@ -1571,11 +1675,27 @@ DIA_MED_COM
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**:  
-**Harmonization comment**:   
+**Harmonization status**:  Impossible?
+**Harmonization comment**:     
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
+oth_CLSA_0$phy_bmi_sr_0 <- NA
+oth_CLSA_0$phy_bmi_sr_0 <- CLSA_tra0$HWT_DBMI_TRM[ which(oth_CLSA_0$id%in%CLSA_tra0$id),]
+table(oth_CLSA_0$id%in%CLSA_tra0$id)
+table(CLSA_tra0$id %in%oth_CLSA_0$id)
+table(CLSA_tra0$id %in%CLSA_tra1$id)
+
+#cop and tra dataset IDs do not match. TRA subset must be given new IDs
+
+CLSA_tra0$HWT_DBMI_TRM
+
+table(oth_CLSA_0$id==1000002)
+str(CLSA_tra0$id)
+
+options(scipen=9999)
+CLSA_tra0$id<-as.numeric(CLSA_tra0$id)
+oth_CLSA_0$id<-as.numeric(as.character(oth_CLSA_0$id))
 
 ```  
 ### **Variable label**: Body mass index (BMI) - self-reported  
@@ -1586,10 +1706,10 @@ DIA_MED_COM
 **Category coding**: N/A
 
 **Harmonization status**:  
-**Harmonization comment**:   
+**Harmonization comment**:   Tracking 
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+HWT_DISW_TRF1
 
 ```  
 ### **Variable label**: Body mass index (BMI) - self-reported  
@@ -1674,7 +1794,8 @@ DIA_MED_COM
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+oth_CLSA_0$phy_bmi_all_0 <-CLSA_cop0$HWT_DBMI_COM
+
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
@@ -1688,7 +1809,7 @@ DIA_MED_COM
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+oth_CLSA_1$phy_bmi_all_1 <-CLSA_cop0$HWT_DBMI_COF1
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
@@ -1780,7 +1901,8 @@ DIA_MED_COM
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+oth_CLSA_0$phy_bmi_cat_ms_0<-recode(as.integer(CLSA_cop0$HWT_DISW_COM), '1'=0L,'2'=1L, '3'=2L,'4'=3L,'5'=3L,"6"=3L,
+                              .default=NA_integer_)
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured  
@@ -1801,8 +1923,8 @@ DIA_MED_COM
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
-
+oth_CLSA_0$phy_bmi_cat_ms_0<-recode(as.integer(CLSA_cop1$HWT_DISW_COF1), '1'=0L,'2'=1L, '3'=2L,'4'=3L,'5'=3L,"6"=3L,
+                              .default=NA_integer_)
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured  
 **Variable name**: phy_bmi_cat_ms_2  
@@ -1928,7 +2050,7 @@ DIA_MED_COM
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+HWT_DISW_TRM
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - self-reported  
@@ -1949,7 +2071,7 @@ DIA_MED_COM
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+HWT_DISW_TRF1
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - self-reported  
@@ -2076,7 +2198,7 @@ DIA_MED_COM
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+HWT_DISW_COM
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
@@ -2097,8 +2219,7 @@ DIA_MED_COM
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
-
+HWT_DISW_COF1
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
 **Variable name**: phy_bmi_cat_all_2    
@@ -2214,10 +2335,15 @@ DIA_MED_COM
 **Category coding**:  N/A  
 
 **Harmonization status**:  
-**Harmonization comment**:   
+**Harmonization comment**:  There is information in the study whether the waist measurement is taken directly or over 1 or 2 layers of clothing.   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+table(CLSA_cop0$WHC_WAIST_CM_COM)
+
+#The measurement 1)on skin, 2)over one layer of clothing, 3)over two layers of clothing
+
+table(CLSA_cop0$WHC_CLTHLAYERS_COM)
+oth_CLSA_0$phy_waist_all_0<- CLSA_cop0$WHC_WAIST_CM_COM
 
 ```  
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined   
@@ -2231,7 +2357,8 @@ DIA_MED_COM
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+WHC_CLTHLAYERS_COF1
+WHC_WAIST_CM_COF1
 
 ```  
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined   
@@ -2321,10 +2448,13 @@ DIA_MED_COM
 2 |   Poor health  
 
 **Harmonization status**:  
-**Harmonization comment**:   
+**Harmonization comment**:   Study specific variable for self-rated health have 5 categories: Excellent, Very Good, Good, Fair and Poor. Excellent, Very Good and Good are coded into the DataSchema category of Good health.  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+oth_CLSA_0$poh_sah_0<- recode(as.integer(CLSA_cop0$GEN_HLTH_COM),'1'=0L,'2'=0L, '3'=0L,'4'=1L,'3'=2L,
+                              .default=NA_integer_)
+
+
 
 ```  
 ### **Variable label**:  Self-assessed health   
@@ -2344,7 +2474,10 @@ DIA_MED_COM
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+oth_CLSA_1$poh_sah_1<- recode(as.integer(CLSA_cop1$GEN_HLTH_COF1),'1'=0L,'2'=0L, '3'=0L,'4'=1L,'3'=2L,
+                              .default=NA_integer_)
+
+
 
 ```  
 ### **Variable label**:  Self-assessed health   
@@ -2464,7 +2597,9 @@ DIA_MED_COM
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+oth_CLSA_0$poh_sah_poor_0 <- recode(as.integer(CLSA_cop0$GEN_HLTH_COM),'5'=0L,'4'=1L,'1'=1L,'2'=1L,'3'=1L,
+                              .default=NA_integer_)
+
 
 ```  
 ### **Variable label**:  Poor self-assessed health  
@@ -2483,7 +2618,8 @@ DIA_MED_COM
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+oth_CLSA_1$poh_sah_poor_1<- recode(as.integer(CLSA_cop1$GEN_HLTH_COF1),'5'=0L,'4'=1L,'1'=1L,'2'=1L,'3'=1L,
+                              .default=NA_integer_)
 
 ```  
 ### **Variable label**:  Poor self-assessed health  
@@ -2598,7 +2734,10 @@ DIA_MED_COM
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+table(CLSA_cop0$GEN_HLTH_COM)
+
+oth_CLSA_0$poh_sah_good_0<- recode(as.integer(CLSA_cop0$GEN_HLTH_COM),'4'=0L,'5'=0L,'1'=1L,'2'=1L,'3'=1L,
+                              .default=NA_integer_)
 
 ```  
 ### **Variable label**:  Less than good self-assessed health  
@@ -2617,8 +2756,8 @@ DIA_MED_COM
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
-
+oth_CLSA_1$poh_sah_good_1<- recode(as.integer(CLSA_cop1$GEN_HLTH_COF1),'4'=0L,'5'=0L,'1'=1L,'2'=1L,'3'=1L,
+                              .default=NA_integer_)
 ```  
 ### **Variable label**:  Less than good self-assessed health  
 **Variable name**:  poh_sah_good_2    
@@ -2735,7 +2874,10 @@ DIA_MED_COM
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
+table(CLSA_cop0$FUL_FSTR_COM,useNA="always")
+oth_CLSA_0$fct_stairs_diff_0 <- recode(as.integer(CLSA_cop0$FUL_FSTR_COM),'2'=1L,'1'=0L,'3'=0L,'4'=0L,.default=NA_integer_)
+
 
 ```  
 ### **Variable label**:  Difficulty walking up and down the stairs  
@@ -2754,7 +2896,8 @@ DIA_MED_COM
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+table(CLSA_cop1$FUL_FSTR_COF1,useNA="always")
+oth_CLSA_1$fct_stairs_diff_1 <- recode(as.integer(CLSA_cop1$FUL_FSTR_COF1),'2'=1L,'1'=0L,'3'=0L,'4'=0L,.default=NA_integer_)
 
 ```  
 ### **Variable label**:  Difficulty walking up and down the stairs  
@@ -2793,7 +2936,8 @@ DIA_MED_COM
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+table(CLSA_cop0$FUL_WK23B_COM,useNA="always")
+oth_CLSA_0$fct_walk_diff_0 <- recode(as.integer(CLSA_cop0$FUL_WK23B_COM),'2'=1L,'1'=0L,'3'=0L,'4'=0L,.default=NA_integer_)
 
 ```  
 ### **Variable label**:  Difficulty walking    
@@ -2812,7 +2956,9 @@ DIA_MED_COM
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
+table(CLSA_cop1$FUL_WK23B_COF1,useNA="always")
+oth_CLSA_1$fct_walk_diff_1 <- recode(as.integer(CLSA_cop1$FUL_WK23B_COF1),'2'=1L,'1'=0L,'3'=0L,'4'=0L,.default=NA_integer_)
 
 ```  
 ### **Variable label**:  Difficulty walking    
