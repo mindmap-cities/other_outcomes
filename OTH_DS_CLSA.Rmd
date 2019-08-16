@@ -8,13 +8,12 @@ output: html_document
 #Load Opal R library
 library(opal)
 library(tidyverse)
-library(epiDisplay)
 # Create an opal object with the login information
 erasmus_opal <- opal.login()
 #Login to Opal server and assign the content of the GLOBE table(s) to your RStudio environment
 
 # COP BASE PART1
-opal.assign.table.tibble(erasmus_opal, 'CLSA','CLSA.cop4_baseline_part1_', variables =list("WGT_WEIGHT1_KG_COM", "WGT_WEIGHT2_KG_COM", "WGT_WEIGHT_KG_COM", "HGT_HEIGHT_M_COM","HWT_DISW_COM", "HWT_DBMI_COM"))
+opal.assign.table.tibble(erasmus_opal, 'cop4_baseline_part1_','CLSA.cop4_baseline_part1_', variables =list("WGT_WEIGHT1_KG_COM", "WGT_WEIGHT2_KG_COM", "WGT_WEIGHT_KG_COM", "HGT_HEIGHT_M_COM","HWT_DISW_COM", "HWT_DBMI_COM"))
 CLSA_cop0_p1 <- opal.execute(erasmus_opal,'CLSA')
 
 # COP BASE PART2
@@ -22,6 +21,11 @@ opal.assign.table.tibble(erasmus_opal, 'CLSA','CLSA.cop4_baseline_part2_', varia
 "DIA_MEDINSNAME_HUMU_COM", "DIA_MEDINSNAME_LEVE_COM", "DIA_MEDINSNAME_HUMA_COM", "DIA_MEDINSNAME_NOVOR_COM",
 "DIA_MEDINSNAME_NOVOM_COM","DIA_MEDINSNAME_LANT_COM","DIA_MEDINSNAME_OT_COM","DIA_MEDAGE_NB_COM"))
 CLSA_cop0_p2 <- opal.execute(erasmus_opal,'CLSA')
+
+CLSA_cop1.1<-read.csv("copfu1.csv",na.strings = "",strip.white=TRUE)
+str(CSA_cop1.1)
+
+CSA_cop1.1$id <-CSA_cop1.1$entity_id
 
 
 CLSA_cop0<-merge(CLSA_cop0_p1, CLSA_cop0_p2, by="id")
@@ -41,17 +45,20 @@ CLSA_tra0_p2 <- opal.execute(erasmus_opal,'CLSA')
 CLSA_tra0<-merge(CLSA_tra0_p1, CLSA_tra0_p2, by="id")
 
 # COP FU1 PART1
-opal.assign.table.tibble(erasmus_opal, 'CLSA','CLSA.cop_fu1_part1_v', variables =list("WGT_WEIGHT1_KG_COF1", "WGT_WEIGHT2_KG_COF1","GEN_HLTH_COF1", "WGT_WEIGHT_KG_COF1", "HGT_HEIGHT_M_COF1","HWT_DBMI_COF1"))
+opal.assign.table.tibble(erasmus_opal, 'cop_fu1_part1','CLSA.cop_fu1_part1', variables=list("startlanguage_COF1"))
+#list("WGT_WEIGHT1_KG_COF1", "WGT_WEIGHT2_KG_COF1","GEN_HLTH_COF1", "WGT_WEIGHT_KG_COF1", "HGT_HEIGHT_M_COF1","HWT_DBMI_COF1"))
+
 CLSA_cop1_p1 <- opal.execute(erasmus_opal,'CLSA')
 
 # COP fu1 PART2
-opal.assign.table.tibble(erasmus_opal, 'CLSA','CLSA.cop_fu1_part2_', variables =list("WHC_WAIST_CM_COF1", "WHC_CLTHLAYERS_COF1", "FUL_FSTR_COF1", "FUL_WK23B_COF1", "CCC_HBP_COF1", "HBP_EVRMED_COF1", "CCC_ANGI_COF1", "CCC_AMI_COF1", "IHD_AMIAGE_NB_COF1", "CCC_CVA_COF1", "STR_CVAAGE_NB_COF1", "DIA_DIAB_COF1", "DIA_AGE_NB_COF1", "DIA_MED_COF1", "HWT_DISW_COF1",
-"DIA_MEDINSNAME_HUMU_COF1", "DIA_MEDINSNAME_LEVE_COF1", "DIA_MEDINSNAME_HUMA_COF1", "DIA_MEDINSNAME_NOVOR_COF1",
-"DIA_MEDINSNAME_NOVOM_COF1","DIA_MEDINSNAME_LANT_COF1","DIA_MEDINSNAME_OT_COF1","DIA_MEDAGE_NB_COF1"))
+opal.assign.table.tibble(erasmus_opal, 'CLSA','CLSA.cop_fu1_part2_', variables =NULL)
+#list("WHC_WAIST_CM_COF1", "WHC_CLTHLAYERS_COF1", "FUL_FSTR_COF1", "FUL_WK23B_COF1", "CCC_HBP_COF1", "HBP_EVRMED_COF1", "CCC_ANGI_COF1", "CCC_AMI_COF1", #"IHD_AMIAGE_NB_COF1", "CCC_CVA_COF1", "STR_CVAAGE_NB_COF1", "DIA_DIAB_COF1", "DIA_AGE_NB_COF1", "DIA_MED_COF1", "HWT_DISW_COF1",
+#"DIA_MEDINSNAME_HUMU_COF1", "DIA_MEDINSNAME_LEVE_COF1", "DIA_MEDINSNAME_HUMA_COF1", "DIA_MEDINSNAME_NOVOR_COF1",
+#"DIA_MEDINSNAME_NOVOM_COF1","DIA_MEDINSNAME_LANT_COF1","DIA_MEDINSNAME_OT_COF1","DIA_MEDAGE_NB_COF1"))
 CLSA_cop1_p2 <- opal.execute(erasmus_opal,'CLSA')
 
 CLSA_cop1<-merge(CLSA_cop1_p1, CLSA_cop1_p2, by="id")
-str(CLSA_cop0)
+
 # COP fu1 PART3
 #opal.assign.table.tibble(erasmus_opal, 'CLSA','CLSA.cop4_fu1line_part3_v', variables =list("PSD_DCTOFF_COM"))
 #CLSA_cop_0_p3 <- opal.execute(erasmus_opal,'CLSA')
@@ -66,6 +73,13 @@ CLSA_tra1_p2 <- opal.execute(erasmus_opal,'CLSA')
 
 CLSA_tra1<-merge(CLSA_tra0_p1, CLSA_tra0_p2, by="id")
 
+
+opal.file_download(erasmus_opal,"/home/clsa/171013_McMaster_PRaina _CoP_FU1.csv","/home/agurer/other_outcomes/copfu1.csv")
+
+CLSA_cop1.1<-read.csv("copfu1.csv",na.strings = "",strip.white=TRUE)
+str(CSA_cop1.1)
+
+CSA_cop1.1$id <-CSA_cop1.1$entity_id
 
 ```
 ## Assign participant id as first column of your harmonized dataframes
@@ -117,8 +131,8 @@ opal.logout(erasmus_opal)
 0          |  Never had high blood pressure or hypertension  
 1          |  Ever had high blood pressure or hypertension  
 
-**Harmonization status**:  
-**Harmonization comment**:   The harmonized variable "Lifetime occurrence of high blood pressure or hypertension" for followup waves was created using "Lifetime occurrence of high blood pressure or hypertension" from baseline and followup wave. To create this variable, all CLSA Comprehensive data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
+**Harmonization status**:  complete  
+**Harmonization comment**:   The harmonized variable "Lifetime occurrence of high blood pressure or hypertension" for followup wave was created using "Lifetime occurrence of high blood pressure or hypertension" from baseline and followup wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
 
 **R script**:  
 ```{r, echo=TRUE}
@@ -127,15 +141,14 @@ opal.logout(erasmus_opal)
 MyMerge <- function(x,y){
   merge(x,y, by= c("id"),all=TRUE)
 }
-med_table <- Reduce(MyMerge, list(CLSA_cop0, CLSA_cop1))
+med_table <- Reduce(MyMerge, list(CLSA_cop0, CLSA_cop1.1))
 #Harmonization scripts to create "ever had "
 
-med_table$dis_hbp_ever_0 <- recode(as.integer(med_table$CCC_HBP_COM),"Yes"=1L,"No"=0L)
+med_table$dis_hbp_ever_0 <- recode(as.integer(med_table$CCC_HBP_COM),"1"=1L,"2"=0L)
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_CLSA_0<-merge(oth_CLSA_0,med_table[,c("id","dis_hbp_ever_0")],by="id",all.x=TRUE)
 
-
-
+table(oth_CLSA_0$dis_hbp_ever_0)
 ```  
 ### **Variable label**: Lifetime occurrence of high blood pressure or hypertension    
 **Variable name**: dis_hbp_ever_1  
@@ -149,14 +162,14 @@ oth_CLSA_0<-merge(oth_CLSA_0,med_table[,c("id","dis_hbp_ever_0")],by="id",all.x=
 0          |  Never had high blood pressure or hypertension  
 1          |  Ever had high blood pressure or hypertension  
 
-**Harmonization status**:  
-**Harmonization comment**:   The harmonized variable "Lifetime occurrence of high blood pressure or hypertension" for followup waves was created using "Lifetime occurrence of high blood pressure or hypertension" from baseline and followup wave. To create this variable, all CLSA Comprehensive data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
+**Harmonization status**:  complete  
+**Harmonization comment**:   The harmonized variable "Lifetime occurrence of high blood pressure or hypertension" for followup wave was created using "Lifetime occurrence of high blood pressure or hypertension" from baseline and followup wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
 **R script**:  
 ```{r, echo=TRUE}
-med_table$dis_hbp_ever_1<- ifelse(med_table$dis_hbp_ever_0==0 & as.integer(med_table$CCC_HBP_COF1)=="No", 0L, ifelse(med_table$dis_hbp_ever_0==1 | as.integer(med_table$CCC_HBP_COF1)=="Yes",1L,NA))
+med_table$dis_hbp_ever_1<- ifelse(med_table$dis_hbp_ever_0==0 & as.integer(med_table$CCC_HBP_COF1)=="2", 0L, ifelse(med_table$dis_hbp_ever_0==1 | as.integer(med_table$CCC_HBP_COF1)=="Yes",1L,NA))
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_CLSA_1<-merge(oth_CLSA_1,med_table[,c("id","dis_hbp_ever_1")],by="id",all.x=TRUE)
-
+table(oth_CLSA_1$dis_hbp_ever_1)
 ``` 
 ### **Variable label**: Medication for high blood pressure or hypertension    
 **Variable name**:  dis_hbp_med_0  
@@ -171,14 +184,14 @@ oth_CLSA_1<-merge(oth_CLSA_1,med_table[,c("id","dis_hbp_ever_1")],by="id",all.x=
 1        |  Ever taken medication  for high blood pressure or hypertension  
 
 
-**Harmonization status**:  
-**Harmonization comment**:  
+**Harmonization status**:  complete  
+**Harmonization comment**:  The harmonized variable "participant has ever taken medication for high blood pressure or hypertension" for the followup wave was created using "participant has ever taken medication for high blood pressure or hypertension" from baseline and previous and current wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
-
-oth_CLSA0$dis_hbp_med_0[CLSA_cop$HBP_EVRMED_COM=="Yes"]<-1
-oth_CLSA0$dis_hbp_med_0[CLSA_cop$HBP_EVRMED_COM=="No"]<-0
+med_table$dis_hbp_med_0 <- recode(as.integer(med_table$HBP_EVRMED_COM),"1"=1L,"2"=0L)
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_CLSA_0<-merge(oth_CLSA_0,med_table[,c("id","dis_hbp_med_0")],by="id",all.x=TRUE)
+table(oth_CLSA_0$dis_hbp_med_0)
 
 ```  
 ### **Variable label**: Medication for high blood pressure or hypertension  
@@ -194,11 +207,15 @@ oth_CLSA0$dis_hbp_med_0[CLSA_cop$HBP_EVRMED_COM=="No"]<-0
 1        |  Ever taken medication  for high blood pressure or hypertension    
 
 
-**Harmonization status**:  
-**Harmonization comment**:  
+**Harmonization status**:  complete  
+**Harmonization comment**:   The harmonized variable "participant has ever taken medication for high blood pressure or hypertension" for the followup wave was created using "participant has ever taken medication for high blood pressure or hypertension" from baseline and previous and current wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
+med_table$dis_hbp_med_1<- ifelse(med_table$dis_hbp_med_0==0&as.integer(med_table$HBP_EVRMED_COF1)=='2',0L,
+                               ifelse(med_table$dis_hbp_med_0==1|  as.integer(med_table$HBP_EVRMED_COF1)=='1',1L,NA))
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_CLSA_1<-merge(oth_CLSA_1,med_table[,c("id","dis_hbp_med_1")],by="id",all.x=TRUE)
 
 ```  
 ### **Variable label**: Medication for high blood pressure or hypertension    
@@ -214,7 +231,7 @@ oth_CLSA0$dis_hbp_med_0[CLSA_cop$HBP_EVRMED_COM=="No"]<-0
 1        |  Ever taken medication  for high blood pressure or hypertension    
 
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
@@ -234,7 +251,7 @@ oth_CLSA0$dis_hbp_med_0[CLSA_cop$HBP_EVRMED_COM=="No"]<-0
 1        |  Ever taken medication  for high blood pressure or hypertension    
 
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
@@ -254,7 +271,7 @@ oth_CLSA0$dis_hbp_med_0[CLSA_cop$HBP_EVRMED_COM=="No"]<-0
 1        |  Ever taken medication  for high blood pressure  
 
 
-**Harmonization status**:  
+**Harmonization status**:   impossible  
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
@@ -274,7 +291,7 @@ oth_CLSA0$dis_hbp_med_0[CLSA_cop$HBP_EVRMED_COM=="No"]<-0
 1        |  Ever taken medication  for high blood pressure  
 
 
-**Harmonization status**:  
+**Harmonization status**:   impossible  
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
@@ -295,12 +312,18 @@ oth_CLSA0$dis_hbp_med_0[CLSA_cop$HBP_EVRMED_COM=="No"]<-0
 0        |  Never had angina
 1        |  Ever had angina  
   
-**Harmonization status**:  
-**Harmonization comment**:  
+**Harmonization status**:  complete  
+**Harmonization comment**:  The harmonized variable "Lifetime occurrence of angina (pain or discomfort in chest)" for followup wave was created using "Lifetime occurrence of angina (pain or discomfort in chest)" from baseline and previous and current wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
+
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
-CCC_ANGI_COM
+
+med_table$dis_angina_ever_0 <- recode(as.integer(med_table$CCC_ANGI_COM),"1"=1L,"2"=0L)
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_CLSA_0<-merge(oth_CLSA_0,med_table[,c("id","dis_angina_ever_0")],by="id",all.x=TRUE)
+table(oth_CLSA_0$dis_angina_ever_0)
+
+
 
 ```  
 ### **Variable label**: Lifetime occurrence of angina 
@@ -315,12 +338,18 @@ CCC_ANGI_COM
 0        |  Never had angina
 1        |  Ever had angina  
   
-**Harmonization status**:  
-**Harmonization comment**:  
+**Harmonization status**:  complete  
+**Harmonization comment**:   The harmonized variable "Lifetime occurrence of angina (pain or discomfort in chest)" for followup wave was created using "Lifetime occurrence of angina (pain or discomfort in chest)" from baseline and previous and current wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
+
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+table(CLSA_cop1.1$CCC_ANGI_COF1)
 
+med_table$dis_angina_ever_1<- ifelse(med_table$dis_angina_ever_0==0&as.integer(med_table$CCC_ANGI_COF1)=='2',0L,
+                               ifelse(med_table$dis_angina_ever_0==1|  as.integer(med_table$CCC_ANGI_COF1)=='1',1L,NA))
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_CLSA_1<-merge(oth_CLSA_1,med_table[,c("id","dis_angina_ever_1")],by="id",all.x=TRUE)
+table(oth_CLSA_1$dis_angina_ever_1)
 ```  
 ### **Variable label**: Lifetime occurrence of angina 
 **Variable name**:  dis_angina_ever_2  
@@ -334,7 +363,7 @@ CCC_ANGI_COM
 0        |  Never had angina
 1        |  Ever had angina  
   
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
@@ -353,7 +382,7 @@ CCC_ANGI_COM
 0        |  Never had angina
 1        |  Ever had angina  
   
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
@@ -372,7 +401,7 @@ CCC_ANGI_COM
 0        |  Never had angina
 1        |  Ever had angina  
   
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
@@ -394,11 +423,14 @@ CCC_ANGI_COM
 0        |   Never had myocardial infarction
 1        |   Ever had myocardial infarction  
 
-**Harmonization status**:  
-**Harmonization comment**:  
+**Harmonization status**:  complete  
+**Harmonization comment**:  The harmonized variable "Lifetime occurrence of myocardial infarction (heart attack)" for followup wave was created using "Lifetime occurrence of myocardial infarction (heart attack)" from baseline and previous and current wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
 **R script**:  
 ```{r, echo=TRUE}
-CCC_AMI_COM
+med_table$dis_mi_ever_0 <- recode(as.integer(med_table$CCC_AMI_COM),"1"=1L,"2"=0L)
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_CLSA_0<-merge(oth_CLSA_0,med_table[,c("id","dis_mi_ever_0")],by="id",all.x=TRUE)
+table(oth_CLSA_0$dis_mi_ever_0)
 
 ```  
 ### **Variable label**: Lifetime occurrence of myocardial infarction    
@@ -413,11 +445,18 @@ CCC_AMI_COM
 0        |   Never had myocardial infarction
 1        |   Ever had myocardial infarction  
 
-**Harmonization status**:  
-**Harmonization comment**:  
+**Harmonization status**:  complete  
+**Harmonization comment**: The harmonized variable "Lifetime occurrence of myocardial infarction (heart attack)" for followup wave was created using "Lifetime occurrence of myocardial infarction (heart attack)" from baseline and previous and current wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
+ 
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+table(CLSA_cop1.1$CCC_AMI_COF1)
+
+med_table$dis_mi_ever_1<- ifelse(med_table$dis_mi_ever_0==0&as.integer(med_table$CCC_AMI_COF1)=='2',0L,
+                               ifelse(med_table$dis_mi_ever_0==1|  as.integer(med_table$CCC_AMI_COF1)=='1',1L,NA))
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_CLSA_1<-merge(oth_CLSA_1,med_table[,c("id","dis_mi_ever_1")],by="id",all.x=TRUE)
+table(oth_CLSA_1$dis_mi_ever_1)
 
 ```  
 ### **Variable label**: Lifetime occurrence of myocardial infarction    
@@ -432,7 +471,7 @@ CCC_AMI_COM
 0        |   Never had myocardial infarction
 1        |   Ever had myocardial infarction  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
@@ -447,11 +486,12 @@ CCC_AMI_COM
 **Variable unit**:  years  
 **Category coding**: N/A  
          
-**Harmonization status**:  
+**Harmonization status**:  complete  
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-IHD_AMIAGE_NB_COM
+
+oth_CLSA_0$dis_mi_age_0<-CLSA_cop0$IHD_AMIAGE_NB_COM
 
 ```  
 ### **Variable label**: Age at first Myocardial infarction  
@@ -461,12 +501,11 @@ IHD_AMIAGE_NB_COM
 **Variable unit**:  years  
 **Category coding**: N/A  
          
-**Harmonization status**:  
+**Harmonization status**:  complete  
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
-
+oth_CLSA_1$dis_mi_age_1<-CLSA_cop1.1$IHD_AMIAGE_NB_COF1
 ```  
 ### **Variable label**: Age at first Myocardial infarction  
 **Variable name**:  dis_mi_age_2  
@@ -475,7 +514,7 @@ IHD_AMIAGE_NB_COM
 **Variable unit**:  years  
 **Category coding**: N/A  
          
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
@@ -496,11 +535,15 @@ IHD_AMIAGE_NB_COM
 0        |   Never had stroke or CVA  
 1        |   Ever had stroke or CVA  
 
-**Harmonization status**:  
-**Harmonization comment**:  
+**Harmonization status**:  complete  
+**Harmonization comment**:  The harmonized variable "Lifetime occurrence of stroke or cerebrovascular accident (CVA)" for followup wave was created using "Lifetime occurrence of stroke or cerebrovascular accident (CVA)" from baseline and previous and current wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 **R script**:  
 ```{r, echo=TRUE}
-CCC_CVA_COM
+
+med_table$dis_stroke_ever_0 <- recode(as.integer(med_table$CCC_CVA_COM),"1"=1L,"2"=0L)
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_CLSA_0<-merge(oth_CLSA_0,med_table[,c("id","dis_stroke_ever_0")],by="id",all.x=TRUE)
+table(oth_CLSA_0$dis_stroke_ever_0)
 
 ```  
 ### **Variable label**: Lifetime occurrence of stroke or CVA  
@@ -515,12 +558,16 @@ CCC_CVA_COM
 0        |   Never had stroke or CVA  
 1        |   Ever had stroke or CVA  
 
-**Harmonization status**:  
-**Harmonization comment**:  
+**Harmonization status**:  complete  
+**Harmonization comment**: The harmonized variable "Lifetime occurrence of stroke or cerebrovascular accident (CVA)" for followup wave was created using "Lifetime occurrence of stroke or cerebrovascular accident (CVA)" from baseline and previous and current wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
+
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
-
+med_table$dis_stroke_ever_1<- ifelse(med_table$dis_stroke_ever_0==0&as.integer(med_table$CCC_CVA_COF1)=='2',0L,
+                               ifelse(med_table$dis_stroke_ever_0==1|  as.integer(med_table$CCC_CVA_COF1)=='1',1L,NA))
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_CLSA_1<-merge(oth_CLSA_1,med_table[,c("id","dis_stroke_ever_1")],by="id",all.x=TRUE)
+table(oth_CLSA_1$dis_stroke_ever_1)
 ```  
 ### **Variable label**: Lifetime occurrence of stroke or CVA  
 **Variable name**:  dis_stroke_ever_2  
@@ -534,11 +581,10 @@ CCC_CVA_COM
 0        |   Never had stroke or CVA  
 1        |   Ever had stroke or CVA  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Age at first stroke or CVA  
@@ -548,11 +594,11 @@ CCC_CVA_COM
 **Variable unit**:  years  
 **Category coding**: N/A  
          
-**Harmonization status**:  
+**Harmonization status**:  complete
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-STR_CVAAGE_NB_COM
+oth_CLSA_0$dis_stroke_age_0<-CLSA_cop0$STR_CVAAGE_NB_COM
 
 ```  
 ### **Variable label**: Age at first stroke or CVA  
@@ -562,11 +608,11 @@ STR_CVAAGE_NB_COM
 **Variable unit**:  years  
 **Category coding**: N/A  
          
-**Harmonization status**:  
+**Harmonization status**:  complete  
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+oth_CLSA_1$dis_stroke_age_1<-CLSA_cop1.1$STR_CVAAGE_NB_COF1
 
 ```  
 ### **Variable label**: Age at first stroke or CVA  
@@ -576,11 +622,10 @@ STR_CVAAGE_NB_COM
 **Variable unit**:  years  
 **Category coding**: N/A  
          
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 
@@ -599,13 +644,14 @@ STR_CVAAGE_NB_COM
 0          |  Never had diabetes  
 1          |  Ever had diabetes  
 
-**Harmonization status**:  
-**Harmonization comment**:  The harmonized variable "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" for followup waves was created using "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" from baseline and followup wave. To create this variable, all HAPIEE_CZ data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
+**Harmonization status**:  complete  
+**Harmonization comment**:  The harmonized variable "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" for followup wave was created using "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" from baseline and followup wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
 **R script**:  
 ```{r, echo=TRUE}  
-med_table$dis_diab_ever_0 <- recode(as.integer(CLSA0_cop$DIA_DIAB_COM),"Yes"=1L,"No"=0L,.default = NA_integer_)
+med_table$dis_diab_ever_0 <- recode(as.integer(med_table$DIA_DIAB_COM),"1"=1L,"2"=0L)
 #Direct mapping to harmonized tables keeping correct participants for each wave
-oth_CLSA0_cop<-merge(oth_CLSA0_cop,med_table[,c("id","dis_diab_ever_0")],by="id",all.x=TRUE)
+oth_CLSA_0<-merge(oth_CLSA_0,med_table[,c("id","dis_diab_ever_0")],by="id",all.x=TRUE)
+table(oth_CLSA_0$dis_diab_ever_0)
 
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
@@ -620,14 +666,15 @@ oth_CLSA0_cop<-merge(oth_CLSA0_cop,med_table[,c("id","dis_diab_ever_0")],by="id"
 0          |  Never had diabetes  
 1          |  Ever had diabetes  
 
-**Harmonization status**:  
-**Harmonization comment**:  The harmonized variable "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" for followup waves was created using "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" from baseline and followup wave. To create this variable, all HAPIEE_CZ data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
+**Harmonization status**:  complete  
+**Harmonization comment**:  The harmonized variable "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" for followup wave was created using "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" from baseline and followup wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
 **R script**:  
 ```{r, echo=TRUE}  
-
-med_table$dis_diab_ever_1 <- ifelse(med_table$dis_diab_ever_0==0 & as.integer(med_table$w2h15)=="No",0L, ifelse(med_table$dis_diab_ever_0==1 | as.integer(med_table$DIA_DIAB_COF1)==1 | as.integer(med_table$DIA_DIAB_COF1)=="Yes",1L,NA))
+med_table$dis_diab_ever_1<- ifelse(med_table$dis_diab_ever_0==0&as.integer(med_table$DIA_DIAB_COF1)=='2',0L,
+                               ifelse(med_table$dis_diab_ever_0==1|  as.integer(med_table$DIA_DIAB_COF1)=='1',1L,NA))
 #Direct mapping to harmonized tables keeping correct participants for each wave
-oth_CLSA0_cop<-merge(oth_CLSA0_cop,med_table[,c("id","dis_diab_ever_1")],by="id",all.x=TRUE)
+oth_CLSA_1<-merge(oth_CLSA_1,med_table[,c("id","dis_diab_ever_1")],by="id",all.x=TRUE)
+table(oth_CLSA_1$dis_diab_ever_1)
 
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
@@ -642,11 +689,10 @@ oth_CLSA0_cop<-merge(oth_CLSA0_cop,med_table[,c("id","dis_diab_ever_1")],by="id"
 0          |  Never had diabetes  
 1          |  Ever had diabetes  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}  
-#This is where the R-script will be written  
 
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
@@ -661,11 +707,10 @@ oth_CLSA0_cop<-merge(oth_CLSA0_cop,med_table[,c("id","dis_diab_ever_1")],by="id"
 0          |  Never had diabetes  
 1          |  Ever had diabetes  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}  
-#This is where the R-script will be written  
 
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
@@ -680,11 +725,10 @@ oth_CLSA0_cop<-merge(oth_CLSA0_cop,med_table[,c("id","dis_diab_ever_1")],by="id"
 0          |  Never had diabetes  
 1          |  Ever had diabetes  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}  
-#This is where the R-script will be written  
 
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
@@ -699,11 +743,10 @@ oth_CLSA0_cop<-merge(oth_CLSA0_cop,med_table[,c("id","dis_diab_ever_1")],by="id"
 0          |  Never had diabetes  
 1          |  Ever had diabetes  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}  
-#This is where the R-script will be written  
 
 ```  
 ### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
@@ -713,11 +756,11 @@ oth_CLSA0_cop<-merge(oth_CLSA0_cop,med_table[,c("id","dis_diab_ever_1")],by="id"
 **Variable unit**:  years  
 **Category coding**: N/A
 
-**Hamonization status**:  
+**Hamonization status**:  complete  
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}  
-DIA_AGE_NB_COM
+oth_CLSA_0$dis_diab_age_0<-CLSA_cop0$DIA_AGE_NB_COM
 
 ```  
 ### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
@@ -727,11 +770,10 @@ DIA_AGE_NB_COM
 **Variable unit**:  years  
 **Category coding**: N/A
 
-**Hamonization status**:  
+**Hamonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}  
-#This is where the R-script will be written  
 
 ```  
 ### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
@@ -741,11 +783,10 @@ DIA_AGE_NB_COM
 **Variable unit**:  years  
 **Category coding**: N/A
 
-**Hamonization status**:  
+**Hamonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}  
-#This is where the R-script will be written  
 
 ```  
 ### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
@@ -755,11 +796,10 @@ DIA_AGE_NB_COM
 **Variable unit**:  years  
 **Category coding**: N/A
 
-**Hamonization status**:  
+**Hamonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}  
-#This is where the R-script will be written  
 
 ```  
 ### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
@@ -770,10 +810,9 @@ DIA_AGE_NB_COM
 **Category coding**: N/A
 
 **Hamonization status**:  
-**Harmonization comment**:  
+**Harmonization comment**:  impossible  
 **R script**:  
 ```{r, echo=TRUE}  
-#This is where the R-script will be written  
 
 ```  
 ### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
@@ -784,10 +823,9 @@ DIA_AGE_NB_COM
 **Category coding**: N/A
 
 **Hamonization status**:  
-**Harmonization comment**:  
+**Harmonization comment**:  impossible   
 **R script**:  
 ```{r, echo=TRUE}  
-#This is where the R-script will be written  
 
 ```  
 
@@ -803,11 +841,12 @@ DIA_AGE_NB_COM
 0        | Not currently under treatment for diabetes  
 1        | Currently under treatment for diabetes  
 
-**Harmonization status**:  
-**Harmonization comment**: Study specific variable is "Are you currently taking medication for diabetes?"  
+**Harmonization status**:  complete  
+**Harmonization comment**: The study-specific variable used in harmonization of the DataSchema variable "Currently under treatment for diabetes" is "Are you currently taking medication for diabetes?"  
 **R script**:
 ```{r, echo=TRUE}
-DIA_MED_COM
+
+oth_CLSA_0$dis_diab_tx_0<-CLSA_cop0$DIA_MED_COM
 
 ```  
 ### **Variable label**: Currently under treatment for diabetes  
@@ -822,11 +861,10 @@ DIA_MED_COM
 0        | Not currently under treatment for diabetes  
 1        | Currently under treatment for diabetes  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Currently under treatment for diabetes  
@@ -841,11 +879,10 @@ DIA_MED_COM
 0        | Not currently under treatment for diabetes  
 1        | Currently under treatment for diabetes  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Currently under treatment for diabetes  
@@ -860,12 +897,11 @@ DIA_MED_COM
 0        | Not currently under treatment for diabetes  
 1        | Currently under treatment for diabetes  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:
 ```{r, echo=TRUE}
-#This is where the R-script will be written
-
+ 
 ```  
 ### **Variable label**: Currently under treatment for diabetes  
 **Variable name**:  dis_diab_tx_4  
@@ -879,12 +915,11 @@ DIA_MED_COM
 0        | Not currently under treatment for diabetes  
 1        | Currently under treatment for diabetes  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:
 ```{r, echo=TRUE}
-#This is where the R-script will be written
-
+ 
 ```  
 ### **Variable label**: Currently under treatment for diabetes  
 **Variable name**:  dis_diab_tx_5  
@@ -898,11 +933,10 @@ DIA_MED_COM
 0        | Not currently under treatment for diabetes  
 1        | Currently under treatment for diabetes  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Currently use insulin for diabetes  
@@ -921,15 +955,18 @@ DIA_MED_COM
 **Harmonization comment**:  The 7 study-specific variables are asking about the use of six different medications by product names HUMALOG, APIDRA, NOVORAPID, LANTUS, NOVOMIX, LEVEMIR and Other medications. All the medications asked with specific names are insulin medications. 
 **R script**:  
 ```{r, echo=TRUE}
-DIA_MEDINSNAME_HUMU_COM
-DIA_MEDINSNAME_LEVE_COM
-DIA_MEDINSNAME_HUMA_COM
-DIA_MEDINSNAME_NOVOR_COM
-DIA_MEDINSNAME_NOVOM_COM
-DIA_MEDINSNAME_LANT_COM
-DIA_MEDINSNAME_OT_COM
-DIA_MEDAGE_NB_COM
+table(CLSA_cop0$DIA_MEDAGE_NB_COM, useNA = "always")
 
+#checking whether people who has an age for starting to use insulin use one of these medications. They do. 
+
+CLSA_cop0$insmed<-0
+CLSA_cop0$insmed[CLSA_cop0$DIA_MEDINSNAME_HUMU_COM==1|CLSA_cop0$DIA_MEDINSNAME_LEVE_COM==1|CLSA_cop0$DIA_MEDINSNAME_HUMA_COM==1|CLSA_cop0$DIA_MEDINSNAME_NOVOR_COM==1|CLSA_cop0$DIA_MEDINSNAME_NOVOM_COM==1|CLSA_cop0$DIA_MEDINSNAME_LANT_COM==1|CLSA_cop0$DIA_MEDINSNAME_OT_COM==1]<-1
+
+table(CLSA_cop0$DIA_MEDAGE_NB_COM,CLSA_cop0$insmed, useNA = "always")
+
+oth_CLSA_0$dis_diab_ins_0<-ifelse(CLSA_cop0$insmed==1 |!is.na (CLSA_cop0$DIA_MEDAGE_NB_COM), 1L, ifelse(CLSA_cop0$insmed==0 |is.na (CLSA_cop0$DIA_MEDAGE_NB_COM),0L,NA))
+
+table(oth_CLSA_0$dis_diab_ins_0,useNA = "always" )
 ```  
 ### **Variable label**: Currently use insulin for diabetes  
 **Variable name**:  dis_diab_ins_1  
@@ -943,11 +980,10 @@ DIA_MEDAGE_NB_COM
 0        | Currently does not use insulin for diabetes treatment  
 1        | Currently does use insulin for diabetes treatment  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Currently use insulin for diabetes  
@@ -962,11 +998,10 @@ DIA_MEDAGE_NB_COM
 0        | Currently does not use insulin for diabetes treatment  
 1        | Currently does use insulin for diabetes treatment  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 # BMI subdomain
@@ -978,14 +1013,15 @@ DIA_MEDAGE_NB_COM
 **Variable unit**: kg   
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  complete    
 **Harmonization comment**:   There are three study-specific variables: Measurement 1, Measurement 2, and Average weight. Average weight is used for harmonization.  
 **R script**:  
 ```{r, echo=TRUE}
-WGT_WEIGHT1_KG_COM
-WGT_WEIGHT2_KG_COM
-WGT_WEIGHT_KG_COM
+summary(CLSA_cop0$WGT_WEIGHT1_KG_COM)
+summary(CLSA_cop0$WGT_WEIGHT2_KG_COM)
+summary(CLSA_cop0$WGT_WEIGHT_KG_COM)
 
+oth_CLSA_0$phy_weight_ms_0<-CLSA_cop0$WGT_WEIGHT_KG_COM)
 ```  
 ### **Variable label**: Weight in kg - measured 
 **Variable name**: phy_weight_ms_1  
@@ -994,11 +1030,11 @@ WGT_WEIGHT_KG_COM
 **Variable unit**: kg   
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+oth_CLSA_1$phy_weight_ms_1<-CLSA_cop1.1$WGT_WEIGHT_KG_COF1
 
 ```  
 ### **Variable label**: Weight in kg - measured 
@@ -1008,11 +1044,10 @@ WGT_WEIGHT_KG_COM
 **Variable unit**: kg   
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Weight in kg - measured 
@@ -1022,11 +1057,10 @@ WGT_WEIGHT_KG_COM
 **Variable unit**: kg   
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible     
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Weight in kg - measured 
@@ -1036,11 +1070,10 @@ WGT_WEIGHT_KG_COM
 **Variable unit**: kg   
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Weight in kg - measured 
@@ -1050,11 +1083,10 @@ WGT_WEIGHT_KG_COM
 **Variable unit**: kg   
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Weight in kg - measured 
@@ -1064,11 +1096,10 @@ WGT_WEIGHT_KG_COM
 **Variable unit**: kg   
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**: impossible    
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Weight in kg - self-reported 
@@ -1078,12 +1109,13 @@ WGT_WEIGHT_KG_COM
 **Variable unit**: kg   
 **Category coding**: N/A
 
-**Harmonization status**:  
-**Harmonization comment**: Self-reported weight data is available only for a subset of participants who were interviewed for the tracking (tra3_4) part of the data collection. 
+**Harmonization status**:  impossible  
+**Harmonization comment**: 
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
-HWT_WGHT_KG_TRM
+#HWT_WGHT_KG_TRM
+#Self-reported weight data is available only for a subset of participants who were interviewed for the tracking (tra3_4) part of the data collection. However, although the participants in the tracking cohort are also included in the Comprehensive Cohort, the IDs in the Comprehensive Cohort Data and Tracking Cohort Data do not match.
+table(CLSA_tra0$id %in%oth_CLSA_0$id)
 
 
 ```  
@@ -1094,11 +1126,13 @@ HWT_WGHT_KG_TRM
 **Variable unit**: kg   
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-HWT_WGHT_KG_TRF1
+#HWT_WGHT_KG_TRF1
+#Self-reported weight data is available only for a subset of participants who were interviewed for the tracking (tra3_4) part of the data collection. However, although the participants in the tracking cohort are also included in the Comprehensive Cohort, the IDs in the Comprehensive Cohort Data and Tracking Cohort Data do not match.
+
 ```  
 ### **Variable label**: Weight in kg - self-reported 
 **Variable name**: phy_weight_sr_2    
@@ -1107,11 +1141,10 @@ HWT_WGHT_KG_TRF1
 **Variable unit**: kg   
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Weight in kg - self-reported 
@@ -1121,11 +1154,10 @@ HWT_WGHT_KG_TRF1
 **Variable unit**: kg   
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Weight in kg - self-reported 
@@ -1135,11 +1167,10 @@ HWT_WGHT_KG_TRF1
 **Variable unit**: kg   
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Weight in kg - self-reported 
@@ -1149,11 +1180,10 @@ HWT_WGHT_KG_TRF1
 **Variable unit**: kg   
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Weight in kg - self-reported 
@@ -1163,11 +1193,10 @@ HWT_WGHT_KG_TRF1
 **Variable unit**: kg   
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Weight in kg - measured and self-reported combined
@@ -1177,11 +1206,11 @@ HWT_WGHT_KG_TRF1
 **Variable unit**: kg   
 **Category coding**: N/A  
 
-**Harmonization status**:  
-**Harmonization comment**: The average weight of two measurements of the baseline data collection is taken.   
+**Harmonization status**:  complete  
+**Harmonization comment**: The CLSA Comprehensive Cohort datasets includes Weight Measurement 1, Weight Measurement 2 and the Average Weight from these two measurements. In creation of the DataSchema variable, the Average Weight is used. 
 **R script**:  
 ```{r, echo=TRUE}
-WGT_WEIGHT_KG_COM
+oth_CLSA_0$phy_weight_all_0<-CLSA_cop0$WGT_WEIGHT_KG_COM
 ```  
 
 ### **Variable label**: Weight in kg - measured and self-reported combined
@@ -1191,11 +1220,12 @@ WGT_WEIGHT_KG_COM
 **Variable unit**: kg   
 **Category coding**: N/A  
 
-**Harmonization status**:  
-**Harmonization comment**:   
+**Harmonization status**:  complete  
+**Harmonization comment**:  The CLSA Comprehensive Cohort datasets  includes Weight Measurement 1, Weight Measurement 2 and the Average Weight from these two measurements. In creation of the DataSchema variable, the Average Weight is used. 
 **R script**:  
 ```{r, echo=TRUE}
-WGT_WEIGHT_KG_COF1
+oth_CLSA_1$phy_weight_all_1<-CLSA_cop1.1$WGT_WEIGHT_KG_COF1
+
 
 ```  
 ### **Variable label**: Weight in kg - measured and self-reported combined  
@@ -1205,11 +1235,10 @@ WGT_WEIGHT_KG_COF1
 **Variable unit**: kg   
 **Category coding**: N/A  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Weight in kg - measured and self-reported combined  
@@ -1219,11 +1248,10 @@ WGT_WEIGHT_KG_COF1
 **Variable unit**: kg    
 **Category coding**: N/A  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Weight in kg - self-reported and measured combined  
@@ -1233,11 +1261,10 @@ WGT_WEIGHT_KG_COF1
 **Variable unit**: kg   
 **Category coding**: N/A  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Weight in kg - self-reported and measured combined  
@@ -1247,11 +1274,10 @@ WGT_WEIGHT_KG_COF1
 **Variable unit**: kg   
 **Category coding**: N/A  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Weight in kg - self-reported and measured combined  
@@ -1261,11 +1287,10 @@ WGT_WEIGHT_KG_COF1
 **Variable unit**: kg   
 **Category coding**: N/A  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Height in cm - measured  
@@ -1275,11 +1300,11 @@ WGT_WEIGHT_KG_COF1
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**:  
-**Harmonization comment**:  The study specific variables include Measurement 1 -height in cm, Measurement 2-height in cm, and Average height in m. Average of the measurements are taken for harmonizing this variable.   
+**Harmonization status**:  complete  
+**Harmonization comment**:  The study specific variables include Measurement 1 -height in cm, Measurement 2-height in cm, and Average height in m. The variable Average Height is used for harmonizing this variable.   
 **R script**:  
 ```{r, echo=TRUE}
-HGT_HEIGHT_M_COM *100
+oth_CLSA_0$phy_height_ms_0<-CLSA_cop0$HGT_HEIGHT_M_COM*100
 
 ```  
 ### **Variable label**: Height in cm - measured  
@@ -1289,11 +1314,11 @@ HGT_HEIGHT_M_COM *100
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**:  
-**Harmonization comment**:   
+**Harmonization status**:  complete  
+**Harmonization comment**:    The study specific variables include Measurement 1 -height in cm, Measurement 2-height in cm, and Average height in m. The variable Average Height is used for harmonizing this variable.  
 **R script**:  
 ```{r, echo=TRUE}
-HGT_HEIGHT_M_COF1 *100
+oth_CLSA_1$phy_height_ms_1<-CLSA_cop0$HGT_HEIGHT_M_COF1*100
 
 ```  
 ### **Variable label**: Height in cm - measured  
@@ -1303,11 +1328,10 @@ HGT_HEIGHT_M_COF1 *100
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Height in cm - measured  
@@ -1317,11 +1341,10 @@ HGT_HEIGHT_M_COF1 *100
 **Variable unit**: cm    
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Height in cm - measured  
@@ -1331,11 +1354,10 @@ HGT_HEIGHT_M_COF1 *100
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Height in cm - measured  
@@ -1345,11 +1367,10 @@ HGT_HEIGHT_M_COF1 *100
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Height in cm - measured  
@@ -1359,11 +1380,10 @@ HGT_HEIGHT_M_COF1 *100
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 
@@ -1374,12 +1394,12 @@ HGT_HEIGHT_M_COF1 *100
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**:  
-**Harmonization comment**:   This variable is only included in the Tracking questionnaire that only a subset of the participants filled. 
+**Harmonization status**:  impossible
+**Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-HWT_DHT_M_TRM
-
+#HWT_DHT_M_TRM
+#This variable is only included in the Tracking questionnaire. 
 ```  
 ### **Variable label**: Height in cm - self-reported  
 **Variable name**: phy_height_sr_1  
@@ -1388,11 +1408,11 @@ HWT_DHT_M_TRM
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**: impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-HWT_DHT_M_TRF1
+#HWT_DHT_M_TRF1
 
 ```  
 ### **Variable label**: Height in cm - self-reported  
@@ -1402,11 +1422,10 @@ HWT_DHT_M_TRF1
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible    
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Height in cm - self-reported  
@@ -1416,11 +1435,10 @@ HWT_DHT_M_TRF1
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible    
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Height in cm - self-reported  
@@ -1430,11 +1448,10 @@ HWT_DHT_M_TRF1
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible    
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Height in cm - self-reported  
@@ -1444,11 +1461,10 @@ HWT_DHT_M_TRF1
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible    
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Height in cm - self-reported  
@@ -1458,11 +1474,10 @@ HWT_DHT_M_TRF1
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 
@@ -1473,11 +1488,12 @@ HWT_DHT_M_TRF1
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-HGT_HEIGHT_M_COM *100
+table(CLSA_cop0$HGT_HEIGHT_M_COM)
+oth_CLSA_0$phy_height_all_0<-CLSA_cop0$HGT_HEIGHT_M_COM*100
 
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined  
@@ -1487,11 +1503,11 @@ HGT_HEIGHT_M_COM *100
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-HGT_HEIGHT_M_COF1*100
+oth_CLSA_1$phy_height_all_1<-CLSA_cop1.1$HGT_HEIGHT_M_COF1*100
 
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined    
@@ -1501,11 +1517,10 @@ HGT_HEIGHT_M_COF1*100
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined  
@@ -1515,11 +1530,10 @@ HGT_HEIGHT_M_COF1*100
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined  
@@ -1529,11 +1543,10 @@ HGT_HEIGHT_M_COF1*100
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined  
@@ -1543,11 +1556,10 @@ HGT_HEIGHT_M_COF1*100
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined  
@@ -1557,11 +1569,10 @@ HGT_HEIGHT_M_COF1*100
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 
@@ -1572,7 +1583,7 @@ HGT_HEIGHT_M_COF1*100
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
@@ -1589,11 +1600,11 @@ oth_CLSA_0$phy_bmi_ms_0 <-CLSA_cop0$HWT_DBMI_COM
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:   complete  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_1$phy_bmi_ms_1 <-CLSA_cop1$HWT_DBMI_COF1
+oth_CLSA_1$phy_bmi_ms_1 <-CLSA_cop1.1$HWT_DBMI_COF1
 
 
 ```  
@@ -1604,11 +1615,10 @@ oth_CLSA_1$phy_bmi_ms_1 <-CLSA_cop1$HWT_DBMI_COF1
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured  
@@ -1618,11 +1628,10 @@ oth_CLSA_1$phy_bmi_ms_1 <-CLSA_cop1$HWT_DBMI_COF1
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured  
@@ -1632,11 +1641,10 @@ oth_CLSA_1$phy_bmi_ms_1 <-CLSA_cop1$HWT_DBMI_COF1
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible   
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured  
@@ -1646,11 +1654,10 @@ oth_CLSA_1$phy_bmi_ms_1 <-CLSA_cop1$HWT_DBMI_COF1
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured  
@@ -1660,11 +1667,10 @@ oth_CLSA_1$phy_bmi_ms_1 <-CLSA_cop1$HWT_DBMI_COF1
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 
@@ -1675,28 +1681,12 @@ oth_CLSA_1$phy_bmi_ms_1 <-CLSA_cop1$HWT_DBMI_COF1
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**:  Impossible?
+**Harmonization status**:  impossible
 **Harmonization comment**:     
 **R script**:  
 ```{r, echo=TRUE}
 
-oth_CLSA_0$phy_bmi_sr_0 <- NA
-oth_CLSA_0$phy_bmi_sr_0 <- CLSA_tra0$HWT_DBMI_TRM[ which(oth_CLSA_0$id%in%CLSA_tra0$id),]
-table(oth_CLSA_0$id%in%CLSA_tra0$id)
-table(CLSA_tra0$id %in%oth_CLSA_0$id)
-table(CLSA_tra0$id %in%CLSA_tra1$id)
-
-#cop and tra dataset IDs do not match. TRA subset must be given new IDs
-
-CLSA_tra0$HWT_DBMI_TRM
-
-table(oth_CLSA_0$id==1000002)
-str(CLSA_tra0$id)
-
-options(scipen=9999)
-CLSA_tra0$id<-as.numeric(CLSA_tra0$id)
-oth_CLSA_0$id<-as.numeric(as.character(oth_CLSA_0$id))
-
+#only possible for tracking dataset
 ```  
 ### **Variable label**: Body mass index (BMI) - self-reported  
 **Variable name**: phy_bmi_sr_1  
@@ -1705,11 +1695,11 @@ oth_CLSA_0$id<-as.numeric(as.character(oth_CLSA_0$id))
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**:  
-**Harmonization comment**:   Tracking 
+**Harmonization status**:  impossible  
+**Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-HWT_DISW_TRF1
+#HWT_DISW_TRF1 in Tracking 
 
 ```  
 ### **Variable label**: Body mass index (BMI) - self-reported  
@@ -1719,11 +1709,10 @@ HWT_DISW_TRF1
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Body mass index (BMI) - self-reported  
@@ -1733,11 +1722,10 @@ HWT_DISW_TRF1
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible   
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Body mass index (BMI) - self-reported  
@@ -1747,11 +1735,10 @@ HWT_DISW_TRF1
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Body mass index (BMI) - self-reported  
@@ -1761,11 +1748,10 @@ HWT_DISW_TRF1
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Body mass index (BMI) - self-reported  
@@ -1775,11 +1761,10 @@ HWT_DISW_TRF1
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```   
 
@@ -1790,12 +1775,11 @@ HWT_DISW_TRF1
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
 oth_CLSA_0$phy_bmi_all_0 <-CLSA_cop0$HWT_DBMI_COM
-
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
@@ -1805,7 +1789,7 @@ oth_CLSA_0$phy_bmi_all_0 <-CLSA_cop0$HWT_DBMI_COM
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
@@ -1819,11 +1803,10 @@ oth_CLSA_1$phy_bmi_all_1 <-CLSA_cop0$HWT_DBMI_COF1
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible 
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
@@ -1833,11 +1816,10 @@ oth_CLSA_1$phy_bmi_all_1 <-CLSA_cop0$HWT_DBMI_COF1
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
@@ -1847,11 +1829,10 @@ oth_CLSA_1$phy_bmi_all_1 <-CLSA_cop0$HWT_DBMI_COF1
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
@@ -1861,11 +1842,10 @@ oth_CLSA_1$phy_bmi_all_1 <-CLSA_cop0$HWT_DBMI_COF1
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:   impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
@@ -1875,11 +1855,10 @@ oth_CLSA_1$phy_bmi_all_1 <-CLSA_cop0$HWT_DBMI_COF1
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:   impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 
@@ -1897,7 +1876,7 @@ oth_CLSA_1$phy_bmi_all_1 <-CLSA_cop0$HWT_DBMI_COF1
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  
+**Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
@@ -1919,11 +1898,11 @@ oth_CLSA_0$phy_bmi_cat_ms_0<-recode(as.integer(CLSA_cop0$HWT_DISW_COM), '1'=0L,'
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  
+**Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_0$phy_bmi_cat_ms_0<-recode(as.integer(CLSA_cop1$HWT_DISW_COF1), '1'=0L,'2'=1L, '3'=2L,'4'=3L,'5'=3L,"6"=3L,
+oth_CLSA_0$phy_bmi_cat_ms_0<-recode(as.integer(CLSA_cop1.1$HWT_DISW_COF1), '1'=0L,'2'=1L, '3'=2L,'4'=3L,'5'=3L,"6"=3L,
                               .default=NA_integer_)
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured  
@@ -1940,11 +1919,10 @@ oth_CLSA_0$phy_bmi_cat_ms_0<-recode(as.integer(CLSA_cop1$HWT_DISW_COF1), '1'=0L,
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured  
@@ -1961,7 +1939,7 @@ oth_CLSA_0$phy_bmi_cat_ms_0<-recode(as.integer(CLSA_cop1$HWT_DISW_COF1), '1'=0L,
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
@@ -1982,7 +1960,7 @@ oth_CLSA_0$phy_bmi_cat_ms_0<-recode(as.integer(CLSA_cop1$HWT_DISW_COF1), '1'=0L,
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
@@ -2003,11 +1981,10 @@ oth_CLSA_0$phy_bmi_cat_ms_0<-recode(as.integer(CLSA_cop1$HWT_DISW_COF1), '1'=0L,
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured  
@@ -2024,11 +2001,10 @@ oth_CLSA_0$phy_bmi_cat_ms_0<-recode(as.integer(CLSA_cop1$HWT_DISW_COF1), '1'=0L,
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 
@@ -2046,11 +2022,11 @@ oth_CLSA_0$phy_bmi_cat_ms_0<-recode(as.integer(CLSA_cop1$HWT_DISW_COF1), '1'=0L,
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-HWT_DISW_TRM
+#HWT_DISW_TRM in the tracking dataset
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - self-reported  
@@ -2068,10 +2044,10 @@ HWT_DISW_TRM
 3 | Obese - BMI >=30  
 
 **Harmonization status**:  
-**Harmonization comment**:   
+**Harmonization comment**: impossible    
 **R script**:  
 ```{r, echo=TRUE}
-HWT_DISW_TRF1
+#HWT_DISW_TRF1 in the tracking dataset
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - self-reported  
@@ -2089,10 +2065,9 @@ HWT_DISW_TRF1
 3 | Obese - BMI >=30  
 
 **Harmonization status**:  
-**Harmonization comment**:   
+**Harmonization comment**: impossible    
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - self-reported  
@@ -2110,10 +2085,9 @@ HWT_DISW_TRF1
 3 | Obese - BMI >=30  
 
 **Harmonization status**:  
-**Harmonization comment**:   
+**Harmonization comment**:  impossible     
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - self-reported  
@@ -2131,10 +2105,9 @@ HWT_DISW_TRF1
 3 | Obese - BMI >=30  
 
 **Harmonization status**:  
-**Harmonization comment**:   
+**Harmonization comment**:   impossible    
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - self-reported  
@@ -2151,11 +2124,10 @@ HWT_DISW_TRF1
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible   
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - self-reported  
@@ -2172,11 +2144,10 @@ HWT_DISW_TRF1
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible   
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 
@@ -2194,12 +2165,12 @@ HWT_DISW_TRF1
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  
+**Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-HWT_DISW_COM
-
+oth_CLSA_0$phy_bmi_cat_ms_0<-recode(as.integer(CLSA_cop0$HWT_DISW_COM), '1'=0L,'2'=1L, '3'=2L,'4'=3L,'5'=3L,"6"=3L,
+                              .default=NA_integer_)
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
 **Variable name**: phy_bmi_cat_all_1    
@@ -2215,11 +2186,13 @@ HWT_DISW_COM
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  
+**Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-HWT_DISW_COF1
+oth_CLSA_1$phy_bmi_cat_ms_1<-recode(as.integer(CLSA_cop1.1$HWT_DISW_COF1), '1'=0L,'2'=1L, '3'=2L,'4'=3L,'5'=3L,"6"=3L,
+                              .default=NA_integer_)
+
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
 **Variable name**: phy_bmi_cat_all_2    
@@ -2235,11 +2208,10 @@ HWT_DISW_COF1
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  
+**Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
@@ -2256,11 +2228,10 @@ HWT_DISW_COF1
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  
+**Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
@@ -2277,11 +2248,10 @@ HWT_DISW_COF1
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  
+**Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
@@ -2298,11 +2268,10 @@ HWT_DISW_COF1
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  
+**Harmonization status**: complete  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
@@ -2319,11 +2288,10 @@ HWT_DISW_COF1
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  
+**Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 
@@ -2334,17 +2302,16 @@ HWT_DISW_COF1
 **Variable unit**: cm  
 **Category coding**:  N/A  
 
-**Harmonization status**:  
-**Harmonization comment**:  There is information in the study whether the waist measurement is taken directly or over 1 or 2 layers of clothing.   
+**Harmonization status**:   complete 
+**Harmonization comment**:  The waist measurements are taken directly over skin or over 1 or 2 layers of clothing for different participants. The variable for waist measurement includes the measurements regardless of the clothing layers. 
 **R script**:  
 ```{r, echo=TRUE}
 table(CLSA_cop0$WHC_WAIST_CM_COM)
 
 #The measurement 1)on skin, 2)over one layer of clothing, 3)over two layers of clothing
-
 table(CLSA_cop0$WHC_CLTHLAYERS_COM)
 oth_CLSA_0$phy_waist_all_0<- CLSA_cop0$WHC_WAIST_CM_COM
-
+summary(oth_CLSA_0$phy_waist_all_0)
 ```  
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined   
 **Variable name**: phy_waist_all_1  
@@ -2353,13 +2320,12 @@ oth_CLSA_0$phy_waist_all_0<- CLSA_cop0$WHC_WAIST_CM_COM
 **Variable unit**: cm  
 **Category coding**:  N/A  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-WHC_CLTHLAYERS_COF1
-WHC_WAIST_CM_COF1
 
+#the variable WHC_WAIST_CM_COF1 exists but there is only one non-missing value
 ```  
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined   
 **Variable name**: phy_waist_all_2  
@@ -2368,11 +2334,10 @@ WHC_WAIST_CM_COF1
 **Variable unit**: cm  
 **Category coding**:  N/A  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined 
@@ -2382,11 +2347,10 @@ WHC_WAIST_CM_COF1
 **Variable unit**: cm  
 **Category coding**:  N/A  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined   
@@ -2396,11 +2360,10 @@ WHC_WAIST_CM_COF1
 **Variable unit**: cm  
 **Category coding**:  N/A  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined 
@@ -2410,11 +2373,10 @@ WHC_WAIST_CM_COF1
 **Variable unit**: cm  
 **Category coding**:  N/A  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined 
@@ -2424,11 +2386,10 @@ WHC_WAIST_CM_COF1
 **Variable unit**: cm  
 **Category coding**:  N/A  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 
@@ -2447,13 +2408,12 @@ WHC_WAIST_CM_COF1
 1 |   Fair health  
 2 |   Poor health  
 
-**Harmonization status**:  
-**Harmonization comment**:   Study specific variable for self-rated health have 5 categories: Excellent, Very Good, Good, Fair and Poor. Excellent, Very Good and Good are coded into the DataSchema category of Good health.  
+**Harmonization status**: complete   
+**Harmonization comment**:   Study specific variable for self-rated health have 5 categories: Excellent, Very Good, Good, Fair and Poor. Excellent, Very Good and Good are coded as Good health.  
 **R script**:  
 ```{r, echo=TRUE}
 oth_CLSA_0$poh_sah_0<- recode(as.integer(CLSA_cop0$GEN_HLTH_COM),'1'=0L,'2'=0L, '3'=0L,'4'=1L,'3'=2L,
                               .default=NA_integer_)
-
 
 
 ```  
@@ -2470,11 +2430,11 @@ oth_CLSA_0$poh_sah_0<- recode(as.integer(CLSA_cop0$GEN_HLTH_COM),'1'=0L,'2'=0L, 
 1 |   Fair health  
 2 |   Poor health  
 
-**Harmonization status**:  
-**Harmonization comment**:   
+**Harmonization status**: complete   
+**Harmonization comment**:   Study specific variable for self-rated health have 5 categories: Excellent, Very Good, Good, Fair and Poor. Excellent, Very Good and Good are coded as Good health.  
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_1$poh_sah_1<- recode(as.integer(CLSA_cop1$GEN_HLTH_COF1),'1'=0L,'2'=0L, '3'=0L,'4'=1L,'3'=2L,
+oth_CLSA_1$poh_sah_1<- recode(as.integer(CLSA_cop1.1$GEN_HLTH_COF1),'1'=0L,'2'=0L, '3'=0L,'4'=1L,'3'=2L,
                               .default=NA_integer_)
 
 
@@ -2493,11 +2453,10 @@ oth_CLSA_1$poh_sah_1<- recode(as.integer(CLSA_cop1$GEN_HLTH_COF1),'1'=0L,'2'=0L,
 1 |   Fair health  
 2 |   Poor health  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Self-assessed health   
@@ -2513,11 +2472,10 @@ oth_CLSA_1$poh_sah_1<- recode(as.integer(CLSA_cop1$GEN_HLTH_COF1),'1'=0L,'2'=0L,
 1 |   Fair health  
 2 |   Poor health  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Self-assessed health   
@@ -2533,11 +2491,10 @@ oth_CLSA_1$poh_sah_1<- recode(as.integer(CLSA_cop1$GEN_HLTH_COF1),'1'=0L,'2'=0L,
 1 |   Fair health  
 2 |   Poor health  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Self-assessed health   
@@ -2553,11 +2510,10 @@ oth_CLSA_1$poh_sah_1<- recode(as.integer(CLSA_cop1$GEN_HLTH_COF1),'1'=0L,'2'=0L,
 1 |   Fair health  
 2 |   Poor health  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Self-assessed health   
@@ -2573,11 +2529,10 @@ oth_CLSA_1$poh_sah_1<- recode(as.integer(CLSA_cop1$GEN_HLTH_COF1),'1'=0L,'2'=0L,
 1 |   Fair health  
 2 |   Poor health  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 
@@ -2593,13 +2548,12 @@ oth_CLSA_1$poh_sah_1<- recode(as.integer(CLSA_cop1$GEN_HLTH_COF1),'1'=0L,'2'=0L,
 0 |   Poor health
 1 |   Non-poor health
 
-**Harmonization status**:  
+**Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
 oth_CLSA_0$poh_sah_poor_0 <- recode(as.integer(CLSA_cop0$GEN_HLTH_COM),'5'=0L,'4'=1L,'1'=1L,'2'=1L,'3'=1L,
                               .default=NA_integer_)
-
 
 ```  
 ### **Variable label**:  Poor self-assessed health  
@@ -2614,11 +2568,11 @@ oth_CLSA_0$poh_sah_poor_0 <- recode(as.integer(CLSA_cop0$GEN_HLTH_COM),'5'=0L,'4
 0 |   Poor health
 1 |   Non-poor health
 
-**Harmonization status**:  
+**Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_1$poh_sah_poor_1<- recode(as.integer(CLSA_cop1$GEN_HLTH_COF1),'5'=0L,'4'=1L,'1'=1L,'2'=1L,'3'=1L,
+oth_CLSA_1$poh_sah_poor_1<- recode(as.integer(CLSA_cop1.1$GEN_HLTH_COF1),'5'=0L,'4'=1L,'1'=1L,'2'=1L,'3'=1L,
                               .default=NA_integer_)
 
 ```  
@@ -2634,11 +2588,10 @@ oth_CLSA_1$poh_sah_poor_1<- recode(as.integer(CLSA_cop1$GEN_HLTH_COF1),'5'=0L,'4
 0 |   Poor health
 1 |   Non-poor health
 
-**Harmonization status**:  
+**Harmonization status**:  impossible     
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Poor self-assessed health  
@@ -2653,11 +2606,10 @@ oth_CLSA_1$poh_sah_poor_1<- recode(as.integer(CLSA_cop1$GEN_HLTH_COF1),'5'=0L,'4
 0 |   Poor health
 1 |   Non-poor health
 
-**Harmonization status**:  
+**Harmonization status**:  impossible      
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Poor self-assessed health  
@@ -2672,11 +2624,10 @@ oth_CLSA_1$poh_sah_poor_1<- recode(as.integer(CLSA_cop1$GEN_HLTH_COF1),'5'=0L,'4
 0 |   Poor health
 1 |   Non-poor health
 
-**Harmonization status**:  
+**Harmonization status**:  impossible      
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Poor self-assessed health  
@@ -2691,11 +2642,10 @@ oth_CLSA_1$poh_sah_poor_1<- recode(as.integer(CLSA_cop1$GEN_HLTH_COF1),'5'=0L,'4
 0 |   Poor health
 1 |   Non-poor health
 
-**Harmonization status**:  
+**Harmonization status**:  impossible    
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Poor self-assessed health  
@@ -2710,11 +2660,10 @@ oth_CLSA_1$poh_sah_poor_1<- recode(as.integer(CLSA_cop1$GEN_HLTH_COF1),'5'=0L,'4
 0 |   Poor health
 1 |   Non-poor health
 
-**Harmonization status**:  
+**Harmonization status**:  impossible    
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 
@@ -2730,7 +2679,7 @@ oth_CLSA_1$poh_sah_poor_1<- recode(as.integer(CLSA_cop1$GEN_HLTH_COF1),'5'=0L,'4
 0 |   Less than good health  
 1 |   Good health  
 
-**Harmonization status**:  
+**Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
@@ -2752,11 +2701,11 @@ oth_CLSA_0$poh_sah_good_0<- recode(as.integer(CLSA_cop0$GEN_HLTH_COM),'4'=0L,'5'
 0 |   Less than good health  
 1 |   Good health  
 
-**Harmonization status**:  
+**Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_1$poh_sah_good_1<- recode(as.integer(CLSA_cop1$GEN_HLTH_COF1),'4'=0L,'5'=0L,'1'=1L,'2'=1L,'3'=1L,
+oth_CLSA_1$poh_sah_good_1<- recode(as.integer(CLSA_cop1.1$GEN_HLTH_COF1),'4'=0L,'5'=0L,'1'=1L,'2'=1L,'3'=1L,
                               .default=NA_integer_)
 ```  
 ### **Variable label**:  Less than good self-assessed health  
@@ -2771,11 +2720,10 @@ oth_CLSA_1$poh_sah_good_1<- recode(as.integer(CLSA_cop1$GEN_HLTH_COF1),'4'=0L,'5
 0 |   Less than good health  
 1 |   Good health  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Less than good self-assessed health  
@@ -2790,11 +2738,10 @@ oth_CLSA_1$poh_sah_good_1<- recode(as.integer(CLSA_cop1$GEN_HLTH_COF1),'4'=0L,'5
 0 |   Less than good health  
 1 |   Good health  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Less than good self-assessed health  
@@ -2809,11 +2756,10 @@ oth_CLSA_1$poh_sah_good_1<- recode(as.integer(CLSA_cop1$GEN_HLTH_COF1),'4'=0L,'5
 0 |   Less than good health  
 1 |   Good health  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Less than good self-assessed health  
@@ -2828,11 +2774,10 @@ oth_CLSA_1$poh_sah_good_1<- recode(as.integer(CLSA_cop1$GEN_HLTH_COF1),'4'=0L,'5
 0 |   Less than good health  
 1 |   Good health  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Less than good self-assessed health  
@@ -2847,11 +2792,10 @@ oth_CLSA_1$poh_sah_good_1<- recode(as.integer(CLSA_cop1$GEN_HLTH_COF1),'4'=0L,'5
 0 |   Less than good health  
 1 |   Good health  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 
@@ -2870,7 +2814,7 @@ oth_CLSA_1$poh_sah_good_1<- recode(as.integer(CLSA_cop1$GEN_HLTH_COF1),'4'=0L,'5
 0 |   Has no difficulty walking up and down the stairs
 1 |   Has difficulty walking up and down the stairs  
 
-**Harmonization status**:  
+**Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
@@ -2892,12 +2836,12 @@ oth_CLSA_0$fct_stairs_diff_0 <- recode(as.integer(CLSA_cop0$FUL_FSTR_COM),'2'=1L
 0 |   Has no difficulty walking up and down the stairs
 1 |   Has difficulty walking up and down the stairs  
 
-**Harmonization status**:  
+**Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-table(CLSA_cop1$FUL_FSTR_COF1,useNA="always")
-oth_CLSA_1$fct_stairs_diff_1 <- recode(as.integer(CLSA_cop1$FUL_FSTR_COF1),'2'=1L,'1'=0L,'3'=0L,'4'=0L,.default=NA_integer_)
+table(CLSA_cop1.1$FUL_FSTR_COF1,useNA="always")
+oth_CLSA_1$fct_stairs_diff_1 <- recode(as.integer(CLSA_cop1.1$FUL_FSTR_COF1),'2'=1L,'1'=0L,'3'=0L,'4'=0L,.default=NA_integer_)
 
 ```  
 ### **Variable label**:  Difficulty walking up and down the stairs  
@@ -2912,11 +2856,10 @@ oth_CLSA_1$fct_stairs_diff_1 <- recode(as.integer(CLSA_cop1$FUL_FSTR_COF1),'2'=1
 0 |   Has no difficulty walking up and down the stairs
 1 |   Has difficulty walking up and down the stairs  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 
@@ -2932,7 +2875,7 @@ oth_CLSA_1$fct_stairs_diff_1 <- recode(as.integer(CLSA_cop1$FUL_FSTR_COF1),'2'=1
 0 |   Not able to walk without difficulty  
 1 |   Able to walk without difficulty  
 
-**Harmonization status**:  
+**Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
@@ -2952,13 +2895,13 @@ oth_CLSA_0$fct_walk_diff_0 <- recode(as.integer(CLSA_cop0$FUL_WK23B_COM),'2'=1L,
 0 |   Not able to walk without difficulty  
 1 |   Able to walk without difficulty  
 
-**Harmonization status**:  
+**Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
 
-table(CLSA_cop1$FUL_WK23B_COF1,useNA="always")
-oth_CLSA_1$fct_walk_diff_1 <- recode(as.integer(CLSA_cop1$FUL_WK23B_COF1),'2'=1L,'1'=0L,'3'=0L,'4'=0L,.default=NA_integer_)
+table(CLSA_cop1.1$FUL_WK23B_COF1,useNA="always")
+oth_CLSA_1$fct_walk_diff_1 <- recode(as.integer(CLSA_cop1.1$FUL_WK23B_COF1),'2'=1L,'1'=0L,'3'=0L,'4'=0L,.default=NA_integer_)
 
 ```  
 ### **Variable label**:  Difficulty walking    
@@ -2973,11 +2916,10 @@ oth_CLSA_1$fct_walk_diff_1 <- recode(as.integer(CLSA_cop1$FUL_WK23B_COF1),'2'=1L
 0 |   Not able to walk without difficulty  
 1 |   Able to walk without difficulty  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Difficulty walking    
@@ -2992,11 +2934,10 @@ oth_CLSA_1$fct_walk_diff_1 <- recode(as.integer(CLSA_cop1$FUL_WK23B_COF1),'2'=1L
 0 |   Not able to walk without difficulty  
 1 |   Able to walk without difficulty  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Difficulty walking    
@@ -3011,11 +2952,10 @@ oth_CLSA_1$fct_walk_diff_1 <- recode(as.integer(CLSA_cop1$FUL_WK23B_COF1),'2'=1L
 0 |   Not able to walk without difficulty  
 1 |   Able to walk without difficulty  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Difficulty walking    
@@ -3030,11 +2970,10 @@ oth_CLSA_1$fct_walk_diff_1 <- recode(as.integer(CLSA_cop1$FUL_WK23B_COF1),'2'=1L
 0 |   Not able to walk without difficulty  
 1 |   Able to walk without difficulty  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Difficulty walking    
@@ -3049,11 +2988,10 @@ oth_CLSA_1$fct_walk_diff_1 <- recode(as.integer(CLSA_cop1$FUL_WK23B_COF1),'2'=1L
 0 |   Not able to walk without difficulty  
 1 |   Able to walk without difficulty  
 
-**Harmonization status**:  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 
