@@ -235,7 +235,7 @@ oth_CLSA_1<-merge(oth_CLSA_1,med_table[,c("id","dis_hbp_med_1")],by="id",all.x=T
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Medication for high blood pressure or hypertension    
@@ -255,7 +255,7 @@ oth_CLSA_1<-merge(oth_CLSA_1,med_table[,c("id","dis_hbp_med_1")],by="id",all.x=T
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Medication for high blood pressure or hypertension    
@@ -275,7 +275,7 @@ oth_CLSA_1<-merge(oth_CLSA_1,med_table[,c("id","dis_hbp_med_1")],by="id",all.x=T
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Medication for high blood pressure or hypertension    
@@ -295,7 +295,7 @@ oth_CLSA_1<-merge(oth_CLSA_1,med_table[,c("id","dis_hbp_med_1")],by="id",all.x=T
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 # Angina subdomain
@@ -367,7 +367,7 @@ table(oth_CLSA_1$dis_angina_ever_1)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Lifetime occurrence of angina 
@@ -386,7 +386,7 @@ table(oth_CLSA_1$dis_angina_ever_1)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Lifetime occurrence of angina 
@@ -405,7 +405,7 @@ table(oth_CLSA_1$dis_angina_ever_1)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 
@@ -475,7 +475,7 @@ table(oth_CLSA_1$dis_mi_ever_1)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 
@@ -518,7 +518,7 @@ oth_CLSA_1$dis_mi_age_1<-CLSA_cop1.1$IHD_AMIAGE_NB_COF1
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 # Stroke subdomain
@@ -951,7 +951,7 @@ oth_CLSA_0$dis_diab_tx_0<-CLSA_cop0$DIA_MED_COM
 0        | Currently does not use insulin for diabetes treatment  
 1        | Currently does use insulin for diabetes treatment  
 
-**Harmonization status**:  
+**Harmonization status**:  complete  
 **Harmonization comment**:  The 7 study-specific variables are asking about the use of six different medications by product names HUMALOG, APIDRA, NOVORAPID, LANTUS, NOVOMIX, LEVEMIR and Other medications. All the medications asked with specific names are insulin medications. 
 **R script**:  
 ```{r, echo=TRUE}
@@ -1943,7 +1943,6 @@ oth_CLSA_0$phy_bmi_cat_ms_0<-recode(as.integer(CLSA_cop1.1$HWT_DISW_COF1), '1'=0
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured  
@@ -1964,7 +1963,6 @@ oth_CLSA_0$phy_bmi_cat_ms_0<-recode(as.integer(CLSA_cop1.1$HWT_DISW_COF1), '1'=0
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured  
@@ -2208,7 +2206,7 @@ oth_CLSA_1$phy_bmi_cat_ms_1<-recode(as.integer(CLSA_cop1.1$HWT_DISW_COF1), '1'=0
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  complete  
+**Harmonization status**:  impossible    
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
@@ -2228,7 +2226,7 @@ oth_CLSA_1$phy_bmi_cat_ms_1<-recode(as.integer(CLSA_cop1.1$HWT_DISW_COF1), '1'=0
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  complete  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
@@ -2248,7 +2246,7 @@ oth_CLSA_1$phy_bmi_cat_ms_1<-recode(as.integer(CLSA_cop1.1$HWT_DISW_COF1), '1'=0
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  complete  
+**Harmonization status**:  impossible    
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
@@ -2268,7 +2266,7 @@ oth_CLSA_1$phy_bmi_cat_ms_1<-recode(as.integer(CLSA_cop1.1$HWT_DISW_COF1), '1'=0
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**: complete  
+**Harmonization status**: impossible    
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
@@ -2288,7 +2286,7 @@ oth_CLSA_1$phy_bmi_cat_ms_1<-recode(as.integer(CLSA_cop1.1$HWT_DISW_COF1), '1'=0
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  complete  
+**Harmonization status**:  impossible    
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
