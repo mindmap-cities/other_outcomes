@@ -101,7 +101,7 @@ oth_GLOBE_0<-merge(oth_GLOBE_0,med_table[,c("id","dis_hbp_ever_0")],by="id",all.
 ```{r, echo=TRUE}
 #Harmonization scripts to create "ever had med"
 med_table$dis_hbp_ever_1  <- ifelse(med_table$dis_hbp_ever_0==1 |med_table$v2c==1,1L,
-                                    ifelse(med_table$v2c==2& med_table$dis_hbp_ever_0==0, 0L))
+                                    ifelse(med_table$v2c==2& med_table$dis_hbp_ever_0==0, 0L,NA))
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_GLOBE_1<-merge(oth_GLOBE_1,med_table[,c("id","dis_hbp_ever_1")],by="id",all.x=TRUE)
 
@@ -568,8 +568,8 @@ oth_GLOBE_0<-merge(oth_GLOBE_0,med_table[,c("id","dis_diab_ever_0")],by="id",all
 **R script**:  
 ```{r, echo=TRUE}  
 #Harmonization scripts to create "ever had med"
-med_table$dis_diab_ever_1  <- ifelse(med_table$dis_diab_ever_0==1| med_table$v2k==1,1L
-                                    ,ifelse(med_table$v2k==2& med_table$dis_diab_ever_0==0, 0L))
+med_table$dis_diab_ever_1  <- ifelse(med_table$dis_diab_ever_0==1| med_table$v2k==1,1L, 
+                                     ifelse(med_table$v2k==2& med_table$dis_diab_ever_0==0,0L,NA))
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_GLOBE_1<-merge(oth_GLOBE_1,med_table[,c("id","dis_diab_ever_1")],by="id",all.x=TRUE)
 
