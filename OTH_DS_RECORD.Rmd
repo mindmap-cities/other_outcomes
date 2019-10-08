@@ -371,7 +371,6 @@ oth_RECORD_0<-merge(oth_RECORD_0,med_table_record[,c("id","dis_mi_ever_0")],by="
 **Harmonization comment**:  The harmonized variable "Lifetime occurrence of myocardial infarction (heart attack)" for followup waves was created using "Lifetime occurrence of myocardial infarction (heart attack)" from baseline and previous and current waves. To create this variable, all RECORD data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 **R script**:  
 ```{r, echo=TRUE}
-#mi
 med_table_record$dis_mi_ever_1<- ifelse(med_table_record$dis_mi_ever_0==0 & as.character(med_table_record$Qm35_2)=='N',0L,
                                 ifelse(med_table_record$dis_mi_ever_0==1 | as.character(med_table_record$Qm35_2)=='O',1L,NA))
 #Direct mapping to harmonized tables keeping correct participants for each wave
@@ -457,7 +456,6 @@ oth_RECORD_1<-merge(oth_RECORD_1,med_table_record[,c("id","dis_mi_ever_1")],by="
 **Harmonization comment**:  The harmonized variable "Lifetime occurrence of stroke or cerebrovascular accident (CVA)" for followup waves was created using "Lifetime occurrence of stroke or cerebrovascular accident (CVA)" from baseline and previous and current waves. To create this variable, all RECORD data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 **R script**:  
 ```{r, echo=TRUE}
-#stroke
 med_table_record$dis_stroke_ever_0<- recode(as.character(med_table_record$Qm41),'N'=0L,'O'=1L)
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_RECORD_0<-merge(oth_RECORD_0,med_table_record[,c("id","dis_stroke_ever_0")],by="id",all.x=TRUE)
@@ -578,7 +576,6 @@ oth_RECORD_1<-merge(oth_RECORD_1,med_table_record[,c("id","dis_stroke_ever_1")],
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}  
-#diabetes
 med_table_record$dis_diab_ever_1_1<- ifelse(med_table_record$P2_Q5_33==0 & med_table_record$P2_Q5_32==1,0L,
                                         ifelse(med_table_record$P2_Q5_33==1 & med_table_record$P2_Q5_32==0,1L,NA))
 

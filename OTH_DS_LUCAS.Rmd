@@ -71,7 +71,7 @@ opal.logout(erasmus_opal)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ``` 
 ### **Variable label**: Medication for high blood pressure or hypertension    
@@ -111,7 +111,7 @@ opal.logout(erasmus_opal)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Medication for high blood pressure or hypertension    
@@ -131,7 +131,7 @@ opal.logout(erasmus_opal)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Medication for high blood pressure or hypertension    
@@ -151,7 +151,7 @@ opal.logout(erasmus_opal)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Medication for high blood pressure or hypertension    
@@ -171,7 +171,7 @@ opal.logout(erasmus_opal)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Medication for high blood pressure or hypertension    
@@ -191,7 +191,7 @@ opal.logout(erasmus_opal)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 # Angina subdomain
@@ -231,7 +231,7 @@ opal.logout(erasmus_opal)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Lifetime occurrence of angina 
@@ -250,7 +250,7 @@ opal.logout(erasmus_opal)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Lifetime occurrence of angina 
@@ -269,7 +269,7 @@ opal.logout(erasmus_opal)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Lifetime occurrence of angina 
@@ -288,7 +288,7 @@ opal.logout(erasmus_opal)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 
@@ -329,7 +329,7 @@ opal.logout(erasmus_opal)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Lifetime occurrence of myocardial infarction    
@@ -348,7 +348,7 @@ opal.logout(erasmus_opal)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 
@@ -376,7 +376,7 @@ opal.logout(erasmus_opal)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Age at first Myocardial infarction  
@@ -390,7 +390,7 @@ opal.logout(erasmus_opal)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 # Stroke subdomain
@@ -429,7 +429,7 @@ opal.logout(erasmus_opal)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Lifetime occurrence of stroke or CVA  
@@ -448,7 +448,7 @@ opal.logout(erasmus_opal)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Age at first stroke or CVA  
@@ -475,7 +475,7 @@ opal.logout(erasmus_opal)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Age at first stroke or CVA  
@@ -489,7 +489,7 @@ opal.logout(erasmus_opal)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 
@@ -530,7 +530,7 @@ oth_LUCAS_0$dis_diab_ever_0<- as.integer(lucas_w2$Lucas3a_07)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}  
-#This is where the R-script will be written  
+  
 
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
@@ -549,7 +549,7 @@ oth_LUCAS_0$dis_diab_ever_0<- as.integer(lucas_w2$Lucas3a_07)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}  
-#This is where the R-script will be written  
+  
 
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
@@ -568,7 +568,7 @@ oth_LUCAS_0$dis_diab_ever_0<- as.integer(lucas_w2$Lucas3a_07)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}  
-#This is where the R-script will be written  
+  
 
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
@@ -587,7 +587,7 @@ oth_LUCAS_0$dis_diab_ever_0<- as.integer(lucas_w2$Lucas3a_07)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}  
-#This is where the R-script will be written  
+  
 
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
@@ -606,7 +606,7 @@ oth_LUCAS_0$dis_diab_ever_0<- as.integer(lucas_w2$Lucas3a_07)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}  
-#This is where the R-script will be written  
+  
 
 ```  
 ### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
@@ -634,7 +634,7 @@ oth_LUCAS_0$dis_diab_ever_0<- as.integer(lucas_w2$Lucas3a_07)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}  
-#This is where the R-script will be written  
+  
 
 ```  
 ### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
@@ -648,7 +648,7 @@ oth_LUCAS_0$dis_diab_ever_0<- as.integer(lucas_w2$Lucas3a_07)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}  
-#This is where the R-script will be written  
+  
 
 ```  
 ### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
@@ -662,7 +662,7 @@ oth_LUCAS_0$dis_diab_ever_0<- as.integer(lucas_w2$Lucas3a_07)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}  
-#This is where the R-script will be written  
+  
 
 ```  
 ### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
@@ -676,7 +676,7 @@ oth_LUCAS_0$dis_diab_ever_0<- as.integer(lucas_w2$Lucas3a_07)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}  
-#This is where the R-script will be written  
+  
 
 ```  
 ### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
@@ -690,7 +690,7 @@ oth_LUCAS_0$dis_diab_ever_0<- as.integer(lucas_w2$Lucas3a_07)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}  
-#This is where the R-script will be written  
+  
 
 ```  
 
@@ -729,7 +729,7 @@ oth_LUCAS_0$dis_diab_ever_0<- as.integer(lucas_w2$Lucas3a_07)
 **Harmonization comment**:  
 **R script**:
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Currently under treatment for diabetes  
@@ -748,7 +748,7 @@ oth_LUCAS_0$dis_diab_ever_0<- as.integer(lucas_w2$Lucas3a_07)
 **Harmonization comment**:  
 **R script**:
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Currently under treatment for diabetes  
@@ -767,7 +767,7 @@ oth_LUCAS_0$dis_diab_ever_0<- as.integer(lucas_w2$Lucas3a_07)
 **Harmonization comment**:  
 **R script**:
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Currently under treatment for diabetes  
@@ -786,7 +786,7 @@ oth_LUCAS_0$dis_diab_ever_0<- as.integer(lucas_w2$Lucas3a_07)
 **Harmonization comment**:  
 **R script**:
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Currently under treatment for diabetes  
@@ -805,7 +805,7 @@ oth_LUCAS_0$dis_diab_ever_0<- as.integer(lucas_w2$Lucas3a_07)
 **Harmonization comment**:  
 **R script**:
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Currently use insulin for diabetes  
@@ -843,7 +843,7 @@ oth_LUCAS_0$dis_diab_ever_0<- as.integer(lucas_w2$Lucas3a_07)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Currently use insulin for diabetes  
@@ -862,7 +862,7 @@ oth_LUCAS_0$dis_diab_ever_0<- as.integer(lucas_w2$Lucas3a_07)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 # BMI subdomain
@@ -892,7 +892,7 @@ oth_LUCAS_0$dis_diab_ever_0<- as.integer(lucas_w2$Lucas3a_07)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Weight in kg - measured 
@@ -906,7 +906,7 @@ oth_LUCAS_0$dis_diab_ever_0<- as.integer(lucas_w2$Lucas3a_07)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Weight in kg - measured 
@@ -920,7 +920,7 @@ oth_LUCAS_0$dis_diab_ever_0<- as.integer(lucas_w2$Lucas3a_07)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Weight in kg - measured 
@@ -934,7 +934,7 @@ oth_LUCAS_0$dis_diab_ever_0<- as.integer(lucas_w2$Lucas3a_07)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Weight in kg - measured 
@@ -948,7 +948,7 @@ oth_LUCAS_0$dis_diab_ever_0<- as.integer(lucas_w2$Lucas3a_07)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Weight in kg - measured 
@@ -962,7 +962,7 @@ oth_LUCAS_0$dis_diab_ever_0<- as.integer(lucas_w2$Lucas3a_07)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Weight in kg - self-reported 
@@ -989,7 +989,7 @@ oth_LUCAS_0$phy_weight_sr_0<- lucas_w2$Lucas10_07
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Weight in kg - self-reported 
@@ -1003,7 +1003,7 @@ oth_LUCAS_0$phy_weight_sr_0<- lucas_w2$Lucas10_07
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Weight in kg - self-reported 
@@ -1017,7 +1017,7 @@ oth_LUCAS_0$phy_weight_sr_0<- lucas_w2$Lucas10_07
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Weight in kg - self-reported 
@@ -1031,7 +1031,7 @@ oth_LUCAS_0$phy_weight_sr_0<- lucas_w2$Lucas10_07
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Weight in kg - self-reported 
@@ -1045,7 +1045,7 @@ oth_LUCAS_0$phy_weight_sr_0<- lucas_w2$Lucas10_07
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Weight in kg - self-reported 
@@ -1059,7 +1059,7 @@ oth_LUCAS_0$phy_weight_sr_0<- lucas_w2$Lucas10_07
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Weight in kg - measured and self-reported combined
@@ -1087,7 +1087,7 @@ oth_LUCAS_0$phy_weight_all_0<- lucas_w2$Lucas10_07
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Weight in kg - measured and self-reported combined  
@@ -1101,7 +1101,7 @@ oth_LUCAS_0$phy_weight_all_0<- lucas_w2$Lucas10_07
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Weight in kg - measured and self-reported combined  
@@ -1115,7 +1115,7 @@ oth_LUCAS_0$phy_weight_all_0<- lucas_w2$Lucas10_07
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Weight in kg - self-reported and measured combined  
@@ -1129,7 +1129,7 @@ oth_LUCAS_0$phy_weight_all_0<- lucas_w2$Lucas10_07
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Weight in kg - self-reported and measured combined  
@@ -1143,7 +1143,7 @@ oth_LUCAS_0$phy_weight_all_0<- lucas_w2$Lucas10_07
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Weight in kg - self-reported and measured combined  
@@ -1157,7 +1157,7 @@ oth_LUCAS_0$phy_weight_all_0<- lucas_w2$Lucas10_07
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Height in cm - measured  
@@ -1185,7 +1185,7 @@ oth_LUCAS_0$phy_weight_all_0<- lucas_w2$Lucas10_07
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Height in cm - measured  
@@ -1199,7 +1199,7 @@ oth_LUCAS_0$phy_weight_all_0<- lucas_w2$Lucas10_07
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Height in cm - measured  
@@ -1213,7 +1213,7 @@ oth_LUCAS_0$phy_weight_all_0<- lucas_w2$Lucas10_07
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Height in cm - measured  
@@ -1227,7 +1227,7 @@ oth_LUCAS_0$phy_weight_all_0<- lucas_w2$Lucas10_07
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Height in cm - measured  
@@ -1241,7 +1241,7 @@ oth_LUCAS_0$phy_weight_all_0<- lucas_w2$Lucas10_07
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Height in cm - measured  
@@ -1255,7 +1255,7 @@ oth_LUCAS_0$phy_weight_all_0<- lucas_w2$Lucas10_07
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 
@@ -1283,7 +1283,7 @@ oth_LUCAS_0$phy_height_sr_0<- lucas_w2$Lucas9_07
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Height in cm - self-reported  
@@ -1297,7 +1297,7 @@ oth_LUCAS_0$phy_height_sr_0<- lucas_w2$Lucas9_07
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Height in cm - self-reported  
@@ -1311,7 +1311,7 @@ oth_LUCAS_0$phy_height_sr_0<- lucas_w2$Lucas9_07
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Height in cm - self-reported  
@@ -1325,7 +1325,7 @@ oth_LUCAS_0$phy_height_sr_0<- lucas_w2$Lucas9_07
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Height in cm - self-reported  
@@ -1339,7 +1339,7 @@ oth_LUCAS_0$phy_height_sr_0<- lucas_w2$Lucas9_07
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Height in cm - self-reported  
@@ -1353,7 +1353,7 @@ oth_LUCAS_0$phy_height_sr_0<- lucas_w2$Lucas9_07
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 
@@ -1381,7 +1381,7 @@ oth_LUCAS_0$phy_height_all_0<-lucas_w2$Lucas9_07
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined    
@@ -1395,7 +1395,7 @@ oth_LUCAS_0$phy_height_all_0<-lucas_w2$Lucas9_07
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined  
@@ -1409,7 +1409,7 @@ oth_LUCAS_0$phy_height_all_0<-lucas_w2$Lucas9_07
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined  
@@ -1423,7 +1423,7 @@ oth_LUCAS_0$phy_height_all_0<-lucas_w2$Lucas9_07
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined  
@@ -1437,7 +1437,7 @@ oth_LUCAS_0$phy_height_all_0<-lucas_w2$Lucas9_07
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined  
@@ -1451,7 +1451,7 @@ oth_LUCAS_0$phy_height_all_0<-lucas_w2$Lucas9_07
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 
@@ -1479,7 +1479,7 @@ oth_LUCAS_0$phy_height_all_0<-lucas_w2$Lucas9_07
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured  
@@ -1493,7 +1493,7 @@ oth_LUCAS_0$phy_height_all_0<-lucas_w2$Lucas9_07
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured  
@@ -1507,7 +1507,7 @@ oth_LUCAS_0$phy_height_all_0<-lucas_w2$Lucas9_07
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured  
@@ -1521,7 +1521,7 @@ oth_LUCAS_0$phy_height_all_0<-lucas_w2$Lucas9_07
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured  
@@ -1535,7 +1535,7 @@ oth_LUCAS_0$phy_height_all_0<-lucas_w2$Lucas9_07
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured  
@@ -1549,7 +1549,7 @@ oth_LUCAS_0$phy_height_all_0<-lucas_w2$Lucas9_07
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 
@@ -1577,7 +1577,7 @@ oth_LUCAS_0$phy_bmi_sr_0[!is.na(lucas_w2$Lucas10_07)&!is.na(lucas_w2$Lucas9_07)]
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Body mass index (BMI) - self-reported  
@@ -1591,7 +1591,7 @@ oth_LUCAS_0$phy_bmi_sr_0[!is.na(lucas_w2$Lucas10_07)&!is.na(lucas_w2$Lucas9_07)]
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Body mass index (BMI) - self-reported  
@@ -1605,7 +1605,7 @@ oth_LUCAS_0$phy_bmi_sr_0[!is.na(lucas_w2$Lucas10_07)&!is.na(lucas_w2$Lucas9_07)]
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Body mass index (BMI) - self-reported  
@@ -1619,7 +1619,7 @@ oth_LUCAS_0$phy_bmi_sr_0[!is.na(lucas_w2$Lucas10_07)&!is.na(lucas_w2$Lucas9_07)]
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Body mass index (BMI) - self-reported  
@@ -1633,7 +1633,7 @@ oth_LUCAS_0$phy_bmi_sr_0[!is.na(lucas_w2$Lucas10_07)&!is.na(lucas_w2$Lucas9_07)]
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Body mass index (BMI) - self-reported  
@@ -1647,7 +1647,7 @@ oth_LUCAS_0$phy_bmi_sr_0[!is.na(lucas_w2$Lucas10_07)&!is.na(lucas_w2$Lucas9_07)]
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```   
 
@@ -1676,7 +1676,7 @@ oth_LUCAS_0$phy_bmi_all_0[!is.na(lucas_w2$Lucas10_07)&!is.na(lucas_w2$Lucas9_07)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
@@ -1690,7 +1690,7 @@ oth_LUCAS_0$phy_bmi_all_0[!is.na(lucas_w2$Lucas10_07)&!is.na(lucas_w2$Lucas9_07)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
@@ -1704,7 +1704,7 @@ oth_LUCAS_0$phy_bmi_all_0[!is.na(lucas_w2$Lucas10_07)&!is.na(lucas_w2$Lucas9_07)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
@@ -1718,7 +1718,7 @@ oth_LUCAS_0$phy_bmi_all_0[!is.na(lucas_w2$Lucas10_07)&!is.na(lucas_w2$Lucas9_07)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
@@ -1732,7 +1732,7 @@ oth_LUCAS_0$phy_bmi_all_0[!is.na(lucas_w2$Lucas10_07)&!is.na(lucas_w2$Lucas9_07)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
@@ -1746,7 +1746,7 @@ oth_LUCAS_0$phy_bmi_all_0[!is.na(lucas_w2$Lucas10_07)&!is.na(lucas_w2$Lucas9_07)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 
@@ -1789,7 +1789,7 @@ oth_LUCAS_0$phy_bmi_all_0[!is.na(lucas_w2$Lucas10_07)&!is.na(lucas_w2$Lucas9_07)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured  
@@ -1810,7 +1810,7 @@ oth_LUCAS_0$phy_bmi_all_0[!is.na(lucas_w2$Lucas10_07)&!is.na(lucas_w2$Lucas9_07)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured  
@@ -1831,7 +1831,7 @@ oth_LUCAS_0$phy_bmi_all_0[!is.na(lucas_w2$Lucas10_07)&!is.na(lucas_w2$Lucas9_07)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured  
@@ -1852,7 +1852,7 @@ oth_LUCAS_0$phy_bmi_all_0[!is.na(lucas_w2$Lucas10_07)&!is.na(lucas_w2$Lucas9_07)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured  
@@ -1873,7 +1873,7 @@ oth_LUCAS_0$phy_bmi_all_0[!is.na(lucas_w2$Lucas10_07)&!is.na(lucas_w2$Lucas9_07)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured  
@@ -1894,7 +1894,7 @@ oth_LUCAS_0$phy_bmi_all_0[!is.na(lucas_w2$Lucas10_07)&!is.na(lucas_w2$Lucas9_07)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 
@@ -1941,7 +1941,7 @@ oth_LUCAS_0$phy_bmi_cat_sr_0<- ifelse(oth_LUCAS_0$phy_bmi_sr_0 <18.5,0L,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - self-reported  
@@ -1962,7 +1962,7 @@ oth_LUCAS_0$phy_bmi_cat_sr_0<- ifelse(oth_LUCAS_0$phy_bmi_sr_0 <18.5,0L,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - self-reported  
@@ -1983,7 +1983,7 @@ oth_LUCAS_0$phy_bmi_cat_sr_0<- ifelse(oth_LUCAS_0$phy_bmi_sr_0 <18.5,0L,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - self-reported  
@@ -2004,7 +2004,7 @@ oth_LUCAS_0$phy_bmi_cat_sr_0<- ifelse(oth_LUCAS_0$phy_bmi_sr_0 <18.5,0L,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - self-reported  
@@ -2025,7 +2025,7 @@ oth_LUCAS_0$phy_bmi_cat_sr_0<- ifelse(oth_LUCAS_0$phy_bmi_sr_0 <18.5,0L,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - self-reported  
@@ -2046,7 +2046,7 @@ oth_LUCAS_0$phy_bmi_cat_sr_0<- ifelse(oth_LUCAS_0$phy_bmi_sr_0 <18.5,0L,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 
@@ -2093,7 +2093,7 @@ oth_LUCAS_0$phy_bmi_cat_all_0<- ifelse(oth_LUCAS_0$phy_bmi_all_0 <18.5,0L,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
@@ -2114,7 +2114,7 @@ oth_LUCAS_0$phy_bmi_cat_all_0<- ifelse(oth_LUCAS_0$phy_bmi_all_0 <18.5,0L,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
@@ -2135,7 +2135,7 @@ oth_LUCAS_0$phy_bmi_cat_all_0<- ifelse(oth_LUCAS_0$phy_bmi_all_0 <18.5,0L,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
@@ -2156,7 +2156,7 @@ oth_LUCAS_0$phy_bmi_cat_all_0<- ifelse(oth_LUCAS_0$phy_bmi_all_0 <18.5,0L,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
@@ -2177,7 +2177,7 @@ oth_LUCAS_0$phy_bmi_cat_all_0<- ifelse(oth_LUCAS_0$phy_bmi_all_0 <18.5,0L,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
@@ -2198,7 +2198,7 @@ oth_LUCAS_0$phy_bmi_cat_all_0<- ifelse(oth_LUCAS_0$phy_bmi_all_0 <18.5,0L,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 
@@ -2227,7 +2227,7 @@ oth_LUCAS_0$phy_bmi_cat_all_0<- ifelse(oth_LUCAS_0$phy_bmi_all_0 <18.5,0L,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined   
@@ -2241,7 +2241,7 @@ oth_LUCAS_0$phy_bmi_cat_all_0<- ifelse(oth_LUCAS_0$phy_bmi_all_0 <18.5,0L,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined 
@@ -2255,7 +2255,7 @@ oth_LUCAS_0$phy_bmi_cat_all_0<- ifelse(oth_LUCAS_0$phy_bmi_all_0 <18.5,0L,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined   
@@ -2269,7 +2269,7 @@ oth_LUCAS_0$phy_bmi_cat_all_0<- ifelse(oth_LUCAS_0$phy_bmi_all_0 <18.5,0L,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined 
@@ -2283,7 +2283,7 @@ oth_LUCAS_0$phy_bmi_cat_all_0<- ifelse(oth_LUCAS_0$phy_bmi_all_0 <18.5,0L,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined 
@@ -2297,7 +2297,7 @@ oth_LUCAS_0$phy_bmi_cat_all_0<- ifelse(oth_LUCAS_0$phy_bmi_all_0 <18.5,0L,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 
@@ -2341,7 +2341,7 @@ oth_LUCAS_0$poh_sah_0<- ifelse(lucas_w2$Lucas1_07 == 1 | lucas_w2$Lucas1_07 == 2
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Self-assessed health   
@@ -2361,7 +2361,7 @@ oth_LUCAS_0$poh_sah_0<- ifelse(lucas_w2$Lucas1_07 == 1 | lucas_w2$Lucas1_07 == 2
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Self-assessed health   
@@ -2381,7 +2381,7 @@ oth_LUCAS_0$poh_sah_0<- ifelse(lucas_w2$Lucas1_07 == 1 | lucas_w2$Lucas1_07 == 2
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Self-assessed health   
@@ -2401,7 +2401,7 @@ oth_LUCAS_0$poh_sah_0<- ifelse(lucas_w2$Lucas1_07 == 1 | lucas_w2$Lucas1_07 == 2
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Self-assessed health   
@@ -2421,7 +2421,7 @@ oth_LUCAS_0$poh_sah_0<- ifelse(lucas_w2$Lucas1_07 == 1 | lucas_w2$Lucas1_07 == 2
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Self-assessed health   
@@ -2441,7 +2441,7 @@ oth_LUCAS_0$poh_sah_0<- ifelse(lucas_w2$Lucas1_07 == 1 | lucas_w2$Lucas1_07 == 2
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 
@@ -2481,7 +2481,7 @@ oth_LUCAS_0$poh_sah_poor_0<- ifelse(lucas_w2$Lucas1_07 == 4, 0L,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Poor self-assessed health  
@@ -2500,7 +2500,7 @@ oth_LUCAS_0$poh_sah_poor_0<- ifelse(lucas_w2$Lucas1_07 == 4, 0L,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Poor self-assessed health  
@@ -2519,7 +2519,7 @@ oth_LUCAS_0$poh_sah_poor_0<- ifelse(lucas_w2$Lucas1_07 == 4, 0L,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Poor self-assessed health  
@@ -2538,7 +2538,7 @@ oth_LUCAS_0$poh_sah_poor_0<- ifelse(lucas_w2$Lucas1_07 == 4, 0L,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Poor self-assessed health  
@@ -2557,7 +2557,7 @@ oth_LUCAS_0$poh_sah_poor_0<- ifelse(lucas_w2$Lucas1_07 == 4, 0L,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Poor self-assessed health  
@@ -2576,7 +2576,7 @@ oth_LUCAS_0$poh_sah_poor_0<- ifelse(lucas_w2$Lucas1_07 == 4, 0L,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 
@@ -2614,7 +2614,7 @@ oth_LUCAS_0$poh_sah_good_0<- ifelse(lucas_w2$Lucas1_07 <3, 1L, ifelse(lucas_w2$L
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Less than good self-assessed health  
@@ -2633,7 +2633,7 @@ oth_LUCAS_0$poh_sah_good_0<- ifelse(lucas_w2$Lucas1_07 <3, 1L, ifelse(lucas_w2$L
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Less than good self-assessed health  
@@ -2652,7 +2652,7 @@ oth_LUCAS_0$poh_sah_good_0<- ifelse(lucas_w2$Lucas1_07 <3, 1L, ifelse(lucas_w2$L
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Less than good self-assessed health  
@@ -2671,7 +2671,7 @@ oth_LUCAS_0$poh_sah_good_0<- ifelse(lucas_w2$Lucas1_07 <3, 1L, ifelse(lucas_w2$L
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Less than good self-assessed health  
@@ -2690,7 +2690,7 @@ oth_LUCAS_0$poh_sah_good_0<- ifelse(lucas_w2$Lucas1_07 <3, 1L, ifelse(lucas_w2$L
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Less than good self-assessed health  
@@ -2709,7 +2709,7 @@ oth_LUCAS_0$poh_sah_good_0<- ifelse(lucas_w2$Lucas1_07 <3, 1L, ifelse(lucas_w2$L
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 
@@ -2732,7 +2732,7 @@ oth_LUCAS_0$poh_sah_good_0<- ifelse(lucas_w2$Lucas1_07 <3, 1L, ifelse(lucas_w2$L
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Difficulty walking up and down the stairs  
@@ -2751,7 +2751,7 @@ oth_LUCAS_0$poh_sah_good_0<- ifelse(lucas_w2$Lucas1_07 <3, 1L, ifelse(lucas_w2$L
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Difficulty walking up and down the stairs  
@@ -2770,7 +2770,7 @@ oth_LUCAS_0$poh_sah_good_0<- ifelse(lucas_w2$Lucas1_07 <3, 1L, ifelse(lucas_w2$L
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 
@@ -2808,7 +2808,7 @@ oth_LUCAS_0$fct_walk_diff_0<- ifelse(lucas_w2$Lucas23b_07 == 1,1L, ifelse(lucas_
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Difficulty walking    
@@ -2827,7 +2827,7 @@ oth_LUCAS_0$fct_walk_diff_0<- ifelse(lucas_w2$Lucas23b_07 == 1,1L, ifelse(lucas_
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Difficulty walking    
@@ -2846,7 +2846,7 @@ oth_LUCAS_0$fct_walk_diff_0<- ifelse(lucas_w2$Lucas23b_07 == 1,1L, ifelse(lucas_
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Difficulty walking    
@@ -2865,7 +2865,7 @@ oth_LUCAS_0$fct_walk_diff_0<- ifelse(lucas_w2$Lucas23b_07 == 1,1L, ifelse(lucas_
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Difficulty walking    
@@ -2884,7 +2884,7 @@ oth_LUCAS_0$fct_walk_diff_0<- ifelse(lucas_w2$Lucas23b_07 == 1,1L, ifelse(lucas_
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Difficulty walking    
@@ -2903,7 +2903,7 @@ oth_LUCAS_0$fct_walk_diff_0<- ifelse(lucas_w2$Lucas23b_07 == 1,1L, ifelse(lucas_
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 
