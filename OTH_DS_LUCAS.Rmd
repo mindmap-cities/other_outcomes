@@ -2728,7 +2728,7 @@ oth_LUCAS_0$poh_sah_good_0<- ifelse(lucas_w2$Lucas1_07 <3, 1L, ifelse(lucas_w2$L
 0 |   Has no difficulty walking up and down the stairs
 1 |   Has difficulty walking up and down the stairs  
 
-**Harmonization status**:  impossible/unavailable
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
