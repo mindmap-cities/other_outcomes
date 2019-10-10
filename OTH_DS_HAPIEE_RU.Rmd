@@ -288,8 +288,8 @@ oth_HAPIEE_RU_1<-merge(oth_HAPIEE_RU_1,med_table[,c("id","dis_angina_ever_1")],b
 0        |  Never had angina
 1        |  Ever had angina  
   
-**Harmonization status**:  
-**Harmonization comment**:  impossible  
+**Harmonization status**:  impossible
+**Harmonization comment**:    
 **R script**:  
 ```{r, echo=TRUE}
 
