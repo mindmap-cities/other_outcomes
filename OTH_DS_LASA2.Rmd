@@ -1684,7 +1684,7 @@ oth_LASA2_1$phy_bmi_all_1[!is.na(as.numeric(LASA2F$fmed153) & !is.na(as.numeric(
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**:  
+**Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
@@ -2212,7 +2212,7 @@ oth_LASA2_2$phy_waist_all_2 <- ifelse(as.numeric(LASA2G$gmed156)>0,as.numeric(LA
 **Variable unit**: cm  
 **Category coding**:  N/A  
 
-**Harmonization status**:  
+**Harmonization status**:  complete  
 **Harmonization comment**:   This study has two waist circumference measurements. The first measurement was taken.  
 **R script**:  
 ```{r, echo=TRUE}
