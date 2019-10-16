@@ -2277,7 +2277,7 @@ oth_LASA2_3$phy_waist_all_3 <- ifelse(as.numeric(LASA2H$HMED156)>0,as.numeric(LA
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_LASA2_0$poh_sah_0 <- recode(as.integer(LASA2B$bsubhea1),'1'=0L,'2'=0L,'1'=1L,'4'=1L,'5'=3L,.default=NA_integer_)
+oth_LASA2_0$poh_sah_0 <- recode(as.integer(LASA2B$bsubhea1),'1'=0L,'2'=0L,'1'=1L,'4'=1L,'5'=2L,.default=NA_integer_)
 ```  
 ### **Variable label**:  Self-assessed health   
 **Variable name**:  poh_sah_1  
@@ -2296,7 +2296,7 @@ oth_LASA2_0$poh_sah_0 <- recode(as.integer(LASA2B$bsubhea1),'1'=0L,'2'=0L,'1'=1L
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_LASA2_1$poh_sah_1 <- recode(as.integer(LASA2F$fsubhea1),'1'=0L,'2'=0L,'1'=1L,'4'=1L,'5'=3L,.default=NA_integer_)
+oth_LASA2_1$poh_sah_1 <- recode(as.integer(LASA2F$fsubhea1),'1'=0L,'2'=0L,'1'=1L,'4'=1L,'5'=2L,.default=NA_integer_)
 ```  
 ### **Variable label**:  Self-assessed health   
 **Variable name**:  poh_sah_2  
@@ -2315,7 +2315,7 @@ oth_LASA2_1$poh_sah_1 <- recode(as.integer(LASA2F$fsubhea1),'1'=0L,'2'=0L,'1'=1L
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_LASA2_2$poh_sah_2 <- recode(as.integer(LASA2G$gsubhea1),'1'=0L,'2'=0L,'1'=1L,'4'=1L,'5'=3L,.default=NA_integer_)
+oth_LASA2_2$poh_sah_2 <- recode(as.integer(LASA2G$gsubhea1),'1'=0L,'2'=0L,'1'=1L,'4'=1L,'5'=2L,.default=NA_integer_)
 ```  
 ### **Variable label**:  Self-assessed health   
 **Variable name**:  poh_sah_3  
@@ -2334,7 +2334,7 @@ oth_LASA2_2$poh_sah_2 <- recode(as.integer(LASA2G$gsubhea1),'1'=0L,'2'=0L,'1'=1L
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_LASA2_3$poh_sah_3 <- recode(as.integer(LASA2H$hsubhea1),'1'=0L,'2'=0L,'1'=1L,'4'=1L,'5'=3L,.default=NA_integer_)
+oth_LASA2_3$poh_sah_3 <- recode(as.integer(LASA2H$hsubhea1),'1'=0L,'2'=0L,'1'=1L,'4'=1L,'5'=2L,.default=NA_integer_)
 ```  
 ### **Variable label**:  Self-assessed health   
 **Variable name**:  poh_sah_4  
@@ -2410,7 +2410,7 @@ oth_LASA2_3$poh_sah_3 <- recode(as.integer(LASA2H$hsubhea1),'1'=0L,'2'=0L,'1'=1L
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_LASA2_0$poh_sah_0 <- recode(as.integer(LASA2B$bsubhea1),'1'=0L,'2'=0L,'3'=1L,'4'=1L,'5'=3L,.default=NA_integer_)
+oth_LASA2_0$poh_sah_poor_0 <- recode(as.integer(LASA2B$bsubhea1),'1'=1L,'2'=1L,'3'=1L,'4'=1L,'5'=0L,.default=NA_integer_)
 ```  
 ### **Variable label**:  Poor self-assessed health  
 **Variable name**:  poh_sah_poor_1    
@@ -2428,7 +2428,7 @@ oth_LASA2_0$poh_sah_0 <- recode(as.integer(LASA2B$bsubhea1),'1'=0L,'2'=0L,'3'=1L
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_LASA2_1$poh_sah_1  <- recode(as.integer(LASA2F$fsubhea1),'1'=0L,'2'=0L,'3'=1L,'4'=1L,'5'=3L,.default=NA_integer_)
+oth_LASA2_1$poh_sah_poor_1  <- recode(as.integer(LASA2F$fsubhea1),'1'=1L,'2'=1L,'3'=1L,'4'=1L,'5'=0L,.default=NA_integer_)
 ```  
 ### **Variable label**:  Poor self-assessed health  
 **Variable name**:  poh_sah_poor_2  
@@ -2446,7 +2446,7 @@ oth_LASA2_1$poh_sah_1  <- recode(as.integer(LASA2F$fsubhea1),'1'=0L,'2'=0L,'3'=1
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_LASA2_2$poh_sah_2  <- recode(as.integer(LASA2G$gsubhea1),'1'=0L,'2'=0L,'3'=1L,'4'=1L,'5'=3L,.default=NA_integer_)
+oth_LASA2_2$poh_sah_poor_2  <- recode(as.integer(LASA2G$gsubhea1),'1'=1L,'2'=1L,'3'=1L,'4'=1L,'5'=0L,.default=NA_integer_)
 ```  
 ### **Variable label**:  Poor self-assessed health  
 **Variable name**:  poh_sah_poor_3  
@@ -2464,7 +2464,7 @@ oth_LASA2_2$poh_sah_2  <- recode(as.integer(LASA2G$gsubhea1),'1'=0L,'2'=0L,'3'=1
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_LASA2_3$poh_sah_3  <- recode(as.integer(LASA2H$hsubhea1),'1'=0L,'2'=0L,'3'=1L,'4'=1L,'5'=3L,.default=NA_integer_)
+oth_LASA2_3$poh_sah_poor_3  <- recode(as.integer(LASA2H$hsubhea1),'1'=1L,'2'=1L,'3'=1L,'4'=1L,'5'=0L,.default=NA_integer_)
 ```  
 ### **Variable label**:  Poor self-assessed health  
 **Variable name**:  poh_sah_poor_4    
