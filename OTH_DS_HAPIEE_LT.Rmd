@@ -1385,7 +1385,7 @@ oth_HAPIEE_LT_0$phy_height_sr_0<-ifelse(HAPIEE_W2$h5_lt==99999,NA,HAPIEE_W2$h5_l
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**:  impossible  
+**Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
