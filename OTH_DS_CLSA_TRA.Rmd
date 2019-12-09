@@ -1,53 +1,32 @@
 ---
-title: "oth_DS_HAPIEE_CZ"
+title: "Other outcomes DataSchema"
 output: html_document
 ---
----
-```{r, echo=TRUE}
-library(epiDisplay)
-library(dplyr)
-library(data.table)
-
-
 # Connecting with Opal data server
 ## Login to server and assign study data
+```{r, echo=FALSE}
 #Load Opal R library
 library(opal)
+library(tidyverse)
 # Create an opal object with the login information
 erasmus_opal <- opal.login()
-#Login to Opal server and assign the content of the HAPIEE table(s) to your RStudio environment
-#HAPIEE_W1 
-opal.assign.table.tibble(erasmus_opal, 'HAPIEE_W1', 'HAPIEE.HAPIEE_W1',variables = list('country','h14','d_ht140_90','h10c','h10a','h24','d_rose','h10b','h15','h15a','h15b','h6','e510','h5','e51','e52','d_bmi','e61'))
+#Login to Opal server and assign the content of the GLOBE table(s) to your RStudio environment
 
-HAPIEE_W1<- opal.execute(erasmus_opal,'HAPIEE_W1')
+# TRA BASE 
+opal.assign.table.tibble(erasmus_opal, 'Tra3_4_Baseline','CLSA_1.Tra3_4_Baseline', variables =list("HWT_WGHT_KG_TRM", "HWT_DHT_M_TRM", "HWT_DISW_TRM", "HWT_DBMI_TRM", "WHC_WAIST_CM_TRM", "WHC_CLTHLAYERS_TRM", "GEN_HLTH_TRM", "FUL_FSTR_TRM", "FUL_WK23B_TRM", "CCT_HBP_TRM",  "CCT_ANGI_TRM", "CCT_AMI_TRM", "IHD_AMIAGE_NB_TRM", "CCT_CVA_TRM", "STR_CVAAGE_NB_TRM", "DIA_AGE_NB_TRM", "DIA_MEDAGE_NB_TRM"))
+CLSA_tra0 <- opal.execute(erasmus_opal,'Tra3_4_Baseline')
 
-#HAPIEE_W1_hl 
-opal.assign.table.tibble(erasmus_opal, 'HAPIEE_W1_hl', 'HAPIEE.HAPIEE_W1_hl',variables = list('h8d','h8h'))
+# TRA FU1
+opal.assign.table.tibble(erasmus_opal, 'Tra_FU1','CLSA_1.Tra_FU1', variables =list("HWT_WGHT_NB_TRF1", "HWT_DHT_M_TRF1", "HWT_DISW_TRF1","WGT_WEIGHT1_KG_TRF1", "WGT_WEIGHT2_KG_TRF1","GEN_HLTH_TRF1", "WGT_WEIGHT_KG_TRF1", "HGT_HEIGHT_M_TRF1","HWT_DBMI_TRF1", "WHC_WAIST_CM_TRF1", "WHC_CLTHLAYERS_TRF1", "FUL_FSTR_TRF1", "FUL_WK23B_TRF1", "CCT_HBP_TRF1",  "CCT_ANGI_TRF1", "CCT_AMI_TRF1", "CCT_AMIAGE_NB_TRF1", "CCT_CVA_TRF1", "STR_CVAAGE_NB_TRF1", "AGE_NB_TRF1", "DIA_MED_TRF1", "HWT_DISW_TRF1",
+"CCT_MEDAGE_NB_TRF1", "PSD_DCTOFF_TRM", "WGT_WEIGHTSR_KG_TRF1", "HGT_HEIGHT_M_TRF1", "HGT_HEIGHTSR_CM_TRF1", "HWT_DBMI_TRF1" , "CCT_CVAAGE_NB_TRF1"))
+CLSA_tra1 <- opal.execute(erasmus_opal,'Tra_FU1')
 
-HAPIEE_W1_hl<- opal.execute(erasmus_opal,'HAPIEE_W1_hl')
-
-#HAPIEE_W2 
-opal.assign.table.tibble(erasmus_opal, 'HAPIEE_W2', 'HAPIEE.HAPIEE_W2',variables = list('country','w2h14','w2h10c','w2h10a','w2h10b','w2h15','w2h15b','w2h7','h15a_lt'))
-
-HAPIEE_W2<- opal.execute(erasmus_opal,'HAPIEE_W2')
-
-#HAPIEE_W2_hl 
-opal.assign.table.tibble(erasmus_opal, 'HAPIEE_W2_hl', 'HAPIEE.HAPIEE_W2_hl',variables = list('w2h8d','w2h8h'))
-
-HAPIEE_W2_hl<- opal.execute(erasmus_opal,'HAPIEE_W2_hl')
-
-```
-## Select country-specific sample
-```{r,echo=FALSE}
-HAPIEE_W1 <- subset(HAPIEE_W1, HAPIEE_W1$country==1)
-HAPIEE_W2 <- subset(HAPIEE_W2, HAPIEE_W2$country==1)
-HAPIEE_W1_hl<-subset(HAPIEE_W1_hl,HAPIEE_W1_hl$id %in% HAPIEE_W1$id)
-HAPIEE_W2_hl<-subset(HAPIEE_W2_hl,HAPIEE_W2_hl$id %in% HAPIEE_W2$id)
 ```
 ## Assign participant id as first column of your harmonized dataframes
 ```{r, echo=FALSE}
-oth_HAPIEE_CZ_0 <- data.frame(id = HAPIEE_W1$id )
-oth_HAPIEE_CZ_1 <- data.frame(id = HAPIEE_W2$id )
+oth_CLSA_tra0<- data.frame(id = CLSA_tra0$id)
+oth_CLSA_tra1<- data.frame(id = CLSA_tra1$id)
+
 ```
 ## When you are done with your work, logout of Opal server
 ```{r, echo=FALSE}
@@ -79,20 +58,23 @@ opal.logout(erasmus_opal)
 1          |  Ever had high blood pressure or hypertension  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   The harmonized variable "Lifetime occurrence of high blood pressure or hypertension" for followup waves was created using "Lifetime occurrence of high blood pressure or hypertension" from baseline and followup wave. To create this variable, all HAPIEE_CZ data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
+**Harmonization comment**:   The harmonized variable "Lifetime occurrence of high blood pressure or hypertension" for followup wave was created using "Lifetime occurrence of high blood pressure or hypertension" from baseline and followup wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
+
 **R script**:  
 ```{r, echo=TRUE}
+ 
 #HYPERTENSION VARIABLE
 MyMerge <- function(x,y){
   merge(x,y, by= c("id"),all=TRUE)
 }
-med_table <- Reduce(MyMerge, list(HAPIEE_W1,HAPIEE_W2))
+med_table_tr <- Reduce(MyMerge, list(CLSA_tra0, CLSA_tra1))
 #Harmonization scripts to create "ever had "
 
-med_table$dis_hbp_ever_0 <- recode(as.integer(med_table$h14),"1"=1L,"2"=0L)
+med_table_tr$dis_hbp_ever_0 <- recode(as.integer(med_table_tr$CCT_HBP_TRM),"1"=1L,"2"=0L)
 #Direct mapping to harmonized tables keeping correct participants for each wave
-oth_HAPIEE_CZ_0<-merge(oth_HAPIEE_CZ_0,med_table[,c("id","dis_hbp_ever_0")],by="id",all.x=TRUE)
+oth_CLSA_tra0<-merge(oth_CLSA_tra0,med_table_tr[,c("id","dis_hbp_ever_0")],by="id",all.x=TRUE)
 
+table(oth_CLSA_tra0$dis_hbp_ever_0)
 ```  
 ### **Variable label**: Lifetime occurrence of high blood pressure or hypertension    
 **Variable name**: dis_hbp_ever_1  
@@ -106,14 +88,15 @@ oth_HAPIEE_CZ_0<-merge(oth_HAPIEE_CZ_0,med_table[,c("id","dis_hbp_ever_0")],by="
 0          |  Never had high blood pressure or hypertension  
 1          |  Ever had high blood pressure or hypertension  
 
-**Harmonization status**:  complete    
-**Harmonization comment**:   The harmonized variable "Lifetime occurrence of high blood pressure or hypertension" for followup waves was created using "Lifetime occurrence of high blood pressure or hypertension" from baseline and followup wave. To create this variable, all HAPIEE_CZ data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
+**Harmonization status**:  complete  
+**Harmonization comment**:   The harmonized variable "Lifetime occurrence of high blood pressure or hypertension" for followup wave was created using "Lifetime occurrence of high blood pressure or hypertension" from baseline and followup wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
 **R script**:  
 ```{r, echo=TRUE}
-med_table$dis_hbp_ever_1<- ifelse(med_table$dis_hbp_ever_0==0 & as.integer(med_table$w2h14)==2, 0L, ifelse(med_table$dis_hbp_ever_0==1 | as.integer(med_table$w2h14)==1,1L,NA))
+med_table_tr$dis_hbp_ever_1<- ifelse(med_table_tr$dis_hbp_ever_0==1 | as.integer(med_table_tr$CCT_HBP_TRF1)=="1",1L,ifelse(med_table_tr$dis_hbp_ever_0==0 & as.integer(med_table_tr$CCT_HBP_TRF1)=="2", 0L, NA))
 #Direct mapping to harmonized tables keeping correct participants for each wave
-oth_HAPIEE_CZ_1<-merge(oth_HAPIEE_CZ_1,med_table[,c("id","dis_hbp_ever_1")],by="id",all.x=TRUE)
-
+oth_CLSA_tra1<-merge(oth_CLSA_tra1,med_table_tr[,c("id","dis_hbp_ever_1")],by="id",all.x=TRUE)
+table(oth_CLSA_tra1$dis_hbp_ever_1)
+table(med_table_tr$dis_hbp_ever_1, med_table_tr$CCT_HBP_TRM)
 ``` 
 ### **Variable label**: Medication for high blood pressure or hypertension    
 **Variable name**:  dis_hbp_med_0  
@@ -128,11 +111,10 @@ oth_HAPIEE_CZ_1<-merge(oth_HAPIEE_CZ_1,med_table[,c("id","dis_hbp_ever_1")],by="
 1        |  Ever taken medication  for high blood pressure or hypertension  
 
 
-**Harmonization status**:  impossible  
+**Harmonization status**:  impossible    
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**: Medication for high blood pressure or hypertension  
@@ -148,8 +130,8 @@ oth_HAPIEE_CZ_1<-merge(oth_HAPIEE_CZ_1,med_table[,c("id","dis_hbp_ever_1")],by="
 1        |  Ever taken medication  for high blood pressure or hypertension    
 
 
-**Harmonization status**:  impossible  
-**Harmonization comment**:  
+**Harmonization status**:  impossible    
+**Harmonization comment**:   The harmonized variable "participant has ever taken medication for high blood pressure or hypertension" for the followup wave was created using "participant has ever taken medication for high blood pressure or hypertension" from baseline and previous and current wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
 **R script**:  
 ```{r, echo=TRUE}
 
@@ -208,7 +190,7 @@ oth_HAPIEE_CZ_1<-merge(oth_HAPIEE_CZ_1,med_table[,c("id","dis_hbp_ever_1")],by="
 1        |  Ever taken medication  for high blood pressure  
 
 
-**Harmonization status**:  impossible  
+**Harmonization status**:   impossible  
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
@@ -228,7 +210,7 @@ oth_HAPIEE_CZ_1<-merge(oth_HAPIEE_CZ_1,med_table[,c("id","dis_hbp_ever_1")],by="
 1        |  Ever taken medication  for high blood pressure  
 
 
-**Harmonization status**:  impossible  
+**Harmonization status**:   impossible  
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
@@ -249,12 +231,18 @@ oth_HAPIEE_CZ_1<-merge(oth_HAPIEE_CZ_1,med_table[,c("id","dis_hbp_ever_1")],by="
 0        |  Never had angina
 1        |  Ever had angina  
   
-**Harmonization status**:  complete    
-**Harmonization comment**:  Study-specific variable is categorized as Lt: Yes, angina | Yes, diagnosed & hospitalised | Yes, diagnosed, never hospitalised | No or do not know. Participants who responded "No or do not know" were coded as "Never had angina" in the harmonized variable.  
+**Harmonization status**:  complete  
+**Harmonization comment**:  The harmonized variable "Lifetime occurrence of angina (pain or discomfort in chest)" for followup wave was created using "Lifetime occurrence of angina (pain or discomfort in chest)" from baseline and previous and current wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 
 **R script**:  
 ```{r, echo=TRUE}
-oth_HAPIEE_CZ_0$dis_angina_ever_0<-recode(as.integer(HAPIEE_W1$h10b),"1"=1L,"2"=1L,"3"=0L,.default=NA_integer_)
+
+med_table_tr$dis_angina_ever_0 <- recode(as.integer(med_table_tr$CCT_ANGI_TRM),"1"=1L,"2"=0L)
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_CLSA_tra0<-merge(oth_CLSA_tra0,med_table_tr[,c("id","dis_angina_ever_0")],by="id",all.x=TRUE)
+table(oth_CLSA_tra0$dis_angina_ever_0)
+
+
 
 ```  
 ### **Variable label**: Lifetime occurrence of angina 
@@ -269,12 +257,18 @@ oth_HAPIEE_CZ_0$dis_angina_ever_0<-recode(as.integer(HAPIEE_W1$h10b),"1"=1L,"2"=
 0        |  Never had angina
 1        |  Ever had angina  
   
-**Harmonization status**:  impossible  
-**Harmonization comment**:  
+**Harmonization status**:  complete  
+**Harmonization comment**:   The harmonized variable "Lifetime occurrence of angina (pain or discomfort in chest)" for followup wave was created using "Lifetime occurrence of angina (pain or discomfort in chest)" from baseline and previous and current wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
+
 **R script**:  
 ```{r, echo=TRUE}
+table(CLSA_tra1$CCT_ANGI_TRF1)
 
-
+med_table_tr$dis_angina_ever_1<-  ifelse(med_table_tr$dis_angina_ever_0==1|  as.integer(med_table_tr$CCT_ANGI_TRF1)=='1',1L, ifelse(med_table_tr$dis_angina_ever_0==0&as.integer(med_table_tr$CCT_ANGI_TRF1)=='2',0L,
+                              NA))
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_CLSA_tra1<-merge(oth_CLSA_tra1,med_table_tr[,c("id","dis_angina_ever_1")],by="id",all.x=TRUE)
+table(oth_CLSA_tra1$dis_angina_ever_1)
 ```  
 ### **Variable label**: Lifetime occurrence of angina 
 **Variable name**:  dis_angina_ever_2  
@@ -349,10 +343,13 @@ oth_HAPIEE_CZ_0$dis_angina_ever_0<-recode(as.integer(HAPIEE_W1$h10b),"1"=1L,"2"=
 1        |   Ever had myocardial infarction  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   Study-specific variable is categorized as Yes, diagnosed & hospitalised | Yes, diagnosed, never hospitalised | No or do not know. Participants who responded "No or do not know" were coded as "Never had myocardial infarction" in the harmonized variable.  
+**Harmonization comment**:  The harmonized variable "Lifetime occurrence of myocardial infarction (heart attack)" for followup wave was created using "Lifetime occurrence of myocardial infarction (heart attack)" from baseline and previous and current wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
 **R script**:  
 ```{r, echo=TRUE}
-oth_HAPIEE_CZ_0$dis_mi_ever_0<-recode(as.integer(HAPIEE_W1$h10a),"1"=1L,"2"=1L,"3"=0L,.default=NA_integer_)
+med_table_tr$dis_mi_ever_0 <- recode(as.integer(med_table_tr$CCT_AMI_TRM),"1"=1L,"2"=0L)
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_CLSA_tra0<-merge(oth_CLSA_tra0,med_table_tr[,c("id","dis_mi_ever_0")],by="id",all.x=TRUE)
+table(oth_CLSA_tra0$dis_mi_ever_0)
 
 ```  
 ### **Variable label**: Lifetime occurrence of myocardial infarction    
@@ -367,11 +364,18 @@ oth_HAPIEE_CZ_0$dis_mi_ever_0<-recode(as.integer(HAPIEE_W1$h10a),"1"=1L,"2"=1L,"
 0        |   Never had myocardial infarction
 1        |   Ever had myocardial infarction  
 
-**Harmonization status**:  impossible  
-**Harmonization comment**:  
+**Harmonization status**:  complete  
+**Harmonization comment**: The harmonized variable "Lifetime occurrence of myocardial infarction (heart attack)" for followup wave was created using "Lifetime occurrence of myocardial infarction (heart attack)" from baseline and previous and current wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
+ 
 **R script**:  
 ```{r, echo=TRUE}
+table(CLSA_tra1$CCT_AMI_TRF1)
 
+med_table_tr$dis_mi_ever_1<- ifelse(med_table_tr$dis_mi_ever_0==1|  as.integer(med_table_tr$CCT_AMI_TRF1)=='1',1L,ifelse(med_table_tr$dis_mi_ever_0==0&as.integer(med_table_tr$CCT_AMI_TRF1)=='2',0L,
+                               NA))
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_CLSA_tra1<-merge(oth_CLSA_tra1,med_table_tr[,c("id","dis_mi_ever_1")],by="id",all.x=TRUE)
+table(oth_CLSA_tra1$dis_mi_ever_1)
 
 ```  
 ### **Variable label**: Lifetime occurrence of myocardial infarction    
@@ -401,7 +405,7 @@ oth_HAPIEE_CZ_0$dis_mi_ever_0<-recode(as.integer(HAPIEE_W1$h10a),"1"=1L,"2"=1L,"
 **Variable unit**:  years  
 **Category coding**: N/A  
          
-**Harmonization status**:  impossible  
+**Harmonization status**:  impossible    
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
@@ -419,8 +423,8 @@ oth_HAPIEE_CZ_0$dis_mi_ever_0<-recode(as.integer(HAPIEE_W1$h10a),"1"=1L,"2"=1L,"
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-
-
+oth_CLSA_tra1$dis_mi_age_1<-CLSA_tra1$CCT_AMIAGE_NB_TRF1
+summary(oth_CLSA_tra1$dis_mi_age_1)
 ```  
 ### **Variable label**: Age at first Myocardial infarction  
 **Variable name**:  dis_mi_age_2  
@@ -451,10 +455,14 @@ oth_HAPIEE_CZ_0$dis_mi_ever_0<-recode(as.integer(HAPIEE_W1$h10a),"1"=1L,"2"=1L,"
 1        |   Ever had stroke or CVA  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  Participants that responded "No or do not know" (Category 3) to "Diagnosed/hospitalised for stroke" are recoded as "Never had stroke or CVA". 
+**Harmonization comment**:  The harmonized variable "Lifetime occurrence of stroke or cerebrovascular accident (CVA)" for followup wave was created using "Lifetime occurrence of stroke or cerebrovascular accident (CVA)" from baseline and previous and current wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 **R script**:  
 ```{r, echo=TRUE}
-oth_HAPIEE_CZ_0$dis_stroke_ever_0<-recode(as.integer(HAPIEE_W1$h10c),"1"=1L,"2"=1L,"3"=0L,.default=NA_integer_)
+
+med_table_tr$dis_stroke_ever_0 <- recode(as.integer(med_table_tr$CCT_CVA_TRM),"1"=1L,"2"=0L)
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_CLSA_tra0<-merge(oth_CLSA_tra0,med_table_tr[,c("id","dis_stroke_ever_0")],by="id",all.x=TRUE)
+table(oth_CLSA_tra0$dis_stroke_ever_0)
 
 ```  
 ### **Variable label**: Lifetime occurrence of stroke or CVA  
@@ -469,12 +477,16 @@ oth_HAPIEE_CZ_0$dis_stroke_ever_0<-recode(as.integer(HAPIEE_W1$h10c),"1"=1L,"2"=
 0        |   Never had stroke or CVA  
 1        |   Ever had stroke or CVA  
 
-**Harmonization status**:  impossible  
-**Harmonization comment**:  
+**Harmonization status**:  complete  
+**Harmonization comment**: The harmonized variable "Lifetime occurrence of stroke or cerebrovascular accident (CVA)" for followup wave was created using "Lifetime occurrence of stroke or cerebrovascular accident (CVA)" from baseline and previous and current wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
+
 **R script**:  
 ```{r, echo=TRUE}
-
-
+med_table_tr$dis_stroke_ever_1<- ifelse(med_table_tr$dis_stroke_ever_0==1|  as.integer(med_table_tr$CCT_CVA_TRF1)=='1',1L,ifelse(med_table_tr$dis_stroke_ever_0==0&as.integer(med_table_tr$CCT_CVA_TRF1)=='2',0L,
+                               NA))
+#Direct mapping to harmonized tables keeping correct participants for each wave
+oth_CLSA_tra1<-merge(oth_CLSA_tra1,med_table_tr[,c("id","dis_stroke_ever_1")],by="id",all.x=TRUE)
+table(oth_CLSA_tra1$dis_stroke_ever_1)
 ```  
 ### **Variable label**: Lifetime occurrence of stroke or CVA  
 **Variable name**:  dis_stroke_ever_2  
@@ -488,11 +500,10 @@ oth_HAPIEE_CZ_0$dis_stroke_ever_0<-recode(as.integer(HAPIEE_W1$h10c),"1"=1L,"2"=
 0        |   Never had stroke or CVA  
 1        |   Ever had stroke or CVA  
 
-**Harmonization status**:  impossible  
+**Harmonization status**:  impossible
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**: Age at first stroke or CVA  
@@ -515,11 +526,13 @@ oth_HAPIEE_CZ_0$dis_stroke_ever_0<-recode(as.integer(HAPIEE_W1$h10c),"1"=1L,"2"=
 **Variable unit**:  years  
 **Category coding**: N/A  
          
-**Harmonization status**:  impossible  
+**Harmonization status**:  complete  
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-
+oth_CLSA_tra1$dis_stroke_age_1<-CLSA_tra1$CCT_CVAAGE_NB_TRF1
+summary(oth_CLSA_tra1$dis_stroke_age_1)
+table(oth_CLSA_tra1$dis_stroke_age_1)
 
 ```  
 ### **Variable label**: Age at first stroke or CVA  
@@ -533,7 +546,6 @@ oth_HAPIEE_CZ_0$dis_stroke_ever_0<-recode(as.integer(HAPIEE_W1$h10c),"1"=1L,"2"=
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 
@@ -553,13 +565,14 @@ oth_HAPIEE_CZ_0$dis_stroke_ever_0<-recode(as.integer(HAPIEE_W1$h10c),"1"=1L,"2"=
 1          |  Ever had diabetes  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  The harmonized variable "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" for followup waves was created using "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" from baseline and followup wave. To create this variable, all HAPIEE_CZ data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
-
+**Harmonization comment**:  The harmonized variable "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" for followup wave was created using "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" from baseline and followup wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
 **R script**:  
 ```{r, echo=TRUE}  
-med_table$dis_diab_ever_0 <- recode(as.integer(HAPIEE_W1$h15),"1"=1L,"2"=0L,.default = NA_integer_)
+med_table_tr$dis_diab_ever_0 <- recode(as.integer(med_table_tr$
+                                                    _TRM),"1"=1L,"2"=0L)
 #Direct mapping to harmonized tables keeping correct participants for each wave
-oth_HAPIEE_CZ_0<-merge(oth_HAPIEE_CZ_0,med_table[,c("id","dis_diab_ever_0")],by="id",all.x=TRUE)
+oth_CLSA_tra0<-merge(oth_CLSA_tra0,med_table_tr[,c("id","dis_diab_ever_0")],by="id",all.x=TRUE)
+table(oth_CLSA_tra0$dis_diab_ever_0)
 
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
@@ -575,13 +588,16 @@ oth_HAPIEE_CZ_0<-merge(oth_HAPIEE_CZ_0,med_table[,c("id","dis_diab_ever_0")],by=
 1          |  Ever had diabetes  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  The harmonized variable "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" for followup waves was created using "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" from baseline and followup wave. To create this variable, all HAPIEE_CZ data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
-
+**Harmonization comment**:  The harmonized variable "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" for followup wave was created using "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" from baseline and followup wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
 **R script**:  
 ```{r, echo=TRUE}  
-med_table$dis_diab_ever_1 <- ifelse(med_table$dis_diab_ever_0==0 & as.integer(med_table$w2h15)==2,0L, ifelse(med_table$dis_diab_ever_0==1 | as.integer(med_table$w2h15)==1 | as.integer(med_table$w2h15)==1,1L,NA))
+med_table_tr$dis_diab_ever_1<- ifelse(med_table_tr$dis_diab_ever_0==1|  as.integer(med_table_tr$
+                                                                                     _TRF1)=='1',1L,ifelse(med_table_tr$dis_diab_ever_0==0&as.integer(med_table_tr$
+                                                                                                                                                                           _TRF1)=='2',0L,
+                               NA))
 #Direct mapping to harmonized tables keeping correct participants for each wave
-oth_HAPIEE_CZ_1<-merge(oth_HAPIEE_CZ_1,med_table[,c("id","dis_diab_ever_1")],by="id",all.x=TRUE)
+oth_CLSA_tra1<-merge(oth_CLSA_tra1,med_table_tr[,c("id","dis_diab_ever_1")],by="id",all.x=TRUE)
+table(oth_CLSA_tra1$dis_diab_ever_1)
 
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
@@ -600,7 +616,6 @@ oth_HAPIEE_CZ_1<-merge(oth_HAPIEE_CZ_1,med_table[,c("id","dis_diab_ever_1")],by=
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}  
- 
 
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
@@ -620,7 +635,6 @@ oth_HAPIEE_CZ_1<-merge(oth_HAPIEE_CZ_1,med_table[,c("id","dis_diab_ever_1")],by=
 **R script**:  
 ```{r, echo=TRUE}  
 
-
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
 **Variable name**: dis_diab_ever_4  
@@ -639,7 +653,6 @@ oth_HAPIEE_CZ_1<-merge(oth_HAPIEE_CZ_1,med_table[,c("id","dis_diab_ever_1")],by=
 **R script**:  
 ```{r, echo=TRUE}  
 
-
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
 **Variable name**: dis_diab_ever_5  
@@ -657,7 +670,6 @@ oth_HAPIEE_CZ_1<-merge(oth_HAPIEE_CZ_1,med_table[,c("id","dis_diab_ever_1")],by=
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}  
-  
 
 ```  
 ### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
@@ -667,11 +679,10 @@ oth_HAPIEE_CZ_1<-merge(oth_HAPIEE_CZ_1,med_table[,c("id","dis_diab_ever_1")],by=
 **Variable unit**:  years  
 **Category coding**: N/A
 
-**Hamonization status**:  complete    
+**Hamonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}  
-oth_HAPIEE_CZ_0$dis_diab_age_0<-as.integer(HAPIEE_W1$h15a) 
 
 ```  
 ### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
@@ -681,12 +692,13 @@ oth_HAPIEE_CZ_0$dis_diab_age_0<-as.integer(HAPIEE_W1$h15a)
 **Variable unit**:  years  
 **Category coding**: N/A
 
-**Hamonization status**:  impossible  
-**Harmonization comment**:   
+**Hamonization status**:  complete  
+**Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}  
- 
-
+oth_CLSA_tra1$dis_diab_age_1<-CLSA_tra1$
+  AGE_NB_TRF1
+summary(oth_CLSA_tra1$dis_diab_age_1)
 ```  
 ### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
 **Variable name**:  dis_diab_age_2    
@@ -699,7 +711,6 @@ oth_HAPIEE_CZ_0$dis_diab_age_0<-as.integer(HAPIEE_W1$h15a)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}  
- 
 
 ```  
 ### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
@@ -714,7 +725,6 @@ oth_HAPIEE_CZ_0$dis_diab_age_0<-as.integer(HAPIEE_W1$h15a)
 **R script**:  
 ```{r, echo=TRUE}  
 
-
 ```  
 ### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
 **Variable name**:  dis_diab_age_4    
@@ -723,11 +733,10 @@ oth_HAPIEE_CZ_0$dis_diab_age_0<-as.integer(HAPIEE_W1$h15a)
 **Variable unit**:  years  
 **Category coding**: N/A
 
-**Hamonization status**:  impossible  
-**Harmonization comment**:  
+**Hamonization status**:  
+**Harmonization comment**:  impossible  
 **R script**:  
 ```{r, echo=TRUE}  
-
 
 ```  
 ### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
@@ -737,11 +746,10 @@ oth_HAPIEE_CZ_0$dis_diab_age_0<-as.integer(HAPIEE_W1$h15a)
 **Variable unit**:  years  
 **Category coding**: N/A
 
-**Hamonization status**:  impossible  
-**Harmonization comment**:  
+**Hamonization status**:  
+**Harmonization comment**:  impossible   
 **R script**:  
 ```{r, echo=TRUE}  
- 
 
 ```  
 
@@ -757,11 +765,11 @@ oth_HAPIEE_CZ_0$dis_diab_age_0<-as.integer(HAPIEE_W1$h15a)
 0        | Not currently under treatment for diabetes  
 1        | Currently under treatment for diabetes  
 
-**Harmonization status**:  complete  
-**Harmonization comment**:  Study-specific variable "if YES (you been told by a doctor you have diabetes), how are you treated?" is categorized as: Only by diet | By diet and insulin | By diet and tablets | By diet, tablets and insulin | No treatment. Participants who reported being treated for diabetes by diet only were coded as not currently under treatment for diabetes.     
+**Harmonization status**:  impossible  
+**Harmonization comment**: The study-specific variable used in harmonization of the DataSchema variable "Currently under treatment for diabetes" is "Are you currently taking medication for diabetes?"  
 **R script**:
 ```{r, echo=TRUE}
-oth_HAPIEE_CZ_0$dis_diab_tx_0<-ifelse(oth_HAPIEE_CZ_0$dis_diab_ever_0==0,0L,recode(as.integer(HAPIEE_W1$h15b),"1"=0L,"2"=1L,"3"=1L,"4"=1L,"5"=0L,.default=NA_integer_))
+
 
 ```  
 ### **Variable label**: Currently under treatment for diabetes  
@@ -776,11 +784,10 @@ oth_HAPIEE_CZ_0$dis_diab_tx_0<-ifelse(oth_HAPIEE_CZ_0$dis_diab_ever_0==0,0L,reco
 0        | Not currently under treatment for diabetes  
 1        | Currently under treatment for diabetes  
 
-**Harmonization status**:  complete  
-**Harmonization comment**:  Study-specific variable "How are you treated for diabetes?" is categorized as: Only by diet | By diet and insulin | By diet and tablets | By diet, tablets and insulin | No treatment. Participants who reported being treated for diabetes by diet only were coded as not currently under treatment for diabetes.   
+**Harmonization status**:  impossible  
+**Harmonization comment**:  
 **R script**:
 ```{r, echo=TRUE}
-oth_HAPIEE_CZ_1$dis_diab_tx_1<-ifelse(oth_HAPIEE_CZ_1$dis_diab_ever_1==0,0L,recode(as.integer(HAPIEE_W2$w2h15b),"1"=0L,"2"=1L,"3"=1L,"4"=1L,"5"=0L,.default=NA_integer_))
 
 ```  
 ### **Variable label**: Currently under treatment for diabetes  
@@ -797,9 +804,8 @@ oth_HAPIEE_CZ_1$dis_diab_tx_1<-ifelse(oth_HAPIEE_CZ_1$dis_diab_ever_1==0,0L,reco
 
 **Harmonization status**:  impossible  
 **Harmonization comment**:  
-**R script**:  
+**R script**:
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**: Currently under treatment for diabetes  
@@ -815,11 +821,10 @@ oth_HAPIEE_CZ_1$dis_diab_tx_1<-ifelse(oth_HAPIEE_CZ_1$dis_diab_ever_1==0,0L,reco
 1        | Currently under treatment for diabetes  
 
 **Harmonization status**:  impossible  
-**Harmonization comment**:   
+**Harmonization comment**:  
 **R script**:
 ```{r, echo=TRUE}
-
-
+ 
 ```  
 ### **Variable label**: Currently under treatment for diabetes  
 **Variable name**:  dis_diab_tx_4  
@@ -837,8 +842,7 @@ oth_HAPIEE_CZ_1$dis_diab_tx_1<-ifelse(oth_HAPIEE_CZ_1$dis_diab_ever_1==0,0L,reco
 **Harmonization comment**:  
 **R script**:
 ```{r, echo=TRUE}
-
-
+ 
 ```  
 ### **Variable label**: Currently under treatment for diabetes  
 **Variable name**:  dis_diab_tx_5  
@@ -857,7 +861,6 @@ oth_HAPIEE_CZ_1$dis_diab_tx_1<-ifelse(oth_HAPIEE_CZ_1$dis_diab_ever_1==0,0L,reco
 **R script**:
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**: Currently use insulin for diabetes  
 **Variable name**:  dis_diab_ins_0  
@@ -871,11 +874,10 @@ oth_HAPIEE_CZ_1$dis_diab_tx_1<-ifelse(oth_HAPIEE_CZ_1$dis_diab_ever_1==0,0L,reco
 0        | Currently does not use insulin for diabetes treatment  
 1        | Currently does use insulin for diabetes treatment  
 
-**Harmonization status**:  complete  
+**Harmonization status**:  impossible    
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-oth_HAPIEE_CZ_0$dis_diab_ins_0<-ifelse(oth_HAPIEE_CZ_0$dis_diab_ever_0==0,0L,recode(as.integer(HAPIEE_W1$h15b),"1"=0L,"2"=1L,"3"=0L,"4"=1L,"5"=0L, .default=NA_integer_))
 
 ```  
 ### **Variable label**: Currently use insulin for diabetes  
@@ -890,11 +892,10 @@ oth_HAPIEE_CZ_0$dis_diab_ins_0<-ifelse(oth_HAPIEE_CZ_0$dis_diab_ever_0==0,0L,rec
 0        | Currently does not use insulin for diabetes treatment  
 1        | Currently does use insulin for diabetes treatment  
 
-**Harmonization status**:  complete  
+**Harmonization status**:  impossible  
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-oth_HAPIEE_CZ_1$dis_diab_ins_1<-ifelse(oth_HAPIEE_CZ_1$dis_diab_ever_1==0,0L,recode(as.integer(HAPIEE_W2$w2h15b),"1"=0L,"2"=1L,"3"=0L,"4"=1L,"5"=0L,.default=NA_integer_))
 
 ```  
 ### **Variable label**: Currently use insulin for diabetes  
@@ -914,7 +915,6 @@ oth_HAPIEE_CZ_1$dis_diab_ins_1<-ifelse(oth_HAPIEE_CZ_1$dis_diab_ever_1==0,0L,rec
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 # BMI subdomain
 
@@ -925,12 +925,10 @@ oth_HAPIEE_CZ_1$dis_diab_ins_1<-ifelse(oth_HAPIEE_CZ_1$dis_diab_ever_1==0,0L,rec
 **Variable unit**: kg   
 **Category coding**: N/A
 
-**Harmonization status**:  complete  
+**Harmonization status**: impossible     
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_HAPIEE_CZ_0$phy_weight_ms_0<-HAPIEE_W1$e51
-
 ```  
 ### **Variable label**: Weight in kg - measured 
 **Variable name**: phy_weight_ms_1  
@@ -939,11 +937,10 @@ oth_HAPIEE_CZ_0$phy_weight_ms_0<-HAPIEE_W1$e51
 **Variable unit**: kg   
 **Category coding**: N/A
 
-**Harmonization status**:  impossible  
+**Harmonization status**:  impossible   
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**: Weight in kg - measured 
@@ -958,7 +955,6 @@ oth_HAPIEE_CZ_0$phy_weight_ms_0<-HAPIEE_W1$e51
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**: Weight in kg - measured 
 **Variable name**: phy_weight_ms_3  
@@ -967,11 +963,10 @@ oth_HAPIEE_CZ_0$phy_weight_ms_0<-HAPIEE_W1$e51
 **Variable unit**: kg   
 **Category coding**: N/A
 
-**Harmonization status**:  impossible  
+**Harmonization status**:  impossible     
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**: Weight in kg - measured 
@@ -986,7 +981,6 @@ oth_HAPIEE_CZ_0$phy_weight_ms_0<-HAPIEE_W1$e51
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**: Weight in kg - measured 
 **Variable name**: phy_weight_ms_5  
@@ -1000,7 +994,6 @@ oth_HAPIEE_CZ_0$phy_weight_ms_0<-HAPIEE_W1$e51
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**: Weight in kg - measured 
 **Variable name**: phy_weight_ms_6  
@@ -1009,11 +1002,10 @@ oth_HAPIEE_CZ_0$phy_weight_ms_0<-HAPIEE_W1$e51
 **Variable unit**: kg   
 **Category coding**: N/A
 
-**Harmonization status**:  impossible  
+**Harmonization status**: impossible    
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**: Weight in kg - self-reported 
@@ -1024,11 +1016,12 @@ oth_HAPIEE_CZ_0$phy_weight_ms_0<-HAPIEE_W1$e51
 **Category coding**: N/A
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   
+**Harmonization comment**: 
 **R script**:  
 ```{r, echo=TRUE}
-oth_HAPIEE_CZ_0$phy_weight_sr_0<-ifelse(HAPIEE_W1$h6==999,NA,HAPIEE_W1$h6)
-
+oth_CLSA_tra0$phy_weight_sr_0<- CLSA_tra0$HWT_WGHT_KG_TRM
+summary(oth_CLSA_tra0$phy_weight_sr_0)
+table(oth_CLSA_tra0$phy_weight_sr_0)
 ```  
 ### **Variable label**: Weight in kg - self-reported 
 **Variable name**: phy_weight_sr_1    
@@ -1041,7 +1034,10 @@ oth_HAPIEE_CZ_0$phy_weight_sr_0<-ifelse(HAPIEE_W1$h6==999,NA,HAPIEE_W1$h6)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
+oth_CLSA_tra1$phy_weight_sr_1<- CLSA_tra1$HWT_WGHT_NB_TRF1
+summary(oth_CLSA_tra1$phy_weight_sr_1)
+table(oth_CLSA_tra1$phy_weight_sr_1)
+table(CLSA_tra1$id [CLSA_tra1$HWT_WGHT_NB_TRF1<30])
 
 ```  
 ### **Variable label**: Weight in kg - self-reported 
@@ -1056,7 +1052,6 @@ oth_HAPIEE_CZ_0$phy_weight_sr_0<-ifelse(HAPIEE_W1$h6==999,NA,HAPIEE_W1$h6)
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**: Weight in kg - self-reported 
 **Variable name**: phy_weight_sr_3    
@@ -1069,7 +1064,6 @@ oth_HAPIEE_CZ_0$phy_weight_sr_0<-ifelse(HAPIEE_W1$h6==999,NA,HAPIEE_W1$h6)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**: Weight in kg - self-reported 
@@ -1084,7 +1078,6 @@ oth_HAPIEE_CZ_0$phy_weight_sr_0<-ifelse(HAPIEE_W1$h6==999,NA,HAPIEE_W1$h6)
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**: Weight in kg - self-reported 
 **Variable name**: phy_weight_sr_5    
@@ -1097,7 +1090,6 @@ oth_HAPIEE_CZ_0$phy_weight_sr_0<-ifelse(HAPIEE_W1$h6==999,NA,HAPIEE_W1$h6)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**: Weight in kg - self-reported 
@@ -1112,7 +1104,6 @@ oth_HAPIEE_CZ_0$phy_weight_sr_0<-ifelse(HAPIEE_W1$h6==999,NA,HAPIEE_W1$h6)
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**: Weight in kg - measured and self-reported combined
 **Variable name**: phy_weight_all_0      
@@ -1122,11 +1113,11 @@ oth_HAPIEE_CZ_0$phy_weight_sr_0<-ifelse(HAPIEE_W1$h6==999,NA,HAPIEE_W1$h6)
 **Category coding**: N/A  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   
+**Harmonization comment**: The CLSA Comprehensive Cohort datasets includes Weight Measurement 1, Weight Measurement 2 and the Average Weight from these two measurements. In creation of the DataSchema variable, the Average Weight is used. 
 **R script**:  
 ```{r, echo=TRUE}
-oth_HAPIEE_CZ_0$phy_weight_all_0<-HAPIEE_W1$e51
-
+oth_CLSA_tra0$phy_weight_all_0<-CLSA_tra0$HWT_WGHT_KG_TRM
+summary(oth_CLSA_tra0$phy_weight_all_0)
 ```  
 
 ### **Variable label**: Weight in kg - measured and self-reported combined
@@ -1136,11 +1127,11 @@ oth_HAPIEE_CZ_0$phy_weight_all_0<-HAPIEE_W1$e51
 **Variable unit**: kg   
 **Category coding**: N/A  
 
-**Harmonization status**:  impossible  
-**Harmonization comment**:   
+**Harmonization status**:  complete  
+**Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-
+oth_CLSA_tra1$phy_weight_all_1<-CLSA_tra1$HWT_WGHT_NB_TRF1
 
 ```  
 ### **Variable label**: Weight in kg - measured and self-reported combined  
@@ -1155,7 +1146,6 @@ oth_HAPIEE_CZ_0$phy_weight_all_0<-HAPIEE_W1$e51
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**: Weight in kg - measured and self-reported combined  
 **Variable name**: phy_weight_all_3     
@@ -1168,7 +1158,6 @@ oth_HAPIEE_CZ_0$phy_weight_all_0<-HAPIEE_W1$e51
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**: Weight in kg - self-reported and measured combined  
@@ -1183,7 +1172,6 @@ oth_HAPIEE_CZ_0$phy_weight_all_0<-HAPIEE_W1$e51
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**: Weight in kg - self-reported and measured combined  
 **Variable name**: phy_weight_all_5    
@@ -1196,7 +1184,6 @@ oth_HAPIEE_CZ_0$phy_weight_all_0<-HAPIEE_W1$e51
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**: Weight in kg - self-reported and measured combined  
@@ -1211,7 +1198,6 @@ oth_HAPIEE_CZ_0$phy_weight_all_0<-HAPIEE_W1$e51
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**: Height in cm - measured  
 **Variable name**: phy_height_ms_0  
@@ -1220,11 +1206,11 @@ oth_HAPIEE_CZ_0$phy_weight_all_0<-HAPIEE_W1$e51
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**:  complete  
-**Harmonization comment**:   
+**Harmonization status**:  impossible    
+**Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-oth_HAPIEE_CZ_0$phy_height_ms_0<-HAPIEE_W1$e52
+
 
 ```  
 ### **Variable label**: Height in cm - measured  
@@ -1234,11 +1220,10 @@ oth_HAPIEE_CZ_0$phy_height_ms_0<-HAPIEE_W1$e52
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**:  impossible  
-**Harmonization comment**:   
+**Harmonization status**:  impossible    
+**Harmonization comment**:     
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**: Height in cm - measured  
@@ -1253,7 +1238,6 @@ oth_HAPIEE_CZ_0$phy_height_ms_0<-HAPIEE_W1$e52
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**: Height in cm - measured  
 **Variable name**: phy_height_ms_3  
@@ -1266,7 +1250,6 @@ oth_HAPIEE_CZ_0$phy_height_ms_0<-HAPIEE_W1$e52
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**: Height in cm - measured  
@@ -1281,7 +1264,6 @@ oth_HAPIEE_CZ_0$phy_height_ms_0<-HAPIEE_W1$e52
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**: Height in cm - measured  
 **Variable name**: phy_height_ms_5  
@@ -1294,7 +1276,6 @@ oth_HAPIEE_CZ_0$phy_height_ms_0<-HAPIEE_W1$e52
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**: Height in cm - measured  
@@ -1309,7 +1290,6 @@ oth_HAPIEE_CZ_0$phy_height_ms_0<-HAPIEE_W1$e52
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 
 ### **Variable label**: Height in cm - self-reported  
@@ -1320,11 +1300,11 @@ oth_HAPIEE_CZ_0$phy_height_ms_0<-HAPIEE_W1$e52
 **Category coding**: N/A
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   
+**Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-oth_HAPIEE_CZ_0$phy_height_sr_0<-ifelse(HAPIEE_W1$h5==999,NA,HAPIEE_W1$h5)
-
+oth_CLSA_tra0$phy_height_sr_0<- (CLSA_tra0$HWT_DHT_M_TRM*100)
+table(oth_CLSA_tra0$phy_height_sr_0)
 ```  
 ### **Variable label**: Height in cm - self-reported  
 **Variable name**: phy_height_sr_1  
@@ -1333,11 +1313,10 @@ oth_HAPIEE_CZ_0$phy_height_sr_0<-ifelse(HAPIEE_W1$h5==999,NA,HAPIEE_W1$h5)
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**:  impossible  
+**Harmonization status**: impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**: Height in cm - self-reported  
@@ -1347,11 +1326,10 @@ oth_HAPIEE_CZ_0$phy_height_sr_0<-ifelse(HAPIEE_W1$h5==999,NA,HAPIEE_W1$h5)
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**:  impossible  
+**Harmonization status**:  impossible    
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**: Height in cm - self-reported  
@@ -1361,11 +1339,10 @@ oth_HAPIEE_CZ_0$phy_height_sr_0<-ifelse(HAPIEE_W1$h5==999,NA,HAPIEE_W1$h5)
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**:  impossible  
+**Harmonization status**:  impossible    
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**: Height in cm - self-reported  
@@ -1375,11 +1352,10 @@ oth_HAPIEE_CZ_0$phy_height_sr_0<-ifelse(HAPIEE_W1$h5==999,NA,HAPIEE_W1$h5)
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**:  impossible  
+**Harmonization status**:  impossible    
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**: Height in cm - self-reported  
@@ -1389,11 +1365,10 @@ oth_HAPIEE_CZ_0$phy_height_sr_0<-ifelse(HAPIEE_W1$h5==999,NA,HAPIEE_W1$h5)
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**:  impossible  
+**Harmonization status**:  impossible    
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**: Height in cm - self-reported  
@@ -1408,7 +1383,6 @@ oth_HAPIEE_CZ_0$phy_height_sr_0<-ifelse(HAPIEE_W1$h5==999,NA,HAPIEE_W1$h5)
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 
 ### **Variable label**: Height in cm - measured and self-reported combined  
@@ -1422,8 +1396,8 @@ oth_HAPIEE_CZ_0$phy_height_sr_0<-ifelse(HAPIEE_W1$h5==999,NA,HAPIEE_W1$h5)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_HAPIEE_CZ_0$phy_height_all_0<-HAPIEE_W1$e52
-
+oth_CLSA_tra0$phy_height_all_0<-CLSA_tra0$HWT_DHT_M_TRM*100
+table(oth_CLSA_tra0$phy_height_all_0)
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined  
 **Variable name**: phy_height_all_1    
@@ -1436,7 +1410,6 @@ oth_HAPIEE_CZ_0$phy_height_all_0<-HAPIEE_W1$e52
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined    
@@ -1451,7 +1424,6 @@ oth_HAPIEE_CZ_0$phy_height_all_0<-HAPIEE_W1$e52
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined  
 **Variable name**: phy_height_all_3    
@@ -1465,7 +1437,6 @@ oth_HAPIEE_CZ_0$phy_height_all_0<-HAPIEE_W1$e52
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined  
 **Variable name**: phy_height_all_4    
@@ -1474,11 +1445,10 @@ oth_HAPIEE_CZ_0$phy_height_all_0<-HAPIEE_W1$e52
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**:  impossible  
+**Harmonization status**:  impossible
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined  
@@ -1488,11 +1458,10 @@ oth_HAPIEE_CZ_0$phy_height_all_0<-HAPIEE_W1$e52
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**:  impossible  
+**Harmonization status**:  impossible
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined  
@@ -1507,7 +1476,6 @@ oth_HAPIEE_CZ_0$phy_height_all_0<-HAPIEE_W1$e52
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 
 ### **Variable label**: Body mass index (BMI) - measured  
@@ -1517,11 +1485,11 @@ oth_HAPIEE_CZ_0$phy_height_all_0<-HAPIEE_W1$e52
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**:  complete  
+**Harmonization status**:  impossible 
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_HAPIEE_CZ_0$phy_bmi_ms_0<-HAPIEE_W1$d_bmi
+
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured  
@@ -1531,7 +1499,7 @@ oth_HAPIEE_CZ_0$phy_bmi_ms_0<-HAPIEE_W1$d_bmi
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**:  impossible  
+**Harmonization status**:   impossible   
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
@@ -1550,25 +1518,10 @@ oth_HAPIEE_CZ_0$phy_bmi_ms_0<-HAPIEE_W1$d_bmi
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**: Body mass index (BMI) - measured  
 **Variable name**: phy_bmi_ms_3  
 **Variable description**: Weight (in kg) divided by height (in m) squared - measured.    
-**Value type**: decimal  
-**Variable unit**: kg/m2  
-**Category coding**: N/A  
-
-**Harmonization status**:  impossible  
-**Harmonization comment**:   
-**R script**:  
-```{r, echo=TRUE}
-
-
-```  
-### **Variable label**: Body mass index (BMI) - measured  
-**Variable name**: phy_bmi_ms_4  
-**Variable description**: Weight (in kg) divided by height (in m) squared - measured.   
 **Value type**: decimal  
 **Variable unit**: kg/m2  
 **Category coding**: N/A
@@ -1578,6 +1531,18 @@ oth_HAPIEE_CZ_0$phy_bmi_ms_0<-HAPIEE_W1$d_bmi
 **R script**:  
 ```{r, echo=TRUE}
 
+```  
+### **Variable label**: Body mass index (BMI) - measured  
+**Variable name**: phy_bmi_ms_4  
+**Variable description**: Weight (in kg) divided by height (in m) squared - measured.   
+**Value type**: decimal  
+**Variable unit**: kg/m2  
+**Category coding**: N/A
+
+**Harmonization status**:  impossible   
+**Harmonization comment**:   
+**R script**:  
+```{r, echo=TRUE}
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured  
@@ -1592,7 +1557,6 @@ oth_HAPIEE_CZ_0$phy_bmi_ms_0<-HAPIEE_W1$d_bmi
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**: Body mass index (BMI) - measured  
 **Variable name**: phy_bmi_ms_6  
@@ -1601,11 +1565,10 @@ oth_HAPIEE_CZ_0$phy_bmi_ms_0<-HAPIEE_W1$d_bmi
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**:  impossible  
+**Harmonization status**:  impossible
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 
@@ -1617,11 +1580,11 @@ oth_HAPIEE_CZ_0$phy_bmi_ms_0<-HAPIEE_W1$d_bmi
 **Category coding**: N/A
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   
+**Harmonization comment**:     
 **R script**:  
 ```{r, echo=TRUE}
-oth_HAPIEE_CZ_0$phy_bmi_sr_0<-oth_HAPIEE_CZ_0$phy_weight_sr_0/(oth_HAPIEE_CZ_0$phy_height_sr_0*0.01)^2
 
+oth_CLSA_tra0$phy_bmi_ms_0 <-CLSA_tra0$HWT_DBMI_TRM
 ```  
 ### **Variable label**: Body mass index (BMI) - self-reported  
 **Variable name**: phy_bmi_sr_1  
@@ -1634,7 +1597,6 @@ oth_HAPIEE_CZ_0$phy_bmi_sr_0<-oth_HAPIEE_CZ_0$phy_weight_sr_0/(oth_HAPIEE_CZ_0$p
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**: Body mass index (BMI) - self-reported  
@@ -1649,7 +1611,6 @@ oth_HAPIEE_CZ_0$phy_bmi_sr_0<-oth_HAPIEE_CZ_0$phy_weight_sr_0/(oth_HAPIEE_CZ_0$p
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**: Body mass index (BMI) - self-reported  
 **Variable name**: phy_bmi_sr_3  
@@ -1658,11 +1619,10 @@ oth_HAPIEE_CZ_0$phy_bmi_sr_0<-oth_HAPIEE_CZ_0$phy_weight_sr_0/(oth_HAPIEE_CZ_0$p
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**:  impossible  
+**Harmonization status**:  impossible   
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**: Body mass index (BMI) - self-reported  
@@ -1677,7 +1637,6 @@ oth_HAPIEE_CZ_0$phy_bmi_sr_0<-oth_HAPIEE_CZ_0$phy_weight_sr_0/(oth_HAPIEE_CZ_0$p
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**: Body mass index (BMI) - self-reported  
 **Variable name**: phy_bmi_sr_5  
@@ -1690,7 +1649,6 @@ oth_HAPIEE_CZ_0$phy_bmi_sr_0<-oth_HAPIEE_CZ_0$phy_weight_sr_0/(oth_HAPIEE_CZ_0$p
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**: Body mass index (BMI) - self-reported  
@@ -1705,7 +1663,6 @@ oth_HAPIEE_CZ_0$phy_bmi_sr_0<-oth_HAPIEE_CZ_0$phy_weight_sr_0/(oth_HAPIEE_CZ_0$p
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```   
 
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
@@ -1719,7 +1676,7 @@ oth_HAPIEE_CZ_0$phy_bmi_sr_0<-oth_HAPIEE_CZ_0$phy_weight_sr_0/(oth_HAPIEE_CZ_0$p
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_HAPIEE_CZ_0$phy_bmi_all_0<-HAPIEE_W1$d_bmi
+oth_CLSA_tra0$phy_bmi_all_0 <-CLSA_tra0$HWT_DBMI_TRM
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
@@ -1734,7 +1691,6 @@ oth_HAPIEE_CZ_0$phy_bmi_all_0<-HAPIEE_W1$d_bmi
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
 **Variable name**: phy_bmi_all_2  
@@ -1743,11 +1699,10 @@ oth_HAPIEE_CZ_0$phy_bmi_all_0<-HAPIEE_W1$d_bmi
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**:  impossible  
+**Harmonization status**:  impossible 
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
@@ -1762,7 +1717,6 @@ oth_HAPIEE_CZ_0$phy_bmi_all_0<-HAPIEE_W1$d_bmi
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
 **Variable name**: phy_bmi_all_4  
@@ -1776,7 +1730,6 @@ oth_HAPIEE_CZ_0$phy_bmi_all_0<-HAPIEE_W1$d_bmi
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
 **Variable name**: phy_bmi_all_5  
@@ -1785,11 +1738,10 @@ oth_HAPIEE_CZ_0$phy_bmi_all_0<-HAPIEE_W1$d_bmi
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**:  impossible  
+**Harmonization status**:   impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
@@ -1799,11 +1751,10 @@ oth_HAPIEE_CZ_0$phy_bmi_all_0<-HAPIEE_W1$d_bmi
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**:  impossible  
+**Harmonization status**:   impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 
@@ -1821,14 +1772,10 @@ oth_HAPIEE_CZ_0$phy_bmi_all_0<-HAPIEE_W1$d_bmi
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  complete  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_HAPIEE_CZ_0$phy_bmi_cat_ms_0<- ifelse(oth_HAPIEE_CZ_0$phy_bmi_ms_0<18.5,0L,
-                              ifelse(oth_HAPIEE_CZ_0$phy_bmi_ms_0>=18.5 & oth_HAPIEE_CZ_0$phy_bmi_ms_0<25,1L,
-                              ifelse(oth_HAPIEE_CZ_0$phy_bmi_ms_0>=25 & oth_HAPIEE_CZ_0$phy_bmi_ms_0<30,2L,
-                              ifelse(oth_HAPIEE_CZ_0$phy_bmi_ms_0>=30,3L,NA))))
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured  
@@ -1845,11 +1792,10 @@ oth_HAPIEE_CZ_0$phy_bmi_cat_ms_0<- ifelse(oth_HAPIEE_CZ_0$phy_bmi_ms_0<18.5,0L,
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  impossible  
+**Harmonization status**:  impossible   
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured  
@@ -1871,7 +1817,6 @@ oth_HAPIEE_CZ_0$phy_bmi_cat_ms_0<- ifelse(oth_HAPIEE_CZ_0$phy_bmi_ms_0<18.5,0L,
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured  
 **Variable name**: phy_bmi_cat_ms_3  
@@ -1891,7 +1836,6 @@ oth_HAPIEE_CZ_0$phy_bmi_cat_ms_0<- ifelse(oth_HAPIEE_CZ_0$phy_bmi_ms_0<18.5,0L,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured  
@@ -1913,7 +1857,6 @@ oth_HAPIEE_CZ_0$phy_bmi_cat_ms_0<- ifelse(oth_HAPIEE_CZ_0$phy_bmi_ms_0<18.5,0L,
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured  
 **Variable name**: phy_bmi_cat_ms_5  
@@ -1929,11 +1872,10 @@ oth_HAPIEE_CZ_0$phy_bmi_cat_ms_0<- ifelse(oth_HAPIEE_CZ_0$phy_bmi_ms_0<18.5,0L,
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  impossible 
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured  
@@ -1950,11 +1892,10 @@ oth_HAPIEE_CZ_0$phy_bmi_cat_ms_0<- ifelse(oth_HAPIEE_CZ_0$phy_bmi_ms_0<18.5,0L,
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  impossible 
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 
@@ -1972,15 +1913,13 @@ oth_HAPIEE_CZ_0$phy_bmi_cat_ms_0<- ifelse(oth_HAPIEE_CZ_0$phy_bmi_ms_0<18.5,0L,
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  complete  
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_HAPIEE_CZ_0$phy_bmi_cat_sr_0<- ifelse(oth_HAPIEE_CZ_0$phy_bmi_sr_0<18.5,0L,
-                              ifelse(oth_HAPIEE_CZ_0$phy_bmi_sr_0>=18.5 & oth_HAPIEE_CZ_0$phy_bmi_sr_0<25,1L,
-                              ifelse(oth_HAPIEE_CZ_0$phy_bmi_sr_0>=25 & oth_HAPIEE_CZ_0$phy_bmi_sr_0<30,2L,
-                              ifelse(oth_HAPIEE_CZ_0$phy_bmi_sr_0>=30,3L,NA))))
-
+oth_CLSA_tra0$phy_bmi_cat_sr_0 <-recode(as.integer(CLSA_tra0$HWT_DISW_TRM), '1'=0L,'2'=1L, '3'=2L,'4'=3L,'5'=3L,"6"=3L,
+                              .default=NA_integer_)
+table(oth_CLSA_tra0$phy_bmi_cat_sr_0)
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - self-reported  
 **Variable name**: phy_bmi_cat_sr_1    
@@ -1996,11 +1935,10 @@ oth_HAPIEE_CZ_0$phy_bmi_cat_sr_0<- ifelse(oth_HAPIEE_CZ_0$phy_bmi_sr_0<18.5,0L,
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  impossible  
-**Harmonization comment**:   
+**Harmonization status**:  
+**Harmonization comment**: impossible    
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - self-reported  
@@ -2017,11 +1955,10 @@ oth_HAPIEE_CZ_0$phy_bmi_cat_sr_0<- ifelse(oth_HAPIEE_CZ_0$phy_bmi_sr_0<18.5,0L,
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  impossible  
-**Harmonization comment**:   
+**Harmonization status**:  
+**Harmonization comment**: impossible    
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - self-reported  
@@ -2038,11 +1975,10 @@ oth_HAPIEE_CZ_0$phy_bmi_cat_sr_0<- ifelse(oth_HAPIEE_CZ_0$phy_bmi_sr_0<18.5,0L,
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  impossible  
-**Harmonization comment**:   
+**Harmonization status**:  
+**Harmonization comment**:  impossible     
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - self-reported  
@@ -2059,11 +1995,10 @@ oth_HAPIEE_CZ_0$phy_bmi_cat_sr_0<- ifelse(oth_HAPIEE_CZ_0$phy_bmi_sr_0<18.5,0L,
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  impossible  
-**Harmonization comment**:   
+**Harmonization status**:  
+**Harmonization comment**:   impossible    
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - self-reported  
@@ -2080,11 +2015,10 @@ oth_HAPIEE_CZ_0$phy_bmi_cat_sr_0<- ifelse(oth_HAPIEE_CZ_0$phy_bmi_sr_0<18.5,0L,
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  impossible  
+**Harmonization status**:  impossible   
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - self-reported  
@@ -2101,11 +2035,10 @@ oth_HAPIEE_CZ_0$phy_bmi_cat_sr_0<- ifelse(oth_HAPIEE_CZ_0$phy_bmi_sr_0<18.5,0L,
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  impossible  
+**Harmonization status**:  impossible   
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 
@@ -2127,11 +2060,9 @@ oth_HAPIEE_CZ_0$phy_bmi_cat_sr_0<- ifelse(oth_HAPIEE_CZ_0$phy_bmi_sr_0<18.5,0L,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_HAPIEE_CZ_0$phy_bmi_cat_all_0<- ifelse(oth_HAPIEE_CZ_0$phy_bmi_all_0<18.5,0L,
-                              ifelse(oth_HAPIEE_CZ_0$phy_bmi_all_0>=18.5 & oth_HAPIEE_CZ_0$phy_bmi_all_0<25,1L,
-                              ifelse(oth_HAPIEE_CZ_0$phy_bmi_all_0>=25 & oth_HAPIEE_CZ_0$phy_bmi_all_0<30,2L,
-                              ifelse(oth_HAPIEE_CZ_0$phy_bmi_all_0>=30,3L,NA))))
-
+oth_CLSA_tra0$phy_bmi_cat_ms_0<-recode(as.integer(CLSA_tra0$HWT_DISW_TRM), '1'=0L,'2'=1L, '3'=2L,'4'=3L,'5'=3L,"6"=3L,
+                              .default=NA_integer_)
+table(oth_CLSA_tra0$phy_bmi_cat_ms_0)
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
 **Variable name**: phy_bmi_cat_all_1    
@@ -2147,12 +2078,10 @@ oth_HAPIEE_CZ_0$phy_bmi_cat_all_0<- ifelse(oth_HAPIEE_CZ_0$phy_bmi_all_0<18.5,0L
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  impossible  
+**Harmonization status**:  impossible    
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
-
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
 **Variable name**: phy_bmi_cat_all_2    
@@ -2168,11 +2097,10 @@ oth_HAPIEE_CZ_0$phy_bmi_cat_all_0<- ifelse(oth_HAPIEE_CZ_0$phy_bmi_all_0<18.5,0L
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  impossible  
+**Harmonization status**:  impossible    
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
@@ -2194,7 +2122,6 @@ oth_HAPIEE_CZ_0$phy_bmi_cat_all_0<- ifelse(oth_HAPIEE_CZ_0$phy_bmi_all_0<18.5,0L
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
 **Variable name**: phy_bmi_cat_all_4    
@@ -2210,11 +2137,10 @@ oth_HAPIEE_CZ_0$phy_bmi_cat_all_0<- ifelse(oth_HAPIEE_CZ_0$phy_bmi_all_0<18.5,0L
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  impossible  
+**Harmonization status**:  impossible    
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
@@ -2231,11 +2157,10 @@ oth_HAPIEE_CZ_0$phy_bmi_cat_all_0<- ifelse(oth_HAPIEE_CZ_0$phy_bmi_all_0<18.5,0L
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  impossible  
+**Harmonization status**: impossible    
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
@@ -2252,11 +2177,10 @@ oth_HAPIEE_CZ_0$phy_bmi_cat_all_0<- ifelse(oth_HAPIEE_CZ_0$phy_bmi_all_0<18.5,0L
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  impossible  
+**Harmonization status**:  impossible    
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 
@@ -2267,11 +2191,10 @@ oth_HAPIEE_CZ_0$phy_bmi_cat_all_0<- ifelse(oth_HAPIEE_CZ_0$phy_bmi_all_0<18.5,0L
 **Variable unit**: cm  
 **Category coding**:  N/A  
 
-**Harmonization status**:  complete  
-**Harmonization comment**:   
+**Harmonization status**:   impossible  
+**Harmonization comment**: 
 **R script**:  
 ```{r, echo=TRUE}
-oth_HAPIEE_CZ_0$phy_waist_all_0<-ifelse(HAPIEE_W1$e61==999,NA,HAPIEE_W1$e61)
 
 ```  
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined   
@@ -2286,7 +2209,6 @@ oth_HAPIEE_CZ_0$phy_waist_all_0<-ifelse(HAPIEE_W1$e61==999,NA,HAPIEE_W1$e61)
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined   
 **Variable name**: phy_waist_all_2  
@@ -2299,7 +2221,6 @@ oth_HAPIEE_CZ_0$phy_waist_all_0<-ifelse(HAPIEE_W1$e61==999,NA,HAPIEE_W1$e61)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined 
@@ -2314,7 +2235,6 @@ oth_HAPIEE_CZ_0$phy_waist_all_0<-ifelse(HAPIEE_W1$e61==999,NA,HAPIEE_W1$e61)
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined   
 **Variable name**: phy_waist_all_4  
@@ -2327,7 +2247,6 @@ oth_HAPIEE_CZ_0$phy_waist_all_0<-ifelse(HAPIEE_W1$e61==999,NA,HAPIEE_W1$e61)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined 
@@ -2342,7 +2261,6 @@ oth_HAPIEE_CZ_0$phy_waist_all_0<-ifelse(HAPIEE_W1$e61==999,NA,HAPIEE_W1$e61)
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined 
 **Variable name**: phy_waist_all_6  
@@ -2355,7 +2273,6 @@ oth_HAPIEE_CZ_0$phy_waist_all_0<-ifelse(HAPIEE_W1$e61==999,NA,HAPIEE_W1$e61)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 
@@ -2374,11 +2291,13 @@ oth_HAPIEE_CZ_0$phy_waist_all_0<-ifelse(HAPIEE_W1$e61==999,NA,HAPIEE_W1$e61)
 1 |   Fair health  
 2 |   Poor health  
 
-**Harmonization status**:  impossible  
-**Harmonization comment**:   
+**Harmonization status**: complete   
+**Harmonization comment**:   Study specific variable for self-rated health have 5 categories: Excellent, Very Good, Good, Fair and Poor. Excellent, Very Good and Good are coded as Good health.  
 **R script**:  
 ```{r, echo=TRUE}
-
+oth_CLSA_tra0$poh_sah_0<- recode(as.integer(CLSA_tra0$GEN_HLTH_TRM),'1'=0L,'2'=0L, '3'=0L,'4'=1L,'3'=2L,
+                              .default=NA_integer_)
+table(oth_CLSA_tra0$poh_sah_0)
 
 ```  
 ### **Variable label**:  Self-assessed health   
@@ -2394,11 +2313,13 @@ oth_HAPIEE_CZ_0$phy_waist_all_0<-ifelse(HAPIEE_W1$e61==999,NA,HAPIEE_W1$e61)
 1 |   Fair health  
 2 |   Poor health  
 
-**Harmonization status**:  complete  
-**Harmonization comment**:   
+**Harmonization status**: complete   
+**Harmonization comment**:   Study specific variable for self-rated health have 5 categories: Excellent, Very Good, Good, Fair and Poor. Excellent, Very Good and Good are coded as Good health.  
 **R script**:  
 ```{r, echo=TRUE}
-oth_HAPIEE_CZ_1$poh_sah_1<-recode(as.integer(HAPIEE_W2$w2h7),"1"=0L,"2"=0L,"3"=1L,"4"=2L,"5"=2L)
+oth_CLSA_tra1$poh_sah_1<- recode(as.integer(CLSA_tra1$GEN_HLTH_TRF1),'1'=0L,'2'=0L, '3'=0L,'4'=1L,'3'=2L,
+                              .default=NA_integer_)
+
 
 ```  
 ### **Variable label**:  Self-assessed health   
@@ -2419,7 +2340,6 @@ oth_HAPIEE_CZ_1$poh_sah_1<-recode(as.integer(HAPIEE_W2$w2h7),"1"=0L,"2"=0L,"3"=1
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**:  Self-assessed health   
 **Variable name**:  poh_sah_3  
@@ -2438,7 +2358,6 @@ oth_HAPIEE_CZ_1$poh_sah_1<-recode(as.integer(HAPIEE_W2$w2h7),"1"=0L,"2"=0L,"3"=1
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**:  Self-assessed health   
@@ -2459,7 +2378,6 @@ oth_HAPIEE_CZ_1$poh_sah_1<-recode(as.integer(HAPIEE_W2$w2h7),"1"=0L,"2"=0L,"3"=1
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**:  Self-assessed health   
 **Variable name**:  poh_sah_5  
@@ -2478,7 +2396,6 @@ oth_HAPIEE_CZ_1$poh_sah_1<-recode(as.integer(HAPIEE_W2$w2h7),"1"=0L,"2"=0L,"3"=1
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**:  Self-assessed health   
@@ -2499,7 +2416,6 @@ oth_HAPIEE_CZ_1$poh_sah_1<-recode(as.integer(HAPIEE_W2$w2h7),"1"=0L,"2"=0L,"3"=1
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 
 ### **Variable label**:  Poor self-assessed health  
@@ -2514,11 +2430,12 @@ oth_HAPIEE_CZ_1$poh_sah_1<-recode(as.integer(HAPIEE_W2$w2h7),"1"=0L,"2"=0L,"3"=1
 0 |   Poor health
 1 |   Non-poor health
 
-**Harmonization status**:  impossible  
+**Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
+oth_CLSA_tra0$poh_sah_poor_0 <- recode(as.integer(CLSA_tra0$GEN_HLTH_TRM),'5'=0L,'4'=1L,'1'=1L,'2'=1L,'3'=1L,
+                              .default=NA_integer_)
 
 ```  
 ### **Variable label**:  Poor self-assessed health  
@@ -2537,7 +2454,8 @@ oth_HAPIEE_CZ_1$poh_sah_1<-recode(as.integer(HAPIEE_W2$w2h7),"1"=0L,"2"=0L,"3"=1
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_HAPIEE_CZ_1$poh_sah_poor_1<-recode(as.integer(HAPIEE_W2$w2h7),"1"=0L,"2"=0L,"3"=0L,"4"=1L,"5"=1L)
+oth_CLSA_tra1$poh_sah_poor_1<- recode(as.integer(CLSA_tra1$GEN_HLTH_TRF1),'5'=0L,'4'=1L,'1'=1L,'2'=1L,'3'=1L,
+                              .default=NA_integer_)
 
 ```  
 ### **Variable label**:  Poor self-assessed health  
@@ -2552,11 +2470,10 @@ oth_HAPIEE_CZ_1$poh_sah_poor_1<-recode(as.integer(HAPIEE_W2$w2h7),"1"=0L,"2"=0L,
 0 |   Poor health
 1 |   Non-poor health
 
-**Harmonization status**:  impossible  
+**Harmonization status**:  impossible     
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**:  Poor self-assessed health  
@@ -2571,11 +2488,10 @@ oth_HAPIEE_CZ_1$poh_sah_poor_1<-recode(as.integer(HAPIEE_W2$w2h7),"1"=0L,"2"=0L,
 0 |   Poor health
 1 |   Non-poor health
 
-**Harmonization status**:  impossible  
+**Harmonization status**:  impossible      
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**:  Poor self-assessed health  
@@ -2590,11 +2506,10 @@ oth_HAPIEE_CZ_1$poh_sah_poor_1<-recode(as.integer(HAPIEE_W2$w2h7),"1"=0L,"2"=0L,
 0 |   Poor health
 1 |   Non-poor health
 
-**Harmonization status**:  impossible  
+**Harmonization status**:  impossible      
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**:  Poor self-assessed health  
@@ -2609,11 +2524,10 @@ oth_HAPIEE_CZ_1$poh_sah_poor_1<-recode(as.integer(HAPIEE_W2$w2h7),"1"=0L,"2"=0L,
 0 |   Poor health
 1 |   Non-poor health
 
-**Harmonization status**:  impossible  
+**Harmonization status**:  impossible    
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**:  Poor self-assessed health  
@@ -2628,11 +2542,10 @@ oth_HAPIEE_CZ_1$poh_sah_poor_1<-recode(as.integer(HAPIEE_W2$w2h7),"1"=0L,"2"=0L,
 0 |   Poor health
 1 |   Non-poor health
 
-**Harmonization status**:  impossible  
+**Harmonization status**:  impossible    
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 
@@ -2648,11 +2561,13 @@ oth_HAPIEE_CZ_1$poh_sah_poor_1<-recode(as.integer(HAPIEE_W2$w2h7),"1"=0L,"2"=0L,
 0 |   Less than good health  
 1 |   Good health  
 
-**Harmonization status**:  impossible  
+**Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
 
+oth_CLSA_tra0$poh_sah_good_0<- recode(as.integer(CLSA_tra0$GEN_HLTH_TRM),'4'=0L,'5'=0L,'1'=1L,'2'=1L,'3'=1L,
+                              .default=NA_integer_)
 
 ```  
 ### **Variable label**:  Less than good self-assessed health  
@@ -2671,8 +2586,8 @@ oth_HAPIEE_CZ_1$poh_sah_poor_1<-recode(as.integer(HAPIEE_W2$w2h7),"1"=0L,"2"=0L,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_HAPIEE_CZ_1$poh_sah_good_1<-recode(as.integer(HAPIEE_W2$w2h7),"1"=1L,"2"=1L,"3"=0L,"4"=0L,"5"=0L)
-
+oth_CLSA_tra1$poh_sah_good_1<- recode(as.integer(CLSA_tra1$GEN_HLTH_TRF1),'4'=0L,'5'=0L,'1'=1L,'2'=1L,'3'=1L,
+                              .default=NA_integer_)
 ```  
 ### **Variable label**:  Less than good self-assessed health  
 **Variable name**:  poh_sah_good_2    
@@ -2690,7 +2605,6 @@ oth_HAPIEE_CZ_1$poh_sah_good_1<-recode(as.integer(HAPIEE_W2$w2h7),"1"=1L,"2"=1L,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**:  Less than good self-assessed health  
@@ -2710,7 +2624,6 @@ oth_HAPIEE_CZ_1$poh_sah_good_1<-recode(as.integer(HAPIEE_W2$w2h7),"1"=1L,"2"=1L,
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**:  Less than good self-assessed health  
 **Variable name**:  poh_sah_good_4    
@@ -2728,7 +2641,6 @@ oth_HAPIEE_CZ_1$poh_sah_good_1<-recode(as.integer(HAPIEE_W2$w2h7),"1"=1L,"2"=1L,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**:  Less than good self-assessed health  
@@ -2748,7 +2660,6 @@ oth_HAPIEE_CZ_1$poh_sah_good_1<-recode(as.integer(HAPIEE_W2$w2h7),"1"=1L,"2"=1L,
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**:  Less than good self-assessed health  
 **Variable name**:  poh_sah_good_6    
@@ -2766,7 +2677,6 @@ oth_HAPIEE_CZ_1$poh_sah_good_1<-recode(as.integer(HAPIEE_W2$w2h7),"1"=1L,"2"=1L,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 
@@ -2786,10 +2696,13 @@ oth_HAPIEE_CZ_1$poh_sah_good_1<-recode(as.integer(HAPIEE_W2$w2h7),"1"=1L,"2"=1L,
 1 |   Has difficulty walking up and down the stairs  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   Variable label used for harmonization:"Health limits climbing several flights of stairs"  
+**Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_HAPIEE_CZ_0$fct_stairs_diff_0<-recode(as.integer(HAPIEE_W1_hl$h8d),"1"=1L,"2"=1L,"3"=0L)
+
+table(CLSA_tra0$FUL_FSTR_TRM,useNA="always")
+oth_CLSA_tra0$fct_stairs_diff_0 <- recode(as.integer(CLSA_tra0$FUL_FSTR_TRM),'2'=0L,'1'=1L,'3'=1L,'4'=1L,.default=NA_integer_)
+
 
 ```  
 ### **Variable label**:  Difficulty walking up and down the stairs  
@@ -2804,11 +2717,12 @@ oth_HAPIEE_CZ_0$fct_stairs_diff_0<-recode(as.integer(HAPIEE_W1_hl$h8d),"1"=1L,"2
 0 |   Has no difficulty walking up and down the stairs
 1 |   Has difficulty walking up and down the stairs  
 
-**Harmonization status**:  complete    
-**Harmonization comment**:   Variable label used for harmonization:"Health limits climbing several flights of stairs"  
+**Harmonization status**:  complete  
+**Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_HAPIEE_CZ_1$fct_stairs_diff_1<-ifelse(HAPIEE_W2$id %in% HAPIEE_W2_hl$id,recode(as.integer(HAPIEE_W2_hl$w2h8d),"1"=1L,"2"=1L,"3"=0L,.default=NA_integer_),NA)
+table(CLSA_tra1$FUL_FSTR_TRF1,useNA="always")
+oth_CLSA_tra1$fct_stairs_diff_1 <- recode(as.integer(CLSA_tra1$FUL_FSTR_TRF1),'2'=0L,'1'=1L,'3'=1L,'4'=1L,.default=NA_integer_)
 
 ```  
 ### **Variable label**:  Difficulty walking up and down the stairs  
@@ -2828,7 +2742,6 @@ oth_HAPIEE_CZ_1$fct_stairs_diff_1<-ifelse(HAPIEE_W2$id %in% HAPIEE_W2_hl$id,reco
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 
 ### **Variable label**:  Difficulty walking    
@@ -2843,11 +2756,12 @@ oth_HAPIEE_CZ_1$fct_stairs_diff_1<-ifelse(HAPIEE_W2$id %in% HAPIEE_W2_hl$id,reco
 0 |   Not able to walk without difficulty  
 1 |   Able to walk without difficulty  
 
-**Harmonization status**:  complete    
-**Harmonization comment**:   Variable label used for harmonization: "Walking one kilometer"  
+**Harmonization status**:  complete  
+**Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_HAPIEE_CZ_0$fct_walk_diff_0<-recode(as.integer(HAPIEE_W1_hl$h8h),"1"=1L,"2"=1L,"3"=0L)
+table(CLSA_tra0$FUL_WK23B_TRM,useNA="always")
+oth_CLSA_tra0$fct_walk_diff_0 <- recode(as.integer(CLSA_tra0$FUL_WK23B_TRM),'2'=1L,'1'=0L,'3'=0L,'4'=0L,.default=NA_integer_)
 
 ```  
 ### **Variable label**:  Difficulty walking    
@@ -2862,11 +2776,13 @@ oth_HAPIEE_CZ_0$fct_walk_diff_0<-recode(as.integer(HAPIEE_W1_hl$h8h),"1"=1L,"2"=
 0 |   Not able to walk without difficulty  
 1 |   Able to walk without difficulty  
 
-**Harmonization status**:  complete    
-**Harmonization comment**:   Variable label used for harmonization: "Walking one kilometer"  
+**Harmonization status**:  complete  
+**Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_HAPIEE_CZ_1$fct_walk_diff_1<-ifelse(HAPIEE_W2$id %in% HAPIEE_W2_hl$id,recode(as.integer(HAPIEE_W2_hl$w2h8h),"1"=1L,"2"=1L,"3"=0L,.default=NA_integer_),NA)
+
+table(CLSA_tra1$FUL_WK23B_TRF1,useNA="always")
+oth_CLSA_tra1$fct_walk_diff_1 <- recode(as.integer(CLSA_tra1$FUL_WK23B_TRF1),'2'=1L,'1'=0L,'3'=0L,'4'=0L,.default=NA_integer_)
 
 ```  
 ### **Variable label**:  Difficulty walking    
@@ -2886,7 +2802,6 @@ oth_HAPIEE_CZ_1$fct_walk_diff_1<-ifelse(HAPIEE_W2$id %in% HAPIEE_W2_hl$id,recode
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**:  Difficulty walking    
 **Variable name**:  fct_walk_diff_3  
@@ -2904,7 +2819,6 @@ oth_HAPIEE_CZ_1$fct_walk_diff_1<-ifelse(HAPIEE_W2$id %in% HAPIEE_W2_hl$id,recode
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**:  Difficulty walking    
@@ -2924,7 +2838,6 @@ oth_HAPIEE_CZ_1$fct_walk_diff_1<-ifelse(HAPIEE_W2$id %in% HAPIEE_W2_hl$id,recode
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**:  Difficulty walking    
 **Variable name**:  fct_walk_diff_5  
@@ -2943,7 +2856,6 @@ oth_HAPIEE_CZ_1$fct_walk_diff_1<-ifelse(HAPIEE_W2$id %in% HAPIEE_W2_hl$id,recode
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**:  Difficulty walking    
 **Variable name**:  fct_walk_diff_6  
@@ -2957,11 +2869,10 @@ oth_HAPIEE_CZ_1$fct_walk_diff_1<-ifelse(HAPIEE_W2$id %in% HAPIEE_W2_hl$id,recode
 0 |   Not able to walk without difficulty  
 1 |   Able to walk without difficulty  
 
-**Harmonization status**:  impossible 
+**Harmonization status**:  impossible  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 
