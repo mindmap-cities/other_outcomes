@@ -49,6 +49,11 @@ HAPIEE_W2_hl<-subset(HAPIEE_W2_hl,HAPIEE_W2_hl$id %in% HAPIEE_W2$id)
 oth_HAPIEE_CZ_0 <- data.frame(id = HAPIEE_W1$id )
 oth_HAPIEE_CZ_1 <- data.frame(id = HAPIEE_W2$id )
 ```
+## When you are done with your work, logout of Opal server
+```{r, echo=FALSE}
+opal.logout(erasmus_opal)
+```
+
 # Table of Contents
 1. [Hypertension subdomain](#hypertension-subdomain)
 2. [Angina subdomain](#angina-subdomain)
