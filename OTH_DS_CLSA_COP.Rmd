@@ -545,7 +545,7 @@ table(oth_CLSA_cop1$dis_stroke_ever_1)
 **R script**:  
 ```{r, echo=TRUE}
 oth_CLSA_cop0$dis_stroke_age_0<-CLSA_cop0$STR_CVAAGE_NB_COM
-table(oth_CLSA_cop0$dis_stroke_age_0)
+summary(oth_CLSA_cop0$dis_stroke_age_0)
 ```  
 ### **Variable label**: Age at first stroke or CVA  
 **Variable name**:  dis_stroke_age_1  
@@ -706,7 +706,7 @@ table(oth_CLSA_cop1$dis_diab_ever_1)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}  
-oth_CLSA_cop0$dis_diab_age_0<-CLSA_cop0$DIA_AGE_NB_COM
+oth_CLSA_cop0$dis_diab_age_0<-as.integer(CLSA_cop0$DIA_AGE_NB_COM)
 
 ```  
 ### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
@@ -973,6 +973,8 @@ summary(CLSA_cop0$WGT_WEIGHT_KG_COM)
 table(is.na(CLSA_cop0$WGT_WEIGHT1_KG_COM), is.na(CLSA_cop0$WGT_WEIGHT2_KG_COM))
 table(CLSA_cop0$WGT_WEIGHT2_KG_COM[is.na(CLSA_cop0$WGT_WEIGHT_KG_COM)])
 table(CLSA_cop0$WGT_WEIGHT1_KG_COM[is.na(CLSA_cop0$WGT_WEIGHT_KG_COM)])
+av<-(CLSA_cop0$WGT_WEIGHT1_KG_COM+ CLSA_cop0$WGT_WEIGHT2_KG_COM)/2
+cor(av, as.numeric(CLSA_cop0$WGT_WEIGHT_KG_COM), use = "complete.obs")
 
 oth_CLSA_cop0$phy_weight_ms_0<-(CLSA_cop0$WGT_WEIGHT1_KG_COM+ CLSA_cop0$WGT_WEIGHT2_KG_COM)/2
 summary(oth_CLSA_cop0$phy_weight_ms_0)
@@ -993,7 +995,7 @@ summary(CLSA_cop1$WGT_WEIGHT1_KG_COF1)
 summary(CLSA_cop1$WGT_WEIGHT2_KG_COF1)
 
 oth_CLSA_cop1$phy_weight_ms_1<-CLSA_cop1$WGT_WEIGHT_KG_COF1
-
+summary(oth_CLSA_cop1$phy_weight_ms_1)
 ```  
 ### **Variable label**: Weight in kg - measured 
 **Variable name**: phy_weight_ms_2  
@@ -1085,7 +1087,7 @@ oth_CLSA_cop1$phy_weight_ms_1<-CLSA_cop1$WGT_WEIGHT_KG_COF1
 **R script**:  
 ```{r, echo=TRUE}
 summary(CLSA_cop1$WGT_WEIGHTSR_KG_COF1)
-oth_CLSA_cop1$phy_weight_sr_1 <-CLSA_cop1$WGT_WEIGHTSR_KG_COF1
+oth_CLSA_cop1$phy_weight_sr_1 <-as.numeric(CLSA_cop1$WGT_WEIGHTSR_KG_COF1)
 
 summary(oth_CLSA_cop1$phy_weight_sr_1)
 
@@ -1166,7 +1168,7 @@ summary(oth_CLSA_cop1$phy_weight_sr_1)
 **Harmonization comment**: The CLSA Comprehensive Cohort datasets includes Weight Measurement 1, Weight Measurement 2 and the Average Weight from these two measurements. In creation of the DataSchema variable, the Average Weight is used. 
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_cop0$phy_weight_all_0<-CLSA_cop0$WGT_WEIGHT_KG_COM
+oth_CLSA_cop0$phy_weight_all_0<-as.numeric(CLSA_cop0$WGT_WEIGHT_KG_COM)
 summary(oth_CLSA_cop0$phy_weight_all_0)
 table(oth_CLSA_cop0$phy_weight_all_0[oth_CLSA_cop0$phy_weight_all_0>130])
 ```  
@@ -1182,7 +1184,7 @@ table(oth_CLSA_cop0$phy_weight_all_0[oth_CLSA_cop0$phy_weight_all_0>130])
 **Harmonization comment**:  The CLSA Comprehensive Cohort datasets  includes Weight Measurement 1, Weight Measurement 2 and the Average Weight from these two measurements. In creation of the DataSchema variable, the Average Weight is used. 
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_cop1$phy_weight_all_1<-CLSA_cop1$WGT_WEIGHT_KG_COF1
+oth_CLSA_cop1$phy_weight_all_1<-as.numeric(CLSA_cop1$WGT_WEIGHT_KG_COF1)
 summary(oth_CLSA_cop1$phy_weight_all_1)
 
 ```  
@@ -1370,6 +1372,7 @@ summary(oth_CLSA_cop1$phy_height_ms_1)
 **R script**:  
 ```{r, echo=TRUE}
 oth_CLSA_cop1$phy_height_sr_1<- ifelse(CLSA_cop1$HGT_HEIGHTSR_CM_COF1==-99999.00, NA, CLSA_cop1$HGT_HEIGHTSR_CM_COF1 ) 
+summary(oth_CLSA_cop1$phy_height_sr_1, useNA="always")
 ```  
 ### **Variable label**: Height in cm - self-reported  
 **Variable name**: phy_height_sr_2  
@@ -1450,7 +1453,7 @@ oth_CLSA_cop1$phy_height_sr_1<- ifelse(CLSA_cop1$HGT_HEIGHTSR_CM_COF1==-99999.00
 ```{r, echo=TRUE}
 table(CLSA_cop0$HGT_HEIGHT_M_COM)
 oth_CLSA_cop0$phy_height_all_0<-CLSA_cop0$HGT_HEIGHT_M_COM*100
-
+summary(oth_CLSA_cop0$phy_height_all_0, useNA = "always")
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined  
 **Variable name**: phy_height_all_1    
@@ -1464,7 +1467,8 @@ oth_CLSA_cop0$phy_height_all_0<-CLSA_cop0$HGT_HEIGHT_M_COM*100
 **R script**:  
 ```{r, echo=TRUE}
 oth_CLSA_cop1$phy_height_all_1<-CLSA_cop1$HGT_HEIGHT_M_COF1*100
-summary(oth_CLSA_cop1$phy_height_all_1)
+summary(oth_CLSA_cop1$phy_height_all_1, useNA="always")
+table(is.na(oth_CLSA_cop0$phy_height_all_0)) 
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined    
 **Variable name**: phy_height_all_2    
@@ -1661,7 +1665,7 @@ summary(oth_CLSA_cop1$phy_bmi_ms_1)
 # summary(is.na(oth_CLSA_cop1$phy_height_sr_1))
 # table(oth_CLSA_cop1$phy_weight_sr_1[!is.na(oth_CLSA_cop1$phy_height_sr_1)])
 # table(oth_CLSA_cop1$phy_bmi_sr_1)
-#I get all empty values
+#I get all empty values. participants who have valid values for SR weight doesnt have valid values for SR height and vice
 ```  
 ### **Variable label**: Body mass index (BMI) - self-reported  
 **Variable name**: phy_bmi_sr_2  
@@ -2264,16 +2268,19 @@ oth_CLSA_cop1$phy_bmi_cat_ms_1<-recode(as.integer(CLSA_cop1$HWT_DISW_COF1), '1'=
 **Category coding**:  N/A  
 
 **Harmonization status**:   complete 
-**Harmonization comment**:  The waist measurements are taken directly over skin or over 1 or 2 layers of clothing for different participants. The variable for waist measurement includes the measurements regardless of the clothing layers. 
+**Harmonization comment**:  The waist measurements are taken directly over skin or over 1 or 2 layers of clothing for different participants. The study-specific variable for waist measurement includes the measurements regardless of the clothing layers. 92 percent of the valid waist measurements were done over one layer of clothing. 
 **R script**:  
 ```{r, echo=TRUE}
 table(CLSA_cop0$WHC_WAIST_CM_COM)
+27671/(762 +27671+  1426 )
 
 #The measurement 1)on skin, 2)over one layer of clothing, 3)over two layers of clothing
 table(CLSA_cop0$WHC_CLTHLAYERS_COM)
-oth_CLSA_cop0$phy_waist_all_0<- CLSA_cop0$WHC_WAIST_CM_COM
+oth_CLSA_cop0$phy_waist_all_0<- as.numeric(CLSA_cop0$WHC_WAIST_CM_COM)
 summary(oth_CLSA_cop0$phy_waist_all_0)
+
 ```  
+
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined   
 **Variable name**: phy_waist_all_1  
 **Variable description**: Waist circumference of the participant in centimeters - measured and self-reported combined. If both measured and self-reported waist circumference were collected, measured waist circumference was taken.       
@@ -2354,6 +2361,7 @@ summary(oth_CLSA_cop0$phy_waist_all_0)
 
 ```  
 
+
 # General perception of health subdomain
 
 ### **Variable label**:  Self-assessed health   
@@ -2373,9 +2381,10 @@ summary(oth_CLSA_cop0$phy_waist_all_0)
 **Harmonization comment**:   Study specific variable for self-rated health have 5 categories: Excellent, Very Good, Good, Fair and Poor. Excellent, Very Good and Good are coded as Good health.  
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_cop0$poh_sah_0<- recode(as.integer(CLSA_cop0$GEN_HLTH_COM),'1'=0L,'2'=0L, '3'=0L,'4'=1L,'3'=2L,
+oth_CLSA_cop0$poh_sah_0<- recode(CLSA_cop0$GEN_HLTH_COM,'1'=0L,'2'=0L, '3'=0L,'4'=1L,'5'=2L,
                               .default=NA_integer_)
 
+table(CLSA_cop0$GEN_HLTH_COM)
 table(oth_CLSA_cop0$poh_sah_0)
 ```  
 ### **Variable label**:  Self-assessed health   
@@ -2395,12 +2404,12 @@ table(oth_CLSA_cop0$poh_sah_0)
 **Harmonization comment**:   Study specific variable for self-rated health have 5 categories: Excellent, Very Good, Good, Fair and Poor. Excellent, Very Good and Good are coded as Good health.  
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_cop1$poh_sah_1<- recode(as.integer(CLSA_cop1$GEN_HLTH_COF1),'1'=0L,'2'=0L, '3'=0L,'4'=1L,'3'=2L,
+oth_CLSA_cop1$poh_sah_1<- recode(CLSA_cop1$GEN_HLTH_COF1,'1'=0L,'2'=0L, '3'=0L,'4'=1L,'5'=2L,
                               .default=NA_integer_)
 
 table(oth_CLSA_cop1$poh_sah_1)
-
-```  
+table(CLSA_cop1$GEN_HLTH_COF1)
+```   
 ### **Variable label**:  Self-assessed health   
 **Variable name**:  poh_sah_2  
 **Variable description**:  Self-assessed health of the participant, in three main categories.  

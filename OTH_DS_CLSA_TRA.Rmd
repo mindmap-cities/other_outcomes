@@ -2305,10 +2305,10 @@ table(oth_CLSA_tra0$phy_bmi_cat_ms_0)
 **Harmonization comment**:   Study specific variable for self-rated health have 5 categories: Excellent, Very Good, Good, Fair and Poor. Excellent, Very Good and Good are coded as Good health.  
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_tra0$poh_sah_0<- recode(as.integer(CLSA_tra0$GEN_HLTH_TRM),'1'=0L,'2'=0L, '3'=0L,'4'=1L,'3'=2L,
+oth_CLSA_tra0$poh_sah_0<- recode(as.integer(CLSA_tra0$GEN_HLTH_TRM),'1'=0L,'2'=0L, '3'=0L,'4'=1L,'5'=2L,
                               .default=NA_integer_)
 table(oth_CLSA_tra0$poh_sah_0)
-
+table(CLSA_tra0$GEN_HLTH_TRM)
 ```  
 ### **Variable label**:  Self-assessed health   
 **Variable name**:  poh_sah_1  
@@ -2327,9 +2327,10 @@ table(oth_CLSA_tra0$poh_sah_0)
 **Harmonization comment**:   Study specific variable for self-rated health have 5 categories: Excellent, Very Good, Good, Fair and Poor. Excellent, Very Good and Good are coded as Good health.  
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_tra1$poh_sah_1<- recode(as.integer(CLSA_tra1$GEN_HLTH_TRF1),'1'=0L,'2'=0L, '3'=0L,'4'=1L,'3'=2L,
+oth_CLSA_tra1$poh_sah_1 <- recode(as.integer(CLSA_tra1$GEN_HLTH_TRF1),'1'=0L,'2'=0L, '3'=0L,'4'=1L,'5'=2L,
                               .default=NA_integer_)
-
+table(oth_CLSA_tra1$poh_sah_1)
+table(CLSA_tra1$GEN_HLTH_TRF1)
 
 ```  
 ### **Variable label**:  Self-assessed health   
