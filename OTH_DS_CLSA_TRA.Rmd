@@ -1034,7 +1034,7 @@ table(oth_CLSA_tra0$phy_weight_sr_0)
 **Harmonization comment**:   Participants reported their weight either in pounds or in kgs. When the reported weight was in pounds it was converted into kgs.  
 **R script**:  
 ```{r, echo=TRUE}
-#??
+
 oth_CLSA_tra1$phy_weight_sr_1<- ifelse(CLSA_tra1$HWT_WGHT_PK_TRF1==2, CLSA_tra1$HWT_WGHT_NB_TRF1, ifelse(CLSA_tra1$HWT_WGHT_PK_TRF1==1, round(CLSA_tra1$HWT_WGHT_NB_TRF1*0.453592), NA))
 
 #Variable for the unit of Self-reported health. 1-Pounds, 2-KG. Should we round these numbers? Self-reported weights such as 107.047712 looks weird 
@@ -1045,6 +1045,10 @@ table(oth_CLSA_tra1$phy_weight_sr_1)
 table(CLSA_tra1$id [CLSA_tra1$HWT_WGHT_NB_TRF1<30])
 table(CLSA_tra1$HWT_WGHT_NB_TRF1[CLSA_tra1$HWT_WGHT_NB_TRF1<30])
 
+#based on cohort answer, weights smaller than 25kg, coded as NAs
+
+oth_CLSA_tra1$phy_weight_sr_1[oth_CLSA_tra1$phy_weight_sr_1<25]<-NA
+table(oth_CLSA_tra1$phy_weight_sr_1, useNA="always")
 ```  
 ### **Variable label**: Weight in kg - self-reported 
 **Variable name**: phy_weight_sr_2    
@@ -1143,6 +1147,9 @@ oth_CLSA_tra1$phy_weight_all_1<-ifelse(CLSA_tra1$HWT_WGHT_PK_TRF1==2, CLSA_tra1$
 table(CLSA_tra1$HWT_WGHT_NB_TRF1)
 table(oth_CLSA_tra1$phy_weight_all_1)
 class(oth_CLSA_tra1$phy_weight_all_1)
+#based on cohort answer, weights smaller than 25kg, coded as NAs
+oth_CLSA_tra1$phy_weight_all_1[oth_CLSA_tra1$phy_weight_all_1<25]<-NA
+table(oth_CLSA_tra1$phy_weight_all_1)
 ```  
 ### **Variable label**: Weight in kg - measured and self-reported combined  
 **Variable name**: phy_weight_all_2    
