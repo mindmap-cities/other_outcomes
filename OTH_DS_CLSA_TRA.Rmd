@@ -14,18 +14,18 @@ erasmus_opal <- opal.login()
 
 # TRA BASE 
 opal.assign.table.tibble(erasmus_opal, 'Tra3_4_Baseline','CLSA_1.Tra3_4_Baseline', variables =list("HWT_WGHT_KG_TRM", "HWT_DHT_M_TRM", "HWT_DISW_TRM", "HWT_DBMI_TRM", "WHC_WAIST_CM_TRM", "WHC_CLTHLAYERS_TRM", "GEN_HLTH_TRM", "FUL_FSTR_TRM", "FUL_WK23B_TRM", "CCT_HBP_TRM",  "CCT_ANGI_TRM", "CCT_AMI_TRM", "IHD_AMIAGE_NB_TRM", "CCT_CVA_TRM", "STR_CVAAGE_NB_TRM", "DIA_AGE_NB_TRM", "DIA_MEDAGE_NB_TRM", "CCT_DIAB_TRM"))
-CLSA_tra0 <- opal.execute(erasmus_opal,'Tra3_4_Baseline')
+CLSA_tra_0 <- opal.execute(erasmus_opal,'Tra3_4_Baseline')
 
 # TRA FU1
 opal.assign.table.tibble(erasmus_opal, 'Tra_FU1','CLSA_1.Tra_FU1', variables =list("HWT_WGHT_NB_TRF1", "HWT_DHT_M_TRF1", "HWT_DISW_TRF1","WGT_WEIGHT1_KG_TRF1", "WGT_WEIGHT2_KG_TRF1","GEN_HLTH_TRF1", "WGT_WEIGHT_KG_TRF1", "HGT_HEIGHT_M_TRF1","HWT_DBMI_TRF1", "WHC_WAIST_CM_TRF1", "WHC_CLTHLAYERS_TRF1", "FUL_FSTR_TRF1", "FUL_WK23B_TRF1", "CCT_HBP_TRF1",  "CCT_ANGI_TRF1", "CCT_AMI_TRF1", "CCT_AMIAGE_NB_TRF1", "CCT_CVA_TRF1", "STR_CVAAGE_NB_TRF1", "AGE_NB_TRF1", "DIA_MED_TRF1", "HWT_DISW_TRF1",
 "CCT_MEDAGE_NB_TRF1", "PSD_DCTOFF_TRM", "WGT_WEIGHTSR_KG_TRF1", "HGT_HEIGHT_M_TRF1", "HGT_HEIGHTSR_CM_TRF1", "HWT_DBMI_TRF1" , "CCT_CVAAGE_NB_TRF1", "CCT_DIAB_TRF1", "CCT_DIABAGE_NB_TRF1", "HWT_WGHT_PK_TRF1"))
-CLSA_tra1 <- opal.execute(erasmus_opal,'Tra_FU1')
+CLSA_tra_1 <- opal.execute(erasmus_opal,'Tra_FU1')
 
 ```
 ## Assign participant id as first column of your harmonized dataframes
 ```{r, echo=FALSE}
-oth_CLSA_tra0<- data.frame(id = CLSA_tra0$id)
-oth_CLSA_tra1<- data.frame(id = CLSA_tra1$id)
+oth_CLSA_tra_0<- data.frame(id = CLSA_tra_0$id)
+oth_CLSA_tra_1<- data.frame(id = CLSA_tra_1$id)
 
 ```
 ## When you are done with your work, logout of Opal server
@@ -67,14 +67,14 @@ opal.logout(erasmus_opal)
 MyMerge <- function(x,y){
   merge(x,y, by= c("id"),all=TRUE)
 }
-med_table_tr <- Reduce(MyMerge, list(CLSA_tra0, CLSA_tra1))
+med_table_tr <- Reduce(MyMerge, list(CLSA_tra_0, CLSA_tra_1))
 #Harmonization scripts to create "ever had "
 
 med_table_tr$dis_hbp_ever_0 <- recode(as.integer(med_table_tr$CCT_HBP_TRM),"1"=1L,"2"=0L)
 #Direct mapping to harmonized tables keeping correct participants for each wave
-oth_CLSA_tra0<-merge(oth_CLSA_tra0,med_table_tr[,c("id","dis_hbp_ever_0")],by="id",all.x=TRUE)
+oth_CLSA_tra_0<-merge(oth_CLSA_tra_0,med_table_tr[,c("id","dis_hbp_ever_0")],by="id",all.x=TRUE)
 
-table(oth_CLSA_tra0$dis_hbp_ever_0)
+table(oth_CLSA_tra_0$dis_hbp_ever_0)
 ```  
 ### **Variable label**: Lifetime occurrence of high blood pressure or hypertension    
 **Variable name**: dis_hbp_ever_1  
@@ -94,8 +94,8 @@ table(oth_CLSA_tra0$dis_hbp_ever_0)
 ```{r, echo=TRUE}
 med_table_tr$dis_hbp_ever_1<- ifelse(med_table_tr$dis_hbp_ever_0==1 | as.integer(med_table_tr$CCT_HBP_TRF1)=="1",1L,ifelse(med_table_tr$dis_hbp_ever_0==0 & as.integer(med_table_tr$CCT_HBP_TRF1)=="2", 0L, NA))
 #Direct mapping to harmonized tables keeping correct participants for each wave
-oth_CLSA_tra1<-merge(oth_CLSA_tra1,med_table_tr[,c("id","dis_hbp_ever_1")],by="id",all.x=TRUE)
-table(oth_CLSA_tra1$dis_hbp_ever_1)
+oth_CLSA_tra_1<-merge(oth_CLSA_tra_1,med_table_tr[,c("id","dis_hbp_ever_1")],by="id",all.x=TRUE)
+table(oth_CLSA_tra_1$dis_hbp_ever_1)
 table(med_table_tr$dis_hbp_ever_1, med_table_tr$CCT_HBP_TRM)
 table(med_table_tr$CCT_HBP_TRM[med_table_tr$dis_hbp_ever_1==1& med_table_tr$CCT_HBP_TRF1==2])
 
@@ -241,8 +241,8 @@ table(med_table_tr$CCT_HBP_TRM[med_table_tr$dis_hbp_ever_1==1& med_table_tr$CCT_
 
 med_table_tr$dis_angina_ever_0 <- recode(as.integer(med_table_tr$CCT_ANGI_TRM),"1"=1L,"2"=0L)
 #Direct mapping to harmonized tables keeping correct participants for each wave
-oth_CLSA_tra0<-merge(oth_CLSA_tra0,med_table_tr[,c("id","dis_angina_ever_0")],by="id",all.x=TRUE)
-table(oth_CLSA_tra0$dis_angina_ever_0)
+oth_CLSA_tra_0<-merge(oth_CLSA_tra_0,med_table_tr[,c("id","dis_angina_ever_0")],by="id",all.x=TRUE)
+table(oth_CLSA_tra_0$dis_angina_ever_0)
 
 
 
@@ -264,13 +264,13 @@ table(oth_CLSA_tra0$dis_angina_ever_0)
 
 **R script**:  
 ```{r, echo=TRUE}
-table(CLSA_tra1$CCT_ANGI_TRF1)
+table(CLSA_tra_1$CCT_ANGI_TRF1)
 
 med_table_tr$dis_angina_ever_1<-  ifelse(med_table_tr$dis_angina_ever_0==1|  as.integer(med_table_tr$CCT_ANGI_TRF1)=='1',1L, ifelse(med_table_tr$dis_angina_ever_0==0&as.integer(med_table_tr$CCT_ANGI_TRF1)=='2',0L,
                               NA))
 #Direct mapping to harmonized tables keeping correct participants for each wave
-oth_CLSA_tra1<-merge(oth_CLSA_tra1,med_table_tr[,c("id","dis_angina_ever_1")],by="id",all.x=TRUE)
-table(oth_CLSA_tra1$dis_angina_ever_1)
+oth_CLSA_tra_1<-merge(oth_CLSA_tra_1,med_table_tr[,c("id","dis_angina_ever_1")],by="id",all.x=TRUE)
+table(oth_CLSA_tra_1$dis_angina_ever_1)
 ```  
 ### **Variable label**: Lifetime occurrence of angina 
 **Variable name**:  dis_angina_ever_2  
@@ -350,8 +350,8 @@ table(oth_CLSA_tra1$dis_angina_ever_1)
 ```{r, echo=TRUE}
 med_table_tr$dis_mi_ever_0 <- recode(as.integer(med_table_tr$CCT_AMI_TRM),"1"=1L,"2"=0L)
 #Direct mapping to harmonized tables keeping correct participants for each wave
-oth_CLSA_tra0<-merge(oth_CLSA_tra0,med_table_tr[,c("id","dis_mi_ever_0")],by="id",all.x=TRUE)
-table(oth_CLSA_tra0$dis_mi_ever_0)
+oth_CLSA_tra_0<-merge(oth_CLSA_tra_0,med_table_tr[,c("id","dis_mi_ever_0")],by="id",all.x=TRUE)
+table(oth_CLSA_tra_0$dis_mi_ever_0)
 
 ```  
 ### **Variable label**: Lifetime occurrence of myocardial infarction    
@@ -371,13 +371,13 @@ table(oth_CLSA_tra0$dis_mi_ever_0)
  
 **R script**:  
 ```{r, echo=TRUE}
-table(CLSA_tra1$CCT_AMI_TRF1)
+table(CLSA_tra_1$CCT_AMI_TRF1)
 
 med_table_tr$dis_mi_ever_1<- ifelse(med_table_tr$dis_mi_ever_0==1|  as.integer(med_table_tr$CCT_AMI_TRF1)=='1',1L,ifelse(med_table_tr$dis_mi_ever_0==0&as.integer(med_table_tr$CCT_AMI_TRF1)=='2',0L,
                                NA))
 #Direct mapping to harmonized tables keeping correct participants for each wave
-oth_CLSA_tra1<-merge(oth_CLSA_tra1,med_table_tr[,c("id","dis_mi_ever_1")],by="id",all.x=TRUE)
-table(oth_CLSA_tra1$dis_mi_ever_1)
+oth_CLSA_tra_1<-merge(oth_CLSA_tra_1,med_table_tr[,c("id","dis_mi_ever_1")],by="id",all.x=TRUE)
+table(oth_CLSA_tra_1$dis_mi_ever_1)
 
 ```  
 ### **Variable label**: Lifetime occurrence of myocardial infarction    
@@ -425,9 +425,9 @@ table(oth_CLSA_tra1$dis_mi_ever_1)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_tra1$dis_mi_age_1<-as.integer(CLSA_tra1$CCT_AMIAGE_NB_TRF1)
-class(oth_CLSA_tra1$dis_mi_age_1)
-table(oth_CLSA_tra1$dis_mi_age_1, useNA="always")
+oth_CLSA_tra_1$dis_mi_age_1<-as.integer(CLSA_tra_1$CCT_AMIAGE_NB_TRF1)
+class(oth_CLSA_tra_1$dis_mi_age_1)
+table(oth_CLSA_tra_1$dis_mi_age_1, useNA="always")
 
 ```  
 ### **Variable label**: Age at first Myocardial infarction  
@@ -465,8 +465,8 @@ table(oth_CLSA_tra1$dis_mi_age_1, useNA="always")
 
 med_table_tr$dis_stroke_ever_0 <- recode(as.integer(med_table_tr$CCT_CVA_TRM),"1"=1L,"2"=0L)
 #Direct mapping to harmonized tables keeping correct participants for each wave
-oth_CLSA_tra0<-merge(oth_CLSA_tra0,med_table_tr[,c("id","dis_stroke_ever_0")],by="id",all.x=TRUE)
-table(oth_CLSA_tra0$dis_stroke_ever_0)
+oth_CLSA_tra_0<-merge(oth_CLSA_tra_0,med_table_tr[,c("id","dis_stroke_ever_0")],by="id",all.x=TRUE)
+table(oth_CLSA_tra_0$dis_stroke_ever_0)
 table(med_table_tr$CCT_CVA_TRM)
 
 ```  
@@ -490,8 +490,8 @@ table(med_table_tr$CCT_CVA_TRM)
 med_table_tr$dis_stroke_ever_1<- ifelse(med_table_tr$dis_stroke_ever_0==1|  as.integer(med_table_tr$CCT_CVA_TRF1)=='1',1L,ifelse(med_table_tr$dis_stroke_ever_0==0&as.integer(med_table_tr$CCT_CVA_TRF1)=='2',0L,
                                NA))
 #Direct mapping to harmonized tables keeping correct participants for each wave
-oth_CLSA_tra1<-merge(oth_CLSA_tra1,med_table_tr[,c("id","dis_stroke_ever_1")],by="id",all.x=TRUE)
-table(oth_CLSA_tra1$dis_stroke_ever_1)
+oth_CLSA_tra_1<-merge(oth_CLSA_tra_1,med_table_tr[,c("id","dis_stroke_ever_1")],by="id",all.x=TRUE)
+table(oth_CLSA_tra_1$dis_stroke_ever_1)
 ```  
 ### **Variable label**: Lifetime occurrence of stroke or CVA  
 **Variable name**:  dis_stroke_ever_2  
@@ -535,9 +535,9 @@ table(oth_CLSA_tra1$dis_stroke_ever_1)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_tra1$dis_stroke_age_1<-as.integer(CLSA_tra1$CCT_CVAAGE_NB_TRF1)
-summary(oth_CLSA_tra1$dis_stroke_age_1)
-table(oth_CLSA_tra1$dis_stroke_age_1)
+oth_CLSA_tra_1$dis_stroke_age_1<-as.integer(CLSA_tra_1$CCT_CVAAGE_NB_TRF1)
+summary(oth_CLSA_tra_1$dis_stroke_age_1)
+table(oth_CLSA_tra_1$dis_stroke_age_1)
 
 ```  
 ### **Variable label**: Age at first stroke or CVA  
@@ -575,8 +575,8 @@ table(oth_CLSA_tra1$dis_stroke_age_1)
 ```{r, echo=TRUE}  
 med_table_tr$dis_diab_ever_0 <- recode(as.integer(med_table_tr$CCT_DIAB_TRM),"1"=1L,"2"=0L)
 #Direct mapping to harmonized tables keeping correct participants for each wave
-oth_CLSA_tra0<-merge(oth_CLSA_tra0,med_table_tr[,c("id","dis_diab_ever_0")],by="id",all.x=TRUE)
-table(oth_CLSA_tra0$dis_diab_ever_0)
+oth_CLSA_tra_0<-merge(oth_CLSA_tra_0,med_table_tr[,c("id","dis_diab_ever_0")],by="id",all.x=TRUE)
+table(oth_CLSA_tra_0$dis_diab_ever_0)
 
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
@@ -597,8 +597,8 @@ table(oth_CLSA_tra0$dis_diab_ever_0)
 ```{r, echo=TRUE}  
 med_table_tr$dis_diab_ever_1<- ifelse(med_table_tr$dis_diab_ever_0==1|  as.integer(med_table_tr$CCT_DIAB_TRF1)=='1',1L,ifelse(med_table_tr$dis_diab_ever_0==0&as.integer(med_table_tr$CCT_DIAB_TRF1)=='2',0L,NA))
 #Direct mapping to harmonized tables keeping correct participants for each wave
-oth_CLSA_tra1<-merge(oth_CLSA_tra1,med_table_tr[,c("id","dis_diab_ever_1")],by="id",all.x=TRUE)
-table(oth_CLSA_tra1$dis_diab_ever_1)
+oth_CLSA_tra_1<-merge(oth_CLSA_tra_1,med_table_tr[,c("id","dis_diab_ever_1")],by="id",all.x=TRUE)
+table(oth_CLSA_tra_1$dis_diab_ever_1)
 
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
@@ -697,8 +697,8 @@ table(oth_CLSA_tra1$dis_diab_ever_1)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}  
-oth_CLSA_tra1$dis_diab_age_1<-as.integer(CLSA_tra1$CCT_DIABAGE_NB_TRF1)
-summary(oth_CLSA_tra1$dis_diab_age_1)
+oth_CLSA_tra_1$dis_diab_age_1<-as.integer(CLSA_tra_1$CCT_DIABAGE_NB_TRF1)
+summary(oth_CLSA_tra_1$dis_diab_age_1)
 ```  
 ### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
 **Variable name**:  dis_diab_age_2    
@@ -1019,9 +1019,9 @@ summary(oth_CLSA_tra1$dis_diab_age_1)
 **Harmonization comment**: 
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_tra0$phy_weight_sr_0<- CLSA_tra0$HWT_WGHT_KG_TRM
-summary(oth_CLSA_tra0$phy_weight_sr_0)
-table(oth_CLSA_tra0$phy_weight_sr_0)
+oth_CLSA_tra_0$phy_weight_sr_0<- CLSA_tra_0$HWT_WGHT_KG_TRM
+summary(oth_CLSA_tra_0$phy_weight_sr_0)
+table(oth_CLSA_tra_0$phy_weight_sr_0)
 ```  
 ### **Variable label**: Weight in kg - self-reported 
 **Variable name**: phy_weight_sr_1    
@@ -1035,15 +1035,15 @@ table(oth_CLSA_tra0$phy_weight_sr_0)
 **R script**:  
 ```{r, echo=TRUE}
 #??
-oth_CLSA_tra1$phy_weight_sr_1<- ifelse(CLSA_tra1$HWT_WGHT_PK_TRF1==2, CLSA_tra1$HWT_WGHT_NB_TRF1, ifelse(CLSA_tra1$HWT_WGHT_PK_TRF1==1, round(CLSA_tra1$HWT_WGHT_NB_TRF1*0.453592), NA))
+oth_CLSA_tra_1$phy_weight_sr_1<- ifelse(CLSA_tra_1$HWT_WGHT_PK_TRF1==2, CLSA_tra_1$HWT_WGHT_NB_TRF1, ifelse(CLSA_tra_1$HWT_WGHT_PK_TRF1==1, round(CLSA_tra_1$HWT_WGHT_NB_TRF1*0.453592), NA))
 
 #Variable for the unit of Self-reported health. 1-Pounds, 2-KG. Should we round these numbers? Self-reported weights such as 107.047712 looks weird 
-table(CLSA_tra1$HWT_WGHT_PK_TRF1)
+table(CLSA_tra_1$HWT_WGHT_PK_TRF1)
 
-summary(oth_CLSA_tra1$phy_weight_sr_1)
-table(oth_CLSA_tra1$phy_weight_sr_1)
-table(CLSA_tra1$id [CLSA_tra1$HWT_WGHT_NB_TRF1<30])
-table(CLSA_tra1$HWT_WGHT_NB_TRF1[CLSA_tra1$HWT_WGHT_NB_TRF1<30])
+summary(oth_CLSA_tra_1$phy_weight_sr_1)
+table(oth_CLSA_tra_1$phy_weight_sr_1)
+table(CLSA_tra_1$id [CLSA_tra_1$HWT_WGHT_NB_TRF1<30])
+table(CLSA_tra_1$HWT_WGHT_NB_TRF1[CLSA_tra_1$HWT_WGHT_NB_TRF1<30])
 
 ```  
 ### **Variable label**: Weight in kg - self-reported 
@@ -1122,9 +1122,9 @@ table(CLSA_tra1$HWT_WGHT_NB_TRF1[CLSA_tra1$HWT_WGHT_NB_TRF1<30])
 **Harmonization comment**: 
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_tra0$phy_weight_all_0<-as.numeric(CLSA_tra0$HWT_WGHT_KG_TRM)
-summary(oth_CLSA_tra0$phy_weight_all_0)
-class(oth_CLSA_tra0$phy_weight_all_0)
+oth_CLSA_tra_0$phy_weight_all_0<-as.numeric(CLSA_tra_0$HWT_WGHT_KG_TRM)
+summary(oth_CLSA_tra_0$phy_weight_all_0)
+class(oth_CLSA_tra_0$phy_weight_all_0)
 ```  
 
 ### **Variable label**: Weight in kg - measured and self-reported combined
@@ -1138,11 +1138,11 @@ class(oth_CLSA_tra0$phy_weight_all_0)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_tra1$phy_weight_all_1<-ifelse(CLSA_tra1$HWT_WGHT_PK_TRF1==2, CLSA_tra1$HWT_WGHT_NB_TRF1, ifelse(CLSA_tra1$HWT_WGHT_PK_TRF1==1, round(CLSA_tra1$HWT_WGHT_NB_TRF1*0.453592), NA))
+oth_CLSA_tra_1$phy_weight_all_1<-ifelse(CLSA_tra_1$HWT_WGHT_PK_TRF1==2, CLSA_tra_1$HWT_WGHT_NB_TRF1, ifelse(CLSA_tra_1$HWT_WGHT_PK_TRF1==1, round(CLSA_tra_1$HWT_WGHT_NB_TRF1*0.453592), NA))
 
-table(CLSA_tra1$HWT_WGHT_NB_TRF1)
-table(oth_CLSA_tra1$phy_weight_all_1)
-class(oth_CLSA_tra1$phy_weight_all_1)
+table(CLSA_tra_1$HWT_WGHT_NB_TRF1)
+table(oth_CLSA_tra_1$phy_weight_all_1)
+class(oth_CLSA_tra_1$phy_weight_all_1)
 ```  
 ### **Variable label**: Weight in kg - measured and self-reported combined  
 **Variable name**: phy_weight_all_2    
@@ -1313,8 +1313,8 @@ class(oth_CLSA_tra1$phy_weight_all_1)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_tra0$phy_height_sr_0<- (CLSA_tra0$HWT_DHT_M_TRM*100)
-table(oth_CLSA_tra0$phy_height_sr_0)
+oth_CLSA_tra_0$phy_height_sr_0<- (CLSA_tra_0$HWT_DHT_M_TRM*100)
+table(oth_CLSA_tra_0$phy_height_sr_0)
 ```  
 ### **Variable label**: Height in cm - self-reported  
 **Variable name**: phy_height_sr_1  
@@ -1406,8 +1406,8 @@ table(oth_CLSA_tra0$phy_height_sr_0)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_tra0$phy_height_all_0<-CLSA_tra0$HWT_DHT_M_TRM*100
-table(oth_CLSA_tra0$phy_height_all_0)
+oth_CLSA_tra_0$phy_height_all_0<-CLSA_tra_0$HWT_DHT_M_TRM*100
+table(oth_CLSA_tra_0$phy_height_all_0)
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined  
 **Variable name**: phy_height_all_1    
@@ -1594,7 +1594,7 @@ table(oth_CLSA_tra0$phy_height_all_0)
 **R script**:  
 ```{r, echo=TRUE}
 
-oth_CLSA_tra0$phy_bmi_ms_0 <-as.numeric(CLSA_tra0$HWT_DBMI_TRM)
+oth_CLSA_tra_0$phy_bmi_ms_0 <-as.numeric(CLSA_tra_0$HWT_DBMI_TRM)
 ```  
 ### **Variable label**: Body mass index (BMI) - self-reported  
 **Variable name**: phy_bmi_sr_1  
@@ -1686,7 +1686,7 @@ oth_CLSA_tra0$phy_bmi_ms_0 <-as.numeric(CLSA_tra0$HWT_DBMI_TRM)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_tra0$phy_bmi_all_0 <-as.numeric(CLSA_tra0$HWT_DBMI_TRM)
+oth_CLSA_tra_0$phy_bmi_all_0 <-as.numeric(CLSA_tra_0$HWT_DBMI_TRM)
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
@@ -1927,9 +1927,9 @@ oth_CLSA_tra0$phy_bmi_all_0 <-as.numeric(CLSA_tra0$HWT_DBMI_TRM)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_tra0$phy_bmi_cat_sr_0 <-recode(as.integer(CLSA_tra0$HWT_DISW_TRM), '1'=0L,'2'=1L, '3'=2L,'4'=3L,'5'=3L,"6"=3L,
+oth_CLSA_tra_0$phy_bmi_cat_sr_0 <-recode(as.integer(CLSA_tra_0$HWT_DISW_TRM), '1'=0L,'2'=1L, '3'=2L,'4'=3L,'5'=3L,"6"=3L,
                               .default=NA_integer_)
-table(oth_CLSA_tra0$phy_bmi_cat_sr_0)
+table(oth_CLSA_tra_0$phy_bmi_cat_sr_0)
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - self-reported  
 **Variable name**: phy_bmi_cat_sr_1    
@@ -2070,9 +2070,9 @@ table(oth_CLSA_tra0$phy_bmi_cat_sr_0)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_tra0$phy_bmi_cat_ms_0<-recode(as.integer(CLSA_tra0$HWT_DISW_TRM), '1'=0L,'2'=1L, '3'=2L,'4'=3L,'5'=3L,"6"=3L,
+oth_CLSA_tra_0$phy_bmi_cat_ms_0<-recode(as.integer(CLSA_tra_0$HWT_DISW_TRM), '1'=0L,'2'=1L, '3'=2L,'4'=3L,'5'=3L,"6"=3L,
                               .default=NA_integer_)
-table(oth_CLSA_tra0$phy_bmi_cat_ms_0)
+table(oth_CLSA_tra_0$phy_bmi_cat_ms_0)
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
 **Variable name**: phy_bmi_cat_all_1    
@@ -2305,10 +2305,10 @@ table(oth_CLSA_tra0$phy_bmi_cat_ms_0)
 **Harmonization comment**:   Study specific variable for self-rated health have 5 categories: Excellent, Very Good, Good, Fair and Poor. Excellent, Very Good and Good are coded as Good health.  
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_tra0$poh_sah_0<- recode(as.integer(CLSA_tra0$GEN_HLTH_TRM),'1'=0L,'2'=0L, '3'=0L,'4'=1L,'5'=2L,
+oth_CLSA_tra_0$poh_sah_0<- recode(as.integer(CLSA_tra_0$GEN_HLTH_TRM),'1'=0L,'2'=0L, '3'=0L,'4'=1L,'5'=2L,
                               .default=NA_integer_)
-table(oth_CLSA_tra0$poh_sah_0)
-table(CLSA_tra0$GEN_HLTH_TRM)
+table(oth_CLSA_tra_0$poh_sah_0)
+table(CLSA_tra_0$GEN_HLTH_TRM)
 ```  
 ### **Variable label**:  Self-assessed health   
 **Variable name**:  poh_sah_1  
@@ -2327,10 +2327,10 @@ table(CLSA_tra0$GEN_HLTH_TRM)
 **Harmonization comment**:   Study specific variable for self-rated health have 5 categories: Excellent, Very Good, Good, Fair and Poor. Excellent, Very Good and Good are coded as Good health.  
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_tra1$poh_sah_1 <- recode(as.integer(CLSA_tra1$GEN_HLTH_TRF1),'1'=0L,'2'=0L, '3'=0L,'4'=1L,'5'=2L,
+oth_CLSA_tra_1$poh_sah_1 <- recode(as.integer(CLSA_tra_1$GEN_HLTH_TRF1),'1'=0L,'2'=0L, '3'=0L,'4'=1L,'5'=2L,
                               .default=NA_integer_)
-table(oth_CLSA_tra1$poh_sah_1)
-table(CLSA_tra1$GEN_HLTH_TRF1)
+table(oth_CLSA_tra_1$poh_sah_1)
+table(CLSA_tra_1$GEN_HLTH_TRF1)
 
 ```  
 ### **Variable label**:  Self-assessed health   
@@ -2445,7 +2445,7 @@ table(CLSA_tra1$GEN_HLTH_TRF1)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_tra0$poh_sah_poor_0 <- recode(as.integer(CLSA_tra0$GEN_HLTH_TRM),'5'=0L,'4'=1L,'1'=1L,'2'=1L,'3'=1L,
+oth_CLSA_tra_0$poh_sah_poor_0 <- recode(as.integer(CLSA_tra_0$GEN_HLTH_TRM),'5'=0L,'4'=1L,'1'=1L,'2'=1L,'3'=1L,
                               .default=NA_integer_)
 
 ```  
@@ -2465,7 +2465,7 @@ oth_CLSA_tra0$poh_sah_poor_0 <- recode(as.integer(CLSA_tra0$GEN_HLTH_TRM),'5'=0L
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_tra1$poh_sah_poor_1<- recode(as.integer(CLSA_tra1$GEN_HLTH_TRF1),'5'=0L,'4'=1L,'1'=1L,'2'=1L,'3'=1L,
+oth_CLSA_tra_1$poh_sah_poor_1<- recode(as.integer(CLSA_tra_1$GEN_HLTH_TRF1),'5'=0L,'4'=1L,'1'=1L,'2'=1L,'3'=1L,
                               .default=NA_integer_)
 
 ```  
@@ -2577,7 +2577,7 @@ oth_CLSA_tra1$poh_sah_poor_1<- recode(as.integer(CLSA_tra1$GEN_HLTH_TRF1),'5'=0L
 **R script**:  
 ```{r, echo=TRUE}
 
-oth_CLSA_tra0$poh_sah_good_0<- recode(as.integer(CLSA_tra0$GEN_HLTH_TRM),'4'=0L,'5'=0L,'1'=1L,'2'=1L,'3'=1L,
+oth_CLSA_tra_0$poh_sah_good_0<- recode(as.integer(CLSA_tra_0$GEN_HLTH_TRM),'4'=0L,'5'=0L,'1'=1L,'2'=1L,'3'=1L,
                               .default=NA_integer_)
 
 ```  
@@ -2597,7 +2597,7 @@ oth_CLSA_tra0$poh_sah_good_0<- recode(as.integer(CLSA_tra0$GEN_HLTH_TRM),'4'=0L,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_tra1$poh_sah_good_1<- recode(as.integer(CLSA_tra1$GEN_HLTH_TRF1),'4'=0L,'5'=0L,'1'=1L,'2'=1L,'3'=1L,
+oth_CLSA_tra_1$poh_sah_good_1<- recode(as.integer(CLSA_tra_1$GEN_HLTH_TRF1),'4'=0L,'5'=0L,'1'=1L,'2'=1L,'3'=1L,
                               .default=NA_integer_)
 ```  
 ### **Variable label**:  Less than good self-assessed health  
@@ -2711,9 +2711,9 @@ oth_CLSA_tra1$poh_sah_good_1<- recode(as.integer(CLSA_tra1$GEN_HLTH_TRF1),'4'=0L
 **R script**:  
 ```{r, echo=TRUE}
 
-table(CLSA_tra0$FUL_FSTR_TRM,useNA="always")
-oth_CLSA_tra0$fct_stairs_diff_0 <- recode(as.integer(CLSA_tra0$FUL_FSTR_TRM),'2'=0L,'1'=1L,'3'=1L,'4'=1L,.default=NA_integer_)
-table(oth_CLSA_tra0$fct_stairs_diff_0)
+table(CLSA_tra_0$FUL_FSTR_TRM,useNA="always")
+oth_CLSA_tra_0$fct_stairs_diff_0 <- recode(as.integer(CLSA_tra_0$FUL_FSTR_TRM),'2'=0L,'1'=1L,'3'=1L,'4'=1L,.default=NA_integer_)
+table(oth_CLSA_tra_0$fct_stairs_diff_0)
 
 ```  
 ### **Variable label**:  Difficulty walking up and down the stairs  
@@ -2732,9 +2732,9 @@ table(oth_CLSA_tra0$fct_stairs_diff_0)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-table(CLSA_tra1$FUL_FSTR_TRF1,useNA="always")
-oth_CLSA_tra1$fct_stairs_diff_1 <- recode(as.integer(CLSA_tra1$FUL_FSTR_TRF1),'2'=0L,'1'=1L,'3'=1L,'4'=1L,.default=NA_integer_)
-table(oth_CLSA_tra1$fct_stairs_diff_1)
+table(CLSA_tra_1$FUL_FSTR_TRF1,useNA="always")
+oth_CLSA_tra_1$fct_stairs_diff_1 <- recode(as.integer(CLSA_tra_1$FUL_FSTR_TRF1),'2'=0L,'1'=1L,'3'=1L,'4'=1L,.default=NA_integer_)
+table(oth_CLSA_tra_1$fct_stairs_diff_1)
 
 ```  
 ### **Variable label**:  Difficulty walking up and down the stairs  
@@ -2772,9 +2772,9 @@ table(oth_CLSA_tra1$fct_stairs_diff_1)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-table(CLSA_tra0$FUL_WK23B_TRM,useNA="always")
-oth_CLSA_tra0$fct_walk_diff_0 <- recode(as.integer(CLSA_tra0$FUL_WK23B_TRM),'2'=1L,'1'=0L,'3'=0L,'4'=0L,.default=NA_integer_)
-table(oth_CLSA_tra0$fct_walk_diff_0)
+table(CLSA_tra_0$FUL_WK23B_TRM,useNA="always")
+oth_CLSA_tra_0$fct_walk_diff_0 <- recode(as.integer(CLSA_tra_0$FUL_WK23B_TRM),'2'=1L,'1'=0L,'3'=0L,'4'=0L,.default=NA_integer_)
+table(oth_CLSA_tra_0$fct_walk_diff_0)
 ```  
 ### **Variable label**:  Difficulty walking    
 **Variable name**:  fct_walk_diff_1  
@@ -2793,8 +2793,8 @@ table(oth_CLSA_tra0$fct_walk_diff_0)
 **R script**:  
 ```{r, echo=TRUE}
 
-table(CLSA_tra1$FUL_WK23B_TRF1,useNA="always")
-oth_CLSA_tra1$fct_walk_diff_1 <- recode(as.integer(CLSA_tra1$FUL_WK23B_TRF1),'2'=1L,'1'=0L,'3'=0L,'4'=0L,.default=NA_integer_)
+table(CLSA_tra_1$FUL_WK23B_TRF1,useNA="always")
+oth_CLSA_tra_1$fct_walk_diff_1 <- recode(as.integer(CLSA_tra_1$FUL_WK23B_TRF1),'2'=1L,'1'=0L,'3'=0L,'4'=0L,.default=NA_integer_)
 
 ```  
 ### **Variable label**:  Difficulty walking    
