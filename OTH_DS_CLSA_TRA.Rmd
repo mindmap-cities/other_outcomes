@@ -1045,6 +1045,10 @@ table(oth_CLSA_tra_1$phy_weight_sr_1)
 table(CLSA_tra_1$id [CLSA_tra_1$HWT_WGHT_NB_TRF1<30])
 table(CLSA_tra_1$HWT_WGHT_NB_TRF1[CLSA_tra_1$HWT_WGHT_NB_TRF1<30])
 
+#based on cohort answer, weights smaller than 25kg, coded as NAs
+
+oth_CLSA_tra1$phy_weight_sr_1[oth_CLSA_tra1$phy_weight_sr_1<25]<-NA
+table(oth_CLSA_tra1$phy_weight_sr_1, useNA="always")
 ```  
 ### **Variable label**: Weight in kg - self-reported 
 **Variable name**: phy_weight_sr_2    
