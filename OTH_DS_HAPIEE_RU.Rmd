@@ -37,10 +37,16 @@ opal.assign.table.tibble(erasmus_opal, 'HAPIEE_W2_hl', 'HAPIEE.HAPIEE_W2_hl',var
 
 HAPIEE_W2_hl<- opal.execute(erasmus_opal,'HAPIEE_W2_hl')
 
+#HAPIEE_W1_srh 
+opal.assign.table.tibble(erasmus_opal, 'hapiee_wave1_srh', 'HAPIEE.hapiee_wave1_srh',variables = list('country','h7'))
+
+HAPIEE_W1_srh <- opal.execute(erasmus_opal,'hapiee_wave1_srh')
+
 ```
 ## Select country-specific sample
 ```{r,echo=FALSE}
 HAPIEE_W1 <- subset(HAPIEE_W1, HAPIEE_W1$country==2)
+HAPIEE_W1_srh <- subset(HAPIEE_W1_srh, HAPIEE_W1_srh$country==2)
 HAPIEE_W2 <- subset(HAPIEE_W2, HAPIEE_W2$country==2)
 HAPIEE_W1_hl<-subset(HAPIEE_W1_hl,HAPIEE_W1_hl$id %in% HAPIEE_W1$id)
 HAPIEE_W2_hl<-subset(HAPIEE_W2_hl,HAPIEE_W2_hl$id %in% HAPIEE_W2$id)
@@ -2386,11 +2392,12 @@ oth_HAPIEE_RU_0$phy_waist_all_0<-ifelse(HAPIEE_W1$e61==999,NA,HAPIEE_W1$e61)
 1 |   Fair health  
 2 |   Poor health  
 
-**Harmonization status**:  impossible  
+**Harmonization status**:  complete  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
 
+oth_HAPIEE_RU_0$poh_sah_0<-recode(as.integer(HAPIEE_W1_srh$h7),"1"=0L,"2"=0L,"3"=1L,"4"=2L,"5"=2L)
 
 ```  
 ### **Variable label**:  Self-assessed health   
@@ -2526,11 +2533,12 @@ oth_HAPIEE_RU_1$poh_sah_1<-recode(as.integer(HAPIEE_W2$w2h7),"1"=0L,"2"=0L,"3"=1
 0 |   Poor health
 1 |   Non-poor health
 
-**Harmonization status**:  impossible  
+**Harmonization status**:  complete    
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
 
+oth_HAPIEE_RU_0$poh_sah_poor_0<-recode(as.integer(HAPIEE_W1_srh$h7),"1"=1L,"2"=1L,"3"=1L,"4"=0L,"5"=0L)
 
 ```  
 ### **Variable label**:  Poor self-assessed health  
@@ -2549,7 +2557,7 @@ oth_HAPIEE_RU_1$poh_sah_1<-recode(as.integer(HAPIEE_W2$w2h7),"1"=0L,"2"=0L,"3"=1
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_HAPIEE_RU_1$poh_sah_poor_1<-recode(as.integer(HAPIEE_W2$w2h7),"1"=0L,"2"=0L,"3"=0L,"4"=1L,"5"=1L)
+oth_HAPIEE_RU_1$poh_sah_poor_1<-recode(as.integer(HAPIEE_W2$w2h7),"1"=1L,"2"=1L,"3"=1L,"4"=0L,"5"=0L)
 
 ```  
 ### **Variable label**:  Poor self-assessed health  
@@ -2660,11 +2668,12 @@ oth_HAPIEE_RU_1$poh_sah_poor_1<-recode(as.integer(HAPIEE_W2$w2h7),"1"=0L,"2"=0L,
 0 |   Less than good health  
 1 |   Good health  
 
-**Harmonization status**:  impossible  
+**Harmonization status**:  complete    
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
 
+oth_HAPIEE_RU_0$poh_sah_good_0<-recode(as.integer(HAPIEE_W1_srh$h7),"1"=1L,"2"=1L,"3"=0L,"4"=0L,"5"=0L)
 
 ```  
 ### **Variable label**:  Less than good self-assessed health  

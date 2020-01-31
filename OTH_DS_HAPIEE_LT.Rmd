@@ -2490,7 +2490,7 @@ oth_HAPIEE_LT_0$poh_sah_0<-recode(as.integer(HAPIEE_W2$w2h7),"1"=0L,"2"=0L,"3"=1
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_HAPIEE_LT_0$poh_sah_poor_0<-recode(as.integer(HAPIEE_W2$w2h7),"1"=0L,"2"=0L,"3"=0L,"4"=1L,"5"=1L)
+oth_HAPIEE_LT_0$poh_sah_poor_0<-recode(as.integer(HAPIEE_W2$w2h7),"1"=1L,"2"=1L,"3"=1L,"4"=0L,"5"=0L)
 
 ```  
 ### **Variable label**:  Poor self-assessed health  
