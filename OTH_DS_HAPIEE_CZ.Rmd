@@ -96,7 +96,7 @@ MyMerge <- function(x,y){
 med_table <- Reduce(MyMerge, list(HAPIEE_W1,HAPIEE_W2))
 #Harmonization scripts to create "ever had "
 
-med_table$dis_hbp_ever_0 <- recode(as.integer(med_table$h14),"1"=1L,"2"=0L)
+med_table$dis_hbp_ever_0 <- recode(as.integer(med_table$h14),"1"=1L,"2"=0L,.default=NA_integer_)
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_HAPIEE_CZ_0<-merge(oth_HAPIEE_CZ_0,med_table[,c("id","dis_hbp_ever_0")],by="id",all.x=TRUE)
 
@@ -2386,7 +2386,7 @@ oth_HAPIEE_CZ_0$phy_waist_all_0<-ifelse(HAPIEE_W1$e61==999,NA,HAPIEE_W1$e61)
 **R script**:  
 ```{r, echo=TRUE}
 
-oth_HAPIEE_CZ_0 <- recode(as.integer(HAPIEE_W1_srh$h7),"1"=0L,"2"=0L,"3"=1L,"4"=2L,"5"=2L)
+oth_HAPIEE_CZ_0$poh_sah_0 <- recode(as.integer(HAPIEE_W1_srh$h7),"1"=0L,"2"=0L,"3"=1L,"4"=2L,"5"=2L)
 ```  
 ### **Variable label**:  Self-assessed health   
 **Variable name**:  poh_sah_1  
