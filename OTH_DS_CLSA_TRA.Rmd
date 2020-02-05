@@ -6,7 +6,7 @@ output: html_document
 ## Login to server and assign study data
 ```{r, echo=FALSE}
 #Load Opal R library
-library(opal)
+library(opalr)
 library(tidyverse)
 # Create an opal object with the login information
 erasmus_opal <- opal.login()
@@ -2311,8 +2311,6 @@ table(oth_CLSA_tra_0$phy_bmi_cat_ms_0)
 ```{r, echo=TRUE}
 oth_CLSA_tra_0$poh_sah_0<- recode(as.integer(CLSA_tra_0$GEN_HLTH_TRM),'1'=0L,'2'=0L, '3'=0L,'4'=1L,'5'=2L,
                               .default=NA_integer_)
-table(oth_CLSA_tra_0$poh_sah_0)
-table(CLSA_tra_0$GEN_HLTH_TRM)
 ```  
 ### **Variable label**:  Self-assessed health   
 **Variable name**:  poh_sah_1  
@@ -2333,8 +2331,6 @@ table(CLSA_tra_0$GEN_HLTH_TRM)
 ```{r, echo=TRUE}
 oth_CLSA_tra_1$poh_sah_1 <- recode(as.integer(CLSA_tra_1$GEN_HLTH_TRF1),'1'=0L,'2'=0L, '3'=0L,'4'=1L,'5'=2L,
                               .default=NA_integer_)
-table(oth_CLSA_tra_1$poh_sah_1)
-table(CLSA_tra_1$GEN_HLTH_TRF1)
 
 ```  
 ### **Variable label**:  Self-assessed health   
@@ -2580,10 +2576,8 @@ oth_CLSA_tra_1$poh_sah_poor_1<- recode(as.integer(CLSA_tra_1$GEN_HLTH_TRF1),'5'=
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 oth_CLSA_tra_0$poh_sah_good_0<- recode(as.integer(CLSA_tra_0$GEN_HLTH_TRM),'4'=0L,'5'=0L,'1'=1L,'2'=1L,'3'=1L,
                               .default=NA_integer_)
-
 ```  
 ### **Variable label**:  Less than good self-assessed health  
 **Variable name**:  poh_sah_good_1    
