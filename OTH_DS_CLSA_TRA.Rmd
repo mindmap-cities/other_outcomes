@@ -127,10 +127,9 @@ oth_CLSA_tra_1<-merge(oth_CLSA_tra_1,med_table_tr[,c("id","dis_hbp_ever_1")],by=
 
 
 **Harmonization status**:  impossible    
-**Harmonization comment**:   The harmonized variable "participant has ever taken medication for high blood pressure or hypertension" for the followup wave was created using "participant has ever taken medication for high blood pressure or hypertension" from baseline and previous and current wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
+**Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**: Medication for high blood pressure or hypertension    
@@ -151,7 +150,6 @@ oth_CLSA_tra_1<-merge(oth_CLSA_tra_1,med_table_tr[,c("id","dis_hbp_ever_1")],by=
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**: Medication for high blood pressure or hypertension    
 **Variable name**:  dis_hbp_med_3    
@@ -170,7 +168,6 @@ oth_CLSA_tra_1<-merge(oth_CLSA_tra_1,med_table_tr[,c("id","dis_hbp_ever_1")],by=
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**: Medication for high blood pressure or hypertension    
@@ -191,7 +188,6 @@ oth_CLSA_tra_1<-merge(oth_CLSA_tra_1,med_table_tr[,c("id","dis_hbp_ever_1")],by=
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**: Medication for high blood pressure or hypertension    
 **Variable name**:  dis_hbp_med_5  
@@ -210,7 +206,6 @@ oth_CLSA_tra_1<-merge(oth_CLSA_tra_1,med_table_tr[,c("id","dis_hbp_ever_1")],by=
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 # Angina subdomain
