@@ -223,18 +223,13 @@ oth_CLSA_tra_1<-merge(oth_CLSA_tra_1,med_table_tr[,c("id","dis_hbp_ever_1")],by=
 1        |  Ever had angina  
   
 **Harmonization status**:  complete  
-**Harmonization comment**:  The harmonized variable "Lifetime occurrence of angina (pain or discomfort in chest)" for followup wave was created using "Lifetime occurrence of angina (pain or discomfort in chest)" from baseline and previous and current wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
+**Harmonization comment**:  The harmonized variable "Lifetime occurrence of angina (pain or discomfort in chest)" for followup wave was created using "Lifetime occurrence of angina (pain or discomfort in chest)" from baseline and previous and current wave. To create this variable, all CLSA Tracking Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 
 **R script**:  
 ```{r, echo=TRUE}
-
 med_table_tr$dis_angina_ever_0 <- recode(as.integer(med_table_tr$CCT_ANGI_TRM),"1"=1L,"2"=0L)
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_CLSA_tra_0<-merge(oth_CLSA_tra_0,med_table_tr[,c("id","dis_angina_ever_0")],by="id",all.x=TRUE)
-table(oth_CLSA_tra_0$dis_angina_ever_0)
-
-
-
 ```  
 ### **Variable label**: Lifetime occurrence of angina 
 **Variable name**:  dis_angina_ever_1  
@@ -249,17 +244,14 @@ table(oth_CLSA_tra_0$dis_angina_ever_0)
 1        |  Ever had angina  
   
 **Harmonization status**:  complete  
-**Harmonization comment**:   The harmonized variable "Lifetime occurrence of angina (pain or discomfort in chest)" for followup wave was created using "Lifetime occurrence of angina (pain or discomfort in chest)" from baseline and previous and current wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
+**Harmonization comment**:   The harmonized variable "Lifetime occurrence of angina (pain or discomfort in chest)" for followup wave was created using "Lifetime occurrence of angina (pain or discomfort in chest)" from baseline and previous and current wave. To create this variable, all CLSA Tracking Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 
 **R script**:  
 ```{r, echo=TRUE}
-table(CLSA_tra_1$CCT_ANGI_TRF1)
-
-med_table_tr$dis_angina_ever_1<-  ifelse(med_table_tr$dis_angina_ever_0==1|  as.integer(med_table_tr$CCT_ANGI_TRF1)=='1',1L, ifelse(med_table_tr$dis_angina_ever_0==0&as.integer(med_table_tr$CCT_ANGI_TRF1)=='2',0L,
-                              NA))
+med_table_tr$dis_angina_ever_1<-  ifelse(med_table_tr$dis_angina_ever_0==1|  as.integer(med_table_tr$CCT_ANGI_TRF1)=='1',1L, ifelse(med_table_tr$dis_angina_ever_0==0&as.integer(med_table_tr$CCT_ANGI_TRF1)=='2',0L,NA))
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_CLSA_tra_1<-merge(oth_CLSA_tra_1,med_table_tr[,c("id","dis_angina_ever_1")],by="id",all.x=TRUE)
-table(oth_CLSA_tra_1$dis_angina_ever_1)
+table(oth_CLSA_tra_1$dis_angina_ever_1,useNA='always')
 ```  
 ### **Variable label**: Lifetime occurrence of angina 
 **Variable name**:  dis_angina_ever_2  
@@ -277,7 +269,6 @@ table(oth_CLSA_tra_1$dis_angina_ever_1)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**: Lifetime occurrence of angina 
@@ -297,7 +288,6 @@ table(oth_CLSA_tra_1$dis_angina_ever_1)
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**: Lifetime occurrence of angina 
 **Variable name**:  dis_angina_ever_4  
@@ -315,7 +305,6 @@ table(oth_CLSA_tra_1$dis_angina_ever_1)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 
