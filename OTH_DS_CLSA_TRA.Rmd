@@ -58,7 +58,7 @@ opal.logout(erasmus_opal)
 1          |  Ever had high blood pressure or hypertension  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   The harmonized variable "Lifetime occurrence of high blood pressure or hypertension" for followup wave was created using "Lifetime occurrence of high blood pressure or hypertension" from baseline and followup wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
+**Harmonization comment**:   The harmonized variable "Lifetime occurrence of high blood pressure or hypertension" for followup wave was created using "Lifetime occurrence of high blood pressure or hypertension" from baseline and followup wave. To create this variable, all CLSA Tracking Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
 
 **R script**:  
 ```{r, echo=TRUE}
@@ -73,8 +73,6 @@ med_table_tr <- Reduce(MyMerge, list(CLSA_tra_0, CLSA_tra_1))
 med_table_tr$dis_hbp_ever_0 <- recode(as.integer(med_table_tr$CCT_HBP_TRM),"1"=1L,"2"=0L)
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_CLSA_tra_0<-merge(oth_CLSA_tra_0,med_table_tr[,c("id","dis_hbp_ever_0")],by="id",all.x=TRUE)
-
-table(oth_CLSA_tra_0$dis_hbp_ever_0)
 ```  
 ### **Variable label**: Lifetime occurrence of high blood pressure or hypertension    
 **Variable name**: dis_hbp_ever_1  
@@ -89,16 +87,12 @@ table(oth_CLSA_tra_0$dis_hbp_ever_0)
 1          |  Ever had high blood pressure or hypertension  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   The harmonized variable "Lifetime occurrence of high blood pressure or hypertension" for followup wave was created using "Lifetime occurrence of high blood pressure or hypertension" from baseline and followup wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
+**Harmonization comment**:   The harmonized variable "Lifetime occurrence of high blood pressure or hypertension" for followup wave was created using "Lifetime occurrence of high blood pressure or hypertension" from baseline and followup wave. To create this variable, all CLSA Tracking Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
 **R script**:  
 ```{r, echo=TRUE}
 med_table_tr$dis_hbp_ever_1<- ifelse(med_table_tr$dis_hbp_ever_0==1 | as.integer(med_table_tr$CCT_HBP_TRF1)=="1",1L,ifelse(med_table_tr$dis_hbp_ever_0==0 & as.integer(med_table_tr$CCT_HBP_TRF1)=="2", 0L, NA))
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_CLSA_tra_1<-merge(oth_CLSA_tra_1,med_table_tr[,c("id","dis_hbp_ever_1")],by="id",all.x=TRUE)
-table(oth_CLSA_tra_1$dis_hbp_ever_1)
-table(med_table_tr$dis_hbp_ever_1, med_table_tr$CCT_HBP_TRM)
-table(med_table_tr$CCT_HBP_TRM[med_table_tr$dis_hbp_ever_1==1& med_table_tr$CCT_HBP_TRF1==2])
-
 ``` 
 ### **Variable label**: Medication for high blood pressure or hypertension    
 **Variable name**:  dis_hbp_med_0  
@@ -133,10 +127,9 @@ table(med_table_tr$CCT_HBP_TRM[med_table_tr$dis_hbp_ever_1==1& med_table_tr$CCT_
 
 
 **Harmonization status**:  impossible    
-**Harmonization comment**:   The harmonized variable "participant has ever taken medication for high blood pressure or hypertension" for the followup wave was created using "participant has ever taken medication for high blood pressure or hypertension" from baseline and previous and current wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
+**Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**: Medication for high blood pressure or hypertension    
@@ -157,7 +150,6 @@ table(med_table_tr$CCT_HBP_TRM[med_table_tr$dis_hbp_ever_1==1& med_table_tr$CCT_
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**: Medication for high blood pressure or hypertension    
 **Variable name**:  dis_hbp_med_3    
@@ -176,7 +168,6 @@ table(med_table_tr$CCT_HBP_TRM[med_table_tr$dis_hbp_ever_1==1& med_table_tr$CCT_
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**: Medication for high blood pressure or hypertension    
@@ -197,7 +188,6 @@ table(med_table_tr$CCT_HBP_TRM[med_table_tr$dis_hbp_ever_1==1& med_table_tr$CCT_
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**: Medication for high blood pressure or hypertension    
 **Variable name**:  dis_hbp_med_5  
@@ -217,7 +207,6 @@ table(med_table_tr$CCT_HBP_TRM[med_table_tr$dis_hbp_ever_1==1& med_table_tr$CCT_
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 # Angina subdomain
 
@@ -234,18 +223,13 @@ table(med_table_tr$CCT_HBP_TRM[med_table_tr$dis_hbp_ever_1==1& med_table_tr$CCT_
 1        |  Ever had angina  
   
 **Harmonization status**:  complete  
-**Harmonization comment**:  The harmonized variable "Lifetime occurrence of angina (pain or discomfort in chest)" for followup wave was created using "Lifetime occurrence of angina (pain or discomfort in chest)" from baseline and previous and current wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
+**Harmonization comment**:  The harmonized variable "Lifetime occurrence of angina (pain or discomfort in chest)" for followup wave was created using "Lifetime occurrence of angina (pain or discomfort in chest)" from baseline and previous and current wave. To create this variable, all CLSA Tracking Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 
 **R script**:  
 ```{r, echo=TRUE}
-
 med_table_tr$dis_angina_ever_0 <- recode(as.integer(med_table_tr$CCT_ANGI_TRM),"1"=1L,"2"=0L)
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_CLSA_tra_0<-merge(oth_CLSA_tra_0,med_table_tr[,c("id","dis_angina_ever_0")],by="id",all.x=TRUE)
-table(oth_CLSA_tra_0$dis_angina_ever_0)
-
-
-
 ```  
 ### **Variable label**: Lifetime occurrence of angina 
 **Variable name**:  dis_angina_ever_1  
@@ -260,17 +244,14 @@ table(oth_CLSA_tra_0$dis_angina_ever_0)
 1        |  Ever had angina  
   
 **Harmonization status**:  complete  
-**Harmonization comment**:   The harmonized variable "Lifetime occurrence of angina (pain or discomfort in chest)" for followup wave was created using "Lifetime occurrence of angina (pain or discomfort in chest)" from baseline and previous and current wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
+**Harmonization comment**:   The harmonized variable "Lifetime occurrence of angina (pain or discomfort in chest)" for followup wave was created using "Lifetime occurrence of angina (pain or discomfort in chest)" from baseline and previous and current wave. To create this variable, all CLSA Tracking Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 
 **R script**:  
 ```{r, echo=TRUE}
-table(CLSA_tra_1$CCT_ANGI_TRF1)
-
-med_table_tr$dis_angina_ever_1<-  ifelse(med_table_tr$dis_angina_ever_0==1|  as.integer(med_table_tr$CCT_ANGI_TRF1)=='1',1L, ifelse(med_table_tr$dis_angina_ever_0==0&as.integer(med_table_tr$CCT_ANGI_TRF1)=='2',0L,
-                              NA))
+med_table_tr$dis_angina_ever_1<-  ifelse(med_table_tr$dis_angina_ever_0==1|  as.integer(med_table_tr$CCT_ANGI_TRF1)=='1',1L, ifelse(med_table_tr$dis_angina_ever_0==0&as.integer(med_table_tr$CCT_ANGI_TRF1)=='2',0L,NA))
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_CLSA_tra_1<-merge(oth_CLSA_tra_1,med_table_tr[,c("id","dis_angina_ever_1")],by="id",all.x=TRUE)
-table(oth_CLSA_tra_1$dis_angina_ever_1)
+table(oth_CLSA_tra_1$dis_angina_ever_1,useNA='always')
 ```  
 ### **Variable label**: Lifetime occurrence of angina 
 **Variable name**:  dis_angina_ever_2  
@@ -288,7 +269,6 @@ table(oth_CLSA_tra_1$dis_angina_ever_1)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**: Lifetime occurrence of angina 
@@ -308,7 +288,6 @@ table(oth_CLSA_tra_1$dis_angina_ever_1)
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**: Lifetime occurrence of angina 
 **Variable name**:  dis_angina_ever_4  
@@ -327,7 +306,6 @@ table(oth_CLSA_tra_1$dis_angina_ever_1)
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 
 # Myocardial infarction subdomain
@@ -345,14 +323,12 @@ table(oth_CLSA_tra_1$dis_angina_ever_1)
 1        |   Ever had myocardial infarction  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  The harmonized variable "Lifetime occurrence of myocardial infarction (heart attack)" for followup wave was created using "Lifetime occurrence of myocardial infarction (heart attack)" from baseline and previous and current wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
+**Harmonization comment**:  The harmonized variable "Lifetime occurrence of myocardial infarction (heart attack)" for followup wave was created using "Lifetime occurrence of myocardial infarction (heart attack)" from baseline and previous and current wave. To create this variable, all CLSA Tracking Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
 **R script**:  
 ```{r, echo=TRUE}
 med_table_tr$dis_mi_ever_0 <- recode(as.integer(med_table_tr$CCT_AMI_TRM),"1"=1L,"2"=0L)
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_CLSA_tra_0<-merge(oth_CLSA_tra_0,med_table_tr[,c("id","dis_mi_ever_0")],by="id",all.x=TRUE)
-table(oth_CLSA_tra_0$dis_mi_ever_0)
-
 ```  
 ### **Variable label**: Lifetime occurrence of myocardial infarction    
 **Variable name**:  dis_mi_ever_1  
@@ -367,18 +343,13 @@ table(oth_CLSA_tra_0$dis_mi_ever_0)
 1        |   Ever had myocardial infarction  
 
 **Harmonization status**:  complete  
-**Harmonization comment**: The harmonized variable "Lifetime occurrence of myocardial infarction (heart attack)" for followup wave was created using "Lifetime occurrence of myocardial infarction (heart attack)" from baseline and previous and current wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
+**Harmonization comment**: The harmonized variable "Lifetime occurrence of myocardial infarction (heart attack)" for followup wave was created using "Lifetime occurrence of myocardial infarction (heart attack)" from baseline and previous and current wave. To create this variable, all CLSA Tracking Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
  
 **R script**:  
 ```{r, echo=TRUE}
-table(CLSA_tra_1$CCT_AMI_TRF1)
-
-med_table_tr$dis_mi_ever_1<- ifelse(med_table_tr$dis_mi_ever_0==1|  as.integer(med_table_tr$CCT_AMI_TRF1)=='1',1L,ifelse(med_table_tr$dis_mi_ever_0==0&as.integer(med_table_tr$CCT_AMI_TRF1)=='2',0L,
-                               NA))
+med_table_tr$dis_mi_ever_1<- ifelse(med_table_tr$dis_mi_ever_0==1|  as.integer(med_table_tr$CCT_AMI_TRF1)=='1',1L,ifelse(med_table_tr$dis_mi_ever_0==0&as.integer(med_table_tr$CCT_AMI_TRF1)=='2',0L,NA))
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_CLSA_tra_1<-merge(oth_CLSA_tra_1,med_table_tr[,c("id","dis_mi_ever_1")],by="id",all.x=TRUE)
-table(oth_CLSA_tra_1$dis_mi_ever_1)
-
 ```  
 ### **Variable label**: Lifetime occurrence of myocardial infarction    
 **Variable name**:  dis_mi_ever_2  
@@ -397,7 +368,6 @@ table(oth_CLSA_tra_1$dis_mi_ever_1)
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 
 ### **Variable label**: Age at first Myocardial infarction  
@@ -412,7 +382,6 @@ table(oth_CLSA_tra_1$dis_mi_ever_1)
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**: Age at first Myocardial infarction  
 **Variable name**:  dis_mi_age_1  
@@ -426,9 +395,6 @@ table(oth_CLSA_tra_1$dis_mi_ever_1)
 **R script**:  
 ```{r, echo=TRUE}
 oth_CLSA_tra_1$dis_mi_age_1<-as.integer(CLSA_tra_1$CCT_AMIAGE_NB_TRF1)
-class(oth_CLSA_tra_1$dis_mi_age_1)
-table(oth_CLSA_tra_1$dis_mi_age_1, useNA="always")
-
 ```  
 ### **Variable label**: Age at first Myocardial infarction  
 **Variable name**:  dis_mi_age_2  
@@ -441,7 +407,6 @@ table(oth_CLSA_tra_1$dis_mi_age_1, useNA="always")
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 # Stroke subdomain
@@ -459,16 +424,12 @@ table(oth_CLSA_tra_1$dis_mi_age_1, useNA="always")
 1        |   Ever had stroke or CVA  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  The harmonized variable "Lifetime occurrence of stroke or cerebrovascular accident (CVA)" for followup wave was created using "Lifetime occurrence of stroke or cerebrovascular accident (CVA)" from baseline and previous and current wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
+**Harmonization comment**:  The harmonized variable "Lifetime occurrence of stroke or cerebrovascular accident (CVA)" for followup wave was created using "Lifetime occurrence of stroke or cerebrovascular accident (CVA)" from baseline and previous and current wave. To create this variable, all CLSA Tracking Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 **R script**:  
 ```{r, echo=TRUE}
-
 med_table_tr$dis_stroke_ever_0 <- recode(as.integer(med_table_tr$CCT_CVA_TRM),"1"=1L,"2"=0L)
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_CLSA_tra_0<-merge(oth_CLSA_tra_0,med_table_tr[,c("id","dis_stroke_ever_0")],by="id",all.x=TRUE)
-table(oth_CLSA_tra_0$dis_stroke_ever_0)
-table(med_table_tr$CCT_CVA_TRM)
-
 ```  
 ### **Variable label**: Lifetime occurrence of stroke or CVA  
 **Variable name**:  dis_stroke_ever_1  
@@ -483,15 +444,13 @@ table(med_table_tr$CCT_CVA_TRM)
 1        |   Ever had stroke or CVA  
 
 **Harmonization status**:  complete  
-**Harmonization comment**: The harmonized variable "Lifetime occurrence of stroke or cerebrovascular accident (CVA)" for followup wave was created using "Lifetime occurrence of stroke or cerebrovascular accident (CVA)" from baseline and previous and current wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
+**Harmonization comment**: The harmonized variable "Lifetime occurrence of stroke or cerebrovascular accident (CVA)" for followup wave was created using "Lifetime occurrence of stroke or cerebrovascular accident (CVA)" from baseline and previous and current wave. To create this variable, all CLSA Tracking Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 
 **R script**:  
 ```{r, echo=TRUE}
-med_table_tr$dis_stroke_ever_1<- ifelse(med_table_tr$dis_stroke_ever_0==1|  as.integer(med_table_tr$CCT_CVA_TRF1)=='1',1L,ifelse(med_table_tr$dis_stroke_ever_0==0&as.integer(med_table_tr$CCT_CVA_TRF1)=='2',0L,
-                               NA))
+med_table_tr$dis_stroke_ever_1<- ifelse(med_table_tr$dis_stroke_ever_0==1|  as.integer(med_table_tr$CCT_CVA_TRF1)=='1',1L,ifelse(med_table_tr$dis_stroke_ever_0==0&as.integer(med_table_tr$CCT_CVA_TRF1)=='2',0L,NA))
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_CLSA_tra_1<-merge(oth_CLSA_tra_1,med_table_tr[,c("id","dis_stroke_ever_1")],by="id",all.x=TRUE)
-table(oth_CLSA_tra_1$dis_stroke_ever_1)
 ```  
 ### **Variable label**: Lifetime occurrence of stroke or CVA  
 **Variable name**:  dis_stroke_ever_2  
@@ -536,9 +495,6 @@ table(oth_CLSA_tra_1$dis_stroke_ever_1)
 **R script**:  
 ```{r, echo=TRUE}
 oth_CLSA_tra_1$dis_stroke_age_1<-as.integer(CLSA_tra_1$CCT_CVAAGE_NB_TRF1)
-summary(oth_CLSA_tra_1$dis_stroke_age_1)
-table(oth_CLSA_tra_1$dis_stroke_age_1)
-
 ```  
 ### **Variable label**: Age at first stroke or CVA  
 **Variable name**:  dis_stroke_age_2  
@@ -570,14 +526,12 @@ table(oth_CLSA_tra_1$dis_stroke_age_1)
 1          |  Ever had diabetes  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  The harmonized variable "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" for followup wave was created using "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" from baseline and followup wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
+**Harmonization comment**:  The harmonized variable "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" for followup wave was created using "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" from baseline and followup wave. To create this variable, all CLSA Tracking Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
 **R script**:  
 ```{r, echo=TRUE}  
 med_table_tr$dis_diab_ever_0 <- recode(as.integer(med_table_tr$CCT_DIAB_TRM),"1"=1L,"2"=0L)
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_CLSA_tra_0<-merge(oth_CLSA_tra_0,med_table_tr[,c("id","dis_diab_ever_0")],by="id",all.x=TRUE)
-table(oth_CLSA_tra_0$dis_diab_ever_0)
-
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
 **Variable name**: dis_diab_ever_1  
@@ -592,14 +546,12 @@ table(oth_CLSA_tra_0$dis_diab_ever_0)
 1          |  Ever had diabetes  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  The harmonized variable "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" for followup wave was created using "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" from baseline and followup wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
+**Harmonization comment**:  The harmonized variable "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" for followup wave was created using "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" from baseline and followup wave. To create this variable, all CLSA Tracking Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
 **R script**:  
 ```{r, echo=TRUE}  
 med_table_tr$dis_diab_ever_1<- ifelse(med_table_tr$dis_diab_ever_0==1|  as.integer(med_table_tr$CCT_DIAB_TRF1)=='1',1L,ifelse(med_table_tr$dis_diab_ever_0==0&as.integer(med_table_tr$CCT_DIAB_TRF1)=='2',0L,NA))
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_CLSA_tra_1<-merge(oth_CLSA_tra_1,med_table_tr[,c("id","dis_diab_ever_1")],by="id",all.x=TRUE)
-table(oth_CLSA_tra_1$dis_diab_ever_1)
-
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
 **Variable name**: dis_diab_ever_2  
@@ -698,7 +650,6 @@ table(oth_CLSA_tra_1$dis_diab_ever_1)
 **R script**:  
 ```{r, echo=TRUE}  
 oth_CLSA_tra_1$dis_diab_age_1<-as.integer(CLSA_tra_1$CCT_DIABAGE_NB_TRF1)
-summary(oth_CLSA_tra_1$dis_diab_age_1)
 ```  
 ### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
 **Variable name**:  dis_diab_age_2    
