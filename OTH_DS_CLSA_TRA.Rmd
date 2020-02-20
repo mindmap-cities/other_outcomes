@@ -2630,14 +2630,10 @@ oth_CLSA_tra_1$poh_sah_good_1<- recode(as.integer(CLSA_tra_1$GEN_HLTH_TRF1),'4'=
 1 |   Has difficulty walking up and down the stairs  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   
+**Harmonization comment**:  study-specific variables is categorized as Yes | No | unable to do | Don't do on doctor's orders. "Don't do on doctor's orders" is coded to "Has difficulty walking up and down the stairs".  
 **R script**:  
 ```{r, echo=TRUE}
-
-table(CLSA_tra_0$FUL_FSTR_TRM,useNA="always")
 oth_CLSA_tra_0$fct_stairs_diff_0 <- recode(as.integer(CLSA_tra_0$FUL_FSTR_TRM),'2'=0L,'1'=1L,'3'=1L,'4'=1L,.default=NA_integer_)
-table(oth_CLSA_tra_0$fct_stairs_diff_0)
-
 ```  
 ### **Variable label**:  Difficulty walking up and down the stairs  
 **Variable name**:  fct_stairs_diff_1  
@@ -2652,13 +2648,10 @@ table(oth_CLSA_tra_0$fct_stairs_diff_0)
 1 |   Has difficulty walking up and down the stairs  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   
+**Harmonization comment**:  study-specific variables is categorized as Yes | No | unable to do | Don't do on doctor's orders. "Don't do on doctor's orders" is coded to "Has difficulty walking up and down the stairs".  
 **R script**:  
 ```{r, echo=TRUE}
-table(CLSA_tra_1$FUL_FSTR_TRF1,useNA="always")
 oth_CLSA_tra_1$fct_stairs_diff_1 <- recode(as.integer(CLSA_tra_1$FUL_FSTR_TRF1),'2'=0L,'1'=1L,'3'=1L,'4'=1L,.default=NA_integer_)
-table(oth_CLSA_tra_1$fct_stairs_diff_1)
-
 ```  
 ### **Variable label**:  Difficulty walking up and down the stairs  
 **Variable name**:  fct_stairs_diff_2  
@@ -2697,7 +2690,6 @@ table(oth_CLSA_tra_1$fct_stairs_diff_1)
 ```{r, echo=TRUE}
 table(CLSA_tra_0$FUL_WK23B_TRM,useNA="always")
 oth_CLSA_tra_0$fct_walk_diff_0 <- recode(as.integer(CLSA_tra_0$FUL_WK23B_TRM),'2'=1L,'1'=0L,'3'=0L,'4'=0L,.default=NA_integer_)
-table(oth_CLSA_tra_0$fct_walk_diff_0)
 ```  
 ### **Variable label**:  Difficulty walking    
 **Variable name**:  fct_walk_diff_1  
@@ -2715,10 +2707,7 @@ table(oth_CLSA_tra_0$fct_walk_diff_0)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
-table(CLSA_tra_1$FUL_WK23B_TRF1,useNA="always")
 oth_CLSA_tra_1$fct_walk_diff_1 <- recode(as.integer(CLSA_tra_1$FUL_WK23B_TRF1),'2'=1L,'1'=0L,'3'=0L,'4'=0L,.default=NA_integer_)
-
 ```  
 ### **Variable label**:  Difficulty walking    
 **Variable name**:  fct_walk_diff_2  
