@@ -970,9 +970,7 @@ oth_CLSA_tra_1$dis_diab_age_1<-as.integer(CLSA_tra_1$CCT_DIABAGE_NB_TRF1)
 **Harmonization comment**: 
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_tra_0$phy_weight_sr_0<- CLSA_tra_0$HWT_WGHT_KG_TRM
-summary(oth_CLSA_tra_0$phy_weight_sr_0)
-table(oth_CLSA_tra_0$phy_weight_sr_0)
+oth_CLSA_tra_0$phy_weight_sr_0<- as.numeric(CLSA_tra_0$HWT_WGHT_KG_TRM)
 ```  
 ### **Variable label**: Weight in kg - self-reported 
 **Variable name**: phy_weight_sr_1    
@@ -982,24 +980,16 @@ table(oth_CLSA_tra_0$phy_weight_sr_0)
 **Category coding**: N/A
 
 **Harmonization status**: complete    
-**Harmonization comment**:   Participants reported their weight either in pounds or in kgs. When the reported weight was in pounds it was converted into kgs.  
+**Harmonization comment**:   Participants reported their weight either in pounds or in kg. When the reported weight was in pounds it was converted into kg.  
 **R script**:  
 ```{r, echo=TRUE}
 #??
 oth_CLSA_tra_1$phy_weight_sr_1<- ifelse(CLSA_tra_1$HWT_WGHT_PK_TRF1==2, CLSA_tra_1$HWT_WGHT_NB_TRF1, ifelse(CLSA_tra_1$HWT_WGHT_PK_TRF1==1, round(CLSA_tra_1$HWT_WGHT_NB_TRF1*0.453592), NA))
 
 #Variable for the unit of Self-reported health. 1-Pounds, 2-KG. Should we round these numbers? Self-reported weights such as 107.047712 looks weird 
-table(CLSA_tra_1$HWT_WGHT_PK_TRF1)
-
-summary(oth_CLSA_tra_1$phy_weight_sr_1)
-table(oth_CLSA_tra_1$phy_weight_sr_1)
-table(CLSA_tra_1$id [CLSA_tra_1$HWT_WGHT_NB_TRF1<30])
-table(CLSA_tra_1$HWT_WGHT_NB_TRF1[CLSA_tra_1$HWT_WGHT_NB_TRF1<30])
-
 #based on cohort answer, weights smaller than 25kg, coded as NAs
 
 oth_CLSA_tra_1$phy_weight_sr_1[oth_CLSA_tra_1$phy_weight_sr_1<25]<-NA
-table(oth_CLSA_tra_1$phy_weight_sr_1, useNA="always")
 ```  
 ### **Variable label**: Weight in kg - self-reported 
 **Variable name**: phy_weight_sr_2    
@@ -1078,8 +1068,6 @@ table(oth_CLSA_tra_1$phy_weight_sr_1, useNA="always")
 **R script**:  
 ```{r, echo=TRUE}
 oth_CLSA_tra_0$phy_weight_all_0<-as.numeric(CLSA_tra_0$HWT_WGHT_KG_TRM)
-summary(oth_CLSA_tra_0$phy_weight_all_0)
-class(oth_CLSA_tra_0$phy_weight_all_0)
 ```  
 
 ### **Variable label**: Weight in kg - measured and self-reported combined
@@ -1094,10 +1082,6 @@ class(oth_CLSA_tra_0$phy_weight_all_0)
 **R script**:  
 ```{r, echo=TRUE}
 oth_CLSA_tra_1$phy_weight_all_1<-ifelse(CLSA_tra_1$HWT_WGHT_PK_TRF1==2, CLSA_tra_1$HWT_WGHT_NB_TRF1, ifelse(CLSA_tra_1$HWT_WGHT_PK_TRF1==1, round(CLSA_tra_1$HWT_WGHT_NB_TRF1*0.453592), NA))
-
-table(CLSA_tra_1$HWT_WGHT_NB_TRF1)
-table(oth_CLSA_tra_1$phy_weight_all_1)
-class(oth_CLSA_tra_1$phy_weight_all_1)
 ```  
 ### **Variable label**: Weight in kg - measured and self-reported combined  
 **Variable name**: phy_weight_all_2    
@@ -1269,7 +1253,6 @@ class(oth_CLSA_tra_1$phy_weight_all_1)
 **R script**:  
 ```{r, echo=TRUE}
 oth_CLSA_tra_0$phy_height_sr_0<- (CLSA_tra_0$HWT_DHT_M_TRM*100)
-table(oth_CLSA_tra_0$phy_height_sr_0)
 ```  
 ### **Variable label**: Height in cm - self-reported  
 **Variable name**: phy_height_sr_1  
@@ -1362,7 +1345,6 @@ table(oth_CLSA_tra_0$phy_height_sr_0)
 **R script**:  
 ```{r, echo=TRUE}
 oth_CLSA_tra_0$phy_height_all_0<-CLSA_tra_0$HWT_DHT_M_TRM*100
-table(oth_CLSA_tra_0$phy_height_all_0)
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined  
 **Variable name**: phy_height_all_1    
@@ -1455,7 +1437,6 @@ table(oth_CLSA_tra_0$phy_height_all_0)
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**: Body mass index (BMI) - measured  
 **Variable name**: phy_bmi_ms_1  
@@ -1468,7 +1449,6 @@ table(oth_CLSA_tra_0$phy_height_all_0)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured  
@@ -1548,8 +1528,7 @@ table(oth_CLSA_tra_0$phy_height_all_0)
 **Harmonization comment**:     
 **R script**:  
 ```{r, echo=TRUE}
-
-oth_CLSA_tra_0$phy_bmi_ms_0 <-as.numeric(CLSA_tra_0$HWT_DBMI_TRM)
+oth_CLSA_tra_0$phy_bmi_sr_0 <-as.numeric(CLSA_tra_0$HWT_DBMI_TRM)
 ```  
 ### **Variable label**: Body mass index (BMI) - self-reported  
 **Variable name**: phy_bmi_sr_1  
@@ -1559,7 +1538,7 @@ oth_CLSA_tra_0$phy_bmi_ms_0 <-as.numeric(CLSA_tra_0$HWT_DBMI_TRM)
 **Category coding**: N/A
 
 **Harmonization status**:  impossible  
-**Harmonization comment**:   The self-reported BMI is calculated by dividing the self reported weight by self-reported height.  
+**Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
 
@@ -1642,7 +1621,6 @@ oth_CLSA_tra_0$phy_bmi_ms_0 <-as.numeric(CLSA_tra_0$HWT_DBMI_TRM)
 **R script**:  
 ```{r, echo=TRUE}
 oth_CLSA_tra_0$phy_bmi_all_0 <-as.numeric(CLSA_tra_0$HWT_DBMI_TRM)
-
 ```  
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
 **Variable name**: phy_bmi_all_1  
@@ -1882,9 +1860,7 @@ oth_CLSA_tra_0$phy_bmi_all_0 <-as.numeric(CLSA_tra_0$HWT_DBMI_TRM)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_tra_0$phy_bmi_cat_sr_0 <-recode(as.integer(CLSA_tra_0$HWT_DISW_TRM), '1'=0L,'2'=1L, '3'=2L,'4'=3L,'5'=3L,"6"=3L,
-                              .default=NA_integer_)
-table(oth_CLSA_tra_0$phy_bmi_cat_sr_0)
+oth_CLSA_tra_0$phy_bmi_cat_sr_0 <-recode(as.integer(CLSA_tra_0$HWT_DISW_TRM), '1'=0L,'2'=1L, '3'=2L,'4'=3L,'5'=3L,"6"=3L,.default=NA_integer_)
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - self-reported  
 **Variable name**: phy_bmi_cat_sr_1    
@@ -1900,8 +1876,8 @@ table(oth_CLSA_tra_0$phy_bmi_cat_sr_0)
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  
-**Harmonization comment**: impossible    
+**Harmonization status**:  impossible  
+**Harmonization comment**:     
 **R script**:  
 ```{r, echo=TRUE}
 
@@ -2025,9 +2001,7 @@ table(oth_CLSA_tra_0$phy_bmi_cat_sr_0)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_tra_0$phy_bmi_cat_ms_0<-recode(as.integer(CLSA_tra_0$HWT_DISW_TRM), '1'=0L,'2'=1L, '3'=2L,'4'=3L,'5'=3L,"6"=3L,
-                              .default=NA_integer_)
-table(oth_CLSA_tra_0$phy_bmi_cat_ms_0)
+oth_CLSA_tra_0$phy_bmi_cat_ms_0<-recode(as.integer(CLSA_tra_0$HWT_DISW_TRM), '1'=0L,'2'=1L, '3'=2L,'4'=3L,'5'=3L,"6"=3L,.default=NA_integer_)
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
 **Variable name**: phy_bmi_cat_all_1    
