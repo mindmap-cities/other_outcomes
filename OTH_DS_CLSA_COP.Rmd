@@ -237,14 +237,9 @@ oth_CLSA_cop_1<-merge(oth_CLSA_cop_1,med_table[,c("id","dis_hbp_med_1")],by="id"
 
 **R script**:  
 ```{r, echo=TRUE}
-
-med_table$dis_angina_ever_0 <- recode(as.integer(med_table$CCC_ANGI_COM),"1"=1L,"2"=0L)
+med_table$dis_angina_ever_0 <- recode(as.integer(med_table$CCC_ANGI_COM),"1"=1L,"2"=0L, .default=NA_integer_)
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_CLSA_cop_0<-merge(oth_CLSA_cop_0,med_table[,c("id","dis_angina_ever_0")],by="id",all.x=TRUE)
-table(oth_CLSA_cop_0$dis_angina_ever_0)
-
-
-
 ```  
 ### **Variable label**: Lifetime occurrence of angina 
 **Variable name**:  dis_angina_ever_1  
@@ -263,12 +258,9 @@ table(oth_CLSA_cop_0$dis_angina_ever_0)
 
 **R script**:  
 ```{r, echo=TRUE}
-table(CLSA_cop_1$CCC_ANGI_COF1)
-
 med_table$dis_angina_ever_1<- ifelse(med_table$dis_angina_ever_0==1|         as.integer(med_table$CCC_ANGI_COF1)=='1',1L,ifelse(med_table$dis_angina_ever_0==0&as.integer(med_table$CCC_ANGI_COF1)=='2',0L,NA))
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_CLSA_cop_1<-merge(oth_CLSA_cop_1,med_table[,c("id","dis_angina_ever_1")],by="id",all.x=TRUE)
-table(oth_CLSA_cop_1$dis_angina_ever_1)
 ```  
 ### **Variable label**: Lifetime occurrence of angina 
 **Variable name**:  dis_angina_ever_2  
@@ -286,7 +278,6 @@ table(oth_CLSA_cop_1$dis_angina_ever_1)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 ### **Variable label**: Lifetime occurrence of angina 
@@ -306,7 +297,6 @@ table(oth_CLSA_cop_1$dis_angina_ever_1)
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 ### **Variable label**: Lifetime occurrence of angina 
 **Variable name**:  dis_angina_ever_4  
@@ -324,7 +314,6 @@ table(oth_CLSA_cop_1$dis_angina_ever_1)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 
@@ -346,11 +335,9 @@ table(oth_CLSA_cop_1$dis_angina_ever_1)
 **Harmonization comment**:  The harmonized variable "Lifetime occurrence of myocardial infarction (heart attack)" for followup wave was created using "Lifetime occurrence of myocardial infarction (heart attack)" from baseline and previous and current wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
 **R script**:  
 ```{r, echo=TRUE}
-med_table$dis_mi_ever_0 <- recode(as.integer(med_table$CCC_AMI_COM),"1"=1L,"2"=0L)
+med_table$dis_mi_ever_0 <- recode(as.integer(med_table$CCC_AMI_COM),"1"=1L,"2"=0L,.default=NA_integer_)
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_CLSA_cop_0<-merge(oth_CLSA_cop_0,med_table[,c("id","dis_mi_ever_0")],by="id",all.x=TRUE)
-table(oth_CLSA_cop_0$dis_mi_ever_0)
-
 ```  
 ### **Variable label**: Lifetime occurrence of myocardial infarction    
 **Variable name**:  dis_mi_ever_1  
@@ -369,16 +356,12 @@ table(oth_CLSA_cop_0$dis_mi_ever_0)
  
 **R script**:  
 ```{r, echo=TRUE}
-table(CLSA_cop_1$CCC_AMI_COF1)
-table(med_table$dis_mi_ever_0, med_table$CCC_AMI_COF1)
+table(CLSA_cop_1$CCC_AMI_COF1,useNA='always')
+table(med_table$dis_mi_ever_0, med_table$CCC_AMI_COF1,useNA='always')
 
-med_table$dis_mi_ever_1<- ifelse(med_table$dis_mi_ever_0==1|  as.integer(med_table$CCC_AMI_COF1)=='1',1L,
-                                 ifelse(med_table$dis_mi_ever_0==0&as.integer(med_table$CCC_AMI_COF1)=='2',0L,
-                               NA))
+med_table$dis_mi_ever_1<- ifelse(med_table$dis_mi_ever_0==1 | as.integer(med_table$CCC_AMI_COF1)=='1', 1L, ifelse(med_table$dis_mi_ever_0==0 & as.integer(med_table$CCC_AMI_COF1)=='2',0L, NA))
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_CLSA_cop_1<-merge(oth_CLSA_cop_1,med_table[,c("id","dis_mi_ever_1")],by="id",all.x=TRUE)
-table(oth_CLSA_cop_1$dis_mi_ever_1)
-
 ```  
 ### **Variable label**: Lifetime occurrence of myocardial infarction    
 **Variable name**:  dis_mi_ever_2  
@@ -397,7 +380,6 @@ table(oth_CLSA_cop_1$dis_mi_ever_1)
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 
 ### **Variable label**: Age at first Myocardial infarction  
@@ -411,11 +393,7 @@ table(oth_CLSA_cop_1$dis_mi_ever_1)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-
-#2 people are coded as having had myocardial infarction at age 2?
-
-oth_CLSA_cop_0$dis_mi_age_0<-CLSA_cop_0$IHD_AMIAGE_NB_COM
-
+oth_CLSA_cop_0$dis_mi_age_0 <- CLSA_cop_0$IHD_AMIAGE_NB_COM
 ```  
 ### **Variable label**: Age at first Myocardial infarction  
 **Variable name**:  dis_mi_age_1  
@@ -429,7 +407,6 @@ oth_CLSA_cop_0$dis_mi_age_0<-CLSA_cop_0$IHD_AMIAGE_NB_COM
 **R script**:  
 ```{r, echo=TRUE}
 oth_CLSA_cop_1$dis_mi_age_1<-CLSA_cop_1$IHD_AMIAGE_NB_COF1
-table(oth_CLSA_cop_1$dis_mi_age_1)
 ```  
 ### **Variable label**: Age at first Myocardial infarction  
 **Variable name**:  dis_mi_age_2  
@@ -442,7 +419,6 @@ table(oth_CLSA_cop_1$dis_mi_age_1)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 # Stroke subdomain
@@ -463,12 +439,9 @@ table(oth_CLSA_cop_1$dis_mi_age_1)
 **Harmonization comment**:  The harmonized variable "Lifetime occurrence of stroke or cerebrovascular accident (CVA)" for followup wave was created using "Lifetime occurrence of stroke or cerebrovascular accident (CVA)" from baseline and previous and current wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 **R script**:  
 ```{r, echo=TRUE}
-
-med_table$dis_stroke_ever_0 <- recode(as.integer(med_table$CCC_CVA_COM),"1"=1L,"2"=0L)
+med_table$dis_stroke_ever_0 <- recode(as.integer(med_table$CCC_CVA_COM),"1"=1L,"2"=0L, .default=NA_integer_)
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_CLSA_cop_0<-merge(oth_CLSA_cop_0,med_table[,c("id","dis_stroke_ever_0")],by="id",all.x=TRUE)
-table(oth_CLSA_cop_0$dis_stroke_ever_0)
-
 ```  
 ### **Variable label**: Lifetime occurrence of stroke or CVA  
 **Variable name**:  dis_stroke_ever_1  
@@ -487,15 +460,9 @@ table(oth_CLSA_cop_0$dis_stroke_ever_0)
 
 **R script**:  
 ```{r, echo=TRUE}
-med_table$dis_stroke_ever_1<- ifelse(med_table$dis_stroke_ever_0==1 | med_table$CCC_CVA_COF1=='1',1L, 
-                                     ifelse(med_table$dis_stroke_ever_0==0 & med_table$CCC_CVA_COF1=='2',0L, NA))
-                               
+med_table$dis_stroke_ever_1<- ifelse(med_table$dis_stroke_ever_0==1 | med_table$CCC_CVA_COF1=='1',1L, ifelse(med_table$dis_stroke_ever_0==0 & med_table$CCC_CVA_COF1=='2',0L, NA))
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_CLSA_cop_1<-merge(oth_CLSA_cop_1,med_table[,c("id","dis_stroke_ever_1")],by="id",all.x=TRUE)
-table(oth_CLSA_cop_1$dis_stroke_ever_1)
-# table(med_table$dis_stroke_ever_1, med_table$dis_stroke_ever_0, useNA= "always")
-# table(med_table$CCC_CVA_COF1, med_table$dis_stroke_ever_0, useNA= "always")
-
 ```  
 ### **Variable label**: Lifetime occurrence of stroke or CVA  
 **Variable name**:  dis_stroke_ever_2  
@@ -526,8 +493,7 @@ table(oth_CLSA_cop_1$dis_stroke_ever_1)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_cop_0$dis_stroke_age_0<-CLSA_cop_0$STR_CVAAGE_NB_COM
-summary(oth_CLSA_cop_0$dis_stroke_age_0)
+oth_CLSA_cop_0$dis_stroke_age_0 <- CLSA_cop_0$STR_CVAAGE_NB_COM
 ```  
 ### **Variable label**: Age at first stroke or CVA  
 **Variable name**:  dis_stroke_age_1  
@@ -540,8 +506,7 @@ summary(oth_CLSA_cop_0$dis_stroke_age_0)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_cop_1$dis_stroke_age_1<-CLSA_cop_1$STR_CVAAGE_NB_COF1
-
+oth_CLSA_cop_1$dis_stroke_age_1 <- CLSA_cop_1$STR_CVAAGE_NB_COF1
 ```  
 ### **Variable label**: Age at first stroke or CVA  
 **Variable name**:  dis_stroke_age_2  
@@ -576,11 +541,9 @@ oth_CLSA_cop_1$dis_stroke_age_1<-CLSA_cop_1$STR_CVAAGE_NB_COF1
 **Harmonization comment**:  The harmonized variable "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" for followup wave was created using "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" from baseline and followup wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
 **R script**:  
 ```{r, echo=TRUE}  
-med_table$dis_diab_ever_0 <- recode(as.integer(med_table$DIA_DIAB_COM),"1"=1L,"2"=0L)
+med_table$dis_diab_ever_0 <- recode(as.integer(med_table$DIA_DIAB_COM),"1"=1L,"2"=0L, .default=NA_integer_)
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_CLSA_cop_0<-merge(oth_CLSA_cop_0,med_table[,c("id","dis_diab_ever_0")],by="id",all.x=TRUE)
-table(oth_CLSA_cop_0$dis_diab_ever_0)
-
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
 **Variable name**: dis_diab_ever_1  
@@ -598,12 +561,9 @@ table(oth_CLSA_cop_0$dis_diab_ever_0)
 **Harmonization comment**:  The harmonized variable "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" for followup wave was created using "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" from baseline and followup wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
 **R script**:  
 ```{r, echo=TRUE}  
-med_table$dis_diab_ever_1<-ifelse(med_table$dis_diab_ever_0==1|  as.integer(med_table$DIA_DIAB_COF1)=='1',1L,          
-                                  ifelse(med_table$dis_diab_ever_0==0&as.integer(med_table$DIA_DIAB_COF1)=='2',0L,NA))
+med_table$dis_diab_ever_1<-ifelse(med_table$dis_diab_ever_0==1 | as.integer(med_table$DIA_DIAB_COF1)=='1', 1L, ifelse(med_table$dis_diab_ever_0==0 & as.integer(med_table$DIA_DIAB_COF1)=='2',0L,NA))
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_CLSA_cop_1<-merge(oth_CLSA_cop_1,med_table[,c("id","dis_diab_ever_1")],by="id",all.x=TRUE)
-table(oth_CLSA_cop_1$dis_diab_ever_1)
-
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
 **Variable name**: dis_diab_ever_2  
@@ -688,8 +648,7 @@ table(oth_CLSA_cop_1$dis_diab_ever_1)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}  
-oth_CLSA_cop_0$dis_diab_age_0<-as.integer(CLSA_cop_0$DIA_AGE_NB_COM)
-
+oth_CLSA_cop_0$dis_diab_age_0 <- as.integer(CLSA_cop_0$DIA_AGE_NB_COM)
 ```  
 ### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
 **Variable name**:  dis_diab_age_1    
@@ -773,11 +732,7 @@ oth_CLSA_cop_0$dis_diab_age_0<-as.integer(CLSA_cop_0$DIA_AGE_NB_COM)
 **Harmonization comment**: The study-specific variable used in harmonization of the DataSchema variable "Currently under treatment for diabetes" is "Are you currently taking medication for diabetes?"  
 **R script**:
 ```{r, echo=TRUE}
-
 oth_CLSA_cop_0$dis_diab_tx_0<-recode(CLSA_cop_0$DIA_MED_COM, '1'=1L,'2'=0L, .default=NA_integer_)
-table(oth_CLSA_cop_0$dis_diab_tx_0)
-table(CLSA_cop_0$DIA_MED_COM)
-
 ```  
 ### **Variable label**: Currently under treatment for diabetes  
 **Variable name**:  dis_diab_tx_1  
@@ -2363,9 +2318,7 @@ summary(oth_CLSA_cop_0$phy_waist_all_0)
 **Harmonization comment**:   Study specific variable for self-rated health have 5 categories: Excellent, Very Good, Good, Fair and Poor. Excellent, Very Good and Good are coded as Good health.  
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_cop_0$poh_sah_0<- recode(CLSA_cop_0$GEN_HLTH_COM,'1'=0L,'2'=0L, '3'=0L,'4'=1L,'5'=2L,
-                              .default=NA_integer_)
-
+oth_CLSA_cop_0$poh_sah_0 <- recode(CLSA_cop_0$GEN_HLTH_COM,'1'=0L,'2'=0L, '3'=0L,'4'=1L,'5'=2L, .default=NA_integer_)
 ```  
 ### **Variable label**:  Self-assessed health   
 **Variable name**:  poh_sah_1  
@@ -2384,8 +2337,7 @@ oth_CLSA_cop_0$poh_sah_0<- recode(CLSA_cop_0$GEN_HLTH_COM,'1'=0L,'2'=0L, '3'=0L,
 **Harmonization comment**:   Study specific variable for self-rated health have 5 categories: Excellent, Very Good, Good, Fair and Poor. Excellent, Very Good and Good are coded as Good health.  
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_cop_1$poh_sah_1<- recode(CLSA_cop_1$GEN_HLTH_COF1,'1'=0L,'2'=0L, '3'=0L,'4'=1L,'5'=2L,
-                              .default=NA_integer_)
+oth_CLSA_cop_1$poh_sah_1<- recode(CLSA_cop_1$GEN_HLTH_COF1,'1'=0L,'2'=0L, '3'=0L,'4'=1L,'5'=2L,.default=NA_integer_)
 ```   
 ### **Variable label**:  Self-assessed health   
 **Variable name**:  poh_sah_2  
@@ -2499,8 +2451,7 @@ oth_CLSA_cop_1$poh_sah_1<- recode(CLSA_cop_1$GEN_HLTH_COF1,'1'=0L,'2'=0L, '3'=0L
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_cop_0$poh_sah_poor_0 <- recode(as.integer(CLSA_cop_0$GEN_HLTH_COM),'5'=0L,'4'=1L,'1'=1L,'2'=1L,'3'=1L,
-                              .default=NA_integer_)
+oth_CLSA_cop_0$poh_sah_poor_0 <- recode(as.integer(CLSA_cop_0$GEN_HLTH_COM),'5'=0L,'4'=1L,'1'=1L,'2'=1L,'3'=1L, .default=NA_integer_)
 ```  
 ### **Variable label**:  Poor self-assessed health  
 **Variable name**:  poh_sah_poor_1    
@@ -2518,8 +2469,7 @@ oth_CLSA_cop_0$poh_sah_poor_0 <- recode(as.integer(CLSA_cop_0$GEN_HLTH_COM),'5'=
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_cop_1$poh_sah_poor_1<- recode(as.integer(CLSA_cop_1$GEN_HLTH_COF1),'5'=0L,'4'=1L,'1'=1L,'2'=1L,'3'=1L,
-                              .default=NA_integer_)
+oth_CLSA_cop_1$poh_sah_poor_1<- recode(as.integer(CLSA_cop_1$GEN_HLTH_COF1),'5'=0L,'4'=1L,'1'=1L,'2'=1L,'3'=1L,.default=NA_integer_)
 ```  
 ### **Variable label**:  Poor self-assessed health  
 **Variable name**:  poh_sah_poor_2  
@@ -2628,8 +2578,7 @@ oth_CLSA_cop_1$poh_sah_poor_1<- recode(as.integer(CLSA_cop_1$GEN_HLTH_COF1),'5'=
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_cop_0$poh_sah_good_0<- recode(as.integer(CLSA_cop_0$GEN_HLTH_COM),'4'=0L,'5'=0L,'1'=1L,'2'=1L,'3'=1L,
-                              .default=NA_integer_)
+oth_CLSA_cop_0$poh_sah_good_0<- recode(as.integer(CLSA_cop_0$GEN_HLTH_COM),'4'=0L,'5'=0L,'1'=1L,'2'=1L,'3'=1L,.default=NA_integer_)
 ```  
 ### **Variable label**:  Less than good self-assessed health  
 **Variable name**:  poh_sah_good_1    
@@ -2647,8 +2596,7 @@ oth_CLSA_cop_0$poh_sah_good_0<- recode(as.integer(CLSA_cop_0$GEN_HLTH_COM),'4'=0
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_cop_1$poh_sah_good_1<- recode(as.integer(CLSA_cop_1$GEN_HLTH_COF1),'4'=0L,'5'=0L,'1'=1L,'2'=1L,'3'=1L,
-                              .default=NA_integer_)
+oth_CLSA_cop_1$poh_sah_good_1<- recode(as.integer(CLSA_cop_1$GEN_HLTH_COF1),'4'=0L,'5'=0L,'1'=1L,'2'=1L,'3'=1L,.default=NA_integer_)
 ```  
 ### **Variable label**:  Less than good self-assessed health  
 **Variable name**:  poh_sah_good_2    
@@ -2757,14 +2705,10 @@ oth_CLSA_cop_1$poh_sah_good_1<- recode(as.integer(CLSA_cop_1$GEN_HLTH_COF1),'4'=
 1 |   Has difficulty walking up and down the stairs  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   
+**Harmonization comment**:  Study-specific variables is categorized as Yes | No | unable to do | Don't do on doctor's orders. "Don't do on doctor's orders" is coded to "Has difficulty walking up and down the stairs".  
 **R script**:  
 ```{r, echo=TRUE}
-
-table(CLSA_cop_0$FUL_FSTR_COM,useNA="always")
 oth_CLSA_cop_0$fct_stairs_diff_0 <- recode(as.integer(CLSA_cop_0$FUL_FSTR_COM),'2'=0L,'1'=1L,'3'=1L,'4'=1L,.default=NA_integer_)
-table(oth_CLSA_cop_0$fct_stairs_diff_0)
-
 ```  
 ### **Variable label**:  Difficulty walking up and down the stairs  
 **Variable name**:  fct_stairs_diff_1  
@@ -2779,12 +2723,10 @@ table(oth_CLSA_cop_0$fct_stairs_diff_0)
 1 |   Has difficulty walking up and down the stairs  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   
+**Harmonization comment**:  Study-specific variables is categorized as Yes | No | unable to do | Don't do on doctor's orders. "Don't do on doctor's orders" is coded to "Has difficulty walking up and down the stairs".    
 **R script**:  
 ```{r, echo=TRUE}
-table(CLSA_cop_1$FUL_FSTR_COF1,useNA="always")
 oth_CLSA_cop_1$fct_stairs_diff_1 <- recode(as.integer(CLSA_cop_1$FUL_FSTR_COF1),'2'=0L,'1'=1L,'3'=1L,'4'=1L,.default=NA_integer_)
-table(oth_CLSA_cop_1$fct_stairs_diff_1,useNA="always")
 ```  
 ### **Variable label**:  Difficulty walking up and down the stairs  
 **Variable name**:  fct_stairs_diff_2  
@@ -2818,14 +2760,10 @@ table(oth_CLSA_cop_1$fct_stairs_diff_1,useNA="always")
 1 |   Able to walk without difficulty  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   
+**Harmonization comment**:   Study-specific variables is categorized as Yes | No | unable to do | Don't do on doctor's orders. "Don't do on doctor's orders" is coded to "Has difficulty walking up and down the stairs".     
 **R script**:  
 ```{r, echo=TRUE}
-
-table(CLSA_cop_0$FUL_WK23B_COM,useNA="always")
 oth_CLSA_cop_0$fct_walk_diff_0 <- recode(as.integer(CLSA_cop_0$FUL_WK23B_COM),'2'=1L,'1'=0L,'3'=0L,'4'=0L,.default=NA_integer_)
-table(oth_CLSA_cop_0$fct_walk_diff_0 )
-
 ```  
 ### **Variable label**:  Difficulty walking    
 **Variable name**:  fct_walk_diff_1  
@@ -2840,13 +2778,10 @@ table(oth_CLSA_cop_0$fct_walk_diff_0 )
 1 |   Able to walk without difficulty  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   
+**Harmonization comment**:  Study-specific variables is categorized as Yes | No | unable to do | Don't do on doctor's orders. "Don't do on doctor's orders" is coded to "Has difficulty walking up and down the stairs".      
 **R script**:  
 ```{r, echo=TRUE}
-
-table(CLSA_cop_1$FUL_WK23B_COF1,useNA="always")
 oth_CLSA_cop_1$fct_walk_diff_1 <-recode(as.integer(CLSA_cop_1$FUL_WK23B_COF1),'2'=1L,'1'=0L,'3'=0L,'4'=0L,.default=NA_integer_)
-
 ```  
 ### **Variable label**:  Difficulty walking    
 **Variable name**:  fct_walk_diff_2  
