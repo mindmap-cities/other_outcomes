@@ -439,12 +439,9 @@ oth_CLSA_cop_1$dis_mi_age_1<-CLSA_cop_1$IHD_AMIAGE_NB_COF1
 **Harmonization comment**:  The harmonized variable "Lifetime occurrence of stroke or cerebrovascular accident (CVA)" for followup wave was created using "Lifetime occurrence of stroke or cerebrovascular accident (CVA)" from baseline and previous and current wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.   
 **R script**:  
 ```{r, echo=TRUE}
-
-med_table$dis_stroke_ever_0 <- recode(as.integer(med_table$CCC_CVA_COM),"1"=1L,"2"=0L)
+med_table$dis_stroke_ever_0 <- recode(as.integer(med_table$CCC_CVA_COM),"1"=1L,"2"=0L, .default=NA_integer_)
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_CLSA_cop_0<-merge(oth_CLSA_cop_0,med_table[,c("id","dis_stroke_ever_0")],by="id",all.x=TRUE)
-table(oth_CLSA_cop_0$dis_stroke_ever_0)
-
 ```  
 ### **Variable label**: Lifetime occurrence of stroke or CVA  
 **Variable name**:  dis_stroke_ever_1  
@@ -463,15 +460,9 @@ table(oth_CLSA_cop_0$dis_stroke_ever_0)
 
 **R script**:  
 ```{r, echo=TRUE}
-med_table$dis_stroke_ever_1<- ifelse(med_table$dis_stroke_ever_0==1 | med_table$CCC_CVA_COF1=='1',1L, 
-                                     ifelse(med_table$dis_stroke_ever_0==0 & med_table$CCC_CVA_COF1=='2',0L, NA))
-                               
+med_table$dis_stroke_ever_1<- ifelse(med_table$dis_stroke_ever_0==1 | med_table$CCC_CVA_COF1=='1',1L, ifelse(med_table$dis_stroke_ever_0==0 & med_table$CCC_CVA_COF1=='2',0L, NA))
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_CLSA_cop_1<-merge(oth_CLSA_cop_1,med_table[,c("id","dis_stroke_ever_1")],by="id",all.x=TRUE)
-table(oth_CLSA_cop_1$dis_stroke_ever_1)
-# table(med_table$dis_stroke_ever_1, med_table$dis_stroke_ever_0, useNA= "always")
-# table(med_table$CCC_CVA_COF1, med_table$dis_stroke_ever_0, useNA= "always")
-
 ```  
 ### **Variable label**: Lifetime occurrence of stroke or CVA  
 **Variable name**:  dis_stroke_ever_2  
@@ -502,8 +493,7 @@ table(oth_CLSA_cop_1$dis_stroke_ever_1)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_cop_0$dis_stroke_age_0<-CLSA_cop_0$STR_CVAAGE_NB_COM
-summary(oth_CLSA_cop_0$dis_stroke_age_0)
+oth_CLSA_cop_0$dis_stroke_age_0 <- CLSA_cop_0$STR_CVAAGE_NB_COM
 ```  
 ### **Variable label**: Age at first stroke or CVA  
 **Variable name**:  dis_stroke_age_1  
@@ -516,8 +506,7 @@ summary(oth_CLSA_cop_0$dis_stroke_age_0)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_cop_1$dis_stroke_age_1<-CLSA_cop_1$STR_CVAAGE_NB_COF1
-
+oth_CLSA_cop_1$dis_stroke_age_1 <- CLSA_cop_1$STR_CVAAGE_NB_COF1
 ```  
 ### **Variable label**: Age at first stroke or CVA  
 **Variable name**:  dis_stroke_age_2  
