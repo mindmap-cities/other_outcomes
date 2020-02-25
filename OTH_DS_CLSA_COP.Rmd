@@ -335,11 +335,9 @@ oth_CLSA_cop_1<-merge(oth_CLSA_cop_1,med_table[,c("id","dis_angina_ever_1")],by=
 **Harmonization comment**:  The harmonized variable "Lifetime occurrence of myocardial infarction (heart attack)" for followup wave was created using "Lifetime occurrence of myocardial infarction (heart attack)" from baseline and previous and current wave. To create this variable, all CLSA Comprehensive Cohort data tables were merged by ID in order to facilitate the harmonization work and intermediate variables were created.  
 **R script**:  
 ```{r, echo=TRUE}
-med_table$dis_mi_ever_0 <- recode(as.integer(med_table$CCC_AMI_COM),"1"=1L,"2"=0L)
+med_table$dis_mi_ever_0 <- recode(as.integer(med_table$CCC_AMI_COM),"1"=1L,"2"=0L,.default=NA_integer_)
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_CLSA_cop_0<-merge(oth_CLSA_cop_0,med_table[,c("id","dis_mi_ever_0")],by="id",all.x=TRUE)
-table(oth_CLSA_cop_0$dis_mi_ever_0)
-
 ```  
 ### **Variable label**: Lifetime occurrence of myocardial infarction    
 **Variable name**:  dis_mi_ever_1  
@@ -358,16 +356,12 @@ table(oth_CLSA_cop_0$dis_mi_ever_0)
  
 **R script**:  
 ```{r, echo=TRUE}
-table(CLSA_cop_1$CCC_AMI_COF1)
-table(med_table$dis_mi_ever_0, med_table$CCC_AMI_COF1)
+table(CLSA_cop_1$CCC_AMI_COF1,useNA='always')
+table(med_table$dis_mi_ever_0, med_table$CCC_AMI_COF1,useNA='always')
 
-med_table$dis_mi_ever_1<- ifelse(med_table$dis_mi_ever_0==1|  as.integer(med_table$CCC_AMI_COF1)=='1',1L,
-                                 ifelse(med_table$dis_mi_ever_0==0&as.integer(med_table$CCC_AMI_COF1)=='2',0L,
-                               NA))
+med_table$dis_mi_ever_1<- ifelse(med_table$dis_mi_ever_0==1 | as.integer(med_table$CCC_AMI_COF1)=='1', 1L, ifelse(med_table$dis_mi_ever_0==0 & as.integer(med_table$CCC_AMI_COF1)=='2',0L, NA))
 #Direct mapping to harmonized tables keeping correct participants for each wave
 oth_CLSA_cop_1<-merge(oth_CLSA_cop_1,med_table[,c("id","dis_mi_ever_1")],by="id",all.x=TRUE)
-table(oth_CLSA_cop_1$dis_mi_ever_1)
-
 ```  
 ### **Variable label**: Lifetime occurrence of myocardial infarction    
 **Variable name**:  dis_mi_ever_2  
@@ -386,7 +380,6 @@ table(oth_CLSA_cop_1$dis_mi_ever_1)
 **R script**:  
 ```{r, echo=TRUE}
 
-
 ```  
 
 ### **Variable label**: Age at first Myocardial infarction  
@@ -400,11 +393,7 @@ table(oth_CLSA_cop_1$dis_mi_ever_1)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-
-#2 people are coded as having had myocardial infarction at age 2?
-
-oth_CLSA_cop_0$dis_mi_age_0<-CLSA_cop_0$IHD_AMIAGE_NB_COM
-
+oth_CLSA_cop_0$dis_mi_age_0 <- CLSA_cop_0$IHD_AMIAGE_NB_COM
 ```  
 ### **Variable label**: Age at first Myocardial infarction  
 **Variable name**:  dis_mi_age_1  
@@ -418,7 +407,6 @@ oth_CLSA_cop_0$dis_mi_age_0<-CLSA_cop_0$IHD_AMIAGE_NB_COM
 **R script**:  
 ```{r, echo=TRUE}
 oth_CLSA_cop_1$dis_mi_age_1<-CLSA_cop_1$IHD_AMIAGE_NB_COF1
-table(oth_CLSA_cop_1$dis_mi_age_1)
 ```  
 ### **Variable label**: Age at first Myocardial infarction  
 **Variable name**:  dis_mi_age_2  
@@ -431,7 +419,6 @@ table(oth_CLSA_cop_1$dis_mi_age_1)
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-
 
 ```  
 # Stroke subdomain
