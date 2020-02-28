@@ -15,7 +15,7 @@ erasmus_opal <- opal.login()
 # CLSA Comprehensive BASELINE
 opal.assign.table.tibble(erasmus_opal, 'CoP4_Baseline','CLSA_1.CoP4_Baseline', variables =list("WGT_WEIGHT1_KG_COM", "WGT_WEIGHT2_KG_COM", "WGT_WEIGHT_KG_COM", "HGT_HEIGHT_M_COM","HWT_DISW_COM", "HWT_DBMI_COM", "WHC_WAIST_CM_COM", "WHC_CLTHLAYERS_COM", "GEN_HLTH_COM", "FUL_FSTR_COM", "FUL_WK23B_COM", "CCC_HBP_COM", "HBP_EVRMED_COM", "CCC_ANGI_COM", "CCC_AMI_COM", "IHD_AMIAGE_NB_COM", "CCC_CVA_COM", "STR_CVAAGE_NB_COM", "DIA_DIAB_COM", "DIA_AGE_NB_COM", "DIA_MED_COM", 
 "DIA_MEDINSNAME_HUMU_COM", "DIA_MEDINSNAME_LEVE_COM", "DIA_MEDINSNAME_HUMA_COM", "DIA_MEDINSNAME_NOVOR_COM",
-"DIA_MEDINSNAME_NOVOM_COM","DIA_MEDINSNAME_LANT_COM","DIA_MEDINSNAME_OT_COM","DIA_MEDAGE_NB_COM"))
+"DIA_MEDINSNAME_NOVOM_COM","DIA_MEDINSNAME_LANT_COM","DIA_MEDINSNAME_OT_COM","DIA_MEDAGE_NB_COM","DIA_MEDCUR_COM"))
 
 CLSA_cop_0 <- opal.execute(erasmus_opal,'CoP4_Baseline')
 
@@ -836,23 +836,11 @@ oth_CLSA_cop_0$dis_diab_tx_0<-recode(CLSA_cop_0$DIA_MED_COM, '1'=1L,'2'=0L, .def
 0        | Currently does not use insulin for diabetes treatment  
 1        | Currently does use insulin for diabetes treatment  
 
-**Harmonization status**:  complete  
+**Harmonization status**:  impossible    
 **Harmonization comment**:  The 7 study-specific variables are asking about the use of six different insulin medications by product names HUMALOG, APIDRA, NOVORAPID, LANTUS, NOVOMIX, LEVEMIR. The combination of whether the participant uses any of these medications and having a valid value in the variable Age began taking insulin are used for the harmonization of this variable. 
 **R script**:  
 ```{r, echo=TRUE}
-table(CLSA_cop_0$DIA_MEDAGE_NB_COM, useNA = "always")
 
-#checking whether people who has an age for starting to use insulin use one of these medications. They do. 
-
-CLSA_cop_0$insmed<-NA
-CLSA_cop_0$insmed[CLSA_cop_0$DIA_MEDINSNAME_HUMU_COM==0 & CLSA_cop_0$DIA_MEDINSNAME_LEVE_COM==0&CLSA_cop_0$DIA_MEDINSNAME_HUMA_COM==0&CLSA_cop_0$DIA_MEDINSNAME_NOVOR_COM==0&CLSA_cop_0$DIA_MEDINSNAME_NOVOM_COM==0&CLSA_cop_0$DIA_MEDINSNAME_LANT_COM==0]<-0
-CLSA_cop_0$insmed[CLSA_cop_0$DIA_MEDINSNAME_HUMU_COM==1|CLSA_cop_0$DIA_MEDINSNAME_LEVE_COM==1|CLSA_cop_0$DIA_MEDINSNAME_HUMA_COM==1|CLSA_cop_0$DIA_MEDINSNAME_NOVOR_COM==1|CLSA_cop_0$DIA_MEDINSNAME_NOVOM_COM==1|CLSA_cop_0$DIA_MEDINSNAME_LANT_COM==1]<-1
-
-table(!is.na(CLSA_cop_0$DIA_MEDAGE_NB_COM),CLSA_cop_0$insmed, useNA = "always")
-
-oth_CLSA_cop_0$dis_diab_ins_0<-ifelse(CLSA_cop_0$insmed==1 |!is.na (CLSA_cop_0$DIA_MEDAGE_NB_COM), 1L, ifelse(CLSA_cop_0$insmed==0 |is.na (CLSA_cop_0$DIA_MEDAGE_NB_COM),0L,NA))
-
-table(oth_CLSA_cop_0$dis_diab_ins_0,useNA = "always" )
 ```  
 ### **Variable label**: Currently use insulin for diabetes  
 **Variable name**:  dis_diab_ins_1  
@@ -900,21 +888,10 @@ table(oth_CLSA_cop_0$dis_diab_ins_0,useNA = "always" )
 **Category coding**: N/A
 
 **Harmonization status**:  complete    
-**Harmonization comment**:   There are three study-specific variables: Measurement 1, Measurement 2, and Average. Average of the Measurement 1 and Measurement 2 is used to harmonize.  
+**Harmonization comment**:   There are three study-specific variables: Measurement 1, Measurement 2, and Average. Average of the Measurement 1 and Measurement 2 is used in harmonization.  
 **R script**:  
 ```{r, echo=TRUE}
-#There are more NAs in the average weight variable, maybe we should take 1st or
-summary(CLSA_cop_0$WGT_WEIGHT1_KG_COM)
-summary(CLSA_cop_0$WGT_WEIGHT2_KG_COM)
-summary(CLSA_cop_0$WGT_WEIGHT_KG_COM)
-table(is.na(CLSA_cop_0$WGT_WEIGHT1_KG_COM), is.na(CLSA_cop_0$WGT_WEIGHT2_KG_COM))
-table(CLSA_cop_0$WGT_WEIGHT2_KG_COM[is.na(CLSA_cop_0$WGT_WEIGHT_KG_COM)])
-table(CLSA_cop_0$WGT_WEIGHT1_KG_COM[is.na(CLSA_cop_0$WGT_WEIGHT_KG_COM)])
-av<-(CLSA_cop_0$WGT_WEIGHT1_KG_COM+ CLSA_cop_0$WGT_WEIGHT2_KG_COM)/2
-cor(av, as.numeric(CLSA_cop_0$WGT_WEIGHT_KG_COM), use = "complete.obs")
-
 oth_CLSA_cop_0$phy_weight_ms_0<-(CLSA_cop_0$WGT_WEIGHT1_KG_COM+ CLSA_cop_0$WGT_WEIGHT2_KG_COM)/2
-summary(oth_CLSA_cop_0$phy_weight_ms_0)
 ```  
 ### **Variable label**: Weight in kg - measured 
 **Variable name**: phy_weight_ms_1  
@@ -924,15 +901,10 @@ summary(oth_CLSA_cop_0$phy_weight_ms_0)
 **Category coding**: N/A
 
 **Harmonization status**:  complete  
-**Harmonization comment**:   There are three study-specific variables: Measurement 1, Measurement 2, and Average. Average of the Measurement 1 and Measurement 2 is used to harmonize. 
+**Harmonization comment**:   There are three study-specific variables: Measurement 1, Measurement 2, and Average. Average variable was used in harmonization.  
 **R script**:  
 ```{r, echo=TRUE}
-summary(CLSA_cop_1$WGT_WEIGHT_KG_COF1)
-summary(CLSA_cop_1$WGT_WEIGHT1_KG_COF1)
-summary(CLSA_cop_1$WGT_WEIGHT2_KG_COF1)
-
 oth_CLSA_cop_1$phy_weight_ms_1<-CLSA_cop_1$WGT_WEIGHT_KG_COF1
-summary(oth_CLSA_cop_1$phy_weight_ms_1)
 ```  
 ### **Variable label**: Weight in kg - measured 
 **Variable name**: phy_weight_ms_2  
@@ -1023,11 +995,7 @@ summary(oth_CLSA_cop_1$phy_weight_ms_1)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-summary(CLSA_cop_1$WGT_WEIGHTSR_KG_COF1)
 oth_CLSA_cop_1$phy_weight_sr_1 <-as.numeric(CLSA_cop_1$WGT_WEIGHTSR_KG_COF1)
-
-summary(oth_CLSA_cop_1$phy_weight_sr_1)
-
 ```  
 ### **Variable label**: Weight in kg - self-reported 
 **Variable name**: phy_weight_sr_2    
@@ -1102,12 +1070,10 @@ summary(oth_CLSA_cop_1$phy_weight_sr_1)
 **Category coding**: N/A  
 
 **Harmonization status**:  complete  
-**Harmonization comment**: The CLSA Comprehensive Cohort datasets includes Weight Measurement 1, Weight Measurement 2 and the Average Weight from these two measurements. In creation of the DataSchema variable, the Average Weight is used. 
+**Harmonization comment**: There are three study-specific variables: Measurement 1, Measurement 2, and Average. Average of the Measurement 1 and Measurement 2 is used in harmonization.   
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_cop_0$phy_weight_all_0<-as.numeric(CLSA_cop_0$WGT_WEIGHT_KG_COM)
-summary(oth_CLSA_cop_0$phy_weight_all_0)
-table(oth_CLSA_cop_0$phy_weight_all_0[oth_CLSA_cop_0$phy_weight_all_0>130])
+oth_CLSA_cop_0$phy_weight_all_0<-(CLSA_cop_0$WGT_WEIGHT1_KG_COM+ CLSA_cop_0$WGT_WEIGHT2_KG_COM)/2
 ```  
 
 ### **Variable label**: Weight in kg - measured and self-reported combined
@@ -1118,12 +1084,10 @@ table(oth_CLSA_cop_0$phy_weight_all_0[oth_CLSA_cop_0$phy_weight_all_0>130])
 **Category coding**: N/A  
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  The CLSA Comprehensive Cohort datasets  includes Weight Measurement 1, Weight Measurement 2 and the Average Weight from these two measurements. In creation of the DataSchema variable, the Average Weight is used. 
+**Harmonization comment**:  There are three study-specific variables: Measurement 1, Measurement 2, and Average. Average variable was used in harmonization.  
 **R script**:  
 ```{r, echo=TRUE}
 oth_CLSA_cop_1$phy_weight_all_1<-as.numeric(CLSA_cop_1$WGT_WEIGHT_KG_COF1)
-summary(oth_CLSA_cop_1$phy_weight_all_1)
-
 ```  
 ### **Variable label**: Weight in kg - measured and self-reported combined  
 **Variable name**: phy_weight_all_2    
@@ -1198,11 +1162,10 @@ summary(oth_CLSA_cop_1$phy_weight_all_1)
 **Category coding**: N/A
 
 **Harmonization status**:  complete  
-**Harmonization comment**:  The study specific variables include Measurement 1 -height in cm, Measurement 2-height in cm, and Average height in m. The variable Average Height is used for harmonizing this variable.   
+**Harmonization comment**:  The study specific variables include Measurement 1 -height in cm, Measurement 2-height in cm, and Average height in m. The variable Average Height is used for harmonization.   
 **R script**:  
 ```{r, echo=TRUE}
 oth_CLSA_cop_0$phy_height_ms_0<-CLSA_cop_0$HGT_HEIGHT_M_COM*100
-summary(oth_CLSA_cop_0$phy_height_ms_0)
 ```  
 ### **Variable label**: Height in cm - measured  
 **Variable name**: phy_height_ms_1  
@@ -1216,7 +1179,6 @@ summary(oth_CLSA_cop_0$phy_height_ms_0)
 **R script**:  
 ```{r, echo=TRUE}
 oth_CLSA_cop_1$phy_height_ms_1<-CLSA_cop_1$HGT_HEIGHT_M_COF1*100
-summary(oth_CLSA_cop_1$phy_height_ms_1)
 ```  
 ### **Variable label**: Height in cm - measured  
 **Variable name**: phy_height_ms_2  
@@ -1309,7 +1271,6 @@ summary(oth_CLSA_cop_1$phy_height_ms_1)
 **R script**:  
 ```{r, echo=TRUE}
 oth_CLSA_cop_1$phy_height_sr_1<- ifelse(CLSA_cop_1$HGT_HEIGHTSR_CM_COF1==-99999.00, NA, CLSA_cop_1$HGT_HEIGHTSR_CM_COF1 ) 
-summary(oth_CLSA_cop_1$phy_height_sr_1, useNA="always")
 ```  
 ### **Variable label**: Height in cm - self-reported  
 **Variable name**: phy_height_sr_2  
@@ -1388,9 +1349,7 @@ summary(oth_CLSA_cop_1$phy_height_sr_1, useNA="always")
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-table(CLSA_cop_0$HGT_HEIGHT_M_COM)
 oth_CLSA_cop_0$phy_height_all_0<-CLSA_cop_0$HGT_HEIGHT_M_COM*100
-summary(oth_CLSA_cop_0$phy_height_all_0, useNA = "always")
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined  
 **Variable name**: phy_height_all_1    
@@ -1404,8 +1363,6 @@ summary(oth_CLSA_cop_0$phy_height_all_0, useNA = "always")
 **R script**:  
 ```{r, echo=TRUE}
 oth_CLSA_cop_1$phy_height_all_1<-CLSA_cop_1$HGT_HEIGHT_M_COF1*100
-summary(oth_CLSA_cop_1$phy_height_all_1, useNA="always")
-table(is.na(oth_CLSA_cop_0$phy_height_all_0)) 
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined    
 **Variable name**: phy_height_all_2    
@@ -1485,10 +1442,6 @@ table(is.na(oth_CLSA_cop_0$phy_height_all_0))
 **R script**:  
 ```{r, echo=TRUE}
 oth_CLSA_cop_0$phy_bmi_ms_0 <-CLSA_cop_0$HWT_DBMI_COM
-
-
-
-
 ```  
 ### **Variable label**: Body mass index (BMI) - measured  
 **Variable name**: phy_bmi_ms_1  
@@ -1502,8 +1455,6 @@ oth_CLSA_cop_0$phy_bmi_ms_0 <-CLSA_cop_0$HWT_DBMI_COM
 **R script**:  
 ```{r, echo=TRUE}
 oth_CLSA_cop_1$phy_bmi_ms_1 <-CLSA_cop_1$HWT_DBMI_COF1
-summary(oth_CLSA_cop_1$phy_bmi_ms_1)
-
 ```  
 ### **Variable label**: Body mass index (BMI) - measured  
 **Variable name**: phy_bmi_ms_2  
@@ -1682,7 +1633,6 @@ summary(oth_CLSA_cop_1$phy_bmi_ms_1)
 **R script**:  
 ```{r, echo=TRUE}
 oth_CLSA_cop_0$phy_bmi_all_0 <-CLSA_cop_0$HWT_DBMI_COM
-summary(oth_CLSA_cop_0$phy_bmi_all_0)
 ```  
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
 **Variable name**: phy_bmi_all_1  
@@ -1696,7 +1646,6 @@ summary(oth_CLSA_cop_0$phy_bmi_all_0)
 **R script**:  
 ```{r, echo=TRUE}
 oth_CLSA_cop_1$phy_bmi_all_1 <-CLSA_cop_1$HWT_DBMI_COF1
-summary(oth_CLSA_cop_1$phy_bmi_all_1)
 ```  
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
 **Variable name**: phy_bmi_all_2  
@@ -1782,10 +1731,7 @@ summary(oth_CLSA_cop_1$phy_bmi_all_1)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_cop_0$phy_bmi_cat_ms_0<-recode(as.integer(CLSA_cop_0$HWT_DISW_COM), '1'=0L,'2'=1L, '3'=2L,'4'=3L,'5'=3L,"6"=3L,
-                              .default=NA_integer_)
-summary(oth_CLSA_cop_0$phy_bmi_cat_ms_0)
-table(CLSA_cop_0$HWT_DISW_COM)
+oth_CLSA_cop_0$phy_bmi_cat_ms_0<-recode(as.integer(CLSA_cop_0$HWT_DISW_COM), '1'=0L,'2'=1L, '3'=2L,'4'=3L,'5'=3L,"6"=3L,.default=NA_integer_)
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured  
 **Variable name**: phy_bmi_cat_ms_1  
@@ -1805,11 +1751,7 @@ table(CLSA_cop_0$HWT_DISW_COM)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_cop_1$phy_bmi_cat_ms_1<-recode(as.integer(CLSA_cop_1$HWT_DISW_COF1), '1'=0L,'2'=1L, '3'=2L,'4'=3L,'5'=3L,"6"=3L,
-                              .default=NA_integer_)
-
-
-summary(oth_CLSA_cop_1$phy_bmi_cat_ms_1)
+oth_CLSA_cop_1$phy_bmi_cat_ms_1<-recode(as.integer(CLSA_cop_1$HWT_DISW_COF1), '1'=0L,'2'=1L, '3'=2L,'4'=3L,'5'=3L,"6"=3L,.default=NA_integer_)
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured  
 **Variable name**: phy_bmi_cat_ms_2  
@@ -2071,8 +2013,7 @@ summary(oth_CLSA_cop_1$phy_bmi_cat_ms_1)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_cop_0$phy_bmi_cat_ms_0<-recode(as.integer(CLSA_cop_0$HWT_DISW_COM), '1'=0L,'2'=1L, '3'=2L,'4'=3L,'5'=3L,"6"=3L,
-                              .default=NA_integer_)
+oth_CLSA_cop_0$phy_bmi_cat_ms_0<-recode(as.integer(CLSA_cop_0$HWT_DISW_COM), '1'=0L,'2'=1L, '3'=2L,'4'=3L,'5'=3L,"6"=3L,.default=NA_integer_)
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
 **Variable name**: phy_bmi_cat_all_1    
@@ -2092,9 +2033,7 @@ oth_CLSA_cop_0$phy_bmi_cat_ms_0<-recode(as.integer(CLSA_cop_0$HWT_DISW_COM), '1'
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_CLSA_cop_1$phy_bmi_cat_ms_1<-recode(as.integer(CLSA_cop_1$HWT_DISW_COF1), '1'=0L,'2'=1L, '3'=2L,'4'=3L,'5'=3L,"6"=3L,
-                              .default=NA_integer_)
-
+oth_CLSA_cop_1$phy_bmi_cat_ms_1<-recode(as.integer(CLSA_cop_1$HWT_DISW_COF1), '1'=0L,'2'=1L, '3'=2L,'4'=3L,'5'=3L,"6"=3L,.default=NA_integer_)
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
 **Variable name**: phy_bmi_cat_all_2    
