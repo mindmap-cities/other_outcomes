@@ -696,8 +696,8 @@ oth_CLSA_cop_0$dis_diab_age_0 <- as.integer(CLSA_cop_0$DIA_AGE_NB_COM)
 **Variable unit**:  years  
 **Category coding**: N/A
 
-**Hamonization status**:  
-**Harmonization comment**:  impossible  
+**Hamonization status**:  impossible
+**Harmonization comment**:    
 **R script**:  
 ```{r, echo=TRUE}  
 
@@ -709,8 +709,8 @@ oth_CLSA_cop_0$dis_diab_age_0 <- as.integer(CLSA_cop_0$DIA_AGE_NB_COM)
 **Variable unit**:  years  
 **Category coding**: N/A
 
-**Hamonization status**:  
-**Harmonization comment**:  impossible   
+**Hamonization status**:  impossible
+**Harmonization comment**:     
 **R script**:  
 ```{r, echo=TRUE}  
 
@@ -1946,8 +1946,8 @@ summary(oth_CLSA_cop_1$phy_bmi_cat_ms_1)
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  
-**Harmonization comment**: impossible    
+**Harmonization status**:   impossible   
+**Harmonization comment**: 
 **R script**:  
 ```{r, echo=TRUE}
 
@@ -1966,8 +1966,8 @@ summary(oth_CLSA_cop_1$phy_bmi_cat_ms_1)
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  
-**Harmonization comment**: impossible    
+**Harmonization status**:   impossible   
+**Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
 
@@ -1986,8 +1986,8 @@ summary(oth_CLSA_cop_1$phy_bmi_cat_ms_1)
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  
-**Harmonization comment**:  impossible     
+**Harmonization status**:   impossible   
+**Harmonization comment**:       
 **R script**:  
 ```{r, echo=TRUE}
 
@@ -2006,8 +2006,8 @@ summary(oth_CLSA_cop_1$phy_bmi_cat_ms_1)
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**:  
-**Harmonization comment**:   impossible    
+**Harmonization status**:   impossible   
+**Harmonization comment**:      
 **R script**:  
 ```{r, echo=TRUE}
 
