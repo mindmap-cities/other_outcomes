@@ -2522,8 +2522,9 @@ ifelse(as.numeric(RECORD_w2$Qm72)<6 & as.numeric(RECORD_w2$Qm72)>0 | as.numeric(
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_RECORD_0$poh_sah_poor_0<- ifelse(as.numeric(RECORD_w1_1$Qm73)<8,0L,
-                                     ifelse(as.numeric(RECORD_w1_1$Qm73)>7 &
+
+oth_RECORD_0$poh_sah_poor_0<- ifelse(as.numeric(RECORD_w1_1$Qm73)<6,0L,
+                                     ifelse(as.numeric(RECORD_w1_1$Qm73)>5 &
                                               as.numeric(RECORD_w1_1$Qm73)<11,1L,NA))
 
 
@@ -2544,9 +2545,10 @@ oth_RECORD_0$poh_sah_poor_0<- ifelse(as.numeric(RECORD_w1_1$Qm73)<8,0L,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_RECORD_1$poh_sah_poor_1<- ifelse(as.numeric(RECORD_w2$Qm72)<8,0L,
-                                     ifelse(as.numeric(RECORD_w2$Qm72)>7 &
+oth_RECORD_1$poh_sah_poor_1<- ifelse(as.numeric(RECORD_w2$Qm72)<6,0L,
+                                     ifelse(as.numeric(RECORD_w2$Qm72)>5 &
                                               as.numeric(RECORD_w2$Qm72)<11,1L,NA))
+
 
 ```  
 ### **Variable label**:  Poor self-assessed health  
@@ -2661,9 +2663,12 @@ oth_RECORD_1$poh_sah_poor_1<- ifelse(as.numeric(RECORD_w2$Qm72)<8,0L,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_RECORD_0$poh_sah_good_0<- ifelse(as.numeric(RECORD_w1_1$Qm73)<6,0L,
-                                     ifelse(as.numeric(RECORD_w1_1$Qm73)>5 &
+
+oth_RECORD_0$poh_sah_good_0<- ifelse(as.numeric(RECORD_w1_1$Qm73)<8,0L,
+                                     ifelse(as.numeric(RECORD_w1_1$Qm73)>7 &
                                               as.numeric(RECORD_w1_1$Qm73)<11,1L,NA))
+
+
 
 ```  
 ### **Variable label**:  Less than good self-assessed health  
@@ -2682,9 +2687,11 @@ oth_RECORD_0$poh_sah_good_0<- ifelse(as.numeric(RECORD_w1_1$Qm73)<6,0L,
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-oth_RECORD_1$poh_sah_good_1<- ifelse(as.numeric(RECORD_w2$Qm72)<6,0L,
-                                     ifelse(as.numeric(RECORD_w2$Qm72)>5 &
+
+oth_RECORD_1$poh_sah_good_1<- ifelse(as.numeric(RECORD_w2$Qm72)<8,0L,
+                                     ifelse(as.numeric(RECORD_w2$Qm72)>7 &
                                               as.numeric(RECORD_w2$Qm72)<11,1L,NA))
+
 
 ```  
 ### **Variable label**:  Less than good self-assessed health  
