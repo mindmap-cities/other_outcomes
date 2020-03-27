@@ -37,10 +37,10 @@ opal.logout(erasmus_opal)
 ```
 ## Assign participant id as first column of your harmonized dataframes
 ```{r, echo=FALSE}
-lsb_ROTTERDAM_0 <- data.frame(id = ROTTERDAM_0$id)
-lsb_ROTTERDAM_1 <- data.frame(id = ROTTERDAM_1$id)
-lsb_ROTTERDAM_2 <- data.frame(id = ROTTERDAM_2$id)
-lsb_ROTTERDAM_3 <- data.frame(id = ROTTERDAM_3$id)
+oth_ROTTERDAM_0 <- data.frame(id = ROTTERDAM_0$id)
+oth_ROTTERDAM_1 <- data.frame(id = ROTTERDAM_1$id)
+oth_ROTTERDAM_2 <- data.frame(id = ROTTERDAM_2$id)
+oth_ROTTERDAM_3 <- data.frame(id = ROTTERDAM_3$id)
 ```
 ## When you are done with your work, logout of Opal server
 ```{r, echo=FALSE}
@@ -92,7 +92,7 @@ opal.logout(erasmus_opal)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ``` 
 ### **Variable label**: Medication for high blood pressure or hypertension    
@@ -113,8 +113,8 @@ opal.logout(erasmus_opal)
 **R script**:  
 ```{r, echo=TRUE}
 table(ROTTERDAM_0$ep_pimc8b,useNA="always")
-lsb_ROTTERDAM_0$dis_hbp_med_0 <-ifelse(ROTTERDAM_0$ep_pimc8b==0, 0L,ifelse(ROTTERDAM_0$ep_pimc8b==1, 1L, NA ))
-table(lsb_ROTTERDAM_0$dis_hbp_med_0,useNA="always")
+oth_ROTTERDAM_0$dis_hbp_med_0 <-ifelse(ROTTERDAM_0$ep_pimc8b==0, 0L,ifelse(ROTTERDAM_0$ep_pimc8b==1, 1L, NA ))
+table(oth_ROTTERDAM_0$dis_hbp_med_0,useNA="always")
 
 ```  
 ### **Variable label**: Medication for high blood pressure or hypertension  
@@ -232,7 +232,7 @@ table(lsb_ROTTERDAM_0$dis_hbp_med_0,useNA="always")
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Lifetime occurrence of angina 
@@ -251,7 +251,7 @@ table(lsb_ROTTERDAM_0$dis_hbp_med_0,useNA="always")
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Lifetime occurrence of angina 
@@ -270,7 +270,7 @@ table(lsb_ROTTERDAM_0$dis_hbp_med_0,useNA="always")
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Lifetime occurrence of angina 
@@ -289,7 +289,7 @@ table(lsb_ROTTERDAM_0$dis_hbp_med_0,useNA="always")
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Lifetime occurrence of angina 
@@ -308,7 +308,7 @@ table(lsb_ROTTERDAM_0$dis_hbp_med_0,useNA="always")
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 
@@ -326,7 +326,7 @@ table(lsb_ROTTERDAM_0$dis_hbp_med_0,useNA="always")
 0        |   Never had myocardial infarction
 1        |   Ever had myocardial infarction  
 
-**Harmonization status**: impossible   
+**Harmonization status**: complete     
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
@@ -352,9 +352,9 @@ med_table <- Reduce(MyMerge, list(ROTTERDAM_0,ROTTERDAM_1,ROTTERDAM_2,ROTTERDAM_
 med_table$dis_mi_ever_0 <-ifelse(med_table$ep_pimc9d==88 & med_table$ep_pimc9a==88, 0L,
                                        ifelse(med_table$ep_pimc9d<77 & med_table$ep_pimc9a<77,1L, NA))
 
-lsb_ROTTERDAM_0<-merge(lsb_ROTTERDAM_0,med_table[,c("id","dis_mi_ever_0")],by="id",all.x=TRUE)
+oth_ROTTERDAM_0<-merge(oth_ROTTERDAM_0,med_table[,c("id","dis_mi_ever_0")],by="id",all.x=TRUE)
 
-table(lsb_ROTTERDAM_0$dis_mi_ever_0, useNA="always")
+table(oth_ROTTERDAM_0$dis_mi_ever_0, useNA="always")
 
 ```  
 ### **Variable label**: Lifetime occurrence of myocardial infarction    
@@ -377,9 +377,9 @@ table(med_table$e4_dimi, useNA="always")
 med_table$dis_mi_ever_1<- ifelse(med_table$e4_dimi==1| med_table$dis_mi_ever_0==1, 1L,
                                  ifelse(med_table$e4_dimi==0& med_table$dis_mi_ever_0==0, 0L, NA))
 
-lsb_ROTTERDAM_1<-merge(lsb_ROTTERDAM_1,med_table[,c("id","dis_mi_ever_1")],by="id",all.x=TRUE)
+oth_ROTTERDAM_1<-merge(oth_ROTTERDAM_1,med_table[,c("id","dis_mi_ever_1")],by="id",all.x=TRUE)
 
-table(lsb_ROTTERDAM_1$dis_mi_ever_1 , useNA="always")
+table(oth_ROTTERDAM_1$dis_mi_ever_1 , useNA="always")
 ```  
 ### **Variable label**: Lifetime occurrence of myocardial infarction    
 **Variable name**:  dis_mi_ever_2  
@@ -401,9 +401,9 @@ table(med_table$e5_EIMI, useNA="always")
 med_table$dis_mi_ever_2<- ifelse(med_table$e5_EIMI==1| med_table$dis_mi_ever_1==1, 1L,
                                  ifelse(med_table$e5_EIMI==0& med_table$dis_mi_ever_1==0, 0L, NA))
 
-lsb_ROTTERDAM_2<-merge(lsb_ROTTERDAM_2,med_table[,c("id","dis_mi_ever_2")],by="id",all.x=TRUE)
+oth_ROTTERDAM_2<-merge(oth_ROTTERDAM_2,med_table[,c("id","dis_mi_ever_2")],by="id",all.x=TRUE)
 
-table(lsb_ROTTERDAM_2$dis_mi_ever_2 , useNA="always")
+table(oth_ROTTERDAM_2$dis_mi_ever_2 , useNA="always")
 
 ```  
 
@@ -423,7 +423,7 @@ table(ROTTERDAM_0$ep_pimc9b, useNA="always")
 table(ROTTERDAM_0$ep_pimc9e, useNA="always")
 table(ROTTERDAM_0$ep_pimc9b, is.na(ROTTERDAM_0$ep_pimc9e), useNA="always")
 
-lsb_ROTTERDAM_0$dis_mi_age_0 <-ifelse ((as.integer(substr(ROTTERDAM_0$ep_pimc9b, 1,4)))<(as.integer(substr(ROTTERDAM_0$ep_pimc9e, 1,4))), 
+oth_ROTTERDAM_0$dis_mi_age_0 <-ifelse ((as.integer(substr(ROTTERDAM_0$ep_pimc9b, 1,4)))<(as.integer(substr(ROTTERDAM_0$ep_pimc9e, 1,4))), 
                              ROTTERDAM_0$startage-((as.integer(substr(ROTTERDAM_0$startdat, 1,4)))-as.integer(substr(ROTTERDAM_0$ep_pimc9b, 1,4))),
                              ifelse((as.integer(substr(ROTTERDAM_0$ep_pimc9b, 1,4)))>(as.integer(substr(ROTTERDAM_0$ep_pimc9e, 1,4))), 
                              ROTTERDAM_0$startage-((as.integer(substr(ROTTERDAM_0$startdat, 1,4)))-as.integer(substr(ROTTERDAM_0$ep_pimc9e, 1,4))), NA))
@@ -434,7 +434,7 @@ med_table$dis_mi_age_0 <-ifelse ((as.integer(substr(med_table$ep_pimc9b, 1,4)))<
                              med_table$startage.x-((as.integer(substr(med_table$startdat.x, 1,4)))-as.integer(substr(med_table$ep_pimc9e, 1,4))), NA))
                          
 
-table(lsb_ROTTERDAM_0$dis_mi_age_0, useNA="always")
+table(oth_ROTTERDAM_0$dis_mi_age_0, useNA="always")
 table(med_table$dis_mi_age_0, useNA="always")
 
 ```  
@@ -458,8 +458,8 @@ med_table$dis_mi_age_1<- ifelse (!is.na(med_table$dis_mi_age_0), med_table$dis_m
                     ifelse(is.na(med_table$dis_mi_age_0), 
                            med_table$startage.y-((as.integer(substr(med_table$startdat.y, 1,4)))-as.integer(substr(med_table$e4_dimif, 1,4))),NA))
                          
-lsb_ROTTERDAM_1<-merge(lsb_ROTTERDAM_1,med_table[,c("id","dis_mi_age_1")],by="id",all.x=TRUE)
-table(lsb_ROTTERDAM_1$dis_mi_age_1, useNA = "always")
+oth_ROTTERDAM_1<-merge(oth_ROTTERDAM_1,med_table[,c("id","dis_mi_age_1")],by="id",all.x=TRUE)
+table(oth_ROTTERDAM_1$dis_mi_age_1, useNA = "always")
 
 ```  
 ### **Variable label**: Age at first Myocardial infarction  
@@ -478,8 +478,8 @@ med_table$dis_mi_age_2<- ifelse (!is.na(med_table$dis_mi_age_0), med_table$dis_m
                          ifelse(is.na(med_table$dis_mi_age_0)&is.na(med_table$dis_mi_age_1)&!is.na(med_table$e5_eimif), 
                          med_table$startage2-((as.integer(substr(med_table$startdat2, 1,4)))-as.integer(substr(med_table$e5_eimif, 1,4))),NA)))
                          
-lsb_ROTTERDAM_2<-merge(lsb_ROTTERDAM_2,med_table[,c("id","dis_mi_age_2")],by="id",all.x=TRUE)
-table(lsb_ROTTERDAM_2$dis_mi_age_2, useNA = "always")
+oth_ROTTERDAM_2<-merge(oth_ROTTERDAM_2,med_table[,c("id","dis_mi_age_2")],by="id",all.x=TRUE)
+table(oth_ROTTERDAM_2$dis_mi_age_2, useNA = "always")
 
 ```  
 # Stroke subdomain
@@ -496,7 +496,7 @@ table(lsb_ROTTERDAM_2$dis_mi_age_2, useNA = "always")
 0        |   Never had stroke or CVA  
 1        |   Ever had stroke or CVA  
 
-**Harmonization status**: impossible   
+**Harmonization status**: complete     
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
@@ -504,8 +504,8 @@ table(ROTTERDAM_0$ep_pimc15)
 
 med_table$dis_stroke_ever_0<- dplyr::recode(as.integer(ROTTERDAM_0$ep_pimc15), "1"=1L, "0"=0L, .default=NA_integer_)
 
-lsb_ROTTERDAM_0<-merge(lsb_ROTTERDAM_0,med_table[,c("id","dis_stroke_ever_0")],by="id",all.x=TRUE)
-table(lsb_ROTTERDAM_0$dis_stroke_ever_0)
+oth_ROTTERDAM_0<-merge(oth_ROTTERDAM_0,med_table[,c("id","dis_stroke_ever_0")],by="id",all.x=TRUE)
+table(oth_ROTTERDAM_0$dis_stroke_ever_0)
 
 ```  
 ### **Variable label**: Lifetime occurrence of stroke or CVA  
@@ -538,8 +538,9 @@ table(lsb_ROTTERDAM_0$dis_stroke_ever_0)
 0        |   Never had stroke or CVA  
 1        |   Ever had stroke or CVA  
 
-**Harmonization status**: impossible  ?
-**Harmonization comment**:  
+**Harmonization status**: impossible  
+**Harmonization comment**:  There is no stroke related variable in follow-up 1, and the study-specific variable asks about having had a stroke since last interview. 
+
 **R script**:  
 ```{r, echo=TRUE}
 #There is no stroke related variable in RS_1, and the Rs_2 asks "since your last interview". Is it harmonizable?
@@ -561,10 +562,10 @@ table(ROTTERDAM_2$e5_EICVA05, ROTTERDAM_2$e5_EICVA01, useNA="always")
 
 table(ROTTERDAM_0$ep_pimc15b, useNA = "always")
 
-lsb_ROTTERDAM_0$dis_stroke_age_0 <-ifelse(!is.na(ROTTERDAM_0$ep_pimc15b), ROTTERDAM_0$startage-((as.integer(substr(ROTTERDAM_0$startdat, 1,4)))-
+oth_ROTTERDAM_0$dis_stroke_age_0 <-ifelse(!is.na(ROTTERDAM_0$ep_pimc15b), ROTTERDAM_0$startage-((as.integer(substr(ROTTERDAM_0$startdat, 1,4)))-
                                                                  as.integer(substr(ROTTERDAM_0$ep_pimc15b, 1,4))) , NA)
                                    
-table(lsb_ROTTERDAM_0$dis_stroke_age_0)                                   
+table(oth_ROTTERDAM_0$dis_stroke_age_0)                                   
 
 ```  
 ### **Variable label**: Age at first stroke or CVA  
@@ -609,15 +610,17 @@ table(lsb_ROTTERDAM_0$dis_stroke_age_0)
 0          |  Never had diabetes  
 1          |  Ever had diabetes  
 
-**Harmonization status**: impossible  ?
-**Harmonization comment**:  
+**Harmonization status**: complete 
+**Harmonization comment**:  The study-specific question asks: "Do you have diabetes?"
 **R script**:  
 ```{r, echo=TRUE}  
-# ep_pimc6
-# Do you have diabetes??
 
-                                 
+med_table$dis_diab_ever_0 <- dplyr::recode(as.integer(med_table$ep_pimc6), "0"=0L, "1"=1L, .default=NA_integer_)
+table(med_table$dis_diab_ever_0)
 
+oth_ROTTERDAM_0<-merge(oth_ROTTERDAM_0,med_table[,c("id","dis_diab_ever_0")],by="id",all.x=TRUE)
+table(oth_ROTTERDAM_0$dis_diab_ever_0)
+                              
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
 **Variable name**: dis_diab_ever_1  
@@ -631,11 +634,19 @@ table(lsb_ROTTERDAM_0$dis_stroke_age_0)
 0          |  Never had diabetes  
 1          |  Ever had diabetes  
 
-**Harmonization status**: impossible   
-**Harmonization comment**:  
+**Harmonization status**: complete     
+**Harmonization comment**:  The harmonized variable "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" for followup waves was created using "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" from baseline and previous and current waves.
 **R script**:  
 ```{r, echo=TRUE}  
-#  e4_didmdie Do you have a diet for your diabetes?
+med_table$dis_diab_ever_1 <- ifelse(med_table$dis_diab_ever_0==1, 1L, 
+                             dplyr::recode(as.integer(med_table$e4_didm), "0"=0L, "1"=1L, .default=NA_integer_))
+table(med_table$dis_diab_ever_1)
+table(med_table$dis_diab_ever_0)
+oth_ROTTERDAM_1<-merge(oth_ROTTERDAM_1,med_table[,c("id","dis_diab_ever_1")],by="id",all.x=TRUE)
+
+
+table(ROTTERDAM_1$e4_didm)
+table(oth_ROTTERDAM_1$dis_diab_ever_1)
 
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
@@ -650,12 +661,18 @@ table(lsb_ROTTERDAM_0$dis_stroke_age_0)
 0          |  Never had diabetes  
 1          |  Ever had diabetes  
 
-**Harmonization status**: impossible   
-**Harmonization comment**:  
+**Harmonization status**: complete    
+**Harmonization comment**:  The harmonized variable "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" for followup waves was created using "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" from baseline and previous and current waves.
 **R script**:  
 ```{r, echo=TRUE}  
-# e5_EIDM Do you have diabetes?
+table(ROTTERDAM_2$e5_EIDM)
 
+med_table$dis_diab_ever_2 <- ifelse(med_table$dis_diab_ever_0==1|med_table$dis_diab_ever_1==1, 1L, 
+                             dplyr::recode(as.integer(med_table$e5_EIDM), "0"=0L, "1"=1L, .default=NA_integer_))
+table(med_table$dis_diab_ever_2)
+table(med_table$dis_diab_ever_0)
+oth_ROTTERDAM_2<-merge(oth_ROTTERDAM_2,med_table[,c("id","dis_diab_ever_2")],by="id",all.x=TRUE)
+table(oth_ROTTERDAM_2$dis_diab_ever_2)
 
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
@@ -670,12 +687,18 @@ table(lsb_ROTTERDAM_0$dis_stroke_age_0)
 0          |  Never had diabetes  
 1          |  Ever had diabetes  
 
-**Harmonization status**: impossible   
-**Harmonization comment**:  
+**Harmonization status**: complete    
+**Harmonization comment**:  The harmonized variable "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" for followup waves was created using "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" from baseline and previous and current waves.
 **R script**:  
 ```{r, echo=TRUE}  
-## e6_EIDM
-# Do you have diabetes?
+
+table(med_table$e6_EIDM)
+med_table$dis_diab_ever_3 <- ifelse(med_table$dis_diab_ever_0==1|med_table$dis_diab_ever_1==1
+                                    |med_table$dis_diab_ever_2==1, 1L, 
+                             dplyr::recode(as.integer(med_table$e6_EIDM), "0"=0L, "1"=1L, .default=NA_integer_))
+
+oth_ROTTERDAM_3<-merge(oth_ROTTERDAM_3,med_table[,c("id","dis_diab_ever_3")],by="id",all.x=TRUE)
+table(oth_ROTTERDAM_3$dis_diab_ever_3)
 
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
@@ -730,9 +753,9 @@ table(lsb_ROTTERDAM_0$dis_stroke_age_0)
 
 med_table$dis_diab_age_0 <-ifelse(!is.na(med_table$ep_pimc6a), med_table$startage.x-((as.integer(substr(med_table$startdat.x, 1,4)))-
                                                                  as.integer(substr(med_table$ep_pimc6a, 1,4))) , NA)
-lsb_ROTTERDAM_0<-merge(lsb_ROTTERDAM_0,med_table[,c("id","dis_diab_age_0")],by="id",all.x=TRUE)
+oth_ROTTERDAM_0<-merge(oth_ROTTERDAM_0,med_table[,c("id","dis_diab_age_0")],by="id",all.x=TRUE)
                                    
-table(lsb_ROTTERDAM_0$dis_diab_age_0)  
+table(oth_ROTTERDAM_0$dis_diab_age_0)  
 ```  
 ### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
 **Variable name**:  dis_diab_age_1    
@@ -752,8 +775,8 @@ med_table$dis_diab_age_1 <-ifelse(!is.na(med_table$dis_diab_age_0), med_table$di
                            ifelse(is.na(med_table$dis_diab_age_0) & !is.na(med_table$e4_didmyr)&med_table$e4_didmyr!= "1582-10-04",
                                   med_table$startage.y-((as.integer(substr(med_table$startdat.y, 1,4)))-
                                                           as.integer(as.character(substr(med_table$e4_didmyr, 1,4)))) , NA))
-lsb_ROTTERDAM_1<-merge(lsb_ROTTERDAM_1,med_table[,c("id","dis_diab_age_1")],by="id",all.x=TRUE)
-table(lsb_ROTTERDAM_1$dis_diab_age_1)
+oth_ROTTERDAM_1<-merge(oth_ROTTERDAM_1,med_table[,c("id","dis_diab_age_1")],by="id",all.x=TRUE)
+table(oth_ROTTERDAM_1$dis_diab_age_1)
 ```  
 ### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
 **Variable name**:  dis_diab_age_2    
@@ -775,8 +798,8 @@ med_table$dis_diab_age_2 <-ifelse(!is.na(med_table$dis_diab_age_0), med_table$di
                                     !is.na(med_table$e4_didmyr)&med_table$e5_EIDMYR< 7777,
                                   med_table$startage2-((as.integer(substr(med_table$startdat2, 1,4)))-
                                                           as.integer(as.character(substr(med_table$e5_EIDMYR, 1,4)))) , NA)))
-lsb_ROTTERDAM_2<-merge(lsb_ROTTERDAM_2,med_table[,c("id","dis_diab_age_2")],by="id",all.x=TRUE)
-table(lsb_ROTTERDAM_2$dis_diab_age_2)
+oth_ROTTERDAM_2<-merge(oth_ROTTERDAM_2,med_table[,c("id","dis_diab_age_2")],by="id",all.x=TRUE)
+table(oth_ROTTERDAM_2$dis_diab_age_2)
 
 ```  
 ### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
@@ -790,17 +813,8 @@ table(lsb_ROTTERDAM_2$dis_diab_age_2)
 **Harmonization comment**:  Age at first diagnosis reported in the previous waves are combined with the study-specific variable asking about the age at first diagnosis since last wave. 
 **R script**:  
 ```{r, echo=TRUE}  
-# table(ROTTERDAM_3$e6_EIDMYR)
+table(ROTTERDAM_3$e6_EIDMYR)
 # integer in opal. cant see here???
-# med_table$dis_diab_age_2 <-ifelse(!is.na(med_table$dis_diab_age_0), med_table$dis_diab_age_0 , 
-#                            ifelse(!is.na(med_table$dis_diab_age_1), med_table$dis_diab_age_1,
-#                            ifelse(is.na(med_table$dis_diab_age_0) &
-#                                     is.na(med_table$dis_diab_age_1) &
-#                                     !is.na(med_table$e4_didmyr)&med_table$e5_EIDMYR< 7777,
-#                                   med_table$startage2-((as.integer(substr(med_table$startdat2, 1,4)))-
-#                                                           as.integer(as.character(substr(med_table$e5_EIDMYR, 1,4)))) , NA)))
-# lsb_ROTTERDAM_2<-merge(lsb_ROTTERDAM_2,med_table[,c("id","dis_diab_age_2")],by="id",all.x=TRUE)
-# table(lsb_ROTTERDAM_2$dis_diab_age_2)
 
 ```  
 ### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
@@ -847,9 +861,9 @@ table(lsb_ROTTERDAM_2$dis_diab_age_2)
 **R script**:
 ```{r, echo=TRUE}
 table(ROTTERDAM_0$ep_pimc6c, ROTTERDAM_0$ep_pimc6, useNA="always")
-lsb_ROTTERDAM_0$dis_diab_tx_0 <- ifelse(ROTTERDAM_0$ep_pimc6==0|ROTTERDAM_0$ep_pimc6c==0, 0L,  
+oth_ROTTERDAM_0$dis_diab_tx_0 <- ifelse(ROTTERDAM_0$ep_pimc6==0|ROTTERDAM_0$ep_pimc6c==0, 0L,  
                                         ifelse(ROTTERDAM_0$ep_pimc6c==1|ROTTERDAM_0$ep_pimc6c==2|ROTTERDAM_0$ep_pimc6c==3, 1L, NA ))
-table(lsb_ROTTERDAM_0$dis_diab_tx_0 )
+table(oth_ROTTERDAM_0$dis_diab_tx_0 )
 ```  
 ### **Variable label**: Currently under treatment for diabetes  
 **Variable name**:  dis_diab_tx_1  
@@ -868,9 +882,9 @@ table(lsb_ROTTERDAM_0$dis_diab_tx_0 )
 **R script**:
 ```{r, echo=TRUE}
 table(ROTTERDAM_1$e4_didmtr)
-lsb_ROTTERDAM_1$dis_diab_tx_1<- ifelse(ROTTERDAM_1$e4_didmtr==0|ROTTERDAM_1$e4_didmtr==8, 0L,  
+oth_ROTTERDAM_1$dis_diab_tx_1<- ifelse(ROTTERDAM_1$e4_didmtr==0|ROTTERDAM_1$e4_didmtr==8, 0L,  
                                         ifelse(ROTTERDAM_1$e4_didmtr==1|ROTTERDAM_1$e4_didmtr==2|ROTTERDAM_1$e4_didmtr==3, 1L, NA ))
-table(lsb_ROTTERDAM_1$dis_diab_tx_1 )
+table(oth_ROTTERDAM_1$dis_diab_tx_1 )
 
 ```  
 ### **Variable label**: Currently under treatment for diabetes  
@@ -890,9 +904,9 @@ table(lsb_ROTTERDAM_1$dis_diab_tx_1 )
 **R script**:
 ```{r, echo=TRUE}
 table(ROTTERDAM_2$e5_EIDMTR, ROTTERDAM_2$e5_EIDM)
-lsb_ROTTERDAM_2$dis_diab_tx_2<- ifelse(ROTTERDAM_2$e5_EIDMTR==0|ROTTERDAM_2$e5_EIDMTR==8, 0L,  
+oth_ROTTERDAM_2$dis_diab_tx_2<- ifelse(ROTTERDAM_2$e5_EIDMTR==0|ROTTERDAM_2$e5_EIDMTR==8, 0L,  
                                         ifelse(ROTTERDAM_2$e5_EIDMTR==1|ROTTERDAM_2$e5_EIDMTR==2|ROTTERDAM_2$e5_EIDMTR==3, 1L, NA ))
-table(lsb_ROTTERDAM_2$dis_diab_tx_2)
+table(oth_ROTTERDAM_2$dis_diab_tx_2)
 
 ```  
 ### **Variable label**: Currently under treatment for diabetes  
@@ -912,9 +926,9 @@ table(lsb_ROTTERDAM_2$dis_diab_tx_2)
 **R script**:
 ```{r, echo=TRUE}
 table(ROTTERDAM_3$e6_EIDMTR, ROTTERDAM_3$e6_EIDM)
-lsb_ROTTERDAM_3$dis_diab_tx_3<- ifelse(ROTTERDAM_3$e6_EIDMTR==0|ROTTERDAM_3$e6_EIDMTR==8, 0L,  
+oth_ROTTERDAM_3$dis_diab_tx_3<- ifelse(ROTTERDAM_3$e6_EIDMTR==0|ROTTERDAM_3$e6_EIDMTR==8, 0L,  
                                         ifelse(ROTTERDAM_3$e6_EIDMTR==1|ROTTERDAM_3$e6_EIDMTR==2|ROTTERDAM_3$e6_EIDMTR==3, 1L, NA ))
-table(lsb_ROTTERDAM_3$dis_diab_tx_3)
+table(oth_ROTTERDAM_3$dis_diab_tx_3)
 
 ```  
 ### **Variable label**: Currently under treatment for diabetes  
@@ -933,7 +947,7 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:  
 **R script**:
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Currently under treatment for diabetes  
@@ -952,7 +966,7 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:  
 **R script**:
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Currently use insulin for diabetes  
@@ -967,11 +981,10 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 0        | Currently does not use insulin for diabetes treatment  
 1        | Currently does use insulin for diabetes treatment  
 
-**Harmonization status**: impossible   
-**Harmonization comment**:  
+**Harmonization status**: impossible  
+**Harmonization comment**:  The study-specific variable is :"Is your diabetes treated by injections, tablets or both?"
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Currently use insulin for diabetes  
@@ -986,11 +999,10 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 0        | Currently does not use insulin for diabetes treatment  
 1        | Currently does use insulin for diabetes treatment  
 
-**Harmonization status**: impossible   
-**Harmonization comment**:  
+**Harmonization status**: impossible  
+**Harmonization comment**:  The study-specific variable is :"Is your diabetes treated by injections, tablets or both?"
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Currently use insulin for diabetes  
@@ -1006,10 +1018,9 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 1        | Currently does use insulin for diabetes treatment  
 
 **Harmonization status**: impossible   
-**Harmonization comment**:  
+**Harmonization comment**:  The study-specific variable is :"Is your diabetes treated by injections, tablets or both?"
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 # BMI subdomain
@@ -1025,7 +1036,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Weight in kg - measured 
@@ -1035,11 +1045,12 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Variable unit**: kg   
 **Category coding**: N/A
 
-**Harmonization status**: impossible   
+**Harmonization status**: impossible    
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+# table(ROTTERDAM_1$e4_230, useNA="always")
+# oth_ROTTERDAM_1$phy_weight_ms_1 <-as.numeric(ROTTERDAM_1$e4_230)
 
 ```  
 ### **Variable label**: Weight in kg - measured 
@@ -1049,11 +1060,14 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Variable unit**: kg   
 **Category coding**: N/A
 
-**Harmonization status**: impossible   
+**Harmonization status**: impossible      
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
+
+# table(ROTTERDAM_2$e5_230, useNA="always")
+# oth_ROTTERDAM_2$phy_weight_ms_2 <-as.numeric(ROTTERDAM_2$e5_230)
 
 ```  
 ### **Variable label**: Weight in kg - measured 
@@ -1063,11 +1077,12 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Variable unit**: kg   
 **Category coding**: N/A
 
-**Harmonization status**: impossible   
+**Harmonization status**: impossible      
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+# table(ROTTERDAM_3$e6_230, useNA="always")
+# oth_ROTTERDAM_3$phy_weight_ms_3 <-as.numeric(ROTTERDAM_3$e6_230)
 
 ```  
 ### **Variable label**: Weight in kg - measured 
@@ -1081,7 +1096,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Weight in kg - measured 
@@ -1095,7 +1109,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Weight in kg - measured 
@@ -1109,7 +1122,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Weight in kg - self-reported 
@@ -1123,7 +1135,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Weight in kg - self-reported 
@@ -1137,7 +1148,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Weight in kg - self-reported 
@@ -1151,7 +1161,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Weight in kg - self-reported 
@@ -1165,7 +1174,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Weight in kg - self-reported 
@@ -1179,7 +1187,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Weight in kg - self-reported 
@@ -1193,7 +1200,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Weight in kg - self-reported 
@@ -1207,7 +1213,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Weight in kg - measured and self-reported combined
@@ -1221,7 +1226,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 
@@ -1232,11 +1236,11 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Variable unit**: kg   
 **Category coding**: N/A  
 
-**Harmonization status**: impossible   
+**Harmonization status**: complete  
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+oth_ROTTERDAM_1$phy_weight_all_1 <-as.numeric(ROTTERDAM_1$e4_230)
 
 ```  
 ### **Variable label**: Weight in kg - measured and self-reported combined  
@@ -1246,11 +1250,11 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Variable unit**: kg   
 **Category coding**: N/A  
 
-**Harmonization status**: impossible   
+**Harmonization status**: complete     
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+oth_ROTTERDAM_2$phy_weight_all_2 <-as.numeric(ROTTERDAM_2$e5_230)
 
 ```  
 ### **Variable label**: Weight in kg - measured and self-reported combined  
@@ -1260,12 +1264,12 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Variable unit**: kg    
 **Category coding**: N/A  
 
-**Harmonization status**: impossible   
+**Harmonization status**: complete    
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
-
+oth_ROTTERDAM_3$phy_weight_all_3 <-as.numeric(ROTTERDAM_3$e6_230)
+table(oth_ROTTERDAM_3$phy_weight_all_3 )
 ```  
 ### **Variable label**: Weight in kg - self-reported and measured combined  
 **Variable name**: phy_weight_all_4    
@@ -1278,7 +1282,7 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Weight in kg - self-reported and measured combined  
@@ -1292,7 +1296,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Weight in kg - self-reported and measured combined  
@@ -1306,7 +1309,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Height in cm - measured  
@@ -1320,7 +1322,7 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**: Height in cm - measured  
@@ -1330,11 +1332,12 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**: impossible   
+**Harmonization status**: impossible     
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+# table(ROTTERDAM_1$e4_229)
+# oth_ROTTERDAM_1$phy_height_ms_1<- as.numeric(ROTTERDAM_1$e4_229)
 
 ```  
 ### **Variable label**: Height in cm - measured  
@@ -1344,11 +1347,12 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**: impossible   
+**Harmonization status**: impossible      
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+# table(ROTTERDAM_2$e5_229)
+# oth_ROTTERDAM_2$phy_height_ms_2<- as.numeric(ROTTERDAM_2$e5_229)
 
 ```  
 ### **Variable label**: Height in cm - measured  
@@ -1358,11 +1362,14 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Variable unit**: cm    
 **Category coding**: N/A
 
-**Harmonization status**: impossible   
+**Harmonization status**: impossible     
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+	
+# table(ROTTERDAM_3$e6_229)
+# oth_ROTTERDAM_3$phy_height_ms_3<- as.numeric(ROTTERDAM_3$e6_229)
+
 
 ```  
 ### **Variable label**: Height in cm - measured  
@@ -1376,7 +1383,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Height in cm - measured  
@@ -1390,7 +1396,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Height in cm - measured  
@@ -1404,7 +1409,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 
@@ -1419,7 +1423,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Height in cm - self-reported  
@@ -1433,7 +1436,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Height in cm - self-reported  
@@ -1447,7 +1449,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Height in cm - self-reported  
@@ -1461,7 +1462,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Height in cm - self-reported  
@@ -1475,7 +1475,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Height in cm - self-reported  
@@ -1489,7 +1488,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Height in cm - self-reported  
@@ -1503,7 +1501,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 
@@ -1518,7 +1515,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined  
@@ -1528,11 +1524,11 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**: impossible   
+**Harmonization status**: complete   
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+oth_ROTTERDAM_1$phy_height_all_1<- as.numeric(ROTTERDAM_1$e4_229)
 
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined    
@@ -1542,11 +1538,11 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**: impossible   
+**Harmonization status**: complete    
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+oth_ROTTERDAM_2$phy_height_all_2<- as.numeric(ROTTERDAM_2$e5_229)
 
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined  
@@ -1556,11 +1552,11 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Variable unit**: cm  
 **Category coding**: N/A
 
-**Harmonization status**: impossible   
+**Harmonization status**: complete    
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+oth_ROTTERDAM_3$phy_height_all_3 <- as.numeric(ROTTERDAM_3$e6_229)
 
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined  
@@ -1574,7 +1570,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined  
@@ -1588,7 +1583,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Height in cm - measured and self-reported combined  
@@ -1602,7 +1596,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 
@@ -1617,7 +1610,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured  
@@ -1627,11 +1619,14 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**: impossible   
+**Harmonization status**: impossible      
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+# oth_ROTTERDAM_1$phy_bmi_ms_1<-as.numeric(ROTTERDAM_1$e4_230)/(as.numeric(ROTTERDAM_1$e4_229)*(0.01))^2
+# max(oth_ROTTERDAM_1$phy_bmi_ms_1, na.rm = TRUE)
+# min(oth_ROTTERDAM_1$phy_bmi_ms_1, na.rm = TRUE)
+# table(oth_ROTTERDAM_1$phy_bmi_ms_1)
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured  
@@ -1641,11 +1636,14 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**: impossible   
+**Harmonization status**: impossible      
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+# oth_ROTTERDAM_2$phy_bmi_ms_2<-as.numeric(ROTTERDAM_2$e5_230)/(as.numeric(ROTTERDAM_2$e5_229)*(0.01))^2
+# max(oth_ROTTERDAM_2$phy_bmi_ms_2, na.rm = TRUE)
+# min(oth_ROTTERDAM_2$phy_bmi_ms_2, na.rm = TRUE)
+# table(oth_ROTTERDAM_2$phy_bmi_ms_2)
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured  
@@ -1655,11 +1653,14 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**: impossible   
+**Harmonization status**: impossible       
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+# oth_ROTTERDAM_3$phy_bmi_ms_3<-as.numeric(ROTTERDAM_3$e6_230)/(as.numeric(ROTTERDAM_3$e6_229)*(0.01))^2
+# max(oth_ROTTERDAM_3$phy_bmi_ms_3, na.rm = TRUE)
+# min(oth_ROTTERDAM_3$phy_bmi_ms_3, na.rm = TRUE)
+# table(oth_ROTTERDAM_3$phy_bmi_ms_3)
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured  
@@ -1673,7 +1674,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured  
@@ -1687,7 +1687,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured  
@@ -1701,7 +1700,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 
@@ -1716,7 +1714,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Body mass index (BMI) - self-reported  
@@ -1730,7 +1727,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Body mass index (BMI) - self-reported  
@@ -1744,7 +1740,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Body mass index (BMI) - self-reported  
@@ -1758,7 +1753,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Body mass index (BMI) - self-reported  
@@ -1772,7 +1766,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Body mass index (BMI) - self-reported  
@@ -1786,7 +1779,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Body mass index (BMI) - self-reported  
@@ -1800,7 +1792,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```   
 
@@ -1815,7 +1806,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
@@ -1825,11 +1815,11 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**: impossible   
+**Harmonization status**: complete     
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+oth_ROTTERDAM_1$phy_bmi_all_1<-as.numeric(ROTTERDAM_1$e4_230)/(as.numeric(ROTTERDAM_1$e4_229)*(0.01))^2
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
@@ -1839,11 +1829,11 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**: impossible   
+**Harmonization status**: complete    
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+oth_ROTTERDAM_2$phy_bmi_all_2<-as.numeric(ROTTERDAM_2$e5_230)/(as.numeric(ROTTERDAM_2$e5_229)*(0.01))^2
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
@@ -1853,11 +1843,11 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Variable unit**: kg/m2  
 **Category coding**: N/A
 
-**Harmonization status**: impossible   
+**Harmonization status**: complete     
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+oth_ROTTERDAM_3$phy_bmi_all_3<-as.numeric(ROTTERDAM_3$e6_230)/(as.numeric(ROTTERDAM_3$e6_229)*(0.01))^2
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
@@ -1871,7 +1861,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
@@ -1885,7 +1874,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured and self-reported combined  
@@ -1899,7 +1887,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 
@@ -1921,8 +1908,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
-
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured  
 **Variable name**: phy_bmi_cat_ms_1  
@@ -1938,11 +1923,16 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**: impossible   
+**Harmonization status**: impossible      
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+# oth_ROTTERDAM_1$phy_bmi_cat_ms_1 <- ifelse(oth_ROTTERDAM_1$phy_bmi_ms_1<18.5, 0L,
+#                                     ifelse(oth_ROTTERDAM_1$phy_bmi_ms_1>=18.5&oth_ROTTERDAM_1$phy_bmi_ms_1<25, 1L,
+#                                     ifelse(oth_ROTTERDAM_1$phy_bmi_ms_1>=25&oth_ROTTERDAM_1$phy_bmi_ms_1<30, 2L, 
+#                                     ifelse(oth_ROTTERDAM_1$phy_bmi_ms_1>=30, 3L, NA))))
+# 
+# table(oth_ROTTERDAM_1$phy_bmi_cat_ms_1, useNA="always")           
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured  
@@ -1959,11 +1949,16 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**: impossible   
+**Harmonization status**: impossible      
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+# oth_ROTTERDAM_2$phy_bmi_cat_ms_2 <- ifelse(oth_ROTTERDAM_2$phy_bmi_ms_2<18.5, 0L,
+#                                     ifelse(oth_ROTTERDAM_2$phy_bmi_ms_2>=18.5 & oth_ROTTERDAM_2$phy_bmi_ms_2<25, 1L,
+#                                     ifelse(oth_ROTTERDAM_2$phy_bmi_ms_2>=25   & oth_ROTTERDAM_2$phy_bmi_ms_2<30, 2L, 
+#                                     ifelse(oth_ROTTERDAM_2$phy_bmi_ms_2>=30, 3L, NA))))
+# 
+# table(oth_ROTTERDAM_2$phy_bmi_cat_ms_2, useNA="always")                                      
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured  
@@ -1980,11 +1975,16 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**: impossible   
+**Harmonization status**: impossible      
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+# oth_ROTTERDAM_3$phy_bmi_cat_ms_3 <- ifelse(oth_ROTTERDAM_3$phy_bmi_ms_3<18.5, 0L,
+#                                     ifelse(oth_ROTTERDAM_3$phy_bmi_ms_3>=18.5 & oth_ROTTERDAM_3$phy_bmi_ms_3<25, 1L,
+#                                     ifelse(oth_ROTTERDAM_3$phy_bmi_ms_3>=25   & oth_ROTTERDAM_3$phy_bmi_ms_3<30, 2L, 
+#                                     ifelse(oth_ROTTERDAM_3$phy_bmi_ms_3>=30, 3L, NA))))
+# 
+# table(oth_ROTTERDAM_3$phy_bmi_cat_ms_3, useNA="always")                                      
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured  
@@ -2005,7 +2005,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured  
@@ -2026,7 +2025,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured  
@@ -2047,7 +2045,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 
@@ -2069,7 +2066,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - self-reported  
@@ -2090,7 +2086,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - self-reported  
@@ -2111,7 +2106,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - self-reported  
@@ -2132,7 +2126,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - self-reported  
@@ -2153,7 +2146,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - self-reported  
@@ -2174,7 +2166,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - self-reported  
@@ -2195,7 +2186,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 
@@ -2217,7 +2207,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
@@ -2234,12 +2223,16 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**: impossible   
+**Harmonization status**: complete     
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+oth_ROTTERDAM_1$phy_bmi_cat_all_1 <- ifelse(oth_ROTTERDAM_1$phy_bmi_ms_1<18.5, 0L,
+                                     ifelse(oth_ROTTERDAM_1$phy_bmi_ms_1>=18.5&oth_ROTTERDAM_1$phy_bmi_ms_1<25, 1L,
+                                     ifelse(oth_ROTTERDAM_1$phy_bmi_ms_1>=25&oth_ROTTERDAM_1$phy_bmi_ms_1<30, 2L, 
+                                     ifelse(oth_ROTTERDAM_1$phy_bmi_ms_1>=30, 3L, NA))))
 
+table(oth_ROTTERDAM_1$phy_bmi_cat_all_1, useNA="always") 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
 **Variable name**: phy_bmi_cat_all_2    
@@ -2255,11 +2248,16 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**: impossible   
+**Harmonization status**: complete     
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+oth_ROTTERDAM_2$phy_bmi_cat_all_2 <- ifelse(oth_ROTTERDAM_2$phy_bmi_ms_2<18.5, 0L,
+                                    ifelse(oth_ROTTERDAM_2$phy_bmi_ms_2>=18.5 & oth_ROTTERDAM_2$phy_bmi_ms_2<25, 1L,
+                                    ifelse(oth_ROTTERDAM_2$phy_bmi_ms_2>=25   & oth_ROTTERDAM_2$phy_bmi_ms_2<30, 2L, 
+                                    ifelse(oth_ROTTERDAM_2$phy_bmi_ms_2>=30, 3L, NA))))
+
+table(oth_ROTTERDAM_2$phy_bmi_cat_all_2, useNA="always")                                      
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
@@ -2276,11 +2274,16 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 2 | Overweight - BMI 25-29.99  
 3 | Obese - BMI >=30  
 
-**Harmonization status**: impossible   
+**Harmonization status**: complete     
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+oth_ROTTERDAM_3$phy_bmi_cat_all_3 <- ifelse(oth_ROTTERDAM_3$phy_bmi_ms_3<18.5, 0L,
+                                     ifelse(oth_ROTTERDAM_3$phy_bmi_ms_3>=18.5 & oth_ROTTERDAM_3$phy_bmi_ms_3<25, 1L,
+                                     ifelse(oth_ROTTERDAM_3$phy_bmi_ms_3>=25   & oth_ROTTERDAM_3$phy_bmi_ms_3<30, 2L, 
+                                     ifelse(oth_ROTTERDAM_3$phy_bmi_ms_3>=30, 3L, NA))))
+
+table(oth_ROTTERDAM_3$phy_bmi_cat_all_3, useNA="always")                                      
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
@@ -2301,7 +2304,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
@@ -2322,7 +2324,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
@@ -2343,7 +2344,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 
@@ -2358,7 +2358,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined   
@@ -2372,7 +2371,9 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+table(ROTTERDAM_1$e4_231)
+oth_ROTTERDAM_1$phy_waist_all_1<- as.numeric(ROTTERDAM_1$e4_231)
+table(oth_ROTTERDAM_1$phy_waist_all_1)
 
 ```  
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined   
@@ -2382,12 +2383,12 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Variable unit**: cm  
 **Category coding**:  N/A  
 
-**Harmonization status**: impossible   
+**Harmonization status**: complete     
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
-
+oth_ROTTERDAM_2$phy_waist_all_2<- as.numeric(ROTTERDAM_2$e5_231)
+table(oth_ROTTERDAM_2$phy_waist_all_2)
 ```  
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined 
 **Variable name**: phy_waist_all_3  
@@ -2396,12 +2397,12 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Variable unit**: cm  
 **Category coding**:  N/A  
 
-**Harmonization status**: impossible   
+**Harmonization status**: complete     
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
-
+oth_ROTTERDAM_3$phy_waist_all_3<- as.numeric(ROTTERDAM_3$e6_231)
+table(oth_ROTTERDAM_3$phy_waist_all_3)
 ```  
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined   
 **Variable name**: phy_waist_all_4  
@@ -2414,7 +2415,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined 
@@ -2428,7 +2428,7 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined 
@@ -2442,7 +2442,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 
@@ -2465,7 +2464,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Self-assessed health   
@@ -2485,7 +2483,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Self-assessed health   
@@ -2505,7 +2502,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Self-assessed health   
@@ -2525,7 +2521,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Self-assessed health   
@@ -2545,7 +2540,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Self-assessed health   
@@ -2565,7 +2559,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Self-assessed health   
@@ -2585,7 +2578,7 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 
@@ -2605,7 +2598,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Poor self-assessed health  
@@ -2624,7 +2616,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Poor self-assessed health  
@@ -2643,7 +2634,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Poor self-assessed health  
@@ -2662,7 +2652,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Poor self-assessed health  
@@ -2681,7 +2670,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Poor self-assessed health  
@@ -2700,7 +2688,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Poor self-assessed health  
@@ -2719,7 +2706,7 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 
@@ -2739,7 +2726,7 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Less than good self-assessed health  
@@ -2758,7 +2745,7 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Less than good self-assessed health  
@@ -2777,7 +2764,7 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Less than good self-assessed health  
@@ -2796,7 +2783,7 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Less than good self-assessed health  
@@ -2815,7 +2802,7 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Less than good self-assessed health  
@@ -2834,7 +2821,7 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Less than good self-assessed health  
@@ -2853,7 +2840,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 
@@ -2872,11 +2858,16 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 0 |   Has no difficulty walking up and down the stairs
 1 |   Has difficulty walking up and down the stairs  
 
-**Harmonization status**: impossible   
-**Harmonization comment**:   
+**Harmonization status**: complete   
+**Harmonization comment**:   The study-specific variable is: "Are you able to climb up and down at least 5 steps of a stair?". 
+The categories "with a little effort", "with much effort", not able need help are coded under the DataSchema category 1|Has difficulty walking up and down the stairs; whereas the study-specific category "without effort" is coded under the DataSchema category 0|Has no difficulty walking up and down the stairs.
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+table(ROTTERDAM_0$ep_pishaq11, useNA="always")
+oth_ROTTERDAM_0$fct_stairs_diff_0<- dplyr::recode(as.integer(ROTTERDAM_0$ep_pishaq11), 
+                                                  "1"=0L, "2"=1L, "3"=1L, "4"=1L, .default=NA_integer_)
+
+table(oth_ROTTERDAM_0$fct_stairs_diff_0, useNA = "always")
 
 ```  
 ### **Variable label**:  Difficulty walking up and down the stairs  
@@ -2891,11 +2882,17 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 0 |   Has no difficulty walking up and down the stairs
 1 |   Has difficulty walking up and down the stairs  
 
-**Harmonization status**: impossible   
-**Harmonization comment**:   
+**Harmonization status**:  complete     
+**Harmonization comment**:   The study-specific variable is: "Are you able to climb up and down at least 5 steps of a stair?". 
+The categories "with a little effort", "with much effort", not able need help are coded under the DataSchema category 1|Has difficulty walking up and down the stairs; whereas the study-specific category "without effort" is coded under the DataSchema category 0|Has no difficulty walking up and down the stairs.
+
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+table(ROTTERDAM_1$e4_di1_11, useNA="always")
+oth_ROTTERDAM_1$fct_stairs_diff_1<- dplyr::recode(as.integer(ROTTERDAM_1$e4_di1_11), 
+                                                  "1"=0L, "2"=1L, "3"=1L, "4"=1L, .default=NA_integer_)
+
+table(oth_ROTTERDAM_1$fct_stairs_diff_1, useNA = "always")
 
 ```  
 ### **Variable label**:  Difficulty walking up and down the stairs  
@@ -2910,11 +2907,17 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 0 |   Has no difficulty walking up and down the stairs
 1 |   Has difficulty walking up and down the stairs  
 
-**Harmonization status**: impossible   
-**Harmonization comment**:   
+**Harmonization status**: complete     
+**Harmonization comment**:   The study-specific variable is: "Are you able to climb up and down at least 5 steps of a stair?". 
+The categories "with a little effort", "with much effort", not able need help are coded under the DataSchema category 1|Has difficulty walking up and down the stairs; whereas the study-specific category "without effort" is coded under the DataSchema category 0|Has no difficulty walking up and down the stairs.
+
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+table(ROTTERDAM_2$e5_EI1_11, useNA="always")
+oth_ROTTERDAM_2$fct_stairs_diff_2<- dplyr::recode(as.integer(ROTTERDAM_2$e5_EI1_11), 
+                                                  "1"=0L, "2"=1L, "3"=1L, "4"=1L, .default=NA_integer_)
+
+table(oth_ROTTERDAM_2$fct_stairs_diff_2, useNA = "always")
 
 ```  
 
@@ -2934,7 +2937,6 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
 
 ```  
 ### **Variable label**:  Difficulty walking    
@@ -2953,7 +2955,7 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Difficulty walking    
@@ -2972,7 +2974,7 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Difficulty walking    
@@ -2991,7 +2993,7 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Difficulty walking    
@@ -3010,7 +3012,7 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Difficulty walking    
@@ -3029,7 +3031,7 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 ### **Variable label**:  Difficulty walking    
@@ -3048,7 +3050,7 @@ table(lsb_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-#This is where the R-script will be written
+
 
 ```  
 
