@@ -14,18 +14,18 @@ erasmus_opal <- opal.login()
 
 # TRA BASE 
 opal.assign.table.tibble(erasmus_opal, 'Tra3_4_Baseline','CLSA_1.Tra3_4_Baseline', variables =list("HWT_WGHT_KG_TRM", "HWT_DHT_M_TRM", "HWT_DISW_TRM", "HWT_DBMI_TRM", "WHC_WAIST_CM_TRM", "WHC_CLTHLAYERS_TRM", "GEN_HLTH_TRM", "FUL_FSTR_TRM", "FUL_WK23B_TRM", "CCT_HBP_TRM",  "CCT_ANGI_TRM", "CCT_AMI_TRM", "IHD_AMIAGE_NB_TRM", "CCT_CVA_TRM", "STR_CVAAGE_NB_TRM", "DIA_AGE_NB_TRM", "DIA_MEDAGE_NB_TRM", "CCT_DIAB_TRM"))
-CLSA_tra_0 <- opal.execute(erasmus_opal,'Tra3_4_Baseline')
+CLSA_tra_0 <- opal.execute(erasmus_opal,'Tra3_4_Baseline') %>% as_tibble %>% arrange(id)
 
 # TRA FU1
 opal.assign.table.tibble(erasmus_opal, 'Tra_FU1','CLSA_1.Tra_FU1', variables =list("HWT_WGHT_NB_TRF1", "HWT_DHT_M_TRF1", "HWT_DISW_TRF1","WGT_WEIGHT1_KG_TRF1", "WGT_WEIGHT2_KG_TRF1","GEN_HLTH_TRF1", "WGT_WEIGHT_KG_TRF1", "HGT_HEIGHT_M_TRF1","HWT_DBMI_TRF1", "WHC_WAIST_CM_TRF1", "WHC_CLTHLAYERS_TRF1", "FUL_FSTR_TRF1", "FUL_WK23B_TRF1", "CCT_HBP_TRF1",  "CCT_ANGI_TRF1", "CCT_AMI_TRF1", "CCT_AMIAGE_NB_TRF1", "CCT_CVA_TRF1", "STR_CVAAGE_NB_TRF1", "AGE_NB_TRF1", "DIA_MED_TRF1", "HWT_DISW_TRF1",
 "CCT_MEDAGE_NB_TRF1", "PSD_DCTOFF_TRM", "WGT_WEIGHTSR_KG_TRF1", "HGT_HEIGHT_M_TRF1", "HGT_HEIGHTSR_CM_TRF1", "HWT_DBMI_TRF1" , "CCT_CVAAGE_NB_TRF1", "CCT_DIAB_TRF1", "CCT_DIABAGE_NB_TRF1", "HWT_WGHT_PK_TRF1"))
-CLSA_tra_1 <- opal.execute(erasmus_opal,'Tra_FU1')
+CLSA_tra_1 <- opal.execute(erasmus_opal,'Tra_FU1') %>% as_tibble %>% arrange(id)
 
 ```
 ## Assign participant id as first column of your harmonized dataframes
 ```{r, echo=FALSE}
-oth_CLSA_tra_0<- data.frame(id = CLSA_tra_0$id)
-oth_CLSA_tra_1<- data.frame(id = CLSA_tra_1$id)
+oth_CLSA_tra_0<- data.frame(id = CLSA_tra_0$id) %>% as_tibble %>% arrange(id)
+oth_CLSA_tra_1<- data.frame(id = CLSA_tra_1$id) %>% as_tibble %>% arrange(id)
 
 ```
 ## When you are done with your work, logout of Opal server

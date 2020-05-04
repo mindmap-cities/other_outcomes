@@ -14,19 +14,19 @@ erasmus_opal <- opal.login()
 #Login to Opal server and assign the content of the HUNT table(s) to your RStudio environment
 # HUNT1
 opal.assign.table.tibble(erasmus_opal, 'HUNT1','HUNT.HUNT1', variables = list('BPMedEv_NT1BLQ1','CarAngEv_NT1BLQ1','CarInfEv_NT1BLQ1','ApoplEv_NT1BLQ1','DiaEv_NT1BLQ1','Bmi_NT1BLM','Bmi_NT1BLM','Wei_NT1BLM','Hei_NT1BLM','Healt_NT1BLQ1','Sex')) 
-HUNT1 <- opal.execute(erasmus_opal,'HUNT1')
+HUNT1 <- opal.execute(erasmus_opal,'HUNT1') %>% as_tibble %>% arrange(id)
 # HUNT2
 opal.assign.table.tibble(erasmus_opal, 'HUNT2', 'HUNT.HUNT2', variables = list('BPMedCu_NT2BLQ1','CarAngEv_NT2BLQ1','CarInfEv_NT2BLQ1','ApoplEv_NT2BLQ1','ApoplAg_NT2BLQ1','DiaEv_NT2BLQ1','DiaAg_NT2BLQ1','Bmi_NT2BLM','Wei_NT2BLM','Hei_NT2BLM','WaistCirc_NT2BLM','Healt_NT2BLQ1','CarInfAg_NT2BLQ1','Sex')) 
-HUNT2 <- opal.execute(erasmus_opal,'HUNT2')
+HUNT2 <- opal.execute(erasmus_opal,'HUNT2') %>% as_tibble %>% arrange(id)
 # HUNT3
 opal.assign.table.tibble(erasmus_opal, 'HUNT3', 'HUNT.HUNT3', variables = list('BPMedEv_NT3BLQ1','CarAngEv_NT3BLQ1','CarInfEv_NT3BLQ1','ApoplEv_NT3BLQ1','ApoplAg_NT3BLQ1','DiaAg_NT3BLQ1','DiaEv_NT3BLQ1','Bmi_NT3BLM','Wei_NT3BLM','Hei_NT3BLM','WaistCirc_NT3BLM','Healt_NT3BLQ1','CarInfAg_NT3BLQ1','Sex')) 
-HUNT3 <- opal.execute(erasmus_opal,'HUNT3')
+HUNT3 <- opal.execute(erasmus_opal,'HUNT3') %>% as_tibble %>% arrange(id)
 ```
 ## Assign participant id as first column of your harmonized dataframes
 ```{r, echo=FALSE}
-oth_HUNT_0 <- data.frame(id = HUNT1$id)
-oth_HUNT_1 <- data.frame(id = HUNT2$id)
-oth_HUNT_2 <- data.frame(id = HUNT3$id)
+oth_HUNT_0 <- data.frame(id = HUNT1$id) %>% as_tibble %>% arrange(id)
+oth_HUNT_1 <- data.frame(id = HUNT2$id) %>% as_tibble %>% arrange(id)
+oth_HUNT_2 <- data.frame(id = HUNT3$id) %>% as_tibble %>% arrange(id)
 ```
 ## When you are done with your work, logout of Opal server
 ```{r, echo=FALSE}
