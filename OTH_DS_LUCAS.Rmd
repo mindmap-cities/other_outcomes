@@ -13,11 +13,11 @@ library(epiDisplay)
 erasmus_opal <- opal.login()
 #Login to Opal server and assign the content of the LUCAS table(s) to your RStudio environment
 opal.assign.table.tibble(erasmus_opal, 'LUCAS_w2data', 'LUCAS.LUCAS_Wave2', variables=list('Lucas1_07','Lucas4_07','Lucas3a_07','Lucas3b_07','Lucas9_07','Lucas10_07','Lucas12a_07','Lucas11_07','Lucas12b_07','Lucas12c_07','Lucas23b_07'))
-lucas_w2 <- opal.execute(erasmus_opal,'LUCAS_w2data')
+lucas_w2 <- opal.execute(erasmus_opal,'LUCAS_w2data') %>% as_tibble %>% arrange(id)
 ```
 ## Assign participant id as first column of your harmonized dataframes
 ```{r, echo=FALSE}
-oth_LUCAS_0 <- data.frame(id = lucas_w2$id)
+oth_LUCAS_0 <- data.frame(id = lucas_w2$id) %>% as_tibble %>% arrange(id)
 ```
 ## When you are done with your work, logout of Opal server
 ```{r, echo=FALSE}

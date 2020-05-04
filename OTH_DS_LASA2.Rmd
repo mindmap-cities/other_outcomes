@@ -14,23 +14,23 @@ library(data.table)
 erasmus_opal <- opal.login()
 #Login to Opal server and assign the content of the LUCAS table(s) to your RStudio environment
 opal.assign.table.tibble(erasmus_opal, 'LASA2B', 'LASA.LASA2B', variables=list('bhbd1','bhart05','bhart06','bcva04','bcva03','bdiabe01','bdiabe02','bdiabe03','bdiabe04','bdiabe04','bmweight','bmwaist','bsubhea1','bmed_hyp','bmvar156','bhart10','bcva02','diabe02','bcva01','bmed153','bmed155','bmed150','bmed152','bage','badl1a','badl5a','bmed156','bmed157','byear','bhart01','bcva02b','bcva03j','bcva04j'))
-LASA2B <- opal.execute(erasmus_opal,'LASA2B')
+LASA2B <- opal.execute(erasmus_opal,'LASA2B') %>% as_tibble %>% arrange(id)
 
 opal.assign.table.tibble(erasmus_opal, 'LASA2F', 'LASA.LASA2F', variables=list('fhbd1','fhbd2a','fcva02a','fcva02b','fhart05','fhart06','fcva04','fcva03','fdiabe01','fdiabe02','fdiabe03','fdiabe04','fdiabe04','fmed153','fmed155','fmweight','fmwaist','fsubhea1','fmed152','fmed150','fcva01','fage','fadl1a','fadl5a','fmed156','fmed157','byear','fhart01'))
-LASA2F <- opal.execute(erasmus_opal,'LASA2F')
+LASA2F <- opal.execute(erasmus_opal,'LASA2F') %>% as_tibble %>% arrange(id)
 
 opal.assign.table.tibble(erasmus_opal, 'LASA2G', 'LASA.LASA2G', variables=list('ghbd1','ghbd2a','ghart05','ghart06','gcva04','gcva03','gcva02a','gcva02b','gdiabe01','gdiabe02','gdiabe03','gdiabe04','gdiabe04','gmweight','gmed155','gmed153','gmed152','gmed150','gmwaist','gsubhea1','gmed155','gmed152','gcva01','gage','gadl1a','gadl5a','gmed156','gmed157','byear','ghart01'))
-LASA2G <- opal.execute(erasmus_opal,'LASA2G')
+LASA2G <- opal.execute(erasmus_opal,'LASA2G') %>% as_tibble %>% arrange(id)
 
 opal.assign.table.tibble(erasmus_opal, 'LASA2H', 'LASA.LASA2H', variables=list('HHBD1','HHBD2A','HHART06','HHART05','HCVA02A','HCVA02B','HDIABE01','HDIABE02','HDIABE03','HDIABE04','HMED155','HMED153','HMED150','HMED152','HMED152','hsubhea1','HDIABE01','hage','HADL1A','HADL5A','HMED156','HMED157','byear','HHART01'))
-LASA2H <- opal.execute(erasmus_opal,'LASA2H')
+LASA2H <- opal.execute(erasmus_opal,'LASA2H') %>% as_tibble %>% arrange(id)
 ```
 ## Assign participant id as first column of your harmonized dataframes
 ```{r, echo=FALSE}
-oth_LASA2_0 <- data.frame(id = LASA2B$id)
-oth_LASA2_1 <- data.frame(id = LASA2F$id)
-oth_LASA2_2 <- data.frame(id = LASA2G$id)
-oth_LASA2_3 <- data.frame(id = LASA2H$id)
+oth_LASA2_0 <- data.frame(id = LASA2B$id) %>% as_tibble %>% arrange(id)
+oth_LASA2_1 <- data.frame(id = LASA2F$id) %>% as_tibble %>% arrange(id)
+oth_LASA2_2 <- data.frame(id = LASA2G$id) %>% as_tibble %>% arrange(id)
+oth_LASA2_3 <- data.frame(id = LASA2H$id) %>% as_tibble %>% arrange(id)
 ```
 ## When you are done with your work, logout of Opal server
 ```{r, echo=FALSE}

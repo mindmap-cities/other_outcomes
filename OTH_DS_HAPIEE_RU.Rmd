@@ -19,28 +19,28 @@ erasmus_opal <- opal.login()
 #HAPIEE_W1 
 opal.assign.table.tibble(erasmus_opal, 'HAPIEE_W1', 'HAPIEE.HAPIEE_W1',variables = list('country','h14','d_ht140_90','h10c','h10a','h24','d_rose','h10b','h15','h15a','h15b','h6','e510','h5','e51','e52','d_bmi','e61'))
 
-HAPIEE_W1<- opal.execute(erasmus_opal,'HAPIEE_W1')
+HAPIEE_W1<- opal.execute(erasmus_opal,'HAPIEE_W1') %>% as_tibble %>% arrange(id)
 
 #HAPIEE_W1_hl 
 opal.assign.table.tibble(erasmus_opal, 'HAPIEE_W1_hl', 'HAPIEE.HAPIEE_W1_hl',variables = list('h8d','h8h'))
 
-HAPIEE_W1_hl<- opal.execute(erasmus_opal,'HAPIEE_W1_hl')
+HAPIEE_W1_hl<- opal.execute(erasmus_opal,'HAPIEE_W1_hl') %>% as_tibble %>% arrange(id)
 
 #HAPIEE_W2 
 opal.assign.table.tibble(erasmus_opal, 'HAPIEE_W2', 'HAPIEE.HAPIEE_W2',variables = list('country','w2h14','w2h10c','w2h10a','w2h10b','w2h15','w2h15b','w2h7','h15a_lt'))
 
-HAPIEE_W2<- opal.execute(erasmus_opal,'HAPIEE_W2')
+HAPIEE_W2<- opal.execute(erasmus_opal,'HAPIEE_W2') %>% as_tibble %>% arrange(id)
 
 
 #HAPIEE_W2_hl 
 opal.assign.table.tibble(erasmus_opal, 'HAPIEE_W2_hl', 'HAPIEE.HAPIEE_W2_hl',variables = list('w2h8d','w2h8h'))
 
-HAPIEE_W2_hl<- opal.execute(erasmus_opal,'HAPIEE_W2_hl')
+HAPIEE_W2_hl<- opal.execute(erasmus_opal,'HAPIEE_W2_hl') %>% as_tibble %>% arrange(id)
 
 #HAPIEE_W1_srh 
 opal.assign.table.tibble(erasmus_opal, 'hapiee_wave1_srh', 'HAPIEE.hapiee_wave1_srh',variables = list('country','h7'))
 
-HAPIEE_W1_srh <- opal.execute(erasmus_opal,'hapiee_wave1_srh')
+HAPIEE_W1_srh <- opal.execute(erasmus_opal,'hapiee_wave1_srh') %>% as_tibble %>% arrange(id)
 
 ```
 ## Select country-specific sample
@@ -53,8 +53,8 @@ HAPIEE_W2_hl<-subset(HAPIEE_W2_hl,HAPIEE_W2_hl$id %in% HAPIEE_W2$id)
 ```
 ## Assign participant id as first column of your harmonized dataframes
 ```{r, echo=FALSE}
-oth_HAPIEE_RU_0 <- data.frame(id = HAPIEE_W1$id )
-oth_HAPIEE_RU_1 <- data.frame(id = HAPIEE_W2$id )
+oth_HAPIEE_RU_0 <- data.frame(id = HAPIEE_W1$id ) %>% as_tibble %>% arrange(id)
+oth_HAPIEE_RU_1 <- data.frame(id = HAPIEE_W2$id ) %>% as_tibble %>% arrange(id)
 ```
 ## When you are done with your work, logout of Opal server
 ```{r, echo=FALSE}

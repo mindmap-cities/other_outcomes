@@ -17,7 +17,7 @@ opal.assign.table.tibble(erasmus_opal, 'CoP4_Baseline','CLSA_1.CoP4_Baseline', v
 "DIA_MEDINSNAME_HUMU_COM", "DIA_MEDINSNAME_LEVE_COM", "DIA_MEDINSNAME_HUMA_COM", "DIA_MEDINSNAME_NOVOR_COM",
 "DIA_MEDINSNAME_NOVOM_COM","DIA_MEDINSNAME_LANT_COM","DIA_MEDINSNAME_OT_COM","DIA_MEDAGE_NB_COM"))
 
-CLSA_cop_0 <- opal.execute(erasmus_opal,'CoP4_Baseline')
+CLSA_cop_0 <- opal.execute(erasmus_opal,'CoP4_Baseline') %>% as_tibble %>% arrange(id)
 
 # CLSA Comprehensive FU1
 opal.assign.table.tibble(erasmus_opal, 'CoP_FU1','CLSA_1.CoP_FU1',  variables=list("startlanguage_COF1",
@@ -26,13 +26,13 @@ opal.assign.table.tibble(erasmus_opal, 'CoP_FU1','CLSA_1.CoP_FU1',  variables=li
 "DIA_MEDINSNAME_NOVOM_COF1","DIA_MEDINSNAME_LANT_COF1","DIA_MEDINSNAME_OT_COF1","DIA_MEDAGE_NB_COF1", "PSD_DCTOFF_COM", "WGT_WEIGHTSR_KG_COF1", "HGT_HEIGHT_M_COF1", "HGT_HEIGHTSR_CM_COF1", "HWT_DBMI_COF1"))
 
 #opal.assign.table.tibble(erasmus_opal, 'CoP_FU1','CLSA_1.CoP_FU1',  variables=NULL)
-CLSA_cop_1 <- opal.execute(erasmus_opal,'CoP_FU1')
+CLSA_cop_1 <- opal.execute(erasmus_opal,'CoP_FU1') %>% as_tibble %>% arrange(id)
 
 ```
 ## Assign participant id as first column of your harmonized dataframes
 ```{r, echo=FALSE}
-oth_CLSA_cop_0 <- data.frame(id = CLSA_cop_0$id)
-oth_CLSA_cop_1 <- data.frame(id = CLSA_cop_1$id)
+oth_CLSA_cop_0 <- data.frame(id = CLSA_cop_0$id) %>% as_tibble %>% arrange(id)
+oth_CLSA_cop_1 <- data.frame(id = CLSA_cop_1$id) %>% as_tibble %>% arrange(id)
 ```
 ## When you are done with your work, logout of Opal server
 ```{r, echo=FALSE}
