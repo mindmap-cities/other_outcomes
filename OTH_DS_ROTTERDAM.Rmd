@@ -34,13 +34,22 @@ ROTTERDAM_3 <- opal.execute(erasmus_opal,'RSII_MINDMAP_18102019_visit3')
 
 opal.logout(erasmus_opal)
 
+
+library('tidyverse')
+
+ROTTERDAM_0 <- ROTTERDAM_0 %>% arrange(id)
+ROTTERDAM_1 <- ROTTERDAM_1 %>% arrange(id)
+ROTTERDAM_2 <- ROTTERDAM_2 %>% arrange(id)
+ROTTERDAM_3 <- ROTTERDAM_3 %>% arrange(id)
+
+
 ```
 ## Assign participant id as first column of your harmonized dataframes
 ```{r, echo=FALSE}
-oth_ROTTERDAM_0 <- data.frame(id = ROTTERDAM_0$id)
-oth_ROTTERDAM_1 <- data.frame(id = ROTTERDAM_1$id)
-oth_ROTTERDAM_2 <- data.frame(id = ROTTERDAM_2$id)
-oth_ROTTERDAM_3 <- data.frame(id = ROTTERDAM_3$id)
+oth_ROTTERDAM_0 <- data.frame(id = ROTTERDAM_0$id, stringsAsFactors = F) %>% as_tibble
+oth_ROTTERDAM_1 <- data.frame(id = ROTTERDAM_1$id, stringsAsFactors = F) %>% as_tibble
+oth_ROTTERDAM_2 <- data.frame(id = ROTTERDAM_2$id, stringsAsFactors = F) %>% as_tibble
+oth_ROTTERDAM_3 <- data.frame(id = ROTTERDAM_3$id, stringsAsFactors = F) %>% as_tibble
 ```
 ## When you are done with your work, logout of Opal server
 ```{r, echo=FALSE}
@@ -74,7 +83,7 @@ opal.logout(erasmus_opal)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-	
+
 ```  
 ### **Variable label**: Lifetime occurrence of high blood pressure or hypertension    
 **Variable name**: dis_hbp_ever_1  
