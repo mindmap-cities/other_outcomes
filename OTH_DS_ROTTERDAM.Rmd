@@ -34,13 +34,22 @@ ROTTERDAM_3 <- opal.execute(erasmus_opal,'RSII_MINDMAP_18102019_visit3')
 
 opal.logout(erasmus_opal)
 
+
+library('tidyverse')
+
+ROTTERDAM_0 <- ROTTERDAM_0 %>% arrange(id)
+ROTTERDAM_1 <- ROTTERDAM_1 %>% arrange(id)
+ROTTERDAM_2 <- ROTTERDAM_2 %>% arrange(id)
+ROTTERDAM_3 <- ROTTERDAM_3 %>% arrange(id)
+
+
 ```
 ## Assign participant id as first column of your harmonized dataframes
 ```{r, echo=FALSE}
-oth_ROTTERDAM_0 <- data.frame(id = ROTTERDAM_0$id)
-oth_ROTTERDAM_1 <- data.frame(id = ROTTERDAM_1$id)
-oth_ROTTERDAM_2 <- data.frame(id = ROTTERDAM_2$id)
-oth_ROTTERDAM_3 <- data.frame(id = ROTTERDAM_3$id)
+oth_ROTTERDAM_0 <- data.frame(id = ROTTERDAM_0$id, stringsAsFactors = F) %>% as_tibble
+oth_ROTTERDAM_1 <- data.frame(id = ROTTERDAM_1$id, stringsAsFactors = F) %>% as_tibble
+oth_ROTTERDAM_2 <- data.frame(id = ROTTERDAM_2$id, stringsAsFactors = F) %>% as_tibble
+oth_ROTTERDAM_3 <- data.frame(id = ROTTERDAM_3$id, stringsAsFactors = F) %>% as_tibble
 ```
 ## When you are done with your work, logout of Opal server
 ```{r, echo=FALSE}
@@ -74,7 +83,8 @@ opal.logout(erasmus_opal)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-	
+# Study-specific variable 'ep_pimc8: Was a high blood pressure ever measured?' not used?
+
 ```  
 ### **Variable label**: Lifetime occurrence of high blood pressure or hypertension    
 **Variable name**: dis_hbp_ever_1  
@@ -348,9 +358,9 @@ ROTTERDAM_3$startdat3 <-ROTTERDAM_3$startdat
 
 med_table <- Reduce(MyMerge, list(ROTTERDAM_0,ROTTERDAM_1,ROTTERDAM_2,ROTTERDAM_3))
 
-
-med_table$dis_mi_ever_0 <-ifelse(med_table$ep_pimc9d==88 & med_table$ep_pimc9a==88, 0L,
-                                       ifelse(med_table$ep_pimc9d<77 & med_table$ep_pimc9a<77,1L, NA))
+# changed both conditions to OR statements
+med_table$dis_mi_ever_0 <-ifelse(med_table$ep_pimc9d==88 | med_table$ep_pimc9a==88, 0L,
+                                       ifelse(med_table$ep_pimc9d<77 | med_table$ep_pimc9a<77,1L, NA))
 
 oth_ROTTERDAM_0<-merge(oth_ROTTERDAM_0,med_table[,c("id","dis_mi_ever_0")],by="id",all.x=TRUE)
 
@@ -418,7 +428,8 @@ table(oth_ROTTERDAM_2$dis_mi_ever_2 , useNA="always")
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-	
+## TW: I find it really strange that the study-specific variables are dates instead of ages, as decribed. Was the interpretation of these confirmed with the cohort? If the dates are accurate, we can calculate the exact time difference, which maybe could be rounded more accurately.	
+
 table(ROTTERDAM_0$ep_pimc9b, useNA="always")
 table(ROTTERDAM_0$ep_pimc9e, useNA="always")
 table(ROTTERDAM_0$ep_pimc9b, is.na(ROTTERDAM_0$ep_pimc9e), useNA="always")
