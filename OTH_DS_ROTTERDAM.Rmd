@@ -520,12 +520,9 @@ oth_ROTTERDAM_2<-merge(oth_ROTTERDAM_2,med_table[,c("id","dis_mi_age_2")],by="id
 **Harmonization comment**:  
 **R script**:  
 ```{r, echo=TRUE}
-table(ROTTERDAM_0$ep_pimc15)
-
 med_table$dis_stroke_ever_0<- dplyr::recode(as.integer(ROTTERDAM_0$ep_pimc15), "1"=1L, "0"=0L, .default=NA_integer_)
 
 oth_ROTTERDAM_0<-merge(oth_ROTTERDAM_0,med_table[,c("id","dis_stroke_ever_0")],by="id",all.x=TRUE)
-table(oth_ROTTERDAM_0$dis_stroke_ever_0)
 
 ```  
 ### **Variable label**: Lifetime occurrence of stroke or CVA  
@@ -563,9 +560,6 @@ table(oth_ROTTERDAM_0$dis_stroke_ever_0)
 
 **R script**:  
 ```{r, echo=TRUE}
-#There is no stroke related variable in RS_1, and the Rs_2 asks "since your last interview". Is it harmonizable?
-
-table(ROTTERDAM_2$e5_EICVA05, ROTTERDAM_2$e5_EICVA01, useNA="always")
 
 ```  
 ### **Variable label**: Age at first stroke or CVA  
@@ -576,18 +570,17 @@ table(ROTTERDAM_2$e5_EICVA05, ROTTERDAM_2$e5_EICVA01, useNA="always")
 **Category coding**: N/A  
          
 **Harmonization status**: complete  
-**Harmonization comment**:  
+**Harmonization comment**:  Study-specific variable 'At what age was the first time? (stroke)' is in date format. Harmonized variable calculated from 'Age at entering the Rotterdam Study' minus years difference between 'Date of entering the Rotterdam Study' and earlier of 'At what age was the first time? (stroke)'.
 **R script**:  
 ```{r, echo=TRUE}
 
-table(ROTTERDAM_0$ep_pimc15b, useNA = "always")
+# table(ROTTERDAM_0$ep_pimc15b, useNA = "always")
+# table(ROTTERDAM_0$ep_pimc15b>ROTTERDAM_0$startdat, useNA = "always")
 
-ROTTERDAM_0$dis_stroke_age_0 <- with(ROTTERDAM_0, startage -
+oth_ROTTERDAM_0$dis_stroke_age_0 <- with(ROTTERDAM_0, startage -
                                      (as.integer(substr(ROTTERDAM_0$startdat, 1,4))-as.integer(substr(ROTTERDAM_0$ep_pimc15b, 1,4)))
 )
-oth_ROTTERDAM_0$dis_stroke_age_0 <- with(ROTTERDAM_0,  # remove one '0' value
-                                          ifelse(dis_stroke_age_0>0, dis_stroke_age_0, NA))
-table(oth_ROTTERDAM_0$dis_stroke_age_0, useNA = 'always')                                   
+# table(oth_ROTTERDAM_0$dis_stroke_age_0, useNA = 'always')                                   
 
 ```  
 ### **Variable label**: Age at first stroke or CVA  
@@ -633,16 +626,14 @@ table(oth_ROTTERDAM_0$dis_stroke_age_0, useNA = 'always')
 1          |  Ever had diabetes  
 
 **Harmonization status**: complete 
-**Harmonization comment**:  The study-specific question asks: "Do you have diabetes?"
+**Harmonization comment**:  The study-specific question asks: "Do you have diabetes?" Treated as chronic condition, so harmonization status is complete.
 **R script**:  
 ```{r, echo=TRUE}  
 
 med_table$dis_diab_ever_0 <- dplyr::recode(as.integer(med_table$ep_pimc6), "0"=0L, "1"=1L, .default=NA_integer_)
-table(med_table$dis_diab_ever_0)
 
 oth_ROTTERDAM_0<-merge(oth_ROTTERDAM_0,med_table[,c("id","dis_diab_ever_0")],by="id",all.x=TRUE)
-table(oth_ROTTERDAM_0$dis_diab_ever_0)
-                              
+
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
 **Variable name**: dis_diab_ever_1  
@@ -662,13 +653,8 @@ table(oth_ROTTERDAM_0$dis_diab_ever_0)
 ```{r, echo=TRUE}  
 med_table$dis_diab_ever_1 <- ifelse(med_table$dis_diab_ever_0==1, 1L, 
                              dplyr::recode(as.integer(med_table$e4_didm), "0"=0L, "1"=1L, .default=NA_integer_))
-table(med_table$dis_diab_ever_1)
-table(med_table$dis_diab_ever_0)
+
 oth_ROTTERDAM_1<-merge(oth_ROTTERDAM_1,med_table[,c("id","dis_diab_ever_1")],by="id",all.x=TRUE)
-
-
-table(ROTTERDAM_1$e4_didm)
-table(oth_ROTTERDAM_1$dis_diab_ever_1)
 
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
@@ -687,14 +673,10 @@ table(oth_ROTTERDAM_1$dis_diab_ever_1)
 **Harmonization comment**:  The harmonized variable "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" for followup waves was created using "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" from baseline and previous and current waves.
 **R script**:  
 ```{r, echo=TRUE}  
-table(ROTTERDAM_2$e5_EIDM)
-
 med_table$dis_diab_ever_2 <- ifelse(med_table$dis_diab_ever_0==1|med_table$dis_diab_ever_1==1, 1L, 
                              dplyr::recode(as.integer(med_table$e5_EIDM), "0"=0L, "1"=1L, .default=NA_integer_))
-table(med_table$dis_diab_ever_2)
-table(med_table$dis_diab_ever_0)
+
 oth_ROTTERDAM_2<-merge(oth_ROTTERDAM_2,med_table[,c("id","dis_diab_ever_2")],by="id",all.x=TRUE)
-table(oth_ROTTERDAM_2$dis_diab_ever_2)
 
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
@@ -713,14 +695,11 @@ table(oth_ROTTERDAM_2$dis_diab_ever_2)
 **Harmonization comment**:  The harmonized variable "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" for followup waves was created using "Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar" from baseline and previous and current waves.
 **R script**:  
 ```{r, echo=TRUE}  
-
-table(med_table$e6_EIDM)
 med_table$dis_diab_ever_3 <- ifelse(med_table$dis_diab_ever_0==1|med_table$dis_diab_ever_1==1
                                     |med_table$dis_diab_ever_2==1, 1L, 
                              dplyr::recode(as.integer(med_table$e6_EIDM), "0"=0L, "1"=1L, .default=NA_integer_))
 
 oth_ROTTERDAM_3<-merge(oth_ROTTERDAM_3,med_table[,c("id","dis_diab_ever_3")],by="id",all.x=TRUE)
-table(oth_ROTTERDAM_3$dis_diab_ever_3)
 
 ```  
 ### **Variable label**: Lifetime occurrence of diabetes, borderline diabetes, or high blood sugar     
@@ -767,17 +746,13 @@ table(oth_ROTTERDAM_3$dis_diab_ever_3)
 **Category coding**: N/A
 
 **Hamonization status**:  complete 
-**Harmonization comment**:  
+**Harmonization comment**:  Study-specific variable 'Since when do you have diabetes?' is in date format. Harmonized variable calculated from 'Age at entering the Rotterdam Study' minus years difference between 'Date of entering the Rotterdam Study' and earlier of 'Since when do you have diabetes?'.
 **R script**:  
 ```{r, echo=TRUE}  
-
-# ROTTERDAM_0$ep_pimc6a
-
 med_table$dis_diab_age_0 <-ifelse(!is.na(med_table$ep_pimc6a), med_table$startage.x-((as.integer(substr(med_table$startdat.x, 1,4)))-
                                                                  as.integer(substr(med_table$ep_pimc6a, 1,4))) , NA)
 oth_ROTTERDAM_0<-merge(oth_ROTTERDAM_0,med_table[,c("id","dis_diab_age_0")],by="id",all.x=TRUE)
                                    
-table(oth_ROTTERDAM_0$dis_diab_age_0)  
 ```  
 ### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
 **Variable name**:  dis_diab_age_1    
