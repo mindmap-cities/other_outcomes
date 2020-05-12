@@ -1048,8 +1048,6 @@ table(oth_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-# table(ROTTERDAM_1$e4_230, useNA="always")
-# oth_ROTTERDAM_1$phy_weight_ms_1 <-as.numeric(ROTTERDAM_1$e4_230)
 
 ```  
 ### **Variable label**: Weight in kg - measured 
@@ -1065,9 +1063,6 @@ table(oth_ROTTERDAM_3$dis_diab_tx_3)
 ```{r, echo=TRUE}
 
 
-# table(ROTTERDAM_2$e5_230, useNA="always")
-# oth_ROTTERDAM_2$phy_weight_ms_2 <-as.numeric(ROTTERDAM_2$e5_230)
-
 ```  
 ### **Variable label**: Weight in kg - measured 
 **Variable name**: phy_weight_ms_3  
@@ -1080,8 +1075,6 @@ table(oth_ROTTERDAM_3$dis_diab_tx_3)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-# table(ROTTERDAM_3$e6_230, useNA="always")
-# oth_ROTTERDAM_3$phy_weight_ms_3 <-as.numeric(ROTTERDAM_3$e6_230)
 
 ```  
 ### **Variable label**: Weight in kg - measured 
@@ -1236,7 +1229,7 @@ table(oth_ROTTERDAM_3$dis_diab_tx_3)
 **Category coding**: N/A  
 
 **Harmonization status**: complete  
-**Harmonization comment**:   
+**Harmonization comment**:   Unknown if study-specific variable is measured or self-reported.
 **R script**:  
 ```{r, echo=TRUE}
 oth_ROTTERDAM_1$phy_weight_all_1 <-as.numeric(ROTTERDAM_1$e4_230)
@@ -1250,7 +1243,7 @@ oth_ROTTERDAM_1$phy_weight_all_1 <-as.numeric(ROTTERDAM_1$e4_230)
 **Category coding**: N/A  
 
 **Harmonization status**: complete     
-**Harmonization comment**:   
+**Harmonization comment**:   Unknown if study-specific variable is measured or self-reported.
 **R script**:  
 ```{r, echo=TRUE}
 oth_ROTTERDAM_2$phy_weight_all_2 <-as.numeric(ROTTERDAM_2$e5_230)
@@ -1264,11 +1257,11 @@ oth_ROTTERDAM_2$phy_weight_all_2 <-as.numeric(ROTTERDAM_2$e5_230)
 **Category coding**: N/A  
 
 **Harmonization status**: complete    
-**Harmonization comment**:   
+**Harmonization comment**:   Unknown if study-specific variable is measured or self-reported.
 **R script**:  
 ```{r, echo=TRUE}
 oth_ROTTERDAM_3$phy_weight_all_3 <-as.numeric(ROTTERDAM_3$e6_230)
-table(oth_ROTTERDAM_3$phy_weight_all_3 )
+
 ```  
 ### **Variable label**: Weight in kg - self-reported and measured combined  
 **Variable name**: phy_weight_all_4    
@@ -1335,8 +1328,6 @@ table(oth_ROTTERDAM_3$phy_weight_all_3 )
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-# table(ROTTERDAM_1$e4_229)
-# oth_ROTTERDAM_1$phy_height_ms_1<- as.numeric(ROTTERDAM_1$e4_229)
 
 ```  
 ### **Variable label**: Height in cm - measured  
@@ -1350,8 +1341,6 @@ table(oth_ROTTERDAM_3$phy_weight_all_3 )
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-# table(ROTTERDAM_2$e5_229)
-# oth_ROTTERDAM_2$phy_height_ms_2<- as.numeric(ROTTERDAM_2$e5_229)
 
 ```  
 ### **Variable label**: Height in cm - measured  
@@ -1366,9 +1355,6 @@ table(oth_ROTTERDAM_3$phy_weight_all_3 )
 **R script**:  
 ```{r, echo=TRUE}
 	
-# table(ROTTERDAM_3$e6_229)
-# oth_ROTTERDAM_3$phy_height_ms_3<- as.numeric(ROTTERDAM_3$e6_229)
-
 
 ```  
 ### **Variable label**: Height in cm - measured  
@@ -1524,7 +1510,7 @@ table(oth_ROTTERDAM_3$phy_weight_all_3 )
 **Category coding**: N/A
 
 **Harmonization status**: complete   
-**Harmonization comment**:   
+**Harmonization comment**:   Unknown if study-specific variable is measured or self-reported.
 **R script**:  
 ```{r, echo=TRUE}
 oth_ROTTERDAM_1$phy_height_all_1<- as.numeric(ROTTERDAM_1$e4_229)
@@ -1538,7 +1524,7 @@ oth_ROTTERDAM_1$phy_height_all_1<- as.numeric(ROTTERDAM_1$e4_229)
 **Category coding**: N/A
 
 **Harmonization status**: complete    
-**Harmonization comment**:   
+**Harmonization comment**:   Unknown if study-specific variable is measured or self-reported.
 **R script**:  
 ```{r, echo=TRUE}
 oth_ROTTERDAM_2$phy_height_all_2<- as.numeric(ROTTERDAM_2$e5_229)
@@ -1552,7 +1538,7 @@ oth_ROTTERDAM_2$phy_height_all_2<- as.numeric(ROTTERDAM_2$e5_229)
 **Category coding**: N/A
 
 **Harmonization status**: complete    
-**Harmonization comment**:   
+**Harmonization comment**:   Unknown if study-specific variable is measured or self-reported.
 **R script**:  
 ```{r, echo=TRUE}
 oth_ROTTERDAM_3$phy_height_all_3 <- as.numeric(ROTTERDAM_3$e6_229)
@@ -1622,10 +1608,6 @@ oth_ROTTERDAM_3$phy_height_all_3 <- as.numeric(ROTTERDAM_3$e6_229)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-# oth_ROTTERDAM_1$phy_bmi_ms_1<-as.numeric(ROTTERDAM_1$e4_230)/(as.numeric(ROTTERDAM_1$e4_229)*(0.01))^2
-# max(oth_ROTTERDAM_1$phy_bmi_ms_1, na.rm = TRUE)
-# min(oth_ROTTERDAM_1$phy_bmi_ms_1, na.rm = TRUE)
-# table(oth_ROTTERDAM_1$phy_bmi_ms_1)
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured  
@@ -1639,10 +1621,6 @@ oth_ROTTERDAM_3$phy_height_all_3 <- as.numeric(ROTTERDAM_3$e6_229)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-# oth_ROTTERDAM_2$phy_bmi_ms_2<-as.numeric(ROTTERDAM_2$e5_230)/(as.numeric(ROTTERDAM_2$e5_229)*(0.01))^2
-# max(oth_ROTTERDAM_2$phy_bmi_ms_2, na.rm = TRUE)
-# min(oth_ROTTERDAM_2$phy_bmi_ms_2, na.rm = TRUE)
-# table(oth_ROTTERDAM_2$phy_bmi_ms_2)
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured  
@@ -1656,10 +1634,6 @@ oth_ROTTERDAM_3$phy_height_all_3 <- as.numeric(ROTTERDAM_3$e6_229)
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-# oth_ROTTERDAM_3$phy_bmi_ms_3<-as.numeric(ROTTERDAM_3$e6_230)/(as.numeric(ROTTERDAM_3$e6_229)*(0.01))^2
-# max(oth_ROTTERDAM_3$phy_bmi_ms_3, na.rm = TRUE)
-# min(oth_ROTTERDAM_3$phy_bmi_ms_3, na.rm = TRUE)
-# table(oth_ROTTERDAM_3$phy_bmi_ms_3)
 
 ```  
 ### **Variable label**: Body mass index (BMI) - measured  
@@ -1926,12 +1900,6 @@ oth_ROTTERDAM_3$phy_bmi_all_3<-as.numeric(ROTTERDAM_3$e6_230)/(as.numeric(ROTTER
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-# oth_ROTTERDAM_1$phy_bmi_cat_ms_1 <- ifelse(oth_ROTTERDAM_1$phy_bmi_ms_1<18.5, 0L,
-#                                     ifelse(oth_ROTTERDAM_1$phy_bmi_ms_1>=18.5&oth_ROTTERDAM_1$phy_bmi_ms_1<25, 1L,
-#                                     ifelse(oth_ROTTERDAM_1$phy_bmi_ms_1>=25&oth_ROTTERDAM_1$phy_bmi_ms_1<30, 2L, 
-#                                     ifelse(oth_ROTTERDAM_1$phy_bmi_ms_1>=30, 3L, NA))))
-# 
-# table(oth_ROTTERDAM_1$phy_bmi_cat_ms_1, useNA="always")           
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured  
@@ -1952,12 +1920,6 @@ oth_ROTTERDAM_3$phy_bmi_all_3<-as.numeric(ROTTERDAM_3$e6_230)/(as.numeric(ROTTER
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-# oth_ROTTERDAM_2$phy_bmi_cat_ms_2 <- ifelse(oth_ROTTERDAM_2$phy_bmi_ms_2<18.5, 0L,
-#                                     ifelse(oth_ROTTERDAM_2$phy_bmi_ms_2>=18.5 & oth_ROTTERDAM_2$phy_bmi_ms_2<25, 1L,
-#                                     ifelse(oth_ROTTERDAM_2$phy_bmi_ms_2>=25   & oth_ROTTERDAM_2$phy_bmi_ms_2<30, 2L, 
-#                                     ifelse(oth_ROTTERDAM_2$phy_bmi_ms_2>=30, 3L, NA))))
-# 
-# table(oth_ROTTERDAM_2$phy_bmi_cat_ms_2, useNA="always")                                      
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured  
@@ -1978,12 +1940,6 @@ oth_ROTTERDAM_3$phy_bmi_all_3<-as.numeric(ROTTERDAM_3$e6_230)/(as.numeric(ROTTER
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-# oth_ROTTERDAM_3$phy_bmi_cat_ms_3 <- ifelse(oth_ROTTERDAM_3$phy_bmi_ms_3<18.5, 0L,
-#                                     ifelse(oth_ROTTERDAM_3$phy_bmi_ms_3>=18.5 & oth_ROTTERDAM_3$phy_bmi_ms_3<25, 1L,
-#                                     ifelse(oth_ROTTERDAM_3$phy_bmi_ms_3>=25   & oth_ROTTERDAM_3$phy_bmi_ms_3<30, 2L, 
-#                                     ifelse(oth_ROTTERDAM_3$phy_bmi_ms_3>=30, 3L, NA))))
-# 
-# table(oth_ROTTERDAM_3$phy_bmi_cat_ms_3, useNA="always")                                      
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured  
@@ -2231,7 +2187,7 @@ oth_ROTTERDAM_1$phy_bmi_cat_all_1 <- ifelse(oth_ROTTERDAM_1$phy_bmi_ms_1<18.5, 0
                                      ifelse(oth_ROTTERDAM_1$phy_bmi_ms_1>=25&oth_ROTTERDAM_1$phy_bmi_ms_1<30, 2L, 
                                      ifelse(oth_ROTTERDAM_1$phy_bmi_ms_1>=30, 3L, NA))))
 
-table(oth_ROTTERDAM_1$phy_bmi_cat_all_1, useNA="always") 
+# table(oth_ROTTERDAM_1$phy_bmi_cat_all_1, useNA="always") 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
 **Variable name**: phy_bmi_cat_all_2    
@@ -2256,7 +2212,7 @@ oth_ROTTERDAM_2$phy_bmi_cat_all_2 <- ifelse(oth_ROTTERDAM_2$phy_bmi_ms_2<18.5, 0
                                     ifelse(oth_ROTTERDAM_2$phy_bmi_ms_2>=25   & oth_ROTTERDAM_2$phy_bmi_ms_2<30, 2L, 
                                     ifelse(oth_ROTTERDAM_2$phy_bmi_ms_2>=30, 3L, NA))))
 
-table(oth_ROTTERDAM_2$phy_bmi_cat_all_2, useNA="always")                                      
+# table(oth_ROTTERDAM_2$phy_bmi_cat_all_2, useNA="always")                                      
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
@@ -2282,7 +2238,7 @@ oth_ROTTERDAM_3$phy_bmi_cat_all_3 <- ifelse(oth_ROTTERDAM_3$phy_bmi_ms_3<18.5, 0
                                      ifelse(oth_ROTTERDAM_3$phy_bmi_ms_3>=25   & oth_ROTTERDAM_3$phy_bmi_ms_3<30, 2L, 
                                      ifelse(oth_ROTTERDAM_3$phy_bmi_ms_3>=30, 3L, NA))))
 
-table(oth_ROTTERDAM_3$phy_bmi_cat_all_3, useNA="always")                                      
+# table(oth_ROTTERDAM_3$phy_bmi_cat_all_3, useNA="always")                                      
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
@@ -2370,9 +2326,7 @@ table(oth_ROTTERDAM_3$phy_bmi_cat_all_3, useNA="always")
 **Harmonization comment**:   
 **R script**:  
 ```{r, echo=TRUE}
-table(ROTTERDAM_1$e4_231)
 oth_ROTTERDAM_1$phy_waist_all_1<- as.numeric(ROTTERDAM_1$e4_231)
-table(oth_ROTTERDAM_1$phy_waist_all_1)
 
 ```  
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined   
@@ -2387,7 +2341,7 @@ table(oth_ROTTERDAM_1$phy_waist_all_1)
 **R script**:  
 ```{r, echo=TRUE}
 oth_ROTTERDAM_2$phy_waist_all_2<- as.numeric(ROTTERDAM_2$e5_231)
-table(oth_ROTTERDAM_2$phy_waist_all_2)
+
 ```  
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined 
 **Variable name**: phy_waist_all_3  
@@ -2401,7 +2355,7 @@ table(oth_ROTTERDAM_2$phy_waist_all_2)
 **R script**:  
 ```{r, echo=TRUE}
 oth_ROTTERDAM_3$phy_waist_all_3<- as.numeric(ROTTERDAM_3$e6_231)
-table(oth_ROTTERDAM_3$phy_waist_all_3)
+
 ```  
 ### **Variable label**:  Waist circumference in cm - measured and self-reported combined   
 **Variable name**: phy_waist_all_4  
