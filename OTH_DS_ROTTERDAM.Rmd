@@ -3,53 +3,42 @@ title: "Other outcomes DataSchema"
 output: html_document
 ---
 ```{r, echo=TRUE}
+#Load Opal R library
+library(opalr)
+library(tidyverse)
 library(epiDisplay)
-library(dplyr)
-library(data.table)
 
 # Connecting with Opal data server
-## Login to server and assign study data
-#Load Opal R library
-library(opal)
 # Create an opal object with the login information
 erasmus_opal <- opal.login()
 #Login to Opal server and assign the content of the GLOBE table(s) to your RStudio environment
 opal.assign.table.tibble(erasmus_opal, 'RSII_MINDMAP_13082019_visit0','ROTTERDAM.RSII_MINDMAP_13082019_visit0', variables =NULL)
 
-ROTTERDAM_0 <- opal.execute(erasmus_opal,'RSII_MINDMAP_13082019_visit0')
+ROTTERDAM_0 <- opal.execute(erasmus_opal,'RSII_MINDMAP_13082019_visit0') %>% as_tibble %>% arrange(id)
 
 
 opal.assign.table.tibble(erasmus_opal, 'RSII_MINDMAP_13082019_visit1','ROTTERDAM.RSII_MINDMAP_13082019_visit1', variables =NULL)
 
-ROTTERDAM_1 <- opal.execute(erasmus_opal,'RSII_MINDMAP_13082019_visit1')
+ROTTERDAM_1 <- opal.execute(erasmus_opal,'RSII_MINDMAP_13082019_visit1') %>% as_tibble %>% arrange(id)
 
 
 opal.assign.table.tibble(erasmus_opal, 'RSII_MINDMAP_18102019_visit2','ROTTERDAM.RSII_MINDMAP_18102019_visit2', variables =NULL)
 
-ROTTERDAM_2 <- opal.execute(erasmus_opal,'RSII_MINDMAP_18102019_visit2')
+ROTTERDAM_2 <- opal.execute(erasmus_opal,'RSII_MINDMAP_18102019_visit2') %>% as_tibble %>% arrange(id)
 
 opal.assign.table.tibble(erasmus_opal, 'RSII_MINDMAP_18102019_visit3','ROTTERDAM.RSII_MINDMAP_18102019_visit3', variables =NULL)
 
-ROTTERDAM_3 <- opal.execute(erasmus_opal,'RSII_MINDMAP_18102019_visit3')
+ROTTERDAM_3 <- opal.execute(erasmus_opal,'RSII_MINDMAP_18102019_visit3') %>% as_tibble %>% arrange(id)
 
-opal.logout(erasmus_opal)
-
-
-library('tidyverse')
-
-ROTTERDAM_0 <- ROTTERDAM_0 %>% arrange(id)
-ROTTERDAM_1 <- ROTTERDAM_1 %>% arrange(id)
-ROTTERDAM_2 <- ROTTERDAM_2 %>% arrange(id)
-ROTTERDAM_3 <- ROTTERDAM_3 %>% arrange(id)
 
 
 ```
 ## Assign participant id as first column of your harmonized dataframes
 ```{r, echo=FALSE}
-oth_ROTTERDAM_0 <- data.frame(id = ROTTERDAM_0$id, stringsAsFactors = F) %>% as_tibble
-oth_ROTTERDAM_1 <- data.frame(id = ROTTERDAM_1$id, stringsAsFactors = F) %>% as_tibble
-oth_ROTTERDAM_2 <- data.frame(id = ROTTERDAM_2$id, stringsAsFactors = F) %>% as_tibble
-oth_ROTTERDAM_3 <- data.frame(id = ROTTERDAM_3$id, stringsAsFactors = F) %>% as_tibble
+oth_ROTTERDAM_0 <- data.frame(id = ROTTERDAM_0$id, stringsAsFactors = F) %>% as_tibble %>% arrange(id)
+oth_ROTTERDAM_1 <- data.frame(id = ROTTERDAM_1$id, stringsAsFactors = F) %>% as_tibble %>% arrange(id)
+oth_ROTTERDAM_2 <- data.frame(id = ROTTERDAM_2$id, stringsAsFactors = F) %>% as_tibble %>% arrange(id)
+oth_ROTTERDAM_3 <- data.frame(id = ROTTERDAM_3$id, stringsAsFactors = F) %>% as_tibble %>% arrange(id)
 ```
 ## When you are done with your work, logout of Opal server
 ```{r, echo=FALSE}
@@ -79,11 +68,12 @@ opal.logout(erasmus_opal)
 0          |  Never had high blood pressure or hypertension  
 1          |  Ever had high blood pressure or hypertension  
 
-**Harmonization status**: impossible   
-**Harmonization comment**:   
+**Harmonization status**: complete   
+**Harmonization comment**: Study-specific variable 'Was a high blood pressure ever measured?' used.   
 **R script**:  
 ```{r, echo=TRUE}
-# Study-specific variable 'ep_pimc8: Was a high blood pressure ever measured?' not used?
+oth_ROTTERDAM_0$dis_hbp_ever_0 <- with(ROTTERDAM_0, 
+                                       ifelse(ep_pimc8==1, 1L, ifelse(ep_pimc8==0, 0L, NA)))
 
 ```  
 ### **Variable label**: Lifetime occurrence of high blood pressure or hypertension    
@@ -122,9 +112,11 @@ opal.logout(erasmus_opal)
 **Harmonization comment**:  The study-specific variable is "Were you ever treated with drugs because of high blood pressure?".  
 **R script**:  
 ```{r, echo=TRUE}
-table(ROTTERDAM_0$ep_pimc8b,useNA="always")
-oth_ROTTERDAM_0$dis_hbp_med_0 <-ifelse(ROTTERDAM_0$ep_pimc8b==0, 0L,ifelse(ROTTERDAM_0$ep_pimc8b==1, 1L, NA ))
-table(oth_ROTTERDAM_0$dis_hbp_med_0,useNA="always")
+# table(ROTTERDAM_0$ep_pimc8b,useNA="always")
+oth_ROTTERDAM_0$dis_hbp_med_0 <- ifelse(ROTTERDAM_0$ep_pimc8b==0, 0L,ifelse(ROTTERDAM_0$ep_pimc8b==1, 1L, NA ))
+# oth_ROTTERDAM_0$dis_hbp_med_0 <- with(ROTTERDAM_0, 
+#                                       ifelse(ep_pimc8b==0|ep_pimc8b==8, 0L, ifelse(ep_pimc8b==1, 1L, NA )))
+# table(oth_ROTTERDAM_0$dis_hbp_med_0,useNA="always")
 
 ```  
 ### **Variable label**: Medication for high blood pressure or hypertension  
@@ -141,10 +133,9 @@ table(oth_ROTTERDAM_0$dis_hbp_med_0,useNA="always")
 
 
 **Harmonization status**: impossible   
-**Harmonization comment**:  The study-specific variable is "Are you currently treated with drugs because of high blood pressure?"
+**Harmonization comment**:  The study-specific variable is "Are you currently treated with drugs because of high blood pressure?" However, because there are 3-4 years between the waves, and we cannot know if they "ever" were treated with hypertension medication.
 **R script**:  
 ```{r, echo=TRUE}
-# There is the variable "Are you currently treated with drugs because of high blood pressure?". However, because there are 3-4 years between the waves, and we cannot know if they "ever" were treated with hypertension medication. 
 
 ```  
 ### **Variable label**: Medication for high blood pressure or hypertension    
@@ -161,7 +152,7 @@ table(oth_ROTTERDAM_0$dis_hbp_med_0,useNA="always")
 
 
 **Harmonization status**: impossible   
-**Harmonization comment**:  The study-specific variable is "Are you currently treated with drugs because of high blood pressure?"
+**Harmonization comment**:  The study-specific variable is "Are you currently treated with drugs because of high blood pressure?" However, because there are 3-4 years between the waves, and we cannot know if they "ever" were treated with hypertension
 **R script**:  
 ```{r, echo=TRUE}
 
@@ -180,7 +171,7 @@ table(oth_ROTTERDAM_0$dis_hbp_med_0,useNA="always")
 
 
 **Harmonization status**: impossible   
-**Harmonization comment**:  The study-specific variable is "Are you currently treated with drugs because of high blood pressure?"
+**Harmonization comment**:  The study-specific variable is "Are you currently treated with drugs because of high blood pressure?" However, because there are 3-4 years between the waves, and we cannot know if they "ever" were treated with hypertension
 **R script**:  
 ```{r, echo=TRUE}
 
