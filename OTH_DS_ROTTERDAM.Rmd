@@ -874,10 +874,10 @@ oth_ROTTERDAM_2<-merge(oth_ROTTERDAM_2,med_table[,c("id","dis_diab_age_2")],by="
 **Harmonization comment**:  The study-specific variable "Is your diabetes treated by injections, tablets or both?" is used for harmonization. If the participant reported being treated by either or both, they are coded under the DataSchema category 1-Currently under treatment for diabetes, whereas if they do not have diabetes or reported not being treated by either method, they are coded under the category 0- Not currently under treatment for diabetes. 
 **R script**:
 ```{r, echo=TRUE}
-table(ROTTERDAM_0$ep_pimc6c, ROTTERDAM_0$ep_pimc6, useNA="always")
+# table(ROTTERDAM_0$ep_pimc6c, ROTTERDAM_0$ep_pimc6, useNA="always")
 oth_ROTTERDAM_0$dis_diab_tx_0 <- ifelse(ROTTERDAM_0$ep_pimc6==0|ROTTERDAM_0$ep_pimc6c==0, 0L,  
                                         ifelse(ROTTERDAM_0$ep_pimc6c==1|ROTTERDAM_0$ep_pimc6c==2|ROTTERDAM_0$ep_pimc6c==3, 1L, NA ))
-table(oth_ROTTERDAM_0$dis_diab_tx_0 )
+# table(oth_ROTTERDAM_0$dis_diab_tx_0 )
 ```  
 ### **Variable label**: Currently under treatment for diabetes  
 **Variable name**:  dis_diab_tx_1  
@@ -895,10 +895,10 @@ table(oth_ROTTERDAM_0$dis_diab_tx_0 )
 **Harmonization comment**:  The study-specific variable "Is your diabetes treated by injections, tablets or both?" is used for harmonization. If the participant reported being treated by either or both, they are coded under the DataSchema category 1-Currently under treatment for diabetes, whereas if they do not have diabetes or reported not being treated by either method, they are coded under the category 0- Not currently under treatment for diabetes. 
 **R script**:
 ```{r, echo=TRUE}
-table(ROTTERDAM_1$e4_didmtr)
+# table(ROTTERDAM_1$e4_didmtr)
 oth_ROTTERDAM_1$dis_diab_tx_1<- ifelse(ROTTERDAM_1$e4_didmtr==0|ROTTERDAM_1$e4_didmtr==8, 0L,  
                                         ifelse(ROTTERDAM_1$e4_didmtr==1|ROTTERDAM_1$e4_didmtr==2|ROTTERDAM_1$e4_didmtr==3, 1L, NA ))
-table(oth_ROTTERDAM_1$dis_diab_tx_1 )
+# table(oth_ROTTERDAM_1$dis_diab_tx_1 )
 
 ```  
 ### **Variable label**: Currently under treatment for diabetes  
@@ -917,10 +917,10 @@ table(oth_ROTTERDAM_1$dis_diab_tx_1 )
 **Harmonization comment**:  The study-specific variable "Is your diabetes treated by injections, tablets or both?" is used for harmonization. If the participant reported being treated by either or both, they are coded under the DataSchema category 1-Currently under treatment for diabetes, whereas if they do not have diabetes or reported not being treated by either method, they are coded under the category 0- Not currently under treatment for diabetes. 
 **R script**:
 ```{r, echo=TRUE}
-table(ROTTERDAM_2$e5_EIDMTR, ROTTERDAM_2$e5_EIDM)
+# table(ROTTERDAM_2$e5_EIDMTR, ROTTERDAM_2$e5_EIDM)
 oth_ROTTERDAM_2$dis_diab_tx_2<- ifelse(ROTTERDAM_2$e5_EIDMTR==0|ROTTERDAM_2$e5_EIDMTR==8, 0L,  
                                         ifelse(ROTTERDAM_2$e5_EIDMTR==1|ROTTERDAM_2$e5_EIDMTR==2|ROTTERDAM_2$e5_EIDMTR==3, 1L, NA ))
-table(oth_ROTTERDAM_2$dis_diab_tx_2)
+# table(oth_ROTTERDAM_2$dis_diab_tx_2)
 
 ```  
 ### **Variable label**: Currently under treatment for diabetes  
@@ -939,10 +939,10 @@ table(oth_ROTTERDAM_2$dis_diab_tx_2)
 **Harmonization comment**:  The study-specific variable "Is your diabetes treated by injections, tablets or both?" is used for harmonziation. If the participant reported being treated by either or both, they are coded under the DataSchema category 1-Currently under treatment for diabetes, whereas if they do not have diabetes or reported not being treated by either method, they are coded under the category 0- Not currently under treatment for diabetes. 
 **R script**:
 ```{r, echo=TRUE}
-table(ROTTERDAM_3$e6_EIDMTR, ROTTERDAM_3$e6_EIDM)
+# table(ROTTERDAM_3$e6_EIDMTR, ROTTERDAM_3$e6_EIDM)
 oth_ROTTERDAM_3$dis_diab_tx_3<- ifelse(ROTTERDAM_3$e6_EIDMTR==0|ROTTERDAM_3$e6_EIDMTR==8, 0L,  
                                         ifelse(ROTTERDAM_3$e6_EIDMTR==1|ROTTERDAM_3$e6_EIDMTR==2|ROTTERDAM_3$e6_EIDMTR==3, 1L, NA ))
-table(oth_ROTTERDAM_3$dis_diab_tx_3)
+# table(oth_ROTTERDAM_3$dis_diab_tx_3)
 
 ```  
 ### **Variable label**: Currently under treatment for diabetes  
