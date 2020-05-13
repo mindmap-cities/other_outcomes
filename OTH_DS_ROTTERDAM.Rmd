@@ -749,8 +749,11 @@ oth_ROTTERDAM_3<-merge(oth_ROTTERDAM_3,med_table[,c("id","dis_diab_ever_3")],by=
 **Harmonization comment**:  Study-specific variable 'Since when do you have diabetes?' is in date format. Harmonized variable calculated from 'Age at entering the Rotterdam Study' minus years difference between 'Date of entering the Rotterdam Study' and earlier of 'Since when do you have diabetes?'.
 **R script**:  
 ```{r, echo=TRUE}  
-med_table$dis_diab_age_0 <-ifelse(!is.na(med_table$ep_pimc6a), med_table$startage.x-((as.integer(substr(med_table$startdat.x, 1,4)))-
-                                                                 as.integer(substr(med_table$ep_pimc6a, 1,4))) , NA)
+med_table$ep_pimc6a_yr <- as.integer(substr(med_table$ep_pimc6a, 1,4))
+med_table$dis_diab_age_0 <- with(med_table, startage.x-(startdat_yr-ep_pimc6a_yr))
+
+# med_table$dis_diab_age_0 <-ifelse(!is.na(med_table$ep_pimc6a), med_table$startage.x-((as.integer(substr(med_table$startdat.x, 1,4)))-
+#                                                                  as.integer(substr(med_table$ep_pimc6a, 1,4))) , NA)
 oth_ROTTERDAM_0<-merge(oth_ROTTERDAM_0,med_table[,c("id","dis_diab_age_0")],by="id",all.x=TRUE)
                                    
 ```  
@@ -765,14 +768,22 @@ oth_ROTTERDAM_0<-merge(oth_ROTTERDAM_0,med_table[,c("id","dis_diab_age_0")],by="
 **Harmonization comment**:  Age at first diagnosis reported in the previous waves are combined with the study-specific variable asking about the age at first diagnosis since last wave. 
 **R script**:  
 ```{r, echo=TRUE}  
-	
 #??1582-10-04 for   2237 participants  # These are missing or don't know, according to data dictionary
 # table(ROTTERDAM_1$e4_didmyr)
 # with(med_table, table(e4_didmyr>fup_visit_1))  # 4 participants with e4_didmyr > fup_visit_1
-med_table$dis_diab_age_1 <-ifelse(!is.na(med_table$dis_diab_age_0), med_table$dis_diab_age_0 , 
-                           ifelse(is.na(med_table$dis_diab_age_0) & !is.na(med_table$e4_didmyr)&med_table$e4_didmyr!= "1582-10-04",
-                                  med_table$startage.y-((as.integer(substr(med_table$startdat.y, 1,4)))-
-                                                          as.integer(as.character(substr(med_table$e4_didmyr, 1,4)))) , NA))
+med_table$e4_didmyr_yr <- with(med_table, 
+                               ifelse(e4_didmyr!="1582-10-04", as.integer(as.character(substr(e4_didmyr, 1,4))),NA))
+
+med_table$dis_diab_age_1 <- with(med_table,
+                                 ifelse(!is.na(dis_diab_age_0), dis_diab_age_0, 
+                                        startage.y + (e4_didmyr_yr-startdat_yr)))
+with(med_table, table(!is.na(dis_diab_age_0), !is.na(dis_diab_age_1)))
+
+# med_table$dis_diab_age_1 <-ifelse(!is.na(med_table$dis_diab_age_0), med_table$dis_diab_age_0 , 
+#                            ifelse(is.na(med_table$dis_diab_age_0) & !is.na(med_table$e4_didmyr)&med_table$e4_didmyr!= "1582-10-04",
+#                                   med_table$startage.y-((as.integer(substr(med_table$startdat.y, 1,4)))-
+#                                                           as.integer(as.character(substr(med_table$e4_didmyr, 1,4)))) , NA))
+
 oth_ROTTERDAM_1<-merge(oth_ROTTERDAM_1,med_table[,c("id","dis_diab_age_1")],by="id",all.x=TRUE)
 # table(oth_ROTTERDAM_1$dis_diab_age_1)
 ```  
@@ -787,17 +798,21 @@ oth_ROTTERDAM_1<-merge(oth_ROTTERDAM_1,med_table[,c("id","dis_diab_age_1")],by="
 **Harmonization comment**:  Age at first diagnosis reported in the previous waves are combined with the study-specific variable asking about the age at first diagnosis since last wave. 
 **R script**:  
 ```{r, echo=TRUE}  
-table(ROTTERDAM_2$e5_EIDMYR)
+# table(ROTTERDAM_2$e5_EIDMYR)
+med_table$e5_EIDMYR_yr <- as.integer(as.character(substr(med_table$e5_EIDMYR, 1,4)))
+med_table$dis_diab_age_2 <- with(med_table, 
+                                 ifelse(!is.na(dis_diab_age_1), dis_diab_age_1,
+                                        ifelse(e5_EIDMYR<7777, startage2+(e5_EIDMYR_yr-startdat_yr), NA)))
 
-med_table$dis_diab_age_2 <-ifelse(!is.na(med_table$dis_diab_age_0), med_table$dis_diab_age_0 , 
-                           ifelse(!is.na(med_table$dis_diab_age_1), med_table$dis_diab_age_1,
-                           ifelse(is.na(med_table$dis_diab_age_0) &
-                                    is.na(med_table$dis_diab_age_1) &
-                                    !is.na(med_table$e4_didmyr)&med_table$e5_EIDMYR< 7777,
-                                  med_table$startage2-((as.integer(substr(med_table$startdat2, 1,4)))-
-                                                          as.integer(as.character(substr(med_table$e5_EIDMYR, 1,4)))) , NA)))
+# med_table$dis_diab_age_2 <-ifelse(!is.na(med_table$dis_diab_age_0), med_table$dis_diab_age_0 , 
+#                            ifelse(!is.na(med_table$dis_diab_age_1), med_table$dis_diab_age_1,
+#                            ifelse(is.na(med_table$dis_diab_age_0) &
+#                                     is.na(med_table$dis_diab_age_1) &
+#                                     !is.na(med_table$e4_didmyr)&med_table$e5_EIDMYR< 7777,
+#                                   med_table$startage2-((as.integer(substr(med_table$startdat2, 1,4)))-
+#                                                           as.integer(as.character(substr(med_table$e5_EIDMYR, 1,4)))) , NA)))
 oth_ROTTERDAM_2<-merge(oth_ROTTERDAM_2,med_table[,c("id","dis_diab_age_2")],by="id",all.x=TRUE)
-table(oth_ROTTERDAM_2$dis_diab_age_2)
+# table(oth_ROTTERDAM_2$dis_diab_age_2)
 
 ```  
 ### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
@@ -807,11 +822,11 @@ table(oth_ROTTERDAM_2$dis_diab_age_2)
 **Variable unit**:  years  
 **Category coding**: N/A
 
-**Hamonization status**:  
-**Harmonization comment**:  Age at first diagnosis reported in the previous waves are combined with the study-specific variable asking about the age at first diagnosis since last wave. 
+**Hamonization status**:  impossible
+**Harmonization comment**:  Study-specific variable e6_EIDMYR is not in an interpretable format.
 **R script**:  
 ```{r, echo=TRUE}  
-table(ROTTERDAM_3$e6_EIDMYR)
+# table(ROTTERDAM_3$e6_EIDMYR)
 # integer in opal. cant see here???
 ## TW: 11-digit integer in Opal. Proble with sutdy-specific variable? Check with cohort?
 
