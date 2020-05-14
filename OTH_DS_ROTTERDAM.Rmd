@@ -7,6 +7,7 @@ output: html_document
 library(opalr)
 library(tidyverse)
 library(epiDisplay)
+library(haven)
 
 # Connecting with Opal data server
 # Create an opal object with the login information
@@ -30,6 +31,10 @@ opal.assign.table.tibble(erasmus_opal, 'RSII_MINDMAP_18102019_visit3','ROTTERDAM
 
 ROTTERDAM_3 <- opal.execute(erasmus_opal,'RSII_MINDMAP_18102019_visit3') %>% as_tibble %>% arrange(id)
 
+ROTTERDAM_0 <- ROTTERDAM_0 %>% zap_labels %>% arrange(id)
+ROTTERDAM_1 <- ROTTERDAM_1 %>% zap_labels %>% arrange(id)
+ROTTERDAM_2 <- ROTTERDAM_2 %>% zap_labels %>% arrange(id)
+ROTTERDAM_3 <- ROTTERDAM_3 %>% zap_labels %>% arrange(id)
 
 
 ```
