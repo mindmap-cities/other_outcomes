@@ -73,12 +73,10 @@ opal.logout(erasmus_opal)
 0          |  Never had high blood pressure or hypertension  
 1          |  Ever had high blood pressure or hypertension  
 
-**Harmonization status**: complete   
-**Harmonization comment**: Study-specific variable 'Was a high blood pressure ever measured?' used.   
+**Harmonization status**: impossible   
+**Harmonization comment**: Study-specific variable 'Was a high blood pressure ever measured?' (not diagnosed)   
 **R script**:  
 ```{r, echo=TRUE}
-oth_ROTTERDAM_0$dis_hbp_ever_0 <- with(ROTTERDAM_0, 
-                                       ifelse(ep_pimc8==1, 1L, ifelse(ep_pimc8==0, 0L, NA)))
 
 ```  
 ### **Variable label**: Lifetime occurrence of high blood pressure or hypertension    
@@ -114,14 +112,10 @@ oth_ROTTERDAM_0$dis_hbp_ever_0 <- with(ROTTERDAM_0,
 
 
 **Harmonization status**: complete    
-**Harmonization comment**:  The study-specific variable is "Were you ever treated with drugs because of high blood pressure?".  
+**Harmonization comment**:  The study-specific variable is "Were you ever treated with drugs because of high blood pressure?". Participants with 8 (answered 'no' to 'Was a high blood pressure ever measured?') were coded as '0'.
 **R script**:  
 ```{r, echo=TRUE}
-# table(ROTTERDAM_0$ep_pimc8b,useNA="always")
-oth_ROTTERDAM_0$dis_hbp_med_0 <- ifelse(ROTTERDAM_0$ep_pimc8b==0, 0L,ifelse(ROTTERDAM_0$ep_pimc8b==1, 1L, NA ))
-# oth_ROTTERDAM_0$dis_hbp_med_0 <- with(ROTTERDAM_0, 
-#                                       ifelse(ep_pimc8b==0|ep_pimc8b==8, 0L, ifelse(ep_pimc8b==1, 1L, NA )))
-# table(oth_ROTTERDAM_0$dis_hbp_med_0,useNA="always")
+oth_ROTTERDAM_0$dis_hbp_med_0 <- ifelse(ROTTERDAM_0$ep_pimc8b==0|ROTTERDAM_0$ep_pimc8b==8, 0L, ifelse(ROTTERDAM_0$ep_pimc8b==1, 1L, NA))
 
 ```  
 ### **Variable label**: Medication for high blood pressure or hypertension  
@@ -332,15 +326,10 @@ oth_ROTTERDAM_0$dis_hbp_med_0 <- ifelse(ROTTERDAM_0$ep_pimc8b==0, 0L,ifelse(ROTT
 0        |   Never had myocardial infarction
 1        |   Ever had myocardial infarction  
 
-**Harmonization status**: complete     
-**Harmonization comment**:  
+**Harmonization status**: impossible     
+**Harmonization comment**:  Study-specific variables 'Number of myocardial infarctions without admission to hospital' and 'Number of myocardial infarctions with admission to hospital' have unexplained '88' 'not applicable' category.
 **R script**:  
 ```{r, echo=TRUE}
-
-# table(ROTTERDAM_0$ep_pimc9a, useNA="always")
-# table(ROTTERDAM_0$ep_pimc9d, useNA="always")
-# table(ROTTERDAM_0$ep_pimc9d,ROTTERDAM_0$ep_pimc9a, useNA="always")
-
 MyMerge <- function(x,y){
   merge(x,y, by= c("id"),all=TRUE)
 }
@@ -353,11 +342,11 @@ ROTTERDAM_3$startdat3 <-ROTTERDAM_3$startdat
 
 med_table <- Reduce(MyMerge, list(ROTTERDAM_0,ROTTERDAM_1,ROTTERDAM_2,ROTTERDAM_3))
 
-# changed second condition (for 1 Ever had myocardial infarction ) to OR statement
-med_table$dis_mi_ever_0 <-ifelse(med_table$ep_pimc9d==88 & med_table$ep_pimc9a==88, 0L,
-                                       ifelse(med_table$ep_pimc9d<77 | med_table$ep_pimc9a<77,1L, NA))
-
-oth_ROTTERDAM_0<-merge(oth_ROTTERDAM_0,med_table[,c("id","dis_mi_ever_0")],by="id",all.x=TRUE)
+# Should we also change to OR condition for '0' if 'not applicable' for 'Number of myocardial infarctions with admission to hospital' OR 'Number of myocardial infarctions without admission to hospital'? Makes changes for 25 participants who had '88' for one but 'missing' for the other.
+# med_table$dis_mi_ever_0 <-ifelse(med_table$ep_pimc9d==88 & med_table$ep_pimc9a==88, 0L,
+#                                        ifelse(med_table$ep_pimc9d<77 | med_table$ep_pimc9a<77,1L, NA))
+# 
+# oth_ROTTERDAM_0<-merge(oth_ROTTERDAM_0,med_table[,c("id","dis_mi_ever_0")],by="id",all.x=TRUE)
 
 # table(oth_ROTTERDAM_0$dis_mi_ever_0, useNA="always")
 
@@ -374,14 +363,15 @@ oth_ROTTERDAM_0<-merge(oth_ROTTERDAM_0,med_table[,c("id","dis_mi_ever_0")],by="i
 0        |   Never had myocardial infarction
 1        |   Ever had myocardial infarction  
 
-**Harmonization status**: complete     
-**Harmonization comment**:  Study-specific variable 'Myocardial infarction after Ergo3-Ergoplus?' and harmonized variable dis_mi_ever_0 used.
+**Harmonization status**: impossible     
+**Harmonization comment**:  Baseline study-specific variables 'Number of myocardial infarctions without admission to hospital' and 'Number of myocardial infarctions with admission to hospital' have unexplained '88' 'not applicable' category.
 **R script**:  
 ```{r, echo=TRUE}
-med_table$dis_mi_ever_1<- ifelse(med_table$e4_dimi==1| med_table$dis_mi_ever_0==1, 1L,
-                                 ifelse(med_table$e4_dimi==0 & med_table$dis_mi_ever_0==0, 0L, NA))
-
-oth_ROTTERDAM_1<-merge(oth_ROTTERDAM_1,med_table[,c("id","dis_mi_ever_1")],by="id",all.x=TRUE)
+# #Study-specific variable 'Myocardial infarction after Ergo3-Ergoplus?' and harmonized variable dis_mi_ever_0 used.
+# med_table$dis_mi_ever_1<- ifelse(med_table$e4_dimi==1| med_table$dis_mi_ever_0==1, 1L,
+#                                  ifelse(med_table$e4_dimi==0 & med_table$dis_mi_ever_0==0, 0L, NA))
+# 
+# oth_ROTTERDAM_1<-merge(oth_ROTTERDAM_1,med_table[,c("id","dis_mi_ever_1")],by="id",all.x=TRUE)
 
 ```  
 ### **Variable label**: Lifetime occurrence of myocardial infarction    
@@ -396,14 +386,16 @@ oth_ROTTERDAM_1<-merge(oth_ROTTERDAM_1,med_table[,c("id","dis_mi_ever_1")],by="i
 0        |   Never had myocardial infarction
 1        |   Ever had myocardial infarction  
 
-**Harmonization status**: complete     
-**Harmonization comment**:  Study-specific variable 'Myocardial infarction after ERGO4 and ErgoPlus2 and ErgoJong1' and harmonized variable dis_mi_ever_1 used.
+**Harmonization status**: impossible     
+**Harmonization comment**:  Baseline study-specific variables 'Number of myocardial infarctions without admission to hospital' and 'Number of myocardial infarctions with admission to hospital' have unexplained '88' 'not applicable' category.
 **R script**:  
 ```{r, echo=TRUE}
-med_table$dis_mi_ever_2<- ifelse(med_table$e5_EIMI==1| med_table$dis_mi_ever_1==1, 1L,
-                                 ifelse(med_table$e5_EIMI==0& med_table$dis_mi_ever_1==0, 0L, NA))
-
-oth_ROTTERDAM_2<-merge(oth_ROTTERDAM_2,med_table[,c("id","dis_mi_ever_2")],by="id",all.x=TRUE)
+# # Study-specific variable 'Myocardial infarction after ERGO4 and ErgoPlus2 and ErgoJong1' and harmonized variable dis_mi_ever_1 used.
+# 
+# med_table$dis_mi_ever_2<- ifelse(med_table$e5_EIMI==1| med_table$dis_mi_ever_1==1, 1L,
+#                                  ifelse(med_table$e5_EIMI==0& med_table$dis_mi_ever_1==0, 0L, NA))
+# 
+# oth_ROTTERDAM_2<-merge(oth_ROTTERDAM_2,med_table[,c("id","dis_mi_ever_2")],by="id",all.x=TRUE)
 
 ```  
 
@@ -414,38 +406,23 @@ oth_ROTTERDAM_2<-merge(oth_ROTTERDAM_2,med_table[,c("id","dis_mi_ever_2")],by="i
 **Variable unit**:  years  
 **Category coding**: N/A  
          
-**Harmonization status**: complete    
-**Harmonization comment**:  Study-specific variables 'Age at time of first heart attack with admission' and 'Age at time of first heart attack without admission' are dates. Harmonized variable calculated from 'Age at entering the Rotterdam Study' minus years difference between 'Date of entering the Rotterdam Study' and earlier of 'Age at time of first heart attack' variables.
+**Harmonization status**: impossible    
+**Harmonization comment**:  Baseline study-specific variables 'Number of myocardial infarctions without admission to hospital' and 'Number of myocardial infarctions with admission to hospital' have unexplained '88' 'not applicable' category.
 **R script**:  
 ```{r, echo=TRUE}
-# table(ROTTERDAM_0$ep_pimc9b, useNA="always")
-# table(ROTTERDAM_0$ep_pimc9e, useNA="always")
-# table(ROTTERDAM_0$ep_pimc9b, is.na(ROTTERDAM_0$ep_pimc9e), useNA="always")
+# Study-specific variables 'Age at time of first heart attack with admission' and 'Age at time of first heart attack without admission' are dates. Harmonized variable calculated from 'Age at entering the Rotterdam Study' minus years difference between 'Date of entering the Rotterdam Study' and earlier of 'Age at time of first heart attack' variables.
 
-med_table$ep_pimc9b_yr <- as.integer(substr(med_table$ep_pimc9b, 1,4))
-med_table$ep_pimc9e_yr <- as.integer(substr(med_table$ep_pimc9e, 1,4))
-med_table$startdat_yr <- as.integer(substr(med_table$startdat.x, 1,4))
-
-med_table$dis_mi_age_0 <- with(med_table,
-                               ifelse(is.na(ep_pimc9b_yr), startage.x - (startdat_yr-ep_pimc9e_yr), 
-                                      ifelse(is.na(ep_pimc9e_yr), startage.x - (startdat_yr-ep_pimc9b_yr), 
-                                             ifelse(ep_pimc9b_yr < ep_pimc9e_yr, startage.x - (startdat_yr-ep_pimc9b_yr), 
-                                                    startage.x - (startdat_yr-ep_pimc9e_yr))))
-                                     )
-oth_ROTTERDAM_0 <- merge(oth_ROTTERDAM_0, med_table[,c("id","dis_mi_age_0")])
-
-# oth_ROTTERDAM_0$dis_mi_age_0 <-ifelse ((as.integer(substr(ROTTERDAM_0$ep_pimc9b, 1,4)))<(as.integer(substr(ROTTERDAM_0$ep_pimc9e, 1,4))), 
-#                              ROTTERDAM_0$startage-((as.integer(substr(ROTTERDAM_0$startdat, 1,4)))-as.integer(substr(ROTTERDAM_0$ep_pimc9b, 1,4))),
-#                              ifelse((as.integer(substr(ROTTERDAM_0$ep_pimc9b, 1,4)))>(as.integer(substr(ROTTERDAM_0$ep_pimc9e, 1,4))), 
-#                              ROTTERDAM_0$startage-((as.integer(substr(ROTTERDAM_0$startdat, 1,4)))-as.integer(substr(ROTTERDAM_0$ep_pimc9e, 1,4))), NA))
-
-# med_table$dis_mi_age_0 <-ifelse ((as.integer(substr(med_table$ep_pimc9b, 1,4)))<(as.integer(substr(med_table$ep_pimc9e, 1,4))), 
-#                              med_table$startage.x-((as.integer(substr(med_table$startdat.x, 1,4)))-as.integer(substr(med_table$ep_pimc9b, 1,4))),
-#                              ifelse((as.integer(substr(med_table$ep_pimc9b, 1,4)))>(as.integer(substr(med_table$ep_pimc9e, 1,4))), 
-#                              med_table$startage.x-((as.integer(substr(med_table$startdat.x, 1,4)))-as.integer(substr(med_table$ep_pimc9e, 1,4))), NA))
-
-# table(oth_ROTTERDAM_0$dis_mi_age_0, useNA="always")
-# table(med_table$dis_mi_age_0, useNA="always")
+# med_table$ep_pimc9b_yr <- as.integer(substr(med_table$ep_pimc9b, 1,4))
+# med_table$ep_pimc9e_yr <- as.integer(substr(med_table$ep_pimc9e, 1,4))
+# med_table$startdat_yr <- as.integer(substr(med_table$startdat.x, 1,4))
+# 
+# med_table$dis_mi_age_0 <- with(med_table,
+#                                ifelse(is.na(ep_pimc9b_yr), startage.x - (startdat_yr-ep_pimc9e_yr), 
+#                                       ifelse(is.na(ep_pimc9e_yr), startage.x - (startdat_yr-ep_pimc9b_yr), 
+#                                              ifelse(ep_pimc9b_yr < ep_pimc9e_yr, startage.x - (startdat_yr-ep_pimc9b_yr), 
+#                                                     startage.x - (startdat_yr-ep_pimc9e_yr))))
+#                                      )
+# oth_ROTTERDAM_0 <- merge(oth_ROTTERDAM_0, med_table[,c("id","dis_mi_age_0")])
 
 ```  
 ### **Variable label**: Age at first Myocardial infarction  
@@ -455,32 +432,19 @@ oth_ROTTERDAM_0 <- merge(oth_ROTTERDAM_0, med_table[,c("id","dis_mi_age_0")])
 **Variable unit**:  years  
 **Category coding**: N/A  
          
-**Harmonization status**: complete     
-**Harmonization comment**: Age at first heart attack reported in the previous wave is combined with the study-specific variable asking about the age at first heart attack since last wave.   
+**Harmonization status**: impossible     
+**Harmonization comment**: Baseline study-specific variables 'Number of myocardial infarctions without admission to hospital' and 'Number of myocardial infarctions with admission to hospital' have unexplained '88' 'not applicable' category.
 **R script**:  
 ```{r, echo=TRUE}
-# Age at time of first heart attack since Ergo-3/Ergoplus
+# Age at first heart attack reported in the previous wave is combined with the study-specific variable asking about the age at first heart attack since last wave.
 
-# table(ROTTERDAM_1$e4_dimif)
-# table(!is.na(med_table$dis_mi_age_0), med_table$e4_dimif, useNA = "always")
-# with(med_table, table(e4_dimif>startdat.x, useNA="always"))
-# med_table[which(med_table$e4_dimif==med_table$startdat.x), c("id","e4_dimif","startdat.x")]
-# med_table[which(med_table$e4_dimif<med_table$startdat.x), c("id","e4_dimif","startdat.x")]
-
-med_table$e4_dimif_yr <- as.integer(substr(med_table$e4_dimif, 1,4))
-# med_table$fup_visit_1_yr <- as.integer(substr(med_table$fup_visit_1, 1,4))
-
-med_table$dis_mi_age_1 <- with(med_table, 
-                                 ifelse(!is.na(dis_mi_age_0), dis_mi_age_0, #startage.x + (e4_dimif_yr-startdat_yr)))
-                                        ifelse(e4_dimif>startdat.x, startage.x + (e4_dimif_yr-startdat_yr), NA)))
-
-# med_table$dis_mi_age_1<- ifelse (!is.na(med_table$dis_mi_age_0), med_table$dis_mi_age_0,
-#                     ifelse(is.na(med_table$dis_mi_age_0), 
-#                            med_table$startage.y-((as.integer(substr(med_table$startdat.y, 1,4)))-as.integer(substr(med_table$e4_dimif, 1,4))),NA))
-                         
-oth_ROTTERDAM_1<-merge(oth_ROTTERDAM_1,med_table[,c("id","dis_mi_age_1")],by="id",all.x=TRUE)
-# table(oth_ROTTERDAM_1$dis_mi_age_1, useNA = "always")
-# with(med_table, table(!is.na(dis_mi_age_0), !is.na(dis_mi_age_1), useNA = 'always'))
+# med_table$e4_dimif_yr <- as.integer(substr(med_table$e4_dimif, 1,4))
+# 
+# med_table$dis_mi_age_1 <- with(med_table, 
+#                                  ifelse(!is.na(dis_mi_age_0), dis_mi_age_0, #startage.x + (e4_dimif_yr-startdat_yr)))
+#                                         ifelse(e4_dimif>startdat.x, startage.x + (e4_dimif_yr-startdat_yr), NA)))
+# 
+# oth_ROTTERDAM_1<-merge(oth_ROTTERDAM_1,med_table[,c("id","dis_mi_age_1")],by="id",all.x=TRUE)
 
 ```  
 ### **Variable label**: Age at first Myocardial infarction  
@@ -490,21 +454,16 @@ oth_ROTTERDAM_1<-merge(oth_ROTTERDAM_1,med_table[,c("id","dis_mi_age_1")],by="id
 **Variable unit**:  years  
 **Category coding**: N/A  
          
-**Harmonization status**: complete    
-**Harmonization comment**: Age at first heart attack reported in the previous waves are combined with the study-specific variable asking about the age at first heart attack since last wave. 
+**Harmonization status**: impossible    
+**Harmonization comment**: Baseline study-specific variables 'Number of myocardial infarctions without admission to hospital' and 'Number of myocardial infarctions with admission to hospital' have unexplained '88' 'not applicable' category.
 **R script**:  
 ```{r, echo=TRUE}
-med_table$dis_mi_age_2 <- with(med_table, 
-                                 ifelse(!is.na(dis_mi_age_1), dis_mi_age_1, startage.x + (e5_eimif-startdat_yr)))
+# Age at first heart attack reported in the previous waves are combined with the study-specific variable asking about the age at first heart attack since last wave. 
 
-# med_table$dis_mi_age_2<- ifelse (!is.na(med_table$dis_mi_age_0), med_table$dis_mi_age_0,
-#                          ifelse(is.na(med_table$dis_mi_age_0)&!is.na(med_table$dis_mi_age_1),med_table$dis_mi_age_1,
-#                          ifelse(is.na(med_table$dis_mi_age_0)&is.na(med_table$dis_mi_age_1)&!is.na(med_table$e5_eimif), 
-#                          med_table$startage2-((as.integer(substr(med_table$startdat2, 1,4)))-as.integer(substr(med_table$e5_eimif, 1,4))),NA)))
-                         
-oth_ROTTERDAM_2<-merge(oth_ROTTERDAM_2,med_table[,c("id","dis_mi_age_2")],by="id",all.x=TRUE)
-# table(oth_ROTTERDAM_2$dis_mi_age_2, useNA = "always")
-# with(med_table, table(!is.na(dis_mi_age_1), !is.na(dis_mi_age_2), useNA = 'always'))
+# med_table$dis_mi_age_2 <- with(med_table, 
+#                                  ifelse(!is.na(dis_mi_age_1), dis_mi_age_1, startage.x + (e5_eimif-startdat_yr)))
+# 
+# oth_ROTTERDAM_2<-merge(oth_ROTTERDAM_2,med_table[,c("id","dis_mi_age_2")],by="id",all.x=TRUE)
 
 ```  
 # Stroke subdomain
@@ -579,13 +538,9 @@ oth_ROTTERDAM_0<-merge(oth_ROTTERDAM_0,med_table[,c("id","dis_stroke_ever_0")],b
 **R script**:  
 ```{r, echo=TRUE}
 
-# table(ROTTERDAM_0$ep_pimc15b, useNA = "always")
-# table(ROTTERDAM_0$ep_pimc15b>ROTTERDAM_0$startdat, useNA = "always")
-
 oth_ROTTERDAM_0$dis_stroke_age_0 <- with(ROTTERDAM_0, startage -
                                      (as.integer(substr(ROTTERDAM_0$startdat, 1,4))-as.integer(substr(ROTTERDAM_0$ep_pimc15b, 1,4)))
 )
-# table(oth_ROTTERDAM_0$dis_stroke_age_0, useNA = 'always')                                   
 
 ```  
 ### **Variable label**: Age at first stroke or CVA  
@@ -751,14 +706,15 @@ oth_ROTTERDAM_3<-merge(oth_ROTTERDAM_3,med_table[,c("id","dis_diab_ever_3")],by=
 **Category coding**: N/A
 
 **Hamonization status**:  complete 
-**Harmonization comment**:  Study-specific variable 'Since when do you have diabetes?' is in date format. Harmonized variable calculated from 'Age at entering the Rotterdam Study' minus years difference between 'Date of entering the Rotterdam Study' and earlier of 'Since when do you have diabetes?'.
+**Harmonization comment**:  Study-specific variable 'Since when do you have diabetes?' is in date format. Harmonized variable calculated from 'Age at entering the Rotterdam Study' minus years difference between 'Date of entering the Rotterdam Study' and earlier of 'Since when do you have diabetes?'. If 'Since when do you have diabetes?' not earlier than 'Date of entering the Rotterdam Study', coded as missing.
 **R script**:  
 ```{r, echo=TRUE}  
+med_table$startdat_yr <- as.integer(substr(med_table$startdat.x, 1,4))
 med_table$ep_pimc6a_yr <- as.integer(substr(med_table$ep_pimc6a, 1,4))
-med_table$dis_diab_age_0 <- with(med_table, startage.x-(startdat_yr-ep_pimc6a_yr))
 
-# med_table$dis_diab_age_0 <-ifelse(!is.na(med_table$ep_pimc6a), med_table$startage.x-((as.integer(substr(med_table$startdat.x, 1,4)))-
-#                                                                  as.integer(substr(med_table$ep_pimc6a, 1,4))) , NA)
+med_table$dis_diab_age_0 <- with(med_table, 
+                                 ifelse(ep_pimc6a<startdat.x, startage.x-(startdat_yr-ep_pimc6a_yr), NA))
+
 oth_ROTTERDAM_0<-merge(oth_ROTTERDAM_0,med_table[,c("id","dis_diab_age_0")],by="id",all.x=TRUE)
                                    
 ```  
@@ -770,27 +726,18 @@ oth_ROTTERDAM_0<-merge(oth_ROTTERDAM_0,med_table[,c("id","dis_diab_age_0")],by="
 **Category coding**: N/A
 
 **Hamonization status**:  complete 
-**Harmonization comment**:  Age at first diagnosis reported in the previous waves are combined with the study-specific variable asking about the age at first diagnosis since last wave. 
+**Harmonization comment**:  Age at first diagnosis reported in the previous waves are combined with the study-specific variable asking about the age at first diagnosis since last wave. If date of diagnosis since last wave not earlier than date of follow-up, coded as missing. Values '1582-10-04' coded as missing.
 **R script**:  
 ```{r, echo=TRUE}  
-#??1582-10-04 for   2237 participants  # These are missing or don't know, according to data dictionary
-# table(ROTTERDAM_1$e4_didmyr)
-# with(med_table, table(e4_didmyr>fup_visit_1))  # 4 participants with e4_didmyr > fup_visit_1
 med_table$e4_didmyr_yr <- with(med_table, 
                                ifelse(e4_didmyr!="1582-10-04", as.integer(as.character(substr(e4_didmyr, 1,4))),NA))
 
 med_table$dis_diab_age_1 <- with(med_table,
                                  ifelse(!is.na(dis_diab_age_0), dis_diab_age_0, 
-                                        startage.y + (e4_didmyr_yr-startdat_yr)))
-with(med_table, table(!is.na(dis_diab_age_0), !is.na(dis_diab_age_1)))
-
-# med_table$dis_diab_age_1 <-ifelse(!is.na(med_table$dis_diab_age_0), med_table$dis_diab_age_0 , 
-#                            ifelse(is.na(med_table$dis_diab_age_0) & !is.na(med_table$e4_didmyr)&med_table$e4_didmyr!= "1582-10-04",
-#                                   med_table$startage.y-((as.integer(substr(med_table$startdat.y, 1,4)))-
-#                                                           as.integer(as.character(substr(med_table$e4_didmyr, 1,4)))) , NA))
+                                        ifelse(e4_didmyr<fup_visit_1, startage.y + (e4_didmyr_yr-startdat_yr), NA)))
 
 oth_ROTTERDAM_1<-merge(oth_ROTTERDAM_1,med_table[,c("id","dis_diab_age_1")],by="id",all.x=TRUE)
-# table(oth_ROTTERDAM_1$dis_diab_age_1)
+
 ```  
 ### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
 **Variable name**:  dis_diab_age_2    
@@ -803,21 +750,12 @@ oth_ROTTERDAM_1<-merge(oth_ROTTERDAM_1,med_table[,c("id","dis_diab_age_1")],by="
 **Harmonization comment**:  Age at first diagnosis reported in the previous waves are combined with the study-specific variable asking about the age at first diagnosis since last wave. 
 **R script**:  
 ```{r, echo=TRUE}  
-# table(ROTTERDAM_2$e5_EIDMYR)
 med_table$e5_EIDMYR_yr <- as.integer(as.character(substr(med_table$e5_EIDMYR, 1,4)))
 med_table$dis_diab_age_2 <- with(med_table, 
                                  ifelse(!is.na(dis_diab_age_1), dis_diab_age_1,
                                         ifelse(e5_EIDMYR<7777, startage2+(e5_EIDMYR_yr-startdat_yr), NA)))
 
-# med_table$dis_diab_age_2 <-ifelse(!is.na(med_table$dis_diab_age_0), med_table$dis_diab_age_0 , 
-#                            ifelse(!is.na(med_table$dis_diab_age_1), med_table$dis_diab_age_1,
-#                            ifelse(is.na(med_table$dis_diab_age_0) &
-#                                     is.na(med_table$dis_diab_age_1) &
-#                                     !is.na(med_table$e4_didmyr)&med_table$e5_EIDMYR< 7777,
-#                                   med_table$startage2-((as.integer(substr(med_table$startdat2, 1,4)))-
-#                                                           as.integer(as.character(substr(med_table$e5_EIDMYR, 1,4)))) , NA)))
 oth_ROTTERDAM_2<-merge(oth_ROTTERDAM_2,med_table[,c("id","dis_diab_age_2")],by="id",all.x=TRUE)
-# table(oth_ROTTERDAM_2$dis_diab_age_2)
 
 ```  
 ### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
@@ -831,9 +769,7 @@ oth_ROTTERDAM_2<-merge(oth_ROTTERDAM_2,med_table[,c("id","dis_diab_age_2")],by="
 **Harmonization comment**:  Study-specific variable e6_EIDMYR is not in an interpretable format.
 **R script**:  
 ```{r, echo=TRUE}  
-# table(ROTTERDAM_3$e6_EIDMYR)
-# integer in opal. cant see here???
-## TW: 11-digit integer in Opal. Proble with sutdy-specific variable? Check with cohort?
+
 
 ```  
 ### **Variable label**: Age at diagnosis of diabetes, borderline diabetes, or high blood sugar  
@@ -879,10 +815,9 @@ oth_ROTTERDAM_2<-merge(oth_ROTTERDAM_2,med_table[,c("id","dis_diab_age_2")],by="
 **Harmonization comment**:  The study-specific variable "Is your diabetes treated by injections, tablets or both?" is used for harmonization. If the participant reported being treated by either or both, they are coded under the DataSchema category 1-Currently under treatment for diabetes, whereas if they do not have diabetes or reported not being treated by either method, they are coded under the category 0- Not currently under treatment for diabetes. 
 **R script**:
 ```{r, echo=TRUE}
-# table(ROTTERDAM_0$ep_pimc6c, ROTTERDAM_0$ep_pimc6, useNA="always")
 oth_ROTTERDAM_0$dis_diab_tx_0 <- ifelse(ROTTERDAM_0$ep_pimc6==0|ROTTERDAM_0$ep_pimc6c==0, 0L,  
                                         ifelse(ROTTERDAM_0$ep_pimc6c==1|ROTTERDAM_0$ep_pimc6c==2|ROTTERDAM_0$ep_pimc6c==3, 1L, NA ))
-# table(oth_ROTTERDAM_0$dis_diab_tx_0 )
+
 ```  
 ### **Variable label**: Currently under treatment for diabetes  
 **Variable name**:  dis_diab_tx_1  
@@ -900,10 +835,8 @@ oth_ROTTERDAM_0$dis_diab_tx_0 <- ifelse(ROTTERDAM_0$ep_pimc6==0|ROTTERDAM_0$ep_p
 **Harmonization comment**:  The study-specific variable "Is your diabetes treated by injections, tablets or both?" is used for harmonization. If the participant reported being treated by either or both, they are coded under the DataSchema category 1-Currently under treatment for diabetes, whereas if they do not have diabetes or reported not being treated by either method, they are coded under the category 0- Not currently under treatment for diabetes. 
 **R script**:
 ```{r, echo=TRUE}
-# table(ROTTERDAM_1$e4_didmtr)
 oth_ROTTERDAM_1$dis_diab_tx_1<- ifelse(ROTTERDAM_1$e4_didmtr==0|ROTTERDAM_1$e4_didmtr==8, 0L,  
                                         ifelse(ROTTERDAM_1$e4_didmtr==1|ROTTERDAM_1$e4_didmtr==2|ROTTERDAM_1$e4_didmtr==3, 1L, NA ))
-# table(oth_ROTTERDAM_1$dis_diab_tx_1 )
 
 ```  
 ### **Variable label**: Currently under treatment for diabetes  
@@ -922,10 +855,8 @@ oth_ROTTERDAM_1$dis_diab_tx_1<- ifelse(ROTTERDAM_1$e4_didmtr==0|ROTTERDAM_1$e4_d
 **Harmonization comment**:  The study-specific variable "Is your diabetes treated by injections, tablets or both?" is used for harmonization. If the participant reported being treated by either or both, they are coded under the DataSchema category 1-Currently under treatment for diabetes, whereas if they do not have diabetes or reported not being treated by either method, they are coded under the category 0- Not currently under treatment for diabetes. 
 **R script**:
 ```{r, echo=TRUE}
-# table(ROTTERDAM_2$e5_EIDMTR, ROTTERDAM_2$e5_EIDM)
 oth_ROTTERDAM_2$dis_diab_tx_2<- ifelse(ROTTERDAM_2$e5_EIDMTR==0|ROTTERDAM_2$e5_EIDMTR==8, 0L,  
                                         ifelse(ROTTERDAM_2$e5_EIDMTR==1|ROTTERDAM_2$e5_EIDMTR==2|ROTTERDAM_2$e5_EIDMTR==3, 1L, NA ))
-# table(oth_ROTTERDAM_2$dis_diab_tx_2)
 
 ```  
 ### **Variable label**: Currently under treatment for diabetes  
@@ -944,10 +875,8 @@ oth_ROTTERDAM_2$dis_diab_tx_2<- ifelse(ROTTERDAM_2$e5_EIDMTR==0|ROTTERDAM_2$e5_E
 **Harmonization comment**:  The study-specific variable "Is your diabetes treated by injections, tablets or both?" is used for harmonziation. If the participant reported being treated by either or both, they are coded under the DataSchema category 1-Currently under treatment for diabetes, whereas if they do not have diabetes or reported not being treated by either method, they are coded under the category 0- Not currently under treatment for diabetes. 
 **R script**:
 ```{r, echo=TRUE}
-# table(ROTTERDAM_3$e6_EIDMTR, ROTTERDAM_3$e6_EIDM)
 oth_ROTTERDAM_3$dis_diab_tx_3<- ifelse(ROTTERDAM_3$e6_EIDMTR==0|ROTTERDAM_3$e6_EIDMTR==8, 0L,  
                                         ifelse(ROTTERDAM_3$e6_EIDMTR==1|ROTTERDAM_3$e6_EIDMTR==2|ROTTERDAM_3$e6_EIDMTR==3, 1L, NA ))
-# table(oth_ROTTERDAM_3$dis_diab_tx_3)
 
 ```  
 ### **Variable label**: Currently under treatment for diabetes  
@@ -2207,7 +2136,6 @@ oth_ROTTERDAM_1$phy_bmi_cat_all_1 <- ifelse(oth_ROTTERDAM_1$phy_bmi_ms_1<18.5, 0
                                      ifelse(oth_ROTTERDAM_1$phy_bmi_ms_1>=25&oth_ROTTERDAM_1$phy_bmi_ms_1<30, 2L, 
                                      ifelse(oth_ROTTERDAM_1$phy_bmi_ms_1>=30, 3L, NA))))
 
-# table(oth_ROTTERDAM_1$phy_bmi_cat_all_1, useNA="always") 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
 **Variable name**: phy_bmi_cat_all_2    
@@ -2232,8 +2160,6 @@ oth_ROTTERDAM_2$phy_bmi_cat_all_2 <- ifelse(oth_ROTTERDAM_2$phy_bmi_ms_2<18.5, 0
                                     ifelse(oth_ROTTERDAM_2$phy_bmi_ms_2>=25   & oth_ROTTERDAM_2$phy_bmi_ms_2<30, 2L, 
                                     ifelse(oth_ROTTERDAM_2$phy_bmi_ms_2>=30, 3L, NA))))
 
-# table(oth_ROTTERDAM_2$phy_bmi_cat_all_2, useNA="always")                                      
-
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
 **Variable name**: phy_bmi_cat_all_3    
@@ -2257,8 +2183,6 @@ oth_ROTTERDAM_3$phy_bmi_cat_all_3 <- ifelse(oth_ROTTERDAM_3$phy_bmi_ms_3<18.5, 0
                                      ifelse(oth_ROTTERDAM_3$phy_bmi_ms_3>=18.5 & oth_ROTTERDAM_3$phy_bmi_ms_3<25, 1L,
                                      ifelse(oth_ROTTERDAM_3$phy_bmi_ms_3>=25   & oth_ROTTERDAM_3$phy_bmi_ms_3<30, 2L, 
                                      ifelse(oth_ROTTERDAM_3$phy_bmi_ms_3>=30, 3L, NA))))
-
-# table(oth_ROTTERDAM_3$phy_bmi_cat_all_3, useNA="always")                                      
 
 ```  
 ### **Variable label**:  Body mass index (BMI) - categories - measured and self-reported combined  
